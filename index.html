@@ -1,75 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>SD Prompt</title>
+	<title>TechDIYLife：技术DIY生活</title>
 	<style>
-		button {
-			margin: 5px;
-			padding: 5px;
+		body {
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
 		}
-		.gray {
-			background-color: gray;
+
+		header {
+			background-color: #4CAF50;
 			color: white;
-			cursor: not-allowed;
+			text-align: center;
+			padding: 20px;
+			font-size: 32px;
+			font-weight: bold;
+		}
+
+		h2 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			margin-top: 10px;
+		}
+
+		a {
+			color: #4CAF50;
+			text-decoration: none;
+		}
+		
+		.separator {
+			flex-grow: 1;
+			border-bottom: 1px solid #ddd;
+			margin: 0 10px;
+		}
+		section {
+			max-width: 800px;
+			margin: 20px auto;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		}
 	</style>
 </head>
 <body>
-	<h1>TechDIYLife</h1>
-	<div id="buttons">
-		<!-- 动态生成按钮 -->
-	</div>
-	<div>
-		<textarea id="output" rows="5" cols="50"></textarea>
-	</div>
-	
-	<div>
-	Tech出品： 动画使用说明
-	</div>
+	<header>TechDIYLife：技术DIY生活</header>
 
-	<script>
-		const data = [
-			{chinese: "苹果", english: "apple"},
-			{chinese: "香蕉", english: "banana"},
-			{chinese: "橘子", english: "orange"},
-			{chinese: "西瓜", english: "watermelon"},
-			{chinese: "葡萄", english: "grape"},
-			{chinese: "菠萝", english: "pineapple"}
-		];
+	<section>
+		<h2 style="border-bottom: 0px solid #ddd;">电子书：ChatGPT应用开发快速入门</h2>
+		<table style="border-collapse: collapse; width: 100%;">
+			<tr>
+				<th style="border: 1px solid #ddd; padding: 10px;" width="50%">章节名称</th>
+				<th style="border: 1px solid #ddd; padding: 10px;">视频解说</th>
+			</tr>
+			<tr>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="" target="_blank">ChatGPT API</a></td>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="" target="_blank">基础篇</a></td>
+			</tr>
+			<tr>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="" target="_blank">ChatGPT插件开发入门</a></td>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="" target="_blank">基础篇</a></td>
+			</tr>
+		</table>
+	</section>
 
-		const buttonsDiv = document.getElementById("buttons");
-		const outputTextarea = document.getElementById("output");
+	<section>
+		<h2 style="border-bottom: 0px solid #ddd;">其他代码分享</h2>
+		<table style="border-collapse: collapse; width: 100%;">
+			<tr>
+				<th style="border: 1px solid #ddd; padding: 10px;" width="50%">名称</th>
+				<th style="border: 1px solid #ddd; padding: 10px;">视频解说</th>
+			</tr>
+			<tr>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="https://github.com/TechDIYLife/ChatGPT_API_example" target="_blank">ChatGPT API使用例子</a></td>
+				<td style="border: 1px solid #ddd; padding: 10px;"><a href="https://youtu.be/Wm9RpqW_5qc" target="_blank">基础用法</a>, <a href="https://youtu.be/JSuRn1jqXAY" target="_blank">复现ChatGPT篇</a></td>
+			</tr>
+		</table>
+	</section>
 
-		data.forEach(item => {
-			// 为每个中文单词创建一个按钮元素
-			const button = document.createElement("button");
-			button.innerText = item.chinese;
-			buttonsDiv.appendChild(button);
 
-			button.addEventListener("click", () => {
-				if (button.classList.contains("gray")) {
-					// 如果按钮已经变灰，再次点击时将其变回正常颜色
-					button.classList.remove("gray");
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZC24J7TE5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-					// 从文本框中删除对应的英语单词及逗号
-					//const regex = new RegExp("(?:(?<=^)|(?<=,\s*))" + ",?" + item.english, "g");
-					const regex = new RegExp("(?:(?<=^)"+item.english+",?|(?<=^)"+item.english+"|,\s*"+item.english+")", "g");
-					outputTextarea.value = outputTextarea.value.replace(regex, "");
-				} else {
-					// 如果按钮正常，点击后将其变为灰色，不可再点击
-					button.classList.add("gray");
-
-					// 如果文本框中已经有英语单词了，则不再追加
-					if (outputTextarea.value.indexOf(item.english) === -1) {
-						if (outputTextarea.value !== "") {
-							outputTextarea.value += ",";
-						}
-						outputTextarea.value += item.english;
-					}
-				}
-			});
-		});
-	</script>
+  gtag('config', 'G-KZC24J7TE5');
+</script>
 </body>
 </html>
