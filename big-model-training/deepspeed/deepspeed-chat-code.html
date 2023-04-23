@@ -1,0 +1,685 @@
+<!DOCTYPE html><html><head>
+      <title>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;-DeepSpeed | DeepSpeed-Chat</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: 'Microsoft YaHei', 'Noto Sans SC', 'PingFang SC', sans-serif;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p><font size="7px"><b>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;</b></font></p>
+<p><strong>&#x76EE;&#x5F55;&#x7D22;&#x5F15;</strong></p>
+<ul>
+<li><a href="deepspeed-chat.html">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</a></li>
+</ul>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC2%E7%AB%A0deepspeed-chat-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">&#x7B2C;2&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x4EE3;&#x7801;&#x5206;&#x6790;</a>
+<ul>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1 &#x6982;&#x8981;</a></li>
+<li><a href="#2-%E4%BB%A3%E7%A0%81%E6%A6%82%E8%A6%81">2 &#x4EE3;&#x7801;&#x6982;&#x8981;</a></li>
+<li><a href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">3 &#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li>
+<li><a href="#3-%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3">3 &#x4EE3;&#x7801;&#xFF1A;&#x6570;&#x636E;&#x76F8;&#x5173;</a></li>
+<li><a href="#4-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3">4 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x76F8;&#x5173;</a></li>
+<li><a href="#5-%E4%BB%A3%E7%A0%81%E8%AE%AD%E7%BB%83">5 &#x4EE3;&#x7801;&#xFF1A;&#x8BAD;&#x7EC3;</a></li>
+<li><a href="#6-%E4%BB%A3%E7%A0%81%E8%AF%84%E4%BB%B7">6 &#x4EE3;&#x7801;&#xFF1A;&#x8BC4;&#x4EF7;</a></li>
+<li><a href="#7-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98">7 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;</a></li>
+<li><a href="#8-%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93%E4%BD%BF%E7%94%A8deepspeed%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">8 &#x6D41;&#x7A0B;&#x603B;&#x7ED3;&#xFF1A;&#x4F7F;&#x7528;DeepSpeed&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x5FAE;&#x8C03;</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">&#x5E38;&#x89C1;&#x95EE;&#x9898;</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="%E7%AC%AC2%E7%AB%A0deepspeed-chat-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">&#x7B2C;2&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x4EE3;&#x7801;&#x5206;&#x6790;</h1>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=0s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x4E86;&#x89E3;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x901A;&#x8FC7;&#x4E86;&#x89E3;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<ul>
+<li>&#x66FF;&#x6362;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#xFF1A; &#x9664;&#x4E86;facebook&#x7684;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x6A21;&#x578B;&#xFF1B; &#x5C24;&#x5176;&#x662F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x6765;&#x4F18;&#x5316;&#x6A21;&#x578B;&#x3002;</li>
+<li>&#x638C;&#x63E1;DeepSpeed&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A; &#x901A;&#x8FC7;&#x4E0A;&#x4E00;&#x7AE0;&#x5185;&#x5BB9;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;DeepSpeed&#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x5927;&#x7684;&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5DE5;&#x5177;&#x3002;&#x5B66;&#x4F1A;&#x4F7F;&#x7528;DeepSeed&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x8BAD;&#x7EC3;LLM&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5176;&#x4ED6;DL&#x4EFB;&#x52A1;&#x7684;&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="1-%E6%A6%82%E8%A6%81">1 &#x6982;&#x8981;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=78s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>DeepSpeed-Chat&#x5171;&#x6709;&#x4E09;&#x4E2A;Step&#x3002;&#x5176;&#x4E2D;Step1 &#x548C; 2 &#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;&#xFF0C;&#x4E0E;Step3&#x76F8;&#x6BD4;&#xFF0C;&#x4E5F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5B66;&#x4E60;Step1&#x6765;&#x4E86;&#x89E3;&#x8FD9;&#x5957;&#x5DE5;&#x5177;&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x6765;&#x5B66;&#x4E60; <code>step1_supervised_finetuning</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>main.py</code> &#x7A0B;&#x5E8F;&#xFF0C;&#x4EE5;&#x53CA;&#x4E0E;&#x5176;&#x5173;&#x8054;&#x7684; <code>utils</code> &#x4E0B;&#x4EE3;&#x7801;&#x3002;<br>
+&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x65B9;&#x9762;&#xFF0C;&#x5BF9;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x89E3;&#x8BFB;&#xFF1A;</p>
+<ul>
+<li>&#x6570;&#x636E;&#x5904;&#x7406;&#x90E8;&#x5206;</li>
+<li>&#x6A21;&#x578B;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;</li>
+<li>&#x8BAD;&#x7EC3;&#x4EE3;&#x7801;&#x90E8;&#x5206;</li>
+<li>DeepSpeed&#x5E76;&#x884C;&#x5904;&#x7406;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x6D41;&#x7A0B;</li>
+</ul>
+<h2 class="mume-header" id="2-%E4%BB%A3%E7%A0%81%E6%A6%82%E8%A6%81">2 &#x4EE3;&#x7801;&#x6982;&#x8981;</h2>
+
+<p>&#x7B2C;&#x4E00;&#x6B65;Step1&#x7684;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#xFF0C;&#x662F;&#x901A;&#x8FC7;bash&#x811A;&#x672C; <code>run_1.3b.sh</code> &#x6765;&#x8C03;&#x7528; <code>main.py</code> &#x6765;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x6765;&#x5B66;&#x4E60; <code>main.py</code> &#x7A0B;&#x5E8F;&#x3002;</p>
+<p>run_1.3b.sh &#x811A;&#x672C;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>deepspeed main.py \
+   --data_path Dahoas/rm-static \
+   --data_split 2,4,4 \
+   --model_name_or_path facebook/opt-1.3b \
+   --per_device_train_batch_size 8 \
+   --per_device_eval_batch_size 8 \
+   --max_seq_len 512 \
+   --learning_rate 9.65e-6 \
+   --weight_decay 0.1 \
+   --num_train_epochs 2 \
+   --gradient_accumulation_steps 1 \
+   --lr_scheduler_type cosine \
+   --num_warmup_steps 0 \
+   --seed 1234 \
+   --zero_stage $ZERO_STAGE \
+   --deepspeed \
+   --output_dir $OUTPUT \
+   &amp;&gt; $OUTPUT/training.log
+</code></pre><p>&#x7ED3;&#x5408; <code>main.py</code> &#x7A0B;&#x5E8F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x53C2;&#x6570;&#x5206;&#x4E3A;&#x4E09;&#x5927;&#x7C7B;</p>
+<p><strong>&#x4E0E;&#x6570;&#x636E;&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>data_path        : &#x6570;&#x636E;&#x8DEF;&#x5F84;&#xFF0C;huggingface&#x6570;&#x636E;&#x5E93;&#xFF0C; &#x6BD4;&#x5982;&#xFF1A;Dahoas/rm-static
+data_split       : &#x6570;&#x636E;&#x7684;&#x62C6;&#x5206;&#x65B9;&#x5F0F;&#xFF0C;&#x6BD4;&#x5982; 2,4,4 &#x662F;&#x4E3A;step1&#xFF0C;2&#xFF0C;3&#x5206;&#x914D;&#x7684;&#x6570;&#x636E;&#x6BD4;&#x4F8B;
+max_seq_len      : &#x6700;&#x5927;&#x5E8F;&#x5217;&#x957F;&#x5EA6;&#xFF08;&#x8D85;&#x8FC7;&#x957F;&#x5EA6;&#x4F1A;&#x88AB;&#x622A;&#x6389;&#xFF09;
+data_output_path : &#x76F8;&#x5173;&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#x5730;&#x5740;&#xFF08;local storage&#xFF0C;&#x4E0D;&#x80FD;&#x662F;shared storage&#xFF09;
+</code></pre><p><strong>&#x4E0E;&#x6A21;&#x578B;&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>model_name_or_path : &#x6A21;&#x578B;&#x540D;&#x79F0;&#x6216;&#x8DEF;&#x5F84;&#xFF0C;huggingface&#x6A21;&#x578B;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;facebook/opt-1.3b
+lora_dim           : &#x5982;&#x679C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x4F7F;&#x7528;LoRA&#x4F18;&#x5316;
+lora_module_name   : &#x8BBE;&#x7F6E;LoRA&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x53EA;&#x9488;&#x5BF9; decoder.layers
+only_optimize_lora : &#x662F;&#x5426;&#x53EA;&#x4F18;&#x5316;LoRA&#x7684;&#x53C2;&#x6570;
+</code></pre><p><strong>&#x4E0E;&#x8BAD;&#x7EC3;&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>per_device_train_batch_size : &#x8BAD;&#x7EC3;&#x65F6;&#x7684; Batch size (per device&#xFF1A; &#x6BCF;&#x4E2A;GPU&#x7684;Size)
+per_device_eval_batch_size  : &#x8BC4;&#x4EF7;&#x65F6;&#x7684; Batch size (per device)
+learning_rate               : &#x5B66;&#x4E60;&#x7387;
+weight_decay                : &#x6743;&#x91CD;&#x8870;&#x51CF;&#xFF0C;&#x9632;&#x6B62;&#x6A21;&#x578B;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x6280;&#x672F;&#x3002;
+num_train_epochs            : &#x8BAD;&#x7EC3; epoch &#x6570;
+gradient_accumulation_steps : &#x7D2F;&#x79EF;&#x591A;&#x5C11;&#x4E2A; mini-batch &#x7684;&#x68AF;&#x5EA6;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x53C2;&#x6570;&#x66F4;&#x65B0;&#x3002;
+lr_scheduler_type           : learning rate&#x7684;&#x8C03;&#x6574;&#x7B56;&#x7565;&#xFF0C;&#x6BD4;&#x5982; linear, cosine
+</code></pre><p><strong>deepspeed</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>zero_stage  : &#x8FD9;&#x4E2A;&#x5BF9;&#x5E94;&#x8005;DeepSpeed&#x5DE5;&#x5177;&#x4E2D;&#x7684;zero&#x65B9;&#x5F0F;&#xFF0C;&#x5206;&#x522B;&#x662F;0&#xFF0C;1&#xFF0C;2&#xFF0C;3
+offload     : ZeRO-Offload &#x901A;&#x8FC7;&#x5229;&#x7528;&#x4E3B;&#x673A;CPU&#x4E0A;&#x7684;&#x8BA1;&#x7B97;&#x548C;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x6765;&#x6267;&#x884C;&#x4F18;&#x5316;&#x5668;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x6B64;&#x7C7B;&#x6A21;&#x578B;&#x7684;GPU&#x8BA1;&#x7B97;&#x548C;&#x5185;&#x5B58;&#x9700;&#x6C42;&#x3002;
+local_rank  : &#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x65F6;&#x7684;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x5F53;&#x524D; GPU &#x8BBE;&#x5907;&#x7684;&#x672C;&#x5730;&#x6392;&#x540D;&#xFF08;&#x672C;&#x673A;&#x6392;&#x540D;&#xFF0C;&#x4E0E;global-rank&#x4E0D;&#x540C;&#xFF09;
+gradient_checkpointing : &#x964D;&#x4F4E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;&#x6280;&#x672F;
+</code></pre><p><strong>&#x5176;&#x4ED6;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>seed        : &#x968F;&#x673A;&#x6392;&#x5E8F;&#x662F;&#x7684;seed
+output_dir  : &#x6A21;&#x578B;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;
+</code></pre><h2 class="mume-header" id="3-%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">3 &#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=329s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p><strong>args.local_rank</strong><br>
+local_rank &#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x5F53;&#x524D; GPU &#x8BBE;&#x5907;&#x7684;&#x672C;&#x5730;&#x6392;&#x540D;&#xFF08;local rank&#xFF09;&#x3002;</p>
+<p>&#x5F53; args.local_rank &#x7B49;&#x4E8E; -1 &#x65F6;&#xFF0C;&#x8868;&#x793A;&#x4EE3;&#x7801;&#x4E0D;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x4EC5;&#x4F7F;&#x7528;&#x5355;&#x4E2A; GPU &#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x3002;&#x5982;&#x679C; args.local_rank &#x4E0D;&#x7B49;&#x4E8E; -1&#xFF0C;&#x5219;&#x8868;&#x793A;&#x4EE3;&#x7801;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5F53;&#x524D; GPU &#x8BBE;&#x5907;&#x88AB;&#x5206;&#x914D;&#x4E86;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x672C;&#x5730;&#x6392;&#x540D;&#x3002;&#x4EE3;&#x7801;&#x4F1A;&#x5C06;&#x8BBE;&#x5907;&#x8BBE;&#x7F6E;&#x4E3A;&#x6307;&#x5B9A;&#x7684; GPU&#xFF08;torch.device(&quot;cuda&quot;, args.local_rank)&#xFF09;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; deepspeed.init_distributed() &#x51FD;&#x6570;&#x8C03;&#x7528;&#x521D;&#x59CB;&#x5316;&#x5206;&#x5E03;&#x5F0F;&#x540E;&#x7AEF;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A; &#x5728; PyTorch &#x4E2D;&#x4E5F;&#x6709;&#x5206;&#x5E03;&#x5F0F;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5; torch.distributed.init_process_group() &#x51FD;&#x6570;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x4F7F;&#x7528; DeepSpeed &#x5E93;&#x65F6;&#xFF0C;&#x4E0D;&#x8981;&#x66FF;&#x6362;&#x4E3A; deepspeed.init_distributed()&#x3002;</p>
+<p><strong>args.global_rank</strong><br>
+&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x5168;&#x5C40;&#x6392;&#x540D;&#xFF0C;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x8BE5;&#x8FDB;&#x7A0B;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5168;&#x5C40;&#x6392;&#x540D;&#x7684;&#x8303;&#x56F4;&#x662F;&#x4ECE;0&#x5230;world_size-1&#xFF0C;&#x5176;&#x4E2D; world_size &#x662F;&#x6574;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x4E2D;&#x8FDB;&#x7A0B;&#x7684;&#x603B;&#x6570;&#x3002;<br>
+&#x672C;&#x7A0B;&#x5E8F;&#x4E2D;&#x901A;&#x8FC7; torch.distributed.get_rank() &#x6765;&#x8BFB;&#x53D6; global_rank&#xFF0C; &#x672C;&#x51FD;&#x6570;&#x5728;&#x521D;&#x59CB;&#x5316;&#x5206;&#x5E03;&#x5F0F;&#x540E;&#x7AEF;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x8C03;&#x7528;&#x3002;</p>
+<p><strong>torch.distributed.barrier()</strong><br>
+torch.distributed.barrier() &#x662F;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x73AF;&#x5883;&#x4E2D;&#x540C;&#x6B65;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5728;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8FDB;&#x7A0B;&#x4F1A;&#x963B;&#x585E;&#x7B49;&#x5F85;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#x90FD;&#x8C03;&#x7528;&#x4E86;&#x8BE5;&#x51FD;&#x6570;&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x89E3;&#x9664;&#x963B;&#x585E;&#x5E76;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x4E2D;&#xFF0C;torch.distributed.barrier() &#x901A;&#x5E38;&#x7528;&#x4E8E;&#x540C;&#x6B65;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x68AF;&#x5EA6;&#x66F4;&#x65B0;&#x3002;&#x5728;&#x6BCF;&#x4E2A;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x4E00;&#x8F6E;&#x524D;&#x5411;&#x4F20;&#x64AD;&#x548C;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x540E;&#xFF0C;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x540C;&#x6B65;&#x5404;&#x81EA;&#x7684;&#x68AF;&#x5EA6;&#xFF0C;&#x5E76;&#x4E14;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x540C;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x8F6E;&#x66F4;&#x65B0;&#x3002;&#x8FD9;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; torch.distributed.barrier() &#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x540C;&#x6B65;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7528;&#x6CD5;&#xFF0C;&#x5728;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x5E76;&#x884C;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x53D6;&#x53EA;&#x9700;&#x8981;&#x5728; local_rank &#x4E3A; 0 &#x7684;GPU&#x4E0A;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x4ED6;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528; torch.distributed.barrier() &#x6765;&#x963B;&#x585E;&#x6765;&#x7B49;&#x5F85;&#x6570;&#x636E;&#x8BFB;&#x53D6;&#x5B8C;&#x6210;&#x3002;</p>
+<h2 class="mume-header" id="3-%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3">3 &#x4EE3;&#x7801;&#xFF1A;&#x6570;&#x636E;&#x76F8;&#x5173;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=414s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x73B0;&#x5728;&#x7684;NLP&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x666E;&#x904D;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;&#x9996;&#x5148;&#x5C06;&#x6587;&#x672C;&#x8F6C;&#x6362;&#x4E3A;Token&#x3002;Token&#x901A;&#x5E38;&#x662F;&#x6307;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x6216;&#x8005;&#x5B57;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x5C06;&#x672C;&#x6587;&#x8F6C;&#x6362;&#x4E3A;Token&#x65F6;&#x4F1A;&#x4F7F;&#x7528;&#x5230; tokenizer&#xFF0C;tokenizer&#x662F;&#x5728;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E0A;&#x7EDF;&#x8BA1;&#x5E76;&#x8BAD;&#x7EC3;&#x51FA;&#x6765;&#x7684;&#x3002;&#x6709;&#x5F88;&#x591A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x6765;&#x8BAD;&#x7EC3;tokenizer&#xFF0C;&#x6BD4;&#x5982; Google &#x7684; sentencepiece&#x3002;&#x4E0B;&#x9762;&#x7ED9;&#x51FA;&#x4E86;GPT-3&#x7684;Token&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x6BD4;&#x5982;&#xFF1A;</p>
+<ul>
+<li>good morning&#xFF1A; &#x5BF9;&#x5E94; 2 &#x4E2A;Token&#xFF0C;&#x5176;ID&#x662F; [11274, 3329]</li>
+<li>&#x65E9;&#x4E0A;&#x597D; &#xFF1A; &#x5BF9;&#x5E94; 5 &#x4E2A;Token&#xFF0C;ID&#x662F; [33768, 102, 41468, 25001, 121]</li>
+<li>&#x304A;&#x306F;&#x3088;&#x3046; : &#x65E5;&#x8BED;6&#x4E2A;Token&#xFF0C; ID&#x662F; [2515, 232, 31676, 1792, 230, 29557]</li>
+<li>1234567890&#xFF1A; &#x5BF9;&#x5E94;4&#x4E2A;Token&#xFF0C;&#x5206;&#x522B;&#x662F; 123&#xFF0C; 45&#xFF0C; 678&#xFF0C; 90</li>
+<li>xa &#xFF1A; &#x5BF9;&#x5E94;2&#x4E2A;Token&#xFF0C;&#x5206;&#x522B;&#x662F; x&#xFF0C;a</li>
+</ul>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;OpenAI&#x7F51;&#x7AD9;&#x6765;&#x4F53;&#x9A8C;Token&#x7684;&#x62C6;&#x5206;&#xFF1A;<a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a></p>
+<p>DS-Chat&#x5DE5;&#x5177;&#x4E2D;&#x8BAD;&#x7EC3;&#x65F6;&#x4F7F;&#x7528;&#x7684; tokenizer &#x662F;&#x6765;&#x81EA;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x4F7F;&#x7528;&#x4E86; Hugging Face Transformers &#x5E93;&#x4E2D;&#x7684; AutoTokenizer &#x7C7B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x7684; tokenizer&#x3002;AutoTokenizer &#x7C7B;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x5E76;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684; tokenizer&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x4E86;&#x624B;&#x52A8;&#x9009;&#x62E9;&#x7684;&#x6B65;&#x9AA4;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, fast_tokenizer=True)
+    tokenizer.pad_token = tokenizer.eos_token
+</code></pre><p>AutoTokenizer.from_pretrained() &#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x5FC5;&#x9009;&#x53C2;&#x6570;&#xFF0C;model_name_or_path &#x662F;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8DEF;&#x5F84;&#xFF0C;&#x4F8B;&#x5982; &quot;bert-base-uncased&quot; &#x6216; &quot;/path/to/model/directory&quot;&#x3002;    fast_tokenizer: &#x662F;&#x5426;&#x4F7F;&#x7528;&#x5FEB;&#x901F; tokenizer&#x3002;&#x5982;&#x679C;&#x4E3A; True&#xFF0C;&#x5219;&#x4F1A;&#x9009;&#x62E9;&#x4F7F;&#x7528; Rust &#x5B9E;&#x73B0;&#x7684; tokenizer&#xFF0C;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#xFF1B;&#x5426;&#x5219;&#x4F7F;&#x7528; Python &#x5B9E;&#x73B0;&#x7684; tokenizer&#x3002;&#x9ED8;&#x8BA4;&#x4E3A; True&#x3002;</p>
+<p>&#x6570;&#x636E;&#x51C6;&#x5907;&#x51FD;&#x6570;&#xFF1A;create_prompt_dataset</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    train_phase = 1
+    train_dataset, eval_dataset = create_prompt_dataset(
+        args.local_rank, args.data_path, args.data_split,
+        args.data_output_path, train_phase, args.seed, tokenizer,
+        args.max_seq_len)
+</code></pre><p>local_rank &#x53C2;&#x6570;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x6570;&#x636E;&#x4E0B;&#x8F7D;&#x7B49;&#x57FA;&#x672C;&#x5904;&#x7406;,&#x53EA;&#x5728;local rank&#x4E3A; 0 &#x7684; GPU &#x4E0A;&#x6267;&#x884C;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;node&#x4E0A;&#x53EA;&#x5904;&#x7406;&#x4E00;&#x6B21;&#x6570;&#x636E;&#x5373;&#x53EF;&#x3002; data_output_path &#x9700;&#x8981;&#x8BBE;&#x5B9A;&#x4E3A; local storage path&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x4E3A;&#x4E86;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x65F6;&#x5B58;&#x50A8;&#x672C;&#x5730;&#x6570;&#x636E;&#x7528;&#x7684;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x662F;&#x521D;&#x59CB;&#x5316;sampler&#xFF0C;&#x5355;GPU&#x4F7F;&#x7528;RandomSampler&#x548C;SequentialSampler&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x5904;&#x7406;&#x4F7F;&#x7528;DistributedSampler&#x3002;sampler &#x4E3B;&#x8981;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x6570;&#x636E;&#x91C7;&#x7528;&#x7684;&#x987A;&#x5E8F;&#x3002;&#x6BD4;&#x5982;&#x968F;&#x673A;&#x91C7;&#x6837;&#x6765;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    # DataLoaders creation:
+    if args.local_rank == -1:
+        train_sampler = RandomSampler(train_dataset)
+        eval_sampler = SequentialSampler(eval_dataset)
+    else:
+        train_sampler = DistributedSampler(train_dataset)
+        eval_sampler = DistributedSampler(eval_dataset)
+</code></pre><p>&#x6570;&#x636E;&#x8BFB;&#x53D6;&#x4F7F;&#x7528; PyTorch &#x6807;&#x51C6;&#x7684; DataLoader &#x6765;&#x5904;&#x7406;&#x3002;&#x4F7F;&#x7528;Dataloader &#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;sampler&#x5B9A;&#x4E49;&#x91C7;&#x6837;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x652F;&#x6301;&#x591A;&#x8FDB;&#x7A0B;&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    train_dataloader = DataLoader(train_dataset,
+                                  collate_fn=default_data_collator,
+                                  sampler=train_sampler,
+                                  batch_size=args.per_device_train_batch_size)
+    eval_dataloader = DataLoader(eval_dataset,
+                                 collate_fn=default_data_collator,
+                                 sampler=eval_sampler,
+                                 batch_size=args.per_device_eval_batch_size)
+</code></pre><h2 class="mume-header" id="4-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3">4 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x76F8;&#x5173;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=584s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p><strong>&#x6A21;&#x578B;&#x521D;&#x59CB;&#x5316;</strong><br>
+&#x4EE5;&#x4E0B;&#x7684;&#x4EE3;&#x7801;&#x7528;&#x6765;&#x5BF9;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>model = create_hf_model(AutoModelForCausalLM, args.model_name_or_path,
+                        tokenizer, ds_config)
+</code></pre><p>&#x5176;&#x4E2D; AutoModelForCausalLM &#x662F; Hugging Face Transformers &#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x5E76;&#x52A0;&#x8F7D;&#x9002;&#x5F53;&#x7684;&#x9884;&#x8BAD;&#x7EC3; Transformer &#x6A21;&#x578B;&#xFF0C;&#x5B83;&#x652F;&#x6301;&#x591A;&#x79CD;&#x9884;&#x8BAD;&#x7EC3; Transformer &#x6A21;&#x578B;&#xFF0C;&#x5305;&#x62EC; GPT-2&#x3001;GPT&#x3001;CTRL&#x3001;Transformer-XL&#x3001;XLNet &#x548C; XLM &#x7B49;&#x3002;&#x4F7F;&#x7528;&#x8BE5;&#x7C7B;&#x65F6;&#xFF0C;&#x60A8;&#x53EA;&#x9700;&#x6307;&#x5B9A;&#x6A21;&#x578B;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A;utils/model/model_utils.py&#x3002;</p>
+<p><strong>LoRA</strong><br>
+&#x5F53;&#x8BBE;&#x7F6E; lora_dim &#x5927;&#x4E8E;0&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;LoRA&#x6280;&#x672F;&#x5BF9;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x3002; &#x4ECE;&#x800C;&#x8BA9;&#x6A21;&#x578B;&#x7684;&#x4F18;&#x5316;&#x53C2;&#x6570;&#x5927;&#x5E45;&#x5EA6;&#x7684;&#x53D8;&#x5C11;&#xFF0C;&#x6539;&#x5584;&#x4F18;&#x5316;&#x7684;&#x6548;&#x7387;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;LoRA&#x6280;&#x672F;&#xFF0C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x53C2;&#x6570;&#x91CF;&#xFF0C;&#x8FD8;&#x80FD;&#x8FDB;&#x4E00;&#x6B65;&#x6539;&#x5584;&#x6027;&#x80FD;&#x3002;&#x8FD9;&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;&#x8FD9;&#x79CD;bottleneck&#x7684;&#x7F51;&#x7EDC;&#x8BBE;&#x8BA1;&#xFF0C;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x9C81;&#x68D2;&#x6027;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    if args.lora_dim &gt; 0:
+        model = convert_linear_layer_to_lora(model, args.lora_module_name,
+                                             args.lora_dim)
+        if args.only_optimize_lora:
+            model = only_optimize_lora_parameters(model)
+</code></pre><p><strong>&#x63D0;&#x53D6;&#x9700;&#x8981;&#x88AB;&#x4F18;&#x5316;&#x7684;&#x53C2;&#x6570; optimizer_grouped_parameters</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>    # Split weights in two groups, one with weight decay and the other not.
+    optimizer_grouped_parameters = get_optimizer_grouped_parameters(
+        model, args.weight_decay)
+
+    AdamOptimizer = DeepSpeedCPUAdam if args.offload else FusedAdam
+    optimizer = AdamOptimizer(optimizer_grouped_parameters,
+                              lr=args.learning_rate,
+                              betas=(0.9, 0.95))
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;get_optimizer_grouped_parameters() &#x51FD;&#x6570;&#x88AB;&#x7528;&#x6765;&#x5C06;&#x6743;&#x91CD;&#x5206;&#x6210;&#x4E24;&#x7EC4;&#xFF0C;&#x4E00;&#x7EC4;&#x9700;&#x8981;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#xFF0C;&#x53E6;&#x4E00;&#x7EC4;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x6A21;&#x578B;&#x7684;&#x6240;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x68C0;&#x67E5;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x662F;&#x5426;&#x5305;&#x542B; bias &#x6216; LayerNorm &#x7B49;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6765;&#x533A;&#x5206;&#x9700;&#x8981;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#x7684;&#x53C2;&#x6570;&#x548C;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<p><i><strong>&#x5206;&#x7EC4;&#x539F;&#x56E0;&#x7684;&#x89E3;&#x8BF4;&#xFF1A;</strong> &#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x4E2D;&#x4E0D;&#x5305;&#x542B; bias &#x6216; LayerNorm &#x7B49;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x5B83;&#x4EEC;&#x662F;&#x9700;&#x8981;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#x7684;&#x53C2;&#x6570;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x5C06;&#x5B83;&#x4EEC;&#x7684;&#x6743;&#x91CD;&#x77E9;&#x9635;&#x4E0E;&#x6743;&#x91CD;&#x8870;&#x51CF;&#x8D85;&#x53C2;&#x6570;&#x76F8;&#x4E58;&#xFF0C;&#x4EE5;&#x964D;&#x4F4E;&#x5B83;&#x4EEC;&#x7684;&#x6743;&#x91CD;&#x3002;&#x4E0E;&#x6B64;&#x76F8;&#x53CD;&#xFF0C;&#x5BF9;&#x4E8E;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x4E2D;&#x5305;&#x542B; bias &#x6216; LayerNorm &#x7B49;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x5B83;&#x4EEC;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#x7684;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A; bias &#x6216; LayerNorm &#x53C2;&#x6570;&#x901A;&#x5E38;&#x53EA;&#x662F;&#x7528;&#x6765;&#x504F;&#x79FB;&#x6216;&#x7F29;&#x653E;&#x5176;&#x4ED6;&#x5C42;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x6743;&#x91CD;&#x53C2;&#x6570;&#x3002;&#x901A;&#x8FC7;&#x5C06;&#x6743;&#x91CD;&#x5206;&#x6210;&#x4E24;&#x7EC4;&#xFF0C;&#x5E76;&#x5206;&#x522B;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#x548C;&#x4E0D;&#x5E94;&#x7528;&#x6743;&#x91CD;&#x8870;&#x51CF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x5730;&#x63A7;&#x5236;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x6027;&#x80FD;&#x3002;</i></p>
+<p>&#x7136;&#x540E;&#x8BBE;&#x7F6E;Optimizer&#x4F18;&#x5316;&#x5668;&#xFF0C;&#x6839;&#x636E;&#x53C2;&#x6570;&#x4E0D;&#x540C;&#x4F1A;&#x9009;&#x62E9; DeepSpeedCPUAdam &#x6216;&#x8005; FusedAdam &#x4F18;&#x5316;&#x5668;&#x3002; &#x5E76;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x5305;&#x62EC;&#x5206;&#x7EC4;&#x7684;&#x53C2;&#x6570;&#x3001;&#x5B66;&#x4E60;&#x7387;&#x548C; betas&#x3002;</p>
+<p><i><strong>Adam&#x4F18;&#x5316;&#x5668;&#x7684;&#x89E3;&#x8BF4;&#xFF1A;</strong> &#x5728; Hugging Face &#x7684; Transformers &#x5E93;&#x4E2D;&#xFF0C;&#x6709;&#x4E24;&#x79CD; Adam &#x4F18;&#x5316;&#x5668;&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#xFF1A;FusedAdam &#x548C; DeepSpeedCPUAdam&#x3002;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x57FA;&#x4E8E; PyTorch &#x5B9E;&#x73B0;&#x7684;&#x4F18;&#x5316;&#x5668;&#xFF0C;&#x4F46;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x786C;&#x4EF6;&#x4E0A;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x4F18;&#x5316;&#x548C;&#x6027;&#x80FD;&#x7279;&#x5F81;&#x3002;FusedAdam &#x662F;&#x4F7F;&#x7528; NVIDIA Apex &#x5E93;&#x5B9E;&#x73B0;&#x7684;&#x4F18;&#x5316;&#x5668;&#xFF0C;&#x5B83;&#x652F;&#x6301;&#x6DF7;&#x5408;&#x7CBE;&#x5EA6;&#x8BAD;&#x7EC3;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;&#x548C;&#x6743;&#x91CD;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x8BAD;&#x7EC3;&#x6548;&#x7387;&#x3002;FusedAdam &#x4F18;&#x5316;&#x5668;&#x5728;&#x4F7F;&#x7528;&#x652F;&#x6301; CUDA &#x7684; NVIDIA GPU &#x65F6;&#x5177;&#x6709;&#x8F83;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3002;DeepSpeedCPUAdam &#x662F;&#x4E00;&#x79CD; CPU &#x4E0A;&#x7684;&#x4F18;&#x5316;&#x5668;&#xFF0C;&#x5B83;&#x662F; DeepSpeed &#x6846;&#x67B6;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x652F;&#x6301;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x548C;&#x6A21;&#x578B;&#x5E73;&#x884C;&#x5316;&#x3002;DeepSpeedCPUAdam &#x4F18;&#x5316;&#x5668;&#x5728;&#x4F7F;&#x7528; CPU &#x65F6;&#x5177;&#x6709;&#x8F83;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5982;&#x679C; args.offload &#x4E3A; True&#xFF0C;&#x5219;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x57FA;&#x4E8E; CPU &#x7684;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x4F1A;&#x9009;&#x62E9;&#x4F7F;&#x7528; DeepSpeedCPUAdam &#x4F18;&#x5316;&#x5668;&#x3002;</i></p>
+<p><strong>&#x8BBE;&#x7F6E;lr_scheduler</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>    num_update_steps_per_epoch = math.ceil(
+        len(train_dataloader) / args.gradient_accumulation_steps)
+    lr_scheduler = get_scheduler(
+        name=args.lr_scheduler_type,
+        optimizer=optimizer,
+        num_warmup_steps=args.num_warmup_steps,
+        num_training_steps=args.num_train_epochs * num_update_steps_per_epoch,
+    )
+</code></pre><p>lr_scheduler &#x662F;&#x7528;&#x6765;&#x89C4;&#x5212;&#x6574;&#x4E2A;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D; lr &#x662F;&#x5982;&#x4F55;&#x8C03;&#x6574;&#x7684;&#x3002;lr_scheduler_type &#x8C03;&#x5EA6;&#x5668;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0; lr &#x662F;&#x6309;&#x7167;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x53D8;&#x5316;&#xFF0C;&#x4F8B;&#x5982; LinearWarmup&#x3001;CosineAnnealing &#x7B49;&#x3002;num_warmup_steps &#x9884;&#x70ED;&#x6B65;&#x6570;&#x6307;&#x5B9A;&#x4E86;&#x5728;&#x8BAD;&#x7EC3;&#x7684;&#x524D;&#x671F;&#x9636;&#x6BB5; lr &#x589E;&#x52A0;&#x8FC7;&#x7A0B;&#x7684;&#x6B65;&#x6570;&#x3002; &#x603B;&#x8BAD;&#x7EC3;&#x6B65;&#x6570;&#x6307;&#x5B9A;&#x6A21;&#x578B;&#x5171;&#x88AB;&#x66F4;&#x65B0;&#x591A;&#x5C11;&#x6B21;&#x3002;</p>
+<p><strong>DS&#x521D;&#x59CB;&#x5316;</strong></p>
+<pre data-role="codeBlock" data-info class="language-"><code>    model, optimizer, _, lr_scheduler = deepspeed.initialize(
+        model=model,
+        optimizer=optimizer,
+        args=args,
+        config=ds_config,
+        lr_scheduler=lr_scheduler,
+        dist_init_required=True)    
+</code></pre><p>&#x4F7F;&#x7528;DeepSpeed&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x662F;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;deepspeed.initialize() &#x51FD;&#x6570;&#x6765;&#x521D;&#x59CB;&#x5316;&#x6A21;&#x578B;&#x3001;&#x4F18;&#x5316;&#x5668;&#x3001;&#x5B66;&#x4E60;&#x7387;&#x8C03;&#x5EA6;&#x5668;&#x7B49;&#x8BAD;&#x7EC3;&#x76F8;&#x5173;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x5176;&#x4E2D;&#xFF0C;model &#x548C; optimizer &#x662F;&#x5FC5;&#x9700;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x5219;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;</p>
+<p>deepspeed.initialize() &#x51FD;&#x6570;&#x4F1A;&#x5BF9;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#x548C;&#x4F18;&#x5316;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x6A21;&#x578B;&#x3001;&#x4F18;&#x5316;&#x5668;&#x548C;&#x5B66;&#x4E60;&#x7387;&#x8C03;&#x5EA6;&#x5668;&#x7B49;&#x7EC4;&#x4EF6;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5B83;&#x4F1A;&#x6839;&#x636E;&#x8BAD;&#x7EC3;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x548C;&#x786C;&#x4EF6;&#x914D;&#x7F6E;&#x81EA;&#x52A8;&#x8C03;&#x6574;&#x4F18;&#x5316;&#x5668;&#x548C;&#x68AF;&#x5EA6;&#x7D2F;&#x79EF;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x6A21;&#x578B;&#x6743;&#x91CD;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7B56;&#x7565;&#x3002;dist_init_required=True &#x53C2;&#x6570;&#x6307;&#x793A; DeepSpeed &#x662F;&#x5426;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p><strong>DS &#x914D;&#x7F6E;&#x6587;&#x4EF6;</strong><br>
+&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5305;&#x542B;DeepSpeed&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#x6240;&#x9700;&#x8981;&#x7684;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x91CC;&#x7684;&#x4FEE;&#x6539;&#x6765;&#x8C03;&#x6574;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x3002;&#x4E0B;&#x9762;&#x662F; utils/ds_utils.py &#x4E2D;&#x7ED9;&#x51FA;&#x7684;&#x8BBE;&#x7F6E; &#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ds_config = {
+    &quot;train_batch_size&quot;: GLOBAL_BATCH_SIZE,
+    &quot;train_micro_batch_size_per_gpu&quot;: MICRO_BATCH_SIZE,
+    &quot;steps_per_print&quot;: 10,
+    &quot;zero_optimization&quot;: {
+        &quot;stage&quot;: stage,
+        &quot;offload_param&quot;: {
+            &quot;device&quot;: device
+        },
+        &quot;offload_optimizer&quot;: {
+            &quot;device&quot;: device
+        },
+        &quot;stage3_param_persistence_threshold&quot;: 1e4,
+        &quot;stage3_max_live_parameters&quot;: 3e7,
+        &quot;stage3_prefetch_bucket_size&quot;: 3e7,
+        &quot;memory_efficient_linear&quot;: False
+    },
+    &quot;fp16&quot;: {
+        &quot;enabled&quot;: True,
+        &quot;loss_scale_window&quot;: 100
+    },
+    &quot;gradient_clipping&quot;: 1.0,
+    &quot;prescale_gradients&quot;: False,
+    &quot;wall_clock_breakdown&quot;: False,
+    &quot;hybrid_engine&quot;: {
+        &quot;enabled&quot;: enable_hybrid_engine,
+        &quot;inference_tp_size&quot;: inference_tp_size,
+        &quot;release_inference_cache&quot;: release_inference_cache,
+        &quot;pin_parameters&quot;: pin_parameters,
+        &quot;tp_gather_partition_size&quot;: tp_gather_partition_size,
+    }
+}
+</code></pre><h2 class="mume-header" id="5-%E4%BB%A3%E7%A0%81%E8%AE%AD%E7%BB%83">5 &#x4EE3;&#x7801;&#xFF1A;&#x8BAD;&#x7EC3;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=664s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x4E0B;&#x9762;&#x662F;&#x8BAD;&#x7EC3;&#x90E8;&#x5206;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4F7F;&#x7528;DS&#x4EE5;&#x540E;&#xFF0C;&#x8BAD;&#x7EC3;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;&#x4E0E;&#x6807;&#x51C6;&#x7684;PyTorch&#x4EE3;&#x7801;&#x4E0D;&#x540C;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    for epoch in range(args.num_train_epochs):
+        print_rank_0(
+            f&quot;Beginning of Epoch {epoch+1}/{args.num_train_epochs}, Total Micro Batches {len(train_dataloader)}&quot;,
+            args.global_rank)
+        model.train()
+        for step, batch in enumerate(train_dataloader):
+            batch = to_device(batch, device)
+            outputs = model(**batch, use_cache=False)
+            loss = outputs.loss
+            model.backward(loss)
+            model.step()
+</code></pre><p><i><strong>&#x5173;&#x4E8E;<code>**batch</code>&#x89E3;&#x91CA;&#xFF1A;</strong> &#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5C06;&#x4E00;&#x4E2A;&#x6279;&#x6B21;&#x7684;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9;&#x6A21;&#x578B;&#xFF0C;&#x907F;&#x514D;&#x624B;&#x52A8;&#x62C6;&#x5206;&#x5217;&#x8868;&#x6216;&#x5143;&#x7EC4;&#xFF0C;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x6613;&#x8BFB;&#x3002;</i></p><i>
+<p>*batch &#x8868;&#x793A;&#x5C06;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x5BF9;&#x8C61; batch &#x4E2D;&#x7684;&#x5143;&#x7D20;&#x62C6;&#x5206;&#x6210;&#x72EC;&#x7ACB;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x3002;&#x4F8B;&#x5982;&#xFF1A;<br>
+<code>batch = (input_ids, attention_mask, labels)</code><br>
+&#x90A3;&#x4E48;&#xFF0C;&#x4F7F;&#x7528; *batch &#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x7B49;&#x4EF7;&#x4E8E;&#x5C06;&#x8FD9;&#x4E9B; Tensor &#x5BF9;&#x8C61;&#x62C6;&#x5206;&#x4E3A;&#x72EC;&#x7ACB;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5373;&#xFF1A;<br>
+<code>model(*batch)</code> &#x7B49;&#x4EF7;&#x4E8E; <code>model(input_ids, attention_mask, labels)</code></p>
+</i><p><i>**batch &#x8868;&#x793A;&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x5BF9;&#x8C61; batch &#x62C6;&#x5206;&#x6210;&#x72EC;&#x7ACB;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x3002;&#x4F8B;&#x5982;&#xFF1A;<br>
+<code>batch = {&apos;input_ids&apos;: input_ids, &apos;attention_mask&apos;: attention_mask, &apos;labels&apos;: labels}</code><br>
+<code>model(**batch)</code> &#x7B49;&#x4EF7;&#x4E8E;<br>
+<code>model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)</code><br>
+</i></p>
+<h2 class="mume-header" id="6-%E4%BB%A3%E7%A0%81%E8%AF%84%E4%BB%B7">6 &#x4EE3;&#x7801;&#xFF1A;&#x8BC4;&#x4EF7;</h2>
+
+<p>&#x6B64;&#x4EFB;&#x52A1;&#x901A;&#x8FC7; perplexity &#x6765;&#x5BF9;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x8BC4;&#x4EF7;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>    # Evaluate perplexity on the validation set
+    perplexity = evaluation(model, eval_dataloader)
+
+</code></pre><h2 class="mume-header" id="7-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98">7 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=686s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<pre data-role="codeBlock" data-info class="language-"><code>    if args.output_dir is not None:
+        print_rank_0(&apos;saving the final model ...&apos;, args.global_rank)
+        model = convert_lora_to_linear_layer(model)
+
+        if args.global_rank == 0:
+            save_hf_format(model, tokenizer, args)
+
+        if args.zero_stage == 3:
+            # For zero stage 3, each gpu only has a part of the model, so we need a special save function
+            save_zero_three_model(model,
+                                  args.global_rank,
+                                  args.output_dir,
+                                  zero_stage=args.zero_stage)
+</code></pre><h2 class="mume-header" id="8-%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93%E4%BD%BF%E7%94%A8deepspeed%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">8 &#x6D41;&#x7A0B;&#x603B;&#x7ED3;&#xFF1A;&#x4F7F;&#x7528;DeepSpeed&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x5FAE;&#x8C03;</h2>
+
+<p>&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x6A21;&#x578B;&#x5FAE;&#x8C03;&#x7684;&#x5B8C;&#x6574;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;<br>
+<strong>&#x6570;&#x636E;&#x90E8;&#x5206;</strong></p>
+<ul>
+<li>&#x8BFB;&#x53D6;tokenizer: &#x4ECE;&#x9884;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x4E2D;&#x8BFB;&#x53D6;tokenizer</li>
+<li>&#x8BFB;&#x53D6;&#x5904;&#x7406;&#x6570;&#x636E; train_dataset, eval_dataset</li>
+<li>&#x8BBE;&#x7F6E; train_sampler&#xFF0C; eval_sampler</li>
+<li>&#x8BBE;&#x7F6E;train_dataloader&#xFF0C; eval_dataloader &#xFF08;&#x4F7F;&#x7528;DataLoader&#xFF09;</li>
+</ul>
+<p><strong>&#x6A21;&#x578B;&#x90E8;&#x5206;</strong></p>
+<ul>
+<li>&#x8BBE;&#x7F6E;DeepSpeed&#x914D;&#x7F6E;&#x53C2;&#x6570;</li>
+<li>&#x5BFC;&#x5165;&#x5E76;&#x5B9E;&#x4F8B;&#x5316; model</li>
+<li>&#x53EF;&#x9009;&#xFF1A;LoRA&#x8BBE;&#x7F6E;</li>
+<li>&#x51C6;&#x5907;&#x9700;&#x8981;&#x4F18;&#x5316;&#x7684;&#x53C2;&#x6570;&#xFF1A;optimizer_grouped_parameters</li>
+<li>&#x8BBE;&#x7F6E; optimizer</li>
+<li>&#x8BBE;&#x7F6E; lr_scheduler</li>
+<li>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316; deepspeed.initialize</li>
+</ul>
+<p><strong>&#x8BAD;&#x7EC3;&#x53CA;&#x8BC4;&#x4EF7;&#x90E8;&#x5206;</strong></p>
+<ul>
+<li>&#x5F00;&#x59CB;&#x8BAD;&#x7EC3; forward&#xFF0C;backward&#xFF0C;&#x53C2;&#x6570;&#x66F4;&#x65B0;</li>
+<li>&#x8BC4;&#x4EF7;&#xFF0C;&#x6D4B;&#x8BD5;</li>
+<li>&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#xFF1A; &#x6CE8;&#x610F;ZeRO&#x4E3A;3&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5904;&#x7406;</li>
+</ul>
+<h2 class="mume-header" id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">&#x5E38;&#x89C1;&#x95EE;&#x9898;</h2>
+
+<p><strong>Q/A 1:</strong> &#x6A21;&#x578B;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;dschf = HfDeepSpeedConfig(ds_config)&#xFF0C;&#x540E;&#x9762;&#x6CA1;&#x6709;&#x8C03;&#x7528;&#x3002;<br>
+&#x5F53;&#x4F7F;&#x7528; zero 3 &#x65F6;&#x9700;&#x8981;&#x8BBE;&#x7F6E; dschf = HfDeepSpeedConfig(ds_config)&#x3002;<br>
+&#x5177;&#x4F53;&#x8BF4;&#x660E;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<br>
+<a href="https://huggingface.co/docs/transformers/main_classes/deepspeed#nontrainer-deepspeed-integration">https://huggingface.co/docs/transformers/main_classes/deepspeed#nontrainer-deepspeed-integration</a><br>
+<strong>Q/A 2:</strong> ZeRO &#x662F;&#x4EC0;&#x4E48;&#xFF1F;<br>
+ZeRO&#xFF08;Zero Redundancy Optimizer&#xFF09;&#x662F; DeepSpeed &#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x4F18;&#x5316;&#x6280;&#x672F;&#xFF0C;&#x65E8;&#x5728;&#x63D0;&#x9AD8;&#x5927;&#x89C4;&#x6A21;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x7684;&#x6548;&#x7387;&#x548C;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3002;&#x5176;&#x4E2D;&#xFF0C;ZeRO Offload &#x662F; ZeRO &#x6280;&#x672F;&#x7684;&#x4E00;&#x79CD;&#x53D8;&#x4F53;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x5B58;&#x50A8;&#x5728; CPU &#x4E0A;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#x5BF9;GPU&#x663E;&#x5B58;&#x7684;&#x5360;&#x7528;&#xFF0C;&#x5E76;&#x52A0;&#x901F;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x7684;&#x68AF;&#x5EA6;&#x7D2F;&#x79EF;&#x3001;&#x68AF;&#x5EA6;&#x538B;&#x7F29;&#x548C;&#x901A;&#x4FE1;&#x7B49;&#x64CD;&#x4F5C;&#x3002; ZeRO 3 &#x662F;&#x5728;&#x5927;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x5E76;&#x884C;&#x65F6;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+
+<ul>
+<li>[1] <a href="https://github.com/microsoft/DeepSpeedExamples">https://github.com/microsoft/DeepSpeedExamples</a></li>
+<li>[2] LoRA(Low-rank adaptation): <a href="https://arxiv.org/abs/2106.09685">https://arxiv.org/abs/2106.09685</a></li>
+</ul>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZC24J7TE5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KZC24J7TE5');
+</script>
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x7B2C;2&#x7AE0;deepspeed-chat-&#x4EE3;&#x7801;&#x5206;&#x6790;" class="md-toc-link"><p>&#x7B2C;2&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x4EE3;&#x7801;&#x5206;&#x6790;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#1-&#x6982;&#x8981;" class="md-toc-link">
+            <p>1 &#x6982;&#x8981;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#2-&#x4EE3;&#x7801;&#x6982;&#x8981;" class="md-toc-link">
+            <p>2 &#x4EE3;&#x7801;&#x6982;&#x8981;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#3-&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="md-toc-link">
+            <p>3 &#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#3-&#x4EE3;&#x7801;&#x6570;&#x636E;&#x76F8;&#x5173;" class="md-toc-link">
+            <p>3 &#x4EE3;&#x7801;&#xFF1A;&#x6570;&#x636E;&#x76F8;&#x5173;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#4-&#x4EE3;&#x7801;&#x6A21;&#x578B;&#x76F8;&#x5173;" class="md-toc-link">
+            <p>4 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x76F8;&#x5173;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#5-&#x4EE3;&#x7801;&#x8BAD;&#x7EC3;" class="md-toc-link">
+            <p>5 &#x4EE3;&#x7801;&#xFF1A;&#x8BAD;&#x7EC3;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#6-&#x4EE3;&#x7801;&#x8BC4;&#x4EF7;" class="md-toc-link">
+            <p>6 &#x4EE3;&#x7801;&#xFF1A;&#x8BC4;&#x4EF7;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#7-&#x4EE3;&#x7801;&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;" class="md-toc-link">
+            <p>7 &#x4EE3;&#x7801;&#xFF1A;&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#8-&#x6D41;&#x7A0B;&#x603B;&#x7ED3;&#x4F7F;&#x7528;deepspeed&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x5FAE;&#x8C03;" class="md-toc-link">
+            <p>8 &#x6D41;&#x7A0B;&#x603B;&#x7ED3;&#xFF1A;&#x4F7F;&#x7528;DeepSpeed&#x8FDB;&#x884C;&#x6A21;&#x578B;&#x5FAE;&#x8C03;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x5E38;&#x89C1;&#x95EE;&#x9898;" class="md-toc-link">
+            <p>&#x5E38;&#x89C1;&#x95EE;&#x9898;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="md-toc-link">
+            <p>&#x53C2;&#x8003;&#x6587;&#x732E;</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
