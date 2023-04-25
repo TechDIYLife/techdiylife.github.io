@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;DeepSpeed-Chat&#x5165;&#x95E8;&#x5B9E;&#x6218; | DeepSpeed-Chat</title>
+      <title>DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218; | &#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -267,7 +267,8 @@ pre[data-line] .line-highlight[data-end]:after {
       <p><font size="7px"><b>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;</b></font></p>
 <p><strong>&#x76EE;&#x5F55;&#x7D22;&#x5F15;</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#%E7%AC%AC1%E7%AB%A0deepspeed-chat%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</a>
+<li>
+<p><a href="#%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</a></p>
 <ul>
 <li><a href="#1-deepspeed-chat%E6%98%AF%E4%BB%80%E4%B9%88">1 DeepSpeed-Chat&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</a></li>
 <li><a href="#2-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85">2 &#x5F00;&#x53D1;&#x73AF;&#x5883;&#x5B89;&#x88C5;</a></li>
@@ -280,8 +281,11 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</a></li>
 </ul>
 </li>
+<li>
+<p><a href="deepspeed-chat-code.html">&#x7B2C;2&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x4EE3;&#x7801;&#x5206;&#x6790;</a></p>
+</li>
 </ul>
-<h1 class="mume-header" id="%E7%AC%AC1%E7%AB%A0deepspeed-chat%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</h1>
+<h1 class="mume-header" id="%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</h1>
 
 <p>&#x672C;&#x7AE0;&#x5185;&#x5BB9;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5FAE;&#x8F6F;&#x6700;&#x65B0;&#x53D1;&#x5E03;&#x7684; DeepSpeed Chat &#x6765;&#x8BAD;&#x7EC3;&#x7C7B; ChatGPT &#x7684;&#x5927;&#x6A21;&#x578B;&#x3002;<br>
 &#x901A;&#x8FC7;&#x672C;&#x7AE0;&#x5185;&#x5BB9;&#xFF0C;&#x4F60;&#x5C06;&#x4E86;&#x89E3;&#xFF1A;</p>
@@ -328,7 +332,7 @@ pre[data-line] .line-highlight[data-end]:after {
 &#x786E;&#x8BA4;&#x4F60;&#x7684;CUDA&#x5B89;&#x88C5;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;<code>/usr/local/cuda-11.7</code>&#xFF0C;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x7EC8;&#x7AEF;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x8BBE;&#x7F6E;CUDA&#x73AF;&#x5883;&#xFF1A;</p>
 </li>
 </ul>
-<pre data-role="codeBlock" data-info class="language-"><code>export CUDA_HOME=/usr/local/cuda-11.7 
+<pre data-role="codeBlock" data-info class="language-"><code>export CUDA_HOME=/usr/local/cuda-11.7
 export PATH=$CUDA_HOME/bin:$PATH 
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 </code></pre><ul>
@@ -578,7 +582,7 @@ python3 train.py --step 3 --deployment-type multi_node  #&#x591A;Node&#x8BAD;&#x
 <div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
   <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=960s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
 </div>
-<p>&#x4F7F;&#x7528; <code>chat.py</code> &#x547D;&#x4EE4;&#xFF08;&#x9700;&#x8981;&#x79FB;&#x52A8; DeepSpeed-Chat &#x76EE;&#x5F55;&#x4E0B;&#xFF09;&#x8FDB;&#x884C;&#x8BC4;&#x4EF7;&#x4E0E;&#x6D4B;&#x8BD5;&#x3002; &#x6267;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x4F7F;&#x7528; <code>chat.py</code> &#x547D;&#x4EE4;&#xFF08;&#x9700;&#x8981;&#x79FB;&#x52A8;&#x5230; DeepSpeed-Chat &#x76EE;&#x5F55;&#x4E0B;&#xFF09;&#x8FDB;&#x884C;&#x8BC4;&#x4EF7;&#x4E0E;&#x6D4B;&#x8BD5;&#x3002; &#x6267;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre data-role="codeBlock" data-info class="language-"><code>python chat.py --path output/step3-models/1.3b/actor
 </code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x542F;&#x52A8;13b&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x662F;66b&#x7684;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#x8FD0;&#x884C;&#x3002;</p>
 <p>&#x5907;&#x6CE8;&#xFF1A;<br>
@@ -604,7 +608,7 @@ python3 train.py --step 3 --deployment-type multi_node  #&#x591A;Node&#x8BAD;&#x
 <div class="md-toc">
 <details style="padding:0;;padding-left:0px;" open>
         <summary class="md-toc-link-wrapper">
-          <a href="#&#x7B2C;1&#x7AE0;deepspeed-chat&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;" class="md-toc-link"><p>&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</p>
+          <a href="#&#x7B2C;1&#x7AE0;deepspeed-chat-&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;" class="md-toc-link"><p>&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</p>
 </a>
           </summary>
         <div>
