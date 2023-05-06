@@ -264,11 +264,18 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <p><font size="7px"><b>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;</b></font></p>
+      <link rel="stylesheet" href="assets/styles.css">
+<script src="dropdownmenu.js" defer></script>
+<nav id="navbarself">
+  <ul>
+  <li><a href="https://techdiylife.github.io">TechDIYLife&#x4E3B;&#x9875;</a></li>
+  <li id="dropdown-menu"><a href="#">&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;&#xFF1A;&#x7AE0;&#x8282;&#x5BFC;&#x822A;</a></li>
+  </ul>
+</nav>
+<p><font size="7px"><b>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;</b></font></p>
 <p><strong>&#x76EE;&#x5F55;&#x7D22;&#x5F15;</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li>
-<p><a href="#%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</a></p>
+<li><a href="#%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</a>
 <ul>
 <li><a href="#1-deepspeed-chat%E6%98%AF%E4%BB%80%E4%B9%88">1 DeepSpeed-Chat&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</a></li>
 <li><a href="#2-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85">2 &#x5F00;&#x53D1;&#x73AF;&#x5883;&#x5B89;&#x88C5;</a></li>
@@ -280,9 +287,6 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#8-%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%B5%8B%E8%AF%95">8 &#x8BC4;&#x4EF7;&#x4E0E;&#x6D4B;&#x8BD5;</a></li>
 <li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</a></li>
 </ul>
-</li>
-<li>
-<p><a href="deepspeed-chat-code.html">&#x7B2C;2&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x4EE3;&#x7801;&#x5206;&#x6790;</a></p>
 </li>
 </ul>
 <h1 class="mume-header" id="%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">&#x7B2C;1&#x7AE0;&#xFF1A;DeepSpeed-Chat &#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5B9E;&#x6218;</h1>
@@ -366,13 +370,71 @@ pip install -r requirements.txt
 </code></pre><p><strong>&#x5E38;&#x89C1;&#x95EE;&#x9898;&#xFF1A;</strong></p>
 <ul>
 <li>
-<p>Q/A 1. &#x7B2C;&#x4E00;&#x6B65;&#xFF08;Step1&#xFF09;&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;&#xFF0C;&#x63D0;&#x793A; GCC &#x548C; G++ &#x7248;&#x672C;&#x95EE;&#x9898;&#x3002;<br>
+<p><strong>Q/A 1. &#x7B2C;&#x4E00;&#x6B65;&#xFF08;Step1&#xFF09;&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;&#xFF0C;&#x63D0;&#x793A; GCC &#x548C; G++ &#x7248;&#x672C;&#x95EE;&#x9898;&#xFF1A;</strong><br>
 &#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F; CUDA 10.2&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF0C;&#x56E0;&#x4E3A; Step3 &#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x7F16;&#x8BD1;&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5C06; GXX &#x7684;&#x7248;&#x672C;&#x964D;&#x5230; 8.5.0&#xFF1A;<br>
 conda install -c conda-forge gxx==8.5.0</p>
 </li>
 <li>
-<p>Q/A 2. &#x7B2C;&#x4E09;&#x6B65;&#xFF08;Step3&#xFF09;&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;&#x3002;<br>
+<p><strong>Q/A 2. &#x7B2C;&#x4E09;&#x6B65;&#xFF08;Step3&#xFF09;&#x7F16;&#x8BD1;&#x4E0D;&#x901A;&#x8FC7;&#xFF1A;</strong><br>
 &#x8FD9;&#x5F88;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x4F60;&#x7684; CUDA &#x7248;&#x672C;&#x8F83;&#x65E7;&#x3002;&#x5EFA;&#x8BAE;&#x5347;&#x7EA7; PyTorch &#x548C; CUDA&#x3002;&#x5728;&#x6211;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;PyTorch 1.12.1 + CUDA 10.2 &#x65F6;&#x7F16;&#x8BD1;&#x5931;&#x8D25;&#xFF0C;&#x800C; PyTorch 2.0 &#x548C; CUDA 11.7 &#x7248;&#x672C;&#x7F16;&#x8BD1;&#x901A;&#x8FC7;&#x3002;</p>
+</li>
+<li>
+<p><strong>Q/A 3. &#x5982;&#x4F55;&#x68C0;&#x67E5;PyTorch&#x662F;GPU&#x8FD8;&#x662F;CPU&#x7248;&#xFF1F;</strong><br>
+&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>python
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; torch.cuda.is_available()
+True
+&gt;&gt;&gt; torch.cuda.device_count()
+1
+&gt;&gt;&gt; torch.cuda.current_device()
+0
+&gt;&gt;&gt; torch.cuda.device(0)
+&lt;torch.cuda.device at 0x7efce0b03be0&gt;
+&gt;&gt;&gt; torch.cuda.get_device_name(0)
+&apos;GeForce GTX 950M&apos;
+</code></pre><ul>
+<li>
+<p><strong>Q/A 4. Step1&#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x51FA;&#x73B0;GCC&#x7248;&#x672C;&#x8FC7;&#x4F4E;&#x7684;&#x95EE;&#x9898;</strong><br>
+&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF1A;<br>
+Your compiler (c++ 4.8.5) may be ABI-incompatible with PyTorch!<br>
+Please use a compiler that is ABI-compatible with GCC 5.0 and above.<br>
+See <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html">https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html</a>.<br>
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;<br>
+conda install -c conda-forge gxx==10.3.0 # &#x6211;&#x5B89;&#x88C5;&#x65F6;&#xFF0C;&#x8981;&#x6C42;&#x7248;&#x672C;&#x4E0D;&#x80FD;&#x9AD8;&#x4E8E;11</p>
+</li>
+<li>
+<p><strong>Q/A 5. RuntimeError: Ninja is required to load C++ extensions</strong><br>
+&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x5B89;&#x88C5;ninja<br>
+&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#xFF1A; pip install ninja #&#x5B89;&#x88C5;&#x5FEB;&#xFF0C; &#x63A8;&#x8350;<br>
+&#x4E5F;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A; conda install -c conda-forge ninja<br>
+&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x771F;&#x7684;&#x5C06;PATH&#xFF0C;LD_LIBRARY_PATH&#xFF0C;CUDA_HOME&#x7B49;&#x73AF;&#x5883;&#x4FBF;&#x5229;&#x4F20;&#x9012;&#x5230;&#x5176;&#x4ED6;&#x8282;&#x70B9;<br>
+&#x5982;&#x4F55;&#x8FD8;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x540E;&#x518D;&#x8BD5;&#xFF1A;&#x5220;&#x9664; <code>~/.cache/torch_extensions</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;</p>
+</li>
+<li>
+<p><strong>Q/A 5. &#x5982;&#x4F55;&#x4F7F;&#x7528;mpirun&#x542F;&#x52A8;&#x7A0B;&#x5E8F;</strong><br>
+DeepSpeed&#x652F;&#x6301;&#x591A;&#x79CD;&#x7684;&#x591A;&#x8282;&#x70B9;&#x7684;&#x8BAD;&#x7EC3;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5B89;&#x88C5;&#x4EE5;&#x4E0B;&#x5DE5;&#x5177;&#xFF1A;<br>
+conda install -c conda-forge mpi4py<br>
+conda install -c conda-forge openmpi<br>
+conda install -c anaconda openmpi<br>
+conda install -c pkgs/main openmpi</p>
+<ul>
+<li>&#x5B89;&#x88C5;&#x4E2D;&#x7684;&#x95EE;&#x9898;&#xFF1A;solving environment &#x957F;&#x65F6;&#x95F4;&#x4E0D;&#x7ED3;&#x675F;&#xFF1A;<br>
+&#x6267;&#x884C;&#x5B8C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x5B89;&#x88C5;&#x6210;&#x529F;&#xFF1A;
+<ul>
+<li>&#x5EFA;&#x8BAE;&#x505C;&#x6B62;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;</li>
+<li>&#x6E05;&#x7406;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#xFF1A; conda clearn --all</li>
+</ul>
+</li>
+</ul>
+<p>&#x53C2;&#x8003;&#x7F51;&#x9875;&#x8BF4;&#x660E;&#xFF1A;<a href="https://www.deepspeed.ai/getting-started/">https://www.deepspeed.ai/getting-started/</a></p>
+</li>
+<li>
+<p>**<em>Q/A 6. Conda&#x5B89;&#x88C5;&#x5E93;&#x65F6;&#x51FA;&#x73B0;inconsistent&#x95EE;&#x9898;</em><br>
+conda update -n YOUR_ENV_NAME -c defaults anaconda --force<br>
+&#x53C2;&#x8003;&#xFF1A;<a href="https://github.com/conda/conda/issues/8490">https://github.com/conda/conda/issues/8490</a></p>
 </li>
 </ul>
 <h2 class="mume-header" id="3-chatgpt%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B">3 ChatGPT&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x57FA;&#x672C;&#x6D41;&#x7A0B;</h2>
