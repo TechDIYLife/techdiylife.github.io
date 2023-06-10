@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { text: "第1章：DeepSpeed-Chat训练实战", href: "deepspeed-chat.html" },
     { text: "第2章：DeepSpeed-Chat代码分析", href: "deepspeed-chat-code.html" },
     { text: "第3章：DeepSpeed-Chat 模型与数据", href: "deepspeed-chat-model-data.html" },
+    { text: "分享1：跟大牛学LLM训练和使用技巧", href: "LLM-state-of-GPT.html" },
   ];
 
   menuItems.forEach((item) => {
