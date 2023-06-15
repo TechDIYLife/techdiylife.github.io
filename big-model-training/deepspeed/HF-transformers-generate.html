@@ -1,0 +1,658 @@
+<!DOCTYPE html><html><head>
+      <title>Transformers Generate &#x4ECB;&#x7ECD; | &#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x6280;&#x672F;&#x4ECB;&#x7ECD;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: 'Microsoft YaHei', 'Noto Sans SC', 'PingFang SC', sans-serif;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <link rel="stylesheet" href="assets/styles.css">
+<script src="dropdownmenu.js" defer></script>
+<nav id="navbarself">
+  <ul>
+  <li><a href="https://techdiylife.github.io">TechDIYLife&#x4E3B;&#x9875;</a></li>
+  <li id="dropdown-menu"><a href="#">&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x5165;&#x95E8;&#x5B9E;&#x6218;&#xFF1A;&#x7AE0;&#x8282;&#x5BFC;&#x822A;</a></li>
+  </ul>
+</nav>
+<p><font size="7px"><b>&#x5927;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x6280;&#x672F;&#x4ECB;&#x7ECD;</b></font></p>
+<p><strong>&#x76EE;&#x5F55;&#x7D22;&#x5F15;</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC5%E7%AB%A0transformers-generate-%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">&#x7B2C;5&#x7AE0;&#xFF1A;Transformers Generate &#x529F;&#x80FD;&#x4ECB;&#x7ECD;</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">&#x4ECB;&#x7ECD;</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-generate">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; Generate&#xFF1F;</a></li>
+<li><a href="#transformer-%E6%A8%A1%E5%9E%8B">Transformer &#x6A21;&#x578B;</a></li>
+<li><a href="#%E5%AE%9E%E6%88%98transformers-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">&#x5B9E;&#x6218;&#xFF1A;Transformers &#x4EE3;&#x7801;&#x5206;&#x6790;</a>
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">&#x4EE3;&#x7801;&#x7ED3;&#x6784;</a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B-modelswhisper">&#x6A21;&#x578B; models/whisper</a></li>
+<li><a href="#generate-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">Generate &#x4EE3;&#x7801;&#x5206;&#x6790;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE">&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5EFA;&#x8BAE;</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="%E7%AC%AC5%E7%AB%A0transformers-generate-%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">&#x7B2C;5&#x7AE0;&#xFF1A;Transformers Generate &#x529F;&#x80FD;&#x4ECB;&#x7ECD;</h1>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=0s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<h2 class="mume-header" id="%E4%BB%8B%E7%BB%8D">&#x4ECB;&#x7ECD;</h2>
+
+<p>&#x6700;&#x8FD1;&#x7684;&#x5927;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#xFF0C;&#x5F88;&#x591A;&#x90FD;&#x662F;&#x57FA;&#x4E8E;Huggingface Transformers&#x5F00;&#x53D1;&#x5E93;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x548C;&#x516C;&#x5F00;&#x7684;&#x3002;&#x5728;Transformers&#x5F00;&#x53D1;&#x5E93;&#x4E2D;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x751F;&#x6210;&#x65F6;&#xFF0C;&#x4F1A;&#x4F7F;&#x7528;&#x5230;&#x4E00;&#x4E2A;Generate&#x7684;&#x6587;&#x672C;&#x751F;&#x6210;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E2A;Generate&#x51FD;&#x6570;&#x90FD;&#x5177;&#x4F53;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F; &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E0E;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#x7684;forward&#x51FD;&#x6570;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x6587;&#x672C;&#x7684;&#x751F;&#x6210;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528; forward &#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;<br>
+&#x672C;&#x7AE0;&#x5185;&#x5BB9;&#x5C06;&#x4E3A;&#x4F60;&#x89E3;&#x91CA; Huggingface Transformers &#x4E2D;&#x7684; generate &#x6587;&#x672C;&#x751F;&#x6210;&#x529F;&#x80FD;&#x3002;</p>
+<p><strong>&#x672C;&#x7AE0;&#x5C06;&#x89E3;&#x7B54;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</strong></p>
+<ul>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;generate&#x529F;&#x80FD;&#xFF1F;</li>
+<li>Generate&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5728;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#xFF1F;</li>
+<li>Generate&#x51FD;&#x6570;&#x7684;&#x8F93;&#x5165;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+<li>&#x5982;&#x4F55;&#x5904;&#x7406; Decoder-only&#xFF08;&#x6BD4;&#x5982;GPT&#x7CFB;&#x5217;&#xFF09;&#x548C; encoder-decoder &#xFF08;&#x5B8C;&#x6574;Transformer&#xFF09;&#x7F51;&#x7EDC;&#x7684;generate&#xFF1F;</li>
+<li>Auto-regressive &#x7684;&#x8FED;&#x4EE3;&#x5FAA;&#x73AF;&#x662F;&#x5982;&#x4F55;&#x5904;&#x7406;&#x7684;&#xFF1F;</li>
+<li>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;&#xFF1F; &#x5982;&#x4F55;&#x4FEE;&#x6539;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#xFF1F;</li>
+</ul>
+<p>&#x901A;&#x8FC7;&#x5BF9;&#x4E0A;&#x9762;&#x95EE;&#x9898;&#x7684;&#x7406;&#x89E3;&#x548C;&#x5B66;&#x4E60;&#xFF0C;&#x4F60;&#x5C06;&#x4F1A;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3;Transformers&#x7684;&#x4EE3;&#x7801;&#x67B6;&#x6784;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x5BF9;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x4E2A;&#x6027;&#x5316;&#x4FEE;&#x6539;&#x3002;</p>
+<p><strong>&#x4E8B;&#x524D;&#x8BF4;&#x660E;&#xFF1A;</strong><br>
+&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x4E3A;&#x4E2A;&#x4EBA;&#x5B66;&#x4E60;&#x7684;&#x603B;&#x7ED3;&#xFF0C;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x4EC5;&#x4F9B;&#x53C2;&#x8003;&#x4F7F;&#x7528;&#x3002;<br>
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x9AD8;&#x901F;&#x53D1;&#x5C55;&#x548C;&#x8FDB;&#x5316;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x7531;&#x4E8E;&#x4E2A;&#x4EBA;&#x80FD;&#x529B;&#x548C;&#x89C1;&#x8BC6;&#x6240;&#x9650;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x4ECB;&#x7ECD;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x5728;&#x5176;&#x4ED6;&#x73AF;&#x5883;&#x548C;&#x914D;&#x7F6E;&#x4E0B;&#x6B63;&#x786E;&#x8FD0;&#x884C;&#x3002;</p>
+<h2 class="mume-header" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-generate">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; Generate&#xFF1F;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=40s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;AI&#x6A21;&#x578B;&#x6784;&#x5EFA;&#x7684;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x8BAD;&#x7EC3;&#x90E8;&#x5206;&#xFF08;Training&#xFF09;&#x548C;&#x63A8;&#x7406;&#x90E8;&#x5206;&#xFF08;Inference&#xFF0C;&#x751F;&#x6210;&#xFF0C;&#x89E3;&#x7801;&#xFF0C;&#x8BC6;&#x522B;&#xFF0C;&#x5224;&#x5B9A;&#xFF09;&#x3002;<br>
+&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x90E8;&#x5206;&#x901A;&#x8FC7;&#x8BBE;&#x8BA1;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#xFF0C;&#x8BAD;&#x7EC3;&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;&#x8C03;&#x6574;&#x8BAD;&#x7EC3;&#x53C2;&#x6570;&#x6765;&#x5F97;&#x5230;&#x9AD8;&#x7CBE;&#x5EA6;&#x7684;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x3002;&#x63A8;&#x7406;&#x90E8;&#x5206;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4E5F;&#x5E38;&#x88AB;&#x79F0;&#x4E3A;&#x9884;&#x6D4B;&#x90E8;&#x5206;&#xFF0C;&#x6216;&#x8005;&#x751F;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x5176;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x8BAD;&#x7EC3;&#x597D;&#x7684;&#x6A21;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x6216;&#x8005;&#x90E8;&#x7F72;&#x4E2D;&#x7684;&#x5B9E;&#x9645;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x8BC6;&#x522B;&#x6216;&#x8005;&#x6587;&#x672C;&#x751F;&#x6210;&#x7B49;&#x5904;&#x7406;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x8FD9;&#x4E24;&#x90E8;&#x5206;&#x90FD;&#x662F;&#x6A21;&#x578B;&#x7684;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<p>Transformer&#x7684;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;forward&#x51FD;&#x6570;&#xFF0C;&#x662F;&#x5728;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x65F6;&#x9488;&#x5BF9;&#x6A21;&#x578B;&#x7684;&#x8F93;&#x5165;&#x6765;&#x4EA7;&#x751F;&#x8F93;&#x51FA;&#xFF0C;&#x4ECE;&#x8BA9;&#x6765;&#x8BA1;&#x7B97;loss&#xFF0C;&#x6765;&#x66F4;&#x65B0;&#x7F51;&#x7EDC;&#x7684;&#x53C2;&#x6570;&#x3002;&#x65E2;&#x7136;&#x6709;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x7684;&#x51FD;&#x6570;&#x4E86;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;transformers&#x4E2D;&#x8FD8;&#x6709;&#x4E13;&#x95E8;&#x7684;generate&#x51FD;&#x6570;&#x6765;&#x8D1F;&#x8D23;&#x751F;&#x6210;&#x5462;&#xFF1F;</p>
+<p>&#x8FD9;&#x91CC;&#x9762;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x56E0;&#xFF1A;</p>
+<ol>
+<li>
+<p><strong>&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x4E0E;&#x751F;&#x6210;&#x7684;&#x5DEE;&#x5F02;&#xFF1A;</strong> &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x4E0A;&#xFF0C;Forward&#x51FD;&#x6570;&#x4E0E;decoding&#x6216;&#x8005;prediction&#x65F6;&#x7684;&#x5904;&#x7406;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;&#x4F46;&#x662F;&#x5728; LM &#x7684;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8BAD;&#x7EC3;&#x65F6;&#x7684;forward&#x51FD;&#x6570;&#x4E2D;&#x901A;&#x5E38;&#x5E76;&#x4E0D;&#x91C7;&#x7528;&#x771F;&#x6B63;&#x7684;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x9010;&#x6B65;&#x5904;&#x7406;&#x3002;<br>
+&#x5728;&#x7406;&#x8BBA;&#x4E0A;&#xFF0C;LM&#x6A21;&#x578B;&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x7684;&#x4E00;&#x7EC4; token&#xFF0C;&#x6765;&#x9884;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A;token&#x3002; &#x7136;&#x540E;&#x518D;&#x5C06;&#x65B0;&#x7684;&#x9884;&#x6D4B;&#x51FA;&#x7684; token &#x4E0E;&#x524D;&#x9762;&#x7684; token &#x5E8F;&#x5217;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;&#x7528;&#x6765;&#x7EE7;&#x7EED;&#x9884;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A; token&#x3002; &#x5728;&#x5B9E;&#x9645;&#x8BAD;&#x7EC3;&#x4E2D;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x81EA;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;&#x65B9;&#x5F0F;&#xFF0C;&#x8BAD;&#x7EC3;&#x7684;&#x6548;&#x7387;&#x975E;&#x5E38;&#x7684;&#x4F4E;&#xFF0C;&#x65E0;&#x6CD5;&#x66F4;&#x597D;&#x7684;&#x5229;&#x7528;GPU&#x7684;&#x5E76;&#x884C;&#x5904;&#x7406;&#x80FD;&#x529B;&#x3002; &#x56E0;&#x6B64;&#x5B9E;&#x9645;&#x8BAD;&#x7EC3;&#x4E2D;&#xFF0C;&#x4F5C;&#x4E3A;&#x6A21;&#x578B;&#x8F93;&#x5165;&#x7684; token &#x5E76;&#x4E0D;&#x901A;&#x8FC7;&#x6A21;&#x578B;&#x7684;&#x9884;&#x6D4B;&#x6765;&#x83B7;&#x53D6;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#xFF0C;&#x524D;&#x9762;&#x7684;&#x9884;&#x6D4B;&#x662F;&#x5B8C;&#x5168;&#x6B63;&#x786E;&#x7684;&#x3002;</p>
+</li>
+<li>
+<p><strong>LM Decoding&#x65B9;&#x6CD5;&#x7684;&#x590D;&#x6742;&#x6027;</strong><br>
+&#x76F8;&#x6BD4;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#xFF0C;LM&#x8FD9;&#x79CD;&#x81EA;&#x9012;&#x5F52;&#x7684;&#x751F;&#x6210;&#x4EFB;&#x52A1;&#x7684;&#x89E3;&#x7801;&#x901A;&#x5E38;&#x90FD;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x3002;&#x6BD4;&#x5982;&#x5728; LM &#x6216;&#x8005;ASR&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x89E3;&#x7801;&#x65B9;&#x6CD5;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982; greedy_search(), contrastive_search(), sample(), beam_search(), beam_sample(), group_beam_search(), and constrained_beam_search() &#x7B49;&#x7B49;&#x3002;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x89E3;&#x7801;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x66F4;&#x597D;&#x7684;&#x6548;&#x679C;&#x3002;&#x6BD4;&#x5982; beam_search&#x7684;&#x7ED3;&#x679C;&#x6BD4;greedy_search&#x7684;&#x7ED3;&#x679C;&#x901A;&#x5E38;&#x4F1A;&#x66F4;&#x597D;&#x3002;&#x4F46;&#x662F;&#x5728;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x91C7;&#x7528;&#x65B9;&#x6CD5;&#x66F4;&#x52A0;&#x7C7B;&#x4F3C;&#x4E8E;greedy search&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8BBE;&#x8BA1;&#x66F4;&#x597D;&#x7684;&#x89E3;&#x7801;&#x7B97;&#x6CD5;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x7814;&#x7A76;&#x65B9;&#x5411;&#x3002;</p>
+</li>
+</ol>
+<p>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x539F;&#x56E0;&#x5BFC;&#x81F4;&#x4E86;&#x5728; LLM &#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x4F1A;&#x7ECF;&#x5E38;&#x53EF;&#x4EE5;&#x89C1;&#x5230;&#x975E;&#x5E38;&#x590D;&#x6742;&#x7684; generate &#x529F;&#x80FD;&#x7528;&#x6765;&#x751F;&#x6210;&#x6587;&#x672C;&#x3002;</p>
+<h2 class="mume-header" id="transformer-%E6%A8%A1%E5%9E%8B">Transformer &#x6A21;&#x578B;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=236s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x9664;&#x4E86;LLM&#x7684;&#x6587;&#x672C;&#x751F;&#x6210;&#xFF0C;&#x57FA;&#x4E8E;LM&#x67B6;&#x6784;&#x7684;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x91C7;&#x7528;&#x7C7B;&#x4F3C;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x3002;&#x5176;&#x4E2D;OpenAI&#x7684;Whisper&#x6A21;&#x578B;&#x5C31;&#x662F;&#x91C7;&#x7528;&#x4E86;transformer&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x56E0;&#x6B64;&#x5176;&#x672C;&#x8D28;&#x4E0A;&#x66F4;&#x50CF;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x3002;&#xFF08;&#x6CE8;&#x610F;&#xFF1A;whisper&#x4E0E;&#x5E38;&#x89C1;&#x7684;CTC-based&#x7684;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x6A21;&#x578B;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF09;</p>
+<p>&#x6BD4;&#x5982;&#xFF0C;whisper &#x6A21;&#x578B;&#x8FDB;&#x884C;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x65F6;&#xFF0C;Encoder&#x90E8;&#x5206;&#x7528;&#x4E8E;&#x63D0;&#x53D6;&#x58F0;&#x5B66;&#x7279;&#x5F81;&#xFF0C;Decoder&#x90E8;&#x5206;&#x7528;&#x4E8E;&#x6587;&#x672C;&#x7684;&#x751F;&#x6210;&#xFF08;&#x8BED;&#x8A00;&#x5B66;&#x7279;&#x5F81;&#xFF09;&#x3002;</p>
+<p>&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#x4E8E;&#xFF1A;</p>
+<ul>
+<li>&#x58F0;&#x5B66;&#x7279;&#x5F81;&#xFF1A; &#x58F0;&#x5B66;&#x7279;&#x5F81;&#x7684;&#x63D0;&#x53D6;&#x662F;&#x8F93;&#x5165;&#x4E00;&#x4E2A;30&#x79D2;&#x7684;&#x8BED;&#x97F3;&#x7247;&#x6BB5;&#xFF0C;Encoder&#x90E8;&#x5206;&#x4F1A;&#x5C06;&#x6B64;&#x8F93;&#x5165;&#x7F16;&#x7801;&#x4E3A;&#x4E00;&#x4E2A;&#x5B9A;&#x957F;&#x7684;&#x5411;&#x91CF;&#x3002;</li>
+<li>&#x6587;&#x672C;&#x751F;&#x6210;&#xFF1A; &#x5C06;&#x58F0;&#x5B66;&#x7279;&#x5F81;&#x548C;&#x524D;&#x9762;&#x751F;&#x6210;&#x7684;&#x6587;&#x672C;&#x8F93;&#x5165;&#x5230; Decoder &#x7F51;&#x7EDC;&#x3002; Decoder&#x7F51;&#x7EDC;&#x5C31;&#x548C;&#x4F20;&#x7EDF;&#x7684; LM &#x4E00;&#x6837;&#xFF0C;&#x52AA;&#x529B;&#x7684;&#x9884;&#x6D4B;&#x4E0B;&#x4E00;&#x4E2A;token&#x7684;&#x8F93;&#x51FA;&#x3002;</li>
+<li>Loss&#x8BA1;&#x7B97;&#xFF1A; &#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x7684;token&#x4E0E;&#x6B63;&#x786E;token&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x6765;&#x8BA1;&#x7B97;&#x53C2;&#x6570;&#x66F4;&#x65B0;&#x6240;&#x9700;&#x8981;&#x7684;loss&#x3002;</li>
+</ul>
+<p>&#x4E0E;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x4E00;&#x6837;&#xFF0C;&#x8BAD;&#x7EC3;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E86;&#x6587;&#x672C;&#x7684; label &#x6570;&#x636E;&#x6765;&#x4F5C;&#x4E3A;Decoder&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5728;forward&#x51FD;&#x6570;&#x4E2D;&#x5E76;&#x4E0D;&#x5B9E;&#x9645;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x9012;&#x5F52;&#x7684;&#x9884;&#x6D4B;&#x8FC7;&#x7A0B;&#x3002; &#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x4EA7;&#x751F;&#x6216;&#x8005;&#x8BED;&#x97F3;&#x8BC6;&#x522B;&#x65F6;&#xFF0C;&#x662F;&#x5FC5;&#x9700;&#x8981;&#x8FDB;&#x884C;auto-regressive&#x7684;&#x64CD;&#x4F5C;&#x6765;&#x9010;&#x6B65;&#x4EA7;&#x751F;&#x6587;&#x672C;&#x3002;&#x8FD9;&#x4E2A;&#x4EA7;&#x751F;&#x6587;&#x672C;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5C31;&#x88AB;&#x5C01;&#x88C5;&#x5728;generate&#x51FD;&#x6570;&#x4E2D;&#x3002;</p>
+<h2 class="mume-header" id="%E5%AE%9E%E6%88%98transformers-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">&#x5B9E;&#x6218;&#xFF1A;Transformers &#x4EE3;&#x7801;&#x5206;&#x6790;</h2>
+
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=322s" target="_blank">&#x3010;&#x89C2;&#x770B;&#x89C6;&#x9891;&#x89E3;&#x8BF4;&#x3011;</a></p>
+</div>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x901A;&#x8FC7; transformers &#x4E2D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6765;&#x770B;&#x770B;generate&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#x3002;<br>
+&#x5728;Transformers&#x4E2D;&#xFF0C;&#x5177;&#x4F53;&#x6A21;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728; transformers/models &#x76EE;&#x5F55;&#x4E0B;&#x627E;&#x5230;&#xFF0C;&#x6BD4;&#x5982; OpenAI &#x7684; whisper &#x6A21;&#x578B;&#x7684;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x5728; transformers/models/whisper/modeling_whisper.py&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">&#x4EE3;&#x7801;&#x7ED3;&#x6784;</h3>
+
+<p>Transformers&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;GitHub&#x4E0A;&#x627E;&#x5230;&#xFF1A;<a href="https://github.com/huggingface/transformers">https://github.com/huggingface/transformers</a><br>
+&#x5176;&#x4EE3;&#x7801;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>docs
+scripts
+utils
+examples : &#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x53C2;&#x8003;&#x6848;&#x4F8B;
+...
+src/transformers &#xFF08;Transformer&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#xFF09;
+  data&#xFF1A; &#x6570;&#x636E;&#x5904;&#x7406;
+  models &#xFF1A; &#x6A21;&#x578B;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;BERT&#xFF0C; GPT&#xFF0C;Whisper&#x6A21;&#x578B;&#xFF0C;&#x90FD;&#x5728;&#x6B64;&#x76EE;&#x5F55;&#x4E0B;&#x5B9E;&#x73B0;  
+  generation : &#x6587;&#x672C;&#x751F;&#x6210;&#x76F8;&#x5173;&#x4EE3;&#x7801;
+
+  ...
+</code></pre><p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;examples&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x8003;&#x4F8B;&#x5B50;&#x3002;<br>
+&#x6211;&#x4EEC;&#x7684;&#x4ECA;&#x5929;&#x4ECB;&#x7ECD;&#x7684;&#x4E3B;&#x8981;&#x5185;&#x5BB9;&#x90FD;&#x5728; src/transformers &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x5176;&#x4E2D; models &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x662F;&#x57FA;&#x4E8E;transformer&#x7684;&#x5404;&#x79CD;&#x6A21;&#x578B;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;Generation &#x5305;&#x542B;&#x901A;&#x7528;&#x7684;&#x6587;&#x672C;&#x4EA7;&#x751F;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x3002;</p>
+<h3 class="mume-header" id="%E6%A8%A1%E5%9E%8B-modelswhisper">&#x6A21;&#x578B; models/whisper</h3>
+
+<p>&#x6211;&#x4EEC;&#x4EE5;Whisper &#x6A21;&#x578B;&#x4E3A;&#x4F8B;&#x6765;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x4EE5;v4.29.1&#x7684;&#x7248;&#x672C;&#x4E3A;&#x4F8B;&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;&#x3002;<br>
+&#x9996;&#x5148;&#xFF0C;whisper&#x6A21;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E;&#xFF1A;src/transformers/models/whisper &#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x5176;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x90FD;&#x5C01;&#x88C5;&#x5728; modeling_whisper.py &#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<p><strong>&#x8C03;&#x7528;&#x5165;&#x53E3;&#xFF1A;WhisperForConditionalGeneration&#x7C7B;</strong><br>
+&#x6B64;python&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x7C7B;&#xFF0C;&#x7EE7;&#x627F;&#x7684;&#x5173;&#x7CFB;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x4E3B;&#x8981;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x5982;&#x4E0B;&#xFF08;&#x4EE5;greedy search&#x4E3A;&#x4F8B;&#xFF09;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>WhisperForConditionalGeneration &#xFF08;L1312&#xFF09; &#xFF1A; &#x8C03;&#x7528;&#x5165;&#x53E3;&#x7C7B;
+    forward() &#xFF08;L1359&#xFF09;  --&gt; &#x7EC6;&#x8282;&#x5728;&#xFF1A;WhisperModel&#xFF0C;WhisperEncoder&#xFF0C;WhisperDecoder &#x7C7B;&#x4E2D;&#x5B9E;&#x73B0;
+    generate() &#xFF08;L1455&#xFF09; --&gt; &#x7EC6;&#x8282;&#x5728;: generation/utils.py#L1146 &#x4E2D;&#x5B9E;&#x73B0;
+        greedy_search(): L2164 --&gt; &#x8C03;&#x7528; search &#x51FD;&#x6570;&#x6765;&#x505A;&#x5B9E;&#x9645;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x6BD4;&#x5982;&#x81EA;&#x56DE;&#x5F52;&#x5904;&#x7406;
+</code></pre><p><strong>Forward&#x51FD;&#x6570;&#xFF1A;</strong><br>
+forward&#x51FD;&#x6570;&#x4F4D;&#x4E8E; class transformers.WhisperModel &#x7C7B;&#x4E2D;&#xFF0C;&#x4EE3;&#x7801;&#x4F4D;&#x7F6E;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1215">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1215</a></p>
+<pre data-role="codeBlock" data-info class="language-"><code>def forward():
+    # Encoder&#x5C06;&#x8F93;&#x5165;&#x7684;&#x8BED;&#x97F3;&#x4FE1;&#x53F7;&#xFF0C;&#x7F16;&#x7801;&#x4E3A;&#x58F0;&#x5B66;&#x4FE1;&#x606F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; encoder_outputs
+    encoder_outputs = self.encoder(
+        input_features,
+        head_mask=head_mask,
+        output_attentions=output_attentions,
+        output_hidden_states=output_hidden_states,
+        return_dict=return_dict,
+    )
+    # Decoder &#x7684;&#x4E3B;&#x8981;&#x8F93;&#x5165;&#x4E3A; decoder_input_ids &#xFF08;&#x5BF9;&#x5E94;&#x6587;&#x672C;&#xFF09; &#x548C; encoder_outputs &#xFF08;&#x5BF9;&#x5E94;&#x58F0;&#x5B66;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x7FFB;&#x8BD1;&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x5BF9;&#x5E94;&#x7740;&#x6E90;&#x8BED;&#x8A00;&#xFF09;
+    decoder_outputs = self.decoder(
+        input_ids=decoder_input_ids,
+        attention_mask=decoder_attention_mask,
+        encoder_hidden_states=encoder_outputs[0],
+        head_mask=decoder_head_mask,
+        cross_attn_head_mask=cross_attn_head_mask,
+        past_key_values=past_key_values,
+        inputs_embeds=decoder_inputs_embeds,
+        use_cache=use_cache,
+        output_attentions=output_attentions,
+        output_hidden_states=output_hidden_states,
+        return_dict=return_dict,
+      )
+
+</code></pre><p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709; Encoder &#x90E8;&#x5206;&#x548C; Decoder &#x90E8;&#x5206;&#xFF0C;&#x5206;&#x522B;&#x5BF9;&#x5E94;&#x58F0;&#x5B66;&#x7279;&#x5F81;&#x7684;&#x63D0;&#x53D6;&#x548C;&#x6587;&#x672C;&#x4EA7;&#x751F;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x5728; WhisperForConditionalGeneration &#x7C7B;&#x4E2D;&#xFF0C;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;forward&#x51FD;&#x6570;&#xFF0C;&#x662F;&#x5BF9;&#x4E0A;&#x9762;forward&#x51FD;&#x6570;&#x7684;&#x5C01;&#x88C5;&#x3002;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1359">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1359</a></p>
+<p>&#x5176;&#x4E2D;self.encoder&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; class WhisperEncoder(WhisperPreTrainedModel) &#x7C7B;&#x4E2D;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L735">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L735</a></p>
+<p>&#x5176;&#x4E2D;self.decoder&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; class WhisperDecoder(WhisperPreTrainedModel) &#x7C7B;&#x4E2D;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L881">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L881</a></p>
+<p><strong>Generate&#x51FD;&#x6570;</strong><br>
+Generate&#x51FD;&#x6570;&#x5165;&#x53E3;&#xFF1A;&#x4F4D;&#x4E8E; class WhisperForConditionalGeneration(WhisperPreTrainedModel) &#x7C7B;&#x4E2D;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455</a></p>
+<p>&#x6B64;&#x5904;&#x53EA;&#x662F;&#x8C03;&#x7528;&#x7684;&#x5165;&#x53E3;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; class GenerationMixin &#x7C7B;&#x4E2D;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a><br>
+def generate() L1146</p>
+<p>&#x5176;&#x4E2D;generate&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x7684;greedy_search&#x7684;&#x5B9E;&#x73B0;&#x4F4D;&#x4E8E;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L2164">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L2164</a></p>
+<h3 class="mume-header" id="generate-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">Generate &#x4EE3;&#x7801;&#x5206;&#x6790;</h3>
+
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3; generate &#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;&#x6765;&#x770B;&#x770B;&#x5982;&#x4F55;&#x5BF9;&#x6B64;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;</p>
+<p><strong>&#x5165;&#x53E3;&#x4EE3;&#x7801;</strong><br>
+Generate&#x51FD;&#x6570;&#x7684;&#x5165;&#x53E3;&#x4F4D;&#x4E8E;&#xFF1A; WhisperForConditionalGeneration&#x7C7B;&#x4E2D;&#x7684; def generate &#x51FD;&#x6570;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455</a></p>
+<p>&#x4EE3;&#x7801;&#x7684;&#x6982;&#x8981;&#x5982;&#x4E0B;&#xFF0C;&#x4ECE;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x8C03;&#x7528;&#x4E86;&#x7236;&#x7C7B;&#x4E2D;&#x7684;&#x5BF9;&#x5E94;&#x51FD;&#x6570;&#x6765;&#x6267;&#x884C;&#x7684;&#x3002;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>def generate()
+        # &#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x90E8;&#x5206;
+
+        # &#x8C03;&#x7528;&#x90E8;&#x5206;&#xFF08;&#x6B64;&#x5904;&#x8C03;&#x7528;&#x4E86;&#x7236;&#x7C7B;&#x4E2D;&#x7684;generate&#x5B9E;&#x73B0;&#xFF09;
+        return super().generate(
+            inputs,
+            generation_config,
+            logits_processor,
+            stopping_criteria,
+            prefix_allowed_tokens_fn,
+            synced_gpus,
+            **kwargs,
+        )
+
+</code></pre><p>&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x9010;&#x7EA7;&#x5411;&#x4E0A;&#x641C;&#x7D22;&#x5176;&#x7236;&#x7C7B;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;</p>
+<ul>
+<li>
+<p>&#x4E0A;&#x4E00;&#x7EA7;&#x7236;&#x7C7B; WhisperPreTrainedModel &#xFF1A; &#x6CA1;&#x6709;&#x592A;&#x591A;&#x5185;&#x5BB9;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L575">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L575</a></p>
+</li>
+<li>
+<p>&#x4E0A;&#x4E8C;&#x7EA7;&#x7236;&#x7C7B; PreTrainedModel<br>
+class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMixin)<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/modeling_utils.py#L1009">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/modeling_utils.py#L1009</a></p>
+</li>
+<li>
+<p>&#x4E0A;&#x4E09;&#x7EA7;&#x7236;&#x7C7B; GenerationMixin<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L469">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L469</a><br>
+def generate() &#x51FD;&#x6570; L1146<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a></p>
+</li>
+</ul>
+<p>&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x5728; GenerationMixin &#x7C7B;&#x4E2D;&#x3002;</p>
+<p><strong>Generate&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</strong></p>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B; GenerationMixin&#x7C7B;&#x4E2D;&#x7684; generate &#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x3002;<br>
+&#x4EE3;&#x7801;&#x4F4D;&#x7F6E;&#xFF1A;<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a></p>
+<p>&#x5176;&#x4EE3;&#x7801;&#x6982;&#x8981;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>def generate(): L1146
+      # &#x6839;&#x636E;&#x89E3;&#x7801;&#x65B9;&#x5F0F;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x6B64;&#x51FD;&#x6570;&#x4E2D;&#x6709;&#x6700;&#x591A;14&#x6B65;&#x7684;&#x5904;&#x7406;&#x6B65;&#x9AA4;&#xFF0C;&#x6211;&#x4EEC;&#x4EE5;greedy search&#x4E3A;&#x4F8B;
+      # 1. Handle `generation_config` and kwargs that might update it, and validate the `.generate()` call
+      # 2. Set generation parameters if not already defined
+      # 3. Define model inputs
+      # 4. Define other model kwargs
+      # 5. Prepare `input_ids` which will be used for auto-regressive generation
+      # 6. Prepare `max_length` depending on other stopping criteria.
+      # 7. determine generation mode
+      # 8. prepare distribution pre_processing samplers
+      # 9. prepare stopping criteria
+      # 10. go into different generation modes
+      # 11. run greedy search&#x3000;(L1515)
+
+def greedy_search(): L2164
+      # &#x521D;&#x59CB;&#x5316;&#xFF0C;&#x8BBE;&#x7F6E;
+
+      # &#x5FAA;&#x73AF;&#x5904;&#x7406;
+      while True: # L2317
+          # prepare model inputs (&#x4E0B;&#x9762;&#x51FD;&#x6570;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4F4D;&#x4E8E;&#xFF1A; modeling_whisper.py#L1627)
+          model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+
+          # forward pass to get next token 
+          # &#x8FD9;&#x91CC;&#x662F;&#x8C03;&#x7528;&#x4E86; WhisperForConditionalGeneration &#x4E2D;&#x7684;forward&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A; PyTorch &#x7684; nn.Module &#x57FA;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A; __call__ &#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x4F60;&#x8C03;&#x7528;&#x6A21;&#x578B;&#x5B9E;&#x4F8B;&#xFF08;&#x5373; self&#xFF09;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x8FD9;&#x4E2A; __call__ &#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A; __call__ &#x65B9;&#x6CD5;&#x53C8;&#x4F1A;&#x8C03;&#x7528; forward &#x65B9;&#x6CD5;&#x3002;
+          outputs = self(
+              **model_inputs,
+              return_dict=True,
+              output_attentions=output_attentions,
+              output_hidden_states=output_hidden_states,
+          )
+
+          # &#x5F97;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;token&#x7684;logits
+          next_token_logits = outputs.logits[:, -1, :]
+
+          # pre-process distribution &#x5F97;&#x5230;&#x5176;score
+          next_tokens_scores = logits_processor(input_ids, next_token_logits)
+          
+          # argmax &#xFF1A;&#x4F7F;&#x7528;argmax &#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684; tokens
+          next_tokens = torch.argmax(next_tokens_scores, dim=-1)
+
+          # update generated ids, model inputs, and length for next step
+          input_ids = torch.cat([input_ids, next_tokens[:, None]], dim=-1)
+
+          # &#x5224;&#x65AD;&#x662F;&#x5426;&#x7ED3;&#x675F;search&#xFF1A;
+          #   if eos_token was found in one sentence, set sentence to finished
+          #   stop if we exceed the maximum length
+
+</code></pre><p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6982;&#x8981;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x77E5;&#x9053;generate&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x4E86;&#x5F88;&#x591A;&#x7684;&#x8BBE;&#x7F6E;&#x4EE5;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528; greedy_search() &#x51FD;&#x6570;&#x6765;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x4EA7;&#x751F;&#x7684;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x3002;<br>
+&#x5230;&#x6B64;&#x4E3A;&#x6B62;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x5DF2;&#x7ECF;&#x5BF9;&#x6574;&#x4E2A;&#x7684;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x4E86;&#x89E3;&#x4E86;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6765;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x5BF9;&#x4EE3;&#x7801;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<ul>
+<li>
+<p>&#x95EE;&#x9898;1&#xFF1A; Generate&#x51FD;&#x6570;&#x7684;&#x5165;&#x53E3;&#x5728;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#xFF1F;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;2&#xFF1A; Generate&#x51FD;&#x6570;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5728;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#xFF1F;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;3&#xFF1A; &#x5728;&#x5904;&#x7406; Decoder-only &#x548C; encoder-decoder &#x7F51;&#x7EDC;&#x65F6;&#x6709;&#x4EC0;&#x4E48;&#x5DEE;&#x5F02; &#xFF1F;<br>
+Generate&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x652F;&#x6301;Deocder-only&#x548C;encoder-decoder&#xFF08;&#x5B8C;&#x6574;&#x7684;transformer&#xFF09;&#x3002;<br>
+Transformers&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x4E2A;LM&#xFF0C;Encoder&#x7F16;&#x7801;&#x540E;&#x7684;&#x5411;&#x91CF;&#x53EA;&#x662F;Decoder&#x7684;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x3002;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;4&#xFF1A;Generate &#x51FD;&#x6570;&#x7684;&#x8F93;&#x5165;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;<br>
+&#x6700;&#x4E3B;&#x8981;&#x7684;&#x8F93;&#x5165;&#x4E3A; inputs&#xFF0C;&#x5728;&#x4F5C;&#x4E3A;LM&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A; prompt tokens&#xFF0C;&#x82E5;&#x4E3A; None&#xFF0C;&#x5219;&#x521D;&#x59CB;&#x5316;&#x4E3A; bos_token_id&#x3002;<br>
+&#x5982;&#x679C;&#x662F; decoder-only&#xFF0C;&#x5219;input&#x4E3A;input_ids&#x7684;&#x683C;&#x5F0F;&#xFF0C; &#x5982;&#x679C;&#x4E3A;encoder-decoder&#xFF0C;&#x5219;&#x652F;&#x6301;input_ids&#x548C;feature&#x7B49;&#x591A;&#x79CD;&#x683C;&#x5F0F;&#x3002;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;5&#xFF1A;Auto-regressive &#x7684;&#x8FED;&#x4EE3;&#x5FAA;&#x73AF;&#x662F;&#x5982;&#x4F55;&#x5904;&#x7406;&#x7684;&#xFF1F; &#x5728;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#xFF1F;<br>
+&#x8FED;&#x4EE3;&#x5FAA;&#x73AF;&#x53EF;&#x4EE5;&#x5728; greedy_search &#x51FD;&#x6570;&#x4E2D;&#x627E;&#x5230;&#x3002;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;6&#xFF1A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x662F;&#x4EC0;&#x4E48;&#xFF1F; &#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x81EA;&#x5DF1;&#x989D;&#x5916;&#x7684;&#x6570;&#x636E;&#xFF1F;<br>
+&#x8FD4;&#x56DE;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6839;&#x636E;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#x4E0D;&#x540C;&#x4E5F;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x652F;&#x6301; GreedySearchEncoderDecoderOutput &#x548C; GreedySearchDecoderOnlyOutput&#x3002;<br>
+&#x4E5F;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x4EFB;&#x610F;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6BD4;&#x5982; L2421 &#x53EA;&#x8FD4;&#x56DE;&#x4E86; input_ids&#x3002;<br>
+&#x5982;&#x679C;&#x8981;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E0A;&#x9762;&#x7684;&#x7C7B; GreedySearchEncoderDecoderOutput &#x548C; GreedySearchDecoderOnlyOutput&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728; L2421 &#x6DFB;&#x52A0;&#x8F93;&#x51FA;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+</li>
+<li>
+<p>&#x95EE;&#x9898;7&#xFF1A; &#x5982;&#x4F55;&#x5BF9;Generate&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF1F;&#x5728;&#x90A3;&#x4E2A;&#x811A;&#x672C;&#x4E2D;&#x4FEE;&#x6539;&#xFF1F;<br>
+&#x5728;src/transformers/generation/utils.py&#x4E2D;&#x4FEE;&#x6539;&#xFF0C;&#x8FD8;&#x662F;&#x5728;src/transformers/models/whisper/modeling_whisper.py&#x4E2D;&#x4FEE;&#x6539;&#x5462;&#xFF1F;</p>
+</li>
+</ul>
+<h2 class="mume-header" id="%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE">&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5EFA;&#x8BAE;</h2>
+
+<p>&#x9488;&#x5BF9;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;7&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5BF9;generate&#x6216;&#x8005;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728; models/whisper&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x5BF9;&#x7236;&#x7C7B;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x91CD;&#x6784;&#x3002;<br>
+&#x6BD4;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5BF9;greedy_search&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x8C03;&#x6574;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x72EC;&#x7279;&#x7684;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;modeling_whisper.py&#x4E2D;&#x91CD;&#x6784; greedy_search()&#xFF0C;&#x5177;&#x4F53;&#x505A;&#x6CD5;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;</p>
+<ol>
+<li>&#x5C06; <a href="http://utils.py">utils.py</a> &#x4E2D;&#x7684; greedy_search &#x51FD;&#x6570;&#x62F7;&#x8D1D;&#x5230; modeling_whisper.py &#x6587;&#x4EF6;&#x4E2D;&#x3002;</li>
+<li>&#x9700;&#x8981;import &#x4E00;&#x4E9B;&#x5FC5;&#x8981;&#x7684;&#x5E93;&#x6587;&#x4EF6;&#x3002;&#xFF08;&#x5177;&#x4F53;&#x7684;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x786E;&#x5B9A;&#xFF09;</li>
+<li>&#x5728;greedy_search&#x51FD;&#x6570;&#x4E2D;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x60F3;&#x8981;&#x7684;&#x529F;&#x80FD;&#x3002;</li>
+</ol>
+<p>&#x51FD;&#x6570;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x88AB;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x4F18;&#x5148;&#x8C03;&#x7528;&#x65B0;&#x91CD;&#x6784;&#x7684;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x6837;&#x65E2;&#x5B9E;&#x73B0;&#x4E86;&#x81EA;&#x5DF1;&#x72EC;&#x7279;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8FD8;&#x4E0D;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x7684;&#x6A21;&#x578B;&#x7684;&#x8FD0;&#x884C;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+
+<ol>
+<li>&#x3010;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x3011;<a href="https://huggingface.co/blog/how-to-generate">https://huggingface.co/blog/how-to-generate</a></li>
+<li><a href="https://huggingface.co/docs/transformers/main_classes/text_generation">https://huggingface.co/docs/transformers/main_classes/text_generation</a></li>
+<li><a href="https://huggingface.co/docs/transformers/internal/generation_utils">https://huggingface.co/docs/transformers/internal/generation_utils</a></li>
+</ol>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZC24J7TE5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KZC24J7TE5');
+</script>
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x7B2C;5&#x7AE0;transformers-generate-&#x529F;&#x80FD;&#x4ECB;&#x7ECD;" class="md-toc-link"><p>&#x7B2C;5&#x7AE0;&#xFF1A;Transformers Generate &#x529F;&#x80FD;&#x4ECB;&#x7ECD;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x4ECB;&#x7ECD;" class="md-toc-link">
+            <p>&#x4ECB;&#x7ECD;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;-generate" class="md-toc-link">
+            <p>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; Generate&#xFF1F;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#transformer-&#x6A21;&#x578B;" class="md-toc-link">
+            <p>Transformer &#x6A21;&#x578B;</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open>
+        <summary class="md-toc-link-wrapper">
+          <a href="#&#x5B9E;&#x6218;transformers-&#x4EE3;&#x7801;&#x5206;&#x6790;" class="md-toc-link"><p>&#x5B9E;&#x6218;&#xFF1A;Transformers &#x4EE3;&#x7801;&#x5206;&#x6790;</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x4EE3;&#x7801;&#x7ED3;&#x6784;" class="md-toc-link">
+            <p>&#x4EE3;&#x7801;&#x7ED3;&#x6784;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x6A21;&#x578B;-modelswhisper" class="md-toc-link">
+            <p>&#x6A21;&#x578B; models/whisper</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#generate-&#x4EE3;&#x7801;&#x5206;&#x6790;" class="md-toc-link">
+            <p>Generate &#x4EE3;&#x7801;&#x5206;&#x6790;</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5EFA;&#x8BAE;" class="md-toc-link">
+            <p>&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5EFA;&#x8BAE;</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="md-toc-link">
+            <p>&#x53C2;&#x8003;&#x6587;&#x732E;</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
