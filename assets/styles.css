@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#navbarself {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+
+#navbarself ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 添加 display 属性并设置为 flex */
+  justify-content: flex-end; /* 将 justify-content 属性更改为 flex-end */
+  align-items: center; 
+}
+
+.home-link {
+  position: absolute;
+  left: 0;
+}
+
+#navbarself li {
+  display: inline;
+}
+
+#navbarself li a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#navbarself li a:hover {
+  background-color: white;
+}
+
+#main-content {
+  padding-top: 60px; /* 将内边距调整为与导航条高度一致或稍大 */
+}
+
+/* 省略其他样式 */
+
+#navbarself .dropdown {
+  display: none;
+  position: absolute;
+  background-color: #aaa9a9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#navbarself .dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+#navbarself .dropdown a:hover {
+  background-color: #111;
+}
+
+#navbarself li:hover .dropdown {
+  display: block;
+}
+
