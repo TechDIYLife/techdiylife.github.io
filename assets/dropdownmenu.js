@@ -40,4 +40,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dropdownMenuAIGame.appendChild(dropdownContent);
   }
+
+  
+  //AI-game
+  const dropdownMenuZhuanTiList = document.getElementById("dropdown-zhuanti");
+  if (dropdownMenuZhuanTiList!=null){
+    const dropdownContent = document.createElement("div");
+    dropdownContent.className = "dropdown";
+    const menuItems = [
+      { text: "《大模型训练技术实战入门》", href: "/big-model-training/deepspeed/deepspeed-chat.html" },
+      { text: "《AI打爆贪吃蛇》", href: "/AI-Game/snake/01-AI-snake-intro.html" },
+    ];
+    menuItems.forEach((item) => {
+      const link = document.createElement("a");
+      link.textContent = item.text;
+      link.href = item.href;
+      dropdownContent.appendChild(link);
+    });
+
+    dropdownMenuZhuanTiList.appendChild(dropdownContent);
+  }
+
 });
