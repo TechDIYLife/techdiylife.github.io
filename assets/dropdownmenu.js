@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownContent = document.createElement("div");
     dropdownContent.className = "dropdown";
     const menuItems = [
-      { text: "第1章：AI挑战贪吃蛇专题介绍", href: "/AI-Game/snake/01-AI-snake-intro.html" },
-      { text: "第2章：AI贪吃蛇环境安装", href: "/AI-Game/snake/02-AI-snake-install.html" },
+      { text: "第1章：AI打爆贪吃蛇--专题介绍", href: "/AI-Game/snake/01-AI-snake-intro.html" },
+      { text: "第2章：AI打爆贪吃蛇--环境安装", href: "/AI-Game/snake/02-AI-snake-install.html" },
     ];
     menuItems.forEach((item) => {
       const link = document.createElement("a");
