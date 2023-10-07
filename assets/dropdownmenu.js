@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //New articles
-  const dropdownMenuNew = document.getElementById("dropdown-menuNew");
+  const dropdownMenuNew = document.getElementById("dropdown-new");
   if (dropdownMenuNew!=null){
     const dropdownContent = document.createElement("div");
     dropdownContent.className = "dropdown";
