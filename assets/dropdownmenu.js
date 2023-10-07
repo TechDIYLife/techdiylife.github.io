@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   
-  //AI-game
+  //Zhuanti
   const dropdownMenuZhuanTiList = document.getElementById("dropdown-zhuanti");
   if (dropdownMenuZhuanTiList!=null){
     const dropdownContent = document.createElement("div");
@@ -60,5 +60,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dropdownMenuZhuanTiList.appendChild(dropdownContent);
   }
+
+  //New articles
+  const dropdownMenuNew = document.getElementById("dropdown-menuNew");
+  if (dropdownMenuNew!=null){
+    const dropdownContent = document.createElement("div");
+    dropdownContent.className = "dropdown";
+    const menuItems = [
+      { text: "ChatGPT高质量翻译的提示词技巧", href: "/AI-news/Y2023/QA003-fanyi.html" },
+      { text: "第1章：AI打爆贪吃蛇--专题介绍", href: "/AI-Game/snake/01-AI-snake-intro.html" },
+      { text: "第2章：AI打爆贪吃蛇--环境安装", href: "/AI-Game/snake/02-AI-snake-install.html" },
+    ];
+    menuItems.forEach((item) => {
+      const link = document.createElement("a");
+      link.textContent = item.text;
+      link.href = item.href;
+      dropdownContent.appendChild(link);
+    });
+
+    dropdownMenuNew.appendChild(dropdownContent);
+  }
+
 
 });
