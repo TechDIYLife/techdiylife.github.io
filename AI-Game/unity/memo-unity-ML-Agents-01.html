@@ -47,10 +47,42 @@
 <ul>
 <li><a href="#21-%E7%A8%8B%E5%BA%8F%E7%89%88%E6%9C%AC">2.1 程序版本</a></li>
 <li><a href="#22-%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4">2.2 安装步骤</a></li>
-<li><a href="#23-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">2.3 常见问题</a></li>
-<li><a href="#24-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">2.4 参考资料</a></li>
+<li><a href="#23-mlagents-learn%E5%8F%82%E6%95%B0">2.3 mlagents-learn参数</a></li>
+<li><a href="#24-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">2.4 常见问题</a></li>
+<li><a href="#25-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">2.5 参考资料</a></li>
 </ul>
 </li>
+<li><a href="#%E5%88%86%E4%BA%AB3%E6%BB%9A%E7%90%83%E6%B8%B8%E6%88%8F%E6%BC%94%E7%A4%BA">分享3：滚球游戏演示</a></li>
+<li><a href="#%E7%AC%94%E8%AE%B04%E6%BB%9A%E7%90%83%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98">笔记4：滚球游戏开发实战</a>
+<ul>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87">学习目标</a></li>
+<li><a href="#31-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE">3.1 新建项目</a></li>
+<li><a href="#32-%E5%88%B6%E4%BD%9C%E6%AD%A5%E9%AA%A4">3.2 制作步骤</a></li>
+<li><a href="#33-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8E%A8%E8%AE%BA">3.3 学习与推论</a></li>
+<li><a href="#34%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86">3.4相关知识</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">注意事项</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%94%E8%AE%B05unity-ml-agents%E7%9A%84%E5%9F%BA%E7%A1%80">笔记5：Unity ML-Agents的基础</a>
+<ul>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87-1">学习目标</a></li>
+<li><a href="#51-%E7%8A%B6%E6%80%81%E5%92%8C%E8%A7%82%E5%AF%9F">5.1 状态和观察</a></li>
+<li><a href="#52-%E8%A1%8C%E5%8A%A8%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%87%BA">5.2 行动（模型输出）</a></li>
+<li><a href="#53-%E6%8A%A5%E9%85%AC%E5%92%8Cepisode%E7%BB%93%E6%9D%9F%E5%AF%B9%E5%BA%94loss%E8%AE%A1%E7%AE%97">5.3 报酬和Episode结束（对应Loss计算）</a></li>
+<li><a href="#54-%E5%86%B3%E5%AE%9Adecision">5.4 决定（Decision）</a></li>
+<li><a href="#55-%E8%AE%AD%E7%BB%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">5.5 训练配置文件</a></li>
+<li><a href="#56-mlagents-learn">5.6 mlagents-learn</a></li>
+<li><a href="#58-tensorboard">5.8 Tensorboard</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%94%E8%AE%B06%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95pposac%E5%AF%B9%E6%AF%94">笔记6：强化学习算法PPO，SAC对比</a>
+<ul>
+<li><a href="#61-ppo%E4%B8%8Esac%E6%98%AF%E4%BB%80%E4%B9%88">6.1 PPO与SAC是什么？</a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%8F%82%E6%95%B0">模型训练参数</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+<li><a href="#%E5%90%8E%E7%BB%AD%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92">后续内容安排</a></li>
 </ul>
 <h1 id="笔记1unity-ml-agents-基础知识">笔记1：Unity ML-Agents 基础知识 </h1>
 <div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
@@ -451,7 +483,22 @@ typing_extensions       4.8.0
 urllib3                 2.0.7
 Werkzeug                3.0.1
 wheel                   0.41.3
-</code></pre><h2 id="23-常见问题">2.3 常见问题 </h2>
+</code></pre><h2 id="23-mlagents-learn参数">2.3 mlagents-learn参数 </h2>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>usage: mlagents-learn.exe 
+  [-h] [--env ENV_PATH] [--resume] [--deterministic] [--force] [--run-id RUN_ID]
+  [--initialize-from RUN_ID] [--seed SEED] [--inference] [--base-port BASE_PORT]
+  [--num-envs NUM_ENVS] [--num-areas NUM_AREAS] [--debug] [--env-args ...]
+  [--max-lifetime-restarts MAX_LIFETIME_RESTARTS]
+  [--restarts-rate-limit-n RESTARTS_RATE_LIMIT_N]
+  [--restarts-rate-limit-period-s RESTARTS_RATE_LIMIT_PERIOD_S] [--torch] [--tensorflow]
+  [--results-dir RESULTS_DIR] [--timeout-wait TIMEOUT_WAIT] [--width WIDTH] [--height HEIGHT]
+  [--quality-level QUALITY_LEVEL] [--time-scale TIME_SCALE]
+  [--target-frame-rate TARGET_FRAME_RATE] [--capture-frame-rate CAPTURE_FRAME_RATE]
+  [--no-graphics] 
+  [--torch-device DEVICE(cpu, cuda, cuda:0)]
+  [trainer_config_path]
+
+</code></pre><h2 id="24-常见问题">2.4 常见问题 </h2>
 <ul>
 <li>
 <p>Q1：Unity Hub login (Something went wrong. Please sign in again.)<br>
@@ -505,9 +552,586 @@ ERROR: Could not build wheels for numpy, which is required to install pyproject.
 "numpy==1.21.2", --&gt; "numpy&gt;=1.14.1,&lt;1.24",
 </code></pre></li>
 </ul>
-<h2 id="24-参考资料">2.4 参考资料 </h2>
+<h2 id="25-参考资料">2.5 参考资料 </h2>
 <p><strong>官方推荐的安装介绍：</strong><br>
 <a href="https://unity-technologies.github.io/ml-agents/Installation/">https://unity-technologies.github.io/ml-agents/Installation/</a></p>
+<p>官方参考资料：<br>
+<a href="https://unity-technologies.github.io/ml-agents/ML-Agents-Toolkit-Documentation/">https://unity-technologies.github.io/ml-agents/ML-Agents-Toolkit-Documentation/</a></p>
+<h1 id="分享3滚球游戏演示">分享3：滚球游戏演示 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/a4lpTaoA-iU" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>Unity ML-Agents 游戏编程之实战案例演示。</p>
+<p>本次分享的内容，将为您：</p>
+<ul>
+<li>介绍滚球游戏的规则，以及代码的简单介绍</li>
+<li>演示使用 ML-Agents 训练的模型</li>
+</ul>
+<h1 id="笔记4滚球游戏开发实战">笔记4：滚球游戏开发实战 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/fZy9HRrkNvc" target="_blank">【观看视频解说】</a></p>
+</div>
+<h2 id="学习目标">学习目标 </h2>
+<ol>
+<li>新建项目，项目配置</li>
+<li>Unity开发游戏的简单案例</li>
+<li>模型训练，推理</li>
+</ol>
+<p>参考资料：<br>
+<a href="https://unity-technologies.github.io/ml-agents/Learning-Environment-Create-New/">https://unity-technologies.github.io/ml-agents/Learning-Environment-Create-New/</a></p>
+<h2 id="31-新建项目">3.1 新建项目 </h2>
+<ul>
+<li>打开Unity Hub： 新建项目
+<ul>
+<li>选择3D模版</li>
+<li>项目名：RollerBall</li>
+</ul>
+</li>
+<li>打开项目，导入ML-Agents
+<ul>
+<li>Window/Package Manager</li>
+<li>[+] Install package from disk, 选择 ml-agents-release_21/com.unity.ml-agents/package.json</li>
+<li>导入确认：Project/Packages/ML Agents</li>
+</ul>
+</li>
+</ul>
+<h2 id="32-制作步骤">3.2 制作步骤 </h2>
+<ul>
+<li>调整摄像头位置：调整游戏视角（Hierarchy/Main Camera）</li>
+<li>调整开发场景视角：（选择手掌； 平移：左键按住移动；旋转：ALT+左键安装； 缩放：滚轮）</li>
+<li>准备材料：灰色Gray（168，168，168），茶色Brown（212，154，33），蓝色Blue（0，35，255）</li>
+<li>添加地板 Floor：（Hierarchy/+/3D Object/Plane, Gray）</li>
+<li>添加立方体 Target： (Hierarchy/+/3D Object/Cube，Brown)</li>
+<li>添加球体 RollerAgent：（Hierarchy/+/3D Object/Sphere， Blue）</li>
+<li>智能体设置--添加Rigidbody：（Add Component-&gt; Rigidbody，采用默认值）</li>
+<li>智能体设置--添加 Behavior Parameters（Add Component-&gt; Behavior Parameters。BehaviorNmae：RollBall，Space Size：6； Continuous Actions: 2）</li>
+<li>智能体设置--添加 Agent 类脚本 （代码编写建议使用 Microsoft Visual Studio）</li>
+<li>智能体设置--添加 Decision Requester（Decision Period：10）</li>
+<li>环境运行确认（玩家模式）</li>
+</ul>
+<h2 id="33-学习与推论">3.3 学习与推论 </h2>
+<ul>
+<li>学习步骤
+<ul>
+<li>学习配置文件设置</li>
+<li>mlagents-learn执行:<br>
+mlagents-learn ./config/sample/RollerBall.yaml --run-id=rollerball-0<br>
+mlagents-learn ./config/sample/RollerBall.yaml --run-id=rollerball-0 --force #覆盖掉以前的训练</li>
+<li>在Unity中开始训练：点击Play按钮</li>
+</ul>
+</li>
+<li>推理步骤
+<ul>
+<li>导入模型文件（添加到Assets中）</li>
+<li>Behavior Parameters：设置Model和Behavior Type(Default or Inference Only)</li>
+<li>在Unity中开始运行：点击Play按钮</li>
+</ul>
+</li>
+</ul>
+<h2 id="34相关知识">3.4相关知识 </h2>
+<p><strong>Rigidbody</strong><br>
+Rigidbody是用于为游戏对象添加物理属性的组件，允许使用物理引擎来控制游戏对象的运动和位置。以下是文档中提到的主要属性及其功能：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Mass（质量）：定义游戏对象的质量（以千克为单位）。默认为1。质量不影响物体在重力下的下落速度，但影响模拟抗力的阻力。
+Drag（阻力）：定义Rigidbody的线性速度衰减率，用于模拟阻力、空气阻力或摩擦力。低值表示衰减率较慢，对象移动更快更久，高值则相反。
+Angular Drag（角阻力）：定义Rigidbody的旋转速度衰减率。同样用于模拟阻力和摩擦力。默认值为0.05。
+Automatic Center Of Mass（自动质心）：启用此功能后，物理系统将基于对象的形状和比例预测Rigidbody的质心。禁用则可以手动设置质心的X、Y、Z坐标。
+Automatic Tensor（自动惯性张量）：启用此功能后，物理系统将预测基于所有连接碰撞器的Rigidbody的惯性张量和张量旋转。禁用则可以手动设置。
+Use Gravity（使用重力）：启用或禁用重力对Rigidbody的影响。默认启用。
+Is Kinematic（是否运动学）：切换Rigidbody的运动模式。启用时，物理系统不能施加力使对象移动或旋转，只能通过其Transform来控制。
+Interpolate（插值）：提供两个选项（插值和外推），用于在运行时如果Rigidbody的运动看起来抖动时，平滑其运动。
+Collision Detection（碰撞检测）：定义物理系统如何检测该Rigidbody的碰撞器与场景中其他碰撞器之间的碰撞。提供了几种不同的碰撞检测方法，包括离散、连续、连续动态和连续推测。
+Constraints（约束）：可以选择性地限制Rigidbody在世界X、Y、Z轴上的运动或旋转。
+</code></pre><h2 id="注意事项">注意事项 </h2>
+<ol>
+<li>
+<p>文件夹名， cs文件中的注释使用英文。</p>
+</li>
+<li>
+<p>学习配置文件 .yaml 第二行要与任务名一致。<br>
+否则会出现下面错误：<br>
+mlagents.trainers.exception.TrainerConfigError: The behavior name RollerBall has not been specified in the trainer configuration. Please add an entry in the configuration file for RollerBall, or set default_settings.</p>
+</li>
+<li>
+<p>如何切换代码编辑器（从VS code切换为Microsoft Visual Studio）<br>
+切换到*.cs所在的文件，在文件上面点击右键 -&gt; 打开方式 -&gt; 选择其他程序 -&gt; 选择Microsoft Visual Studio 2022，并勾选为默认打开程序 -&gt; 确定即可</p>
+</li>
+<li>
+<p>无法启动训练，显示couldn't connetct to trainer on port 5004 using API version 1.5.0, Will perform inference instead.</p>
+<ul>
+<li>原因1：注意路径名中不能包含非英语字符。</li>
+<li>原因2：有人报告是防火墙问题，可以尝试关闭防火墙试试。<br>
+尝试：</li>
+<li>检查了Proxy设置，并取消了--依然无效</li>
+<li>重启机器 --&gt; 无效</li>
+<li>检查Port是否在监听状态：netstat -an （可以找到）</li>
+<li>通过PowerShell，检查Port 服务，Test-NetConnection localhost -p 5004<br>
+ComputerName     : localhost<br>
+RemoteAddress    : ::1<br>
+RemotePort       : 5004<br>
+InterfaceAlias   : Loopback Pseudo-Interface 1<br>
+SourceAddress    : ::1<br>
+TcpTestSucceeded : True<br>
+服务正常<br>
+参考讨论：<br>
+<a href="https://github.com/Unity-Technologies/ml-agents/issues/4021">https://github.com/Unity-Technologies/ml-agents/issues/4021</a><br>
+<a href="https://github.com/Unity-Technologies/ml-agents/issues/4015">https://github.com/Unity-Technologies/ml-agents/issues/4015</a></li>
+</ul>
+</li>
+</ol>
+<p>不能正常运行的坑：<br>
+Rigidbody 删除，重新添加后，原先不允许的程序可以执行了。</p>
+<h1 id="笔记5unity-ml-agents的基础">笔记5：Unity ML-Agents的基础 </h1>
+<h2 id="学习目标-1">学习目标 </h2>
+<ul>
+<li>强化学习相关术语的进一步理解</li>
+<li>学习用超参的用途和设定值的理解</li>
+<li>理解mlagents-learn命令相关的参数</li>
+<li>使用TensorBoad来了解学习状况</li>
+</ul>
+<h2 id="51-状态和观察">5.1 状态和观察 </h2>
+<p><strong>状态</strong>： 环境中由于，受到智能体的行动影响，而变化的所有要素，被称为状态。<br>
+强化学习中，智能体通过取得状态，并根据状态的情况，通过策略来决定行动。</p>
+<p><strong>观察</strong>： 智能体对状态的取得，被称为观察。观察，可以分为完全观察和部分观察。 完全观察也就是取得所有的状态，部分观察是取得部分的状态。</p>
+<p>观察也可以理解为模型的输入。</p>
+<p>在 Unity ML-Agents 中，支持多种形式的观察：</p>
+<ul>
+<li>Vector Observation：基本数据型</li>
+<li>Camera Sensor：摄像头图像</li>
+<li>Render Texture Sensor</li>
+<li>Ray Perception Sensor</li>
+<li>Buffer Sensor：可变长Buffer</li>
+<li>Grid Sensor</li>
+<li>Rigidbody Sensor</li>
+<li>Match3 Sensor</li>
+</ul>
+<p><strong>Vector Observation</strong>：<br>
+滚球游戏中使用的Vector Observation 的观察，可以在Behavior Parameters中进行设置。</p>
+<p>设置的参数介绍：</p>
+<ul>
+<li>
+<p>Behavior Name：此名称要与训练配置文件的Session名一致</p>
+<p>例如下面（可以看到第一行名称是 behaviors）</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>behaviors:
+  RollerBall: #Session名
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 0.0003
+</code></pre></li>
+<li>
+<p>Vector Observation -&gt; Space Size<br>
+比如此游戏中设置了Space size为6的Vector Observation，这6个就包括<br>
+Target的X轴坐标，Z轴坐标；<br>
+RollerAgent的X轴坐标，Z轴坐标；<br>
+RoolerAgent的X轴速度，Z轴速度</p>
+</li>
+<li>
+<p>Vector Observation -&gt; Stacked Vectors<br>
+观察的步数，比如设置为1时，表示，只使用当前的观察；2则表示，在做决定时，会同时使用当前和前面一帧的观察。</p>
+<p>【思考题】在滚球游戏中，此值设置为1。假如在 Vector Observation 不使用小球的速度的观察，游戏的表现会如何呢？ 是否可以通过增加 Stacked Vectors 来改进呢？<br>
+可以通过增加观察上一帧的位置。 让模型通过前后两帧位置的差异，来了解小球的速度。</p>
+</li>
+</ul>
+<p><strong>CollectOvservations</strong><br>
+在Agent类中有一个CollectionObservation的函数，此函数用来准备并追加观察的值。<br>
+追加命令为AddObservation()。此命令可以添加多种类型的数据类型，包括：float，int， bool， Vector2， Vector3， Quaternion，one-hot型</p>
+<p><strong>观察设定时的重点</strong></p>
+<ul>
+<li>观察要包含决定行动的所有信息（但也要注意，不要加入无用的信息，因为Size越大，训练时间也越长）</li>
+<li>离散值观察时，使用one-hot表现：在AI任务重，最常见的one-hot应用就是分类任务，比如图像识别时，设置识别对象，猫还是狗。在游戏中，角色选择武器时，可能备选有剑，斧，弓等等。此时可以设置one-hot表现为：<pre data-role="codeBlock" data-info="" class="language-text text"><code>剑： [1,0,0]
+斧： [0,1,0]
+弓： [0,0,1]
+</code></pre></li>
+<li>连续值时做正规化：正规化就是将值的范围限制到[-1, 1]之间，正规化之后，学习效率会更高，学习也更加稳定。（据说在配置文件中 normalize 可以自动来进行正规化。？？？要确认，因为网络层之间也有 normalization操作）</li>
+</ul>
+<h2 id="52-行动模型输出">5.2 行动（模型输出） </h2>
+<p>在强化学习时，行动是指智能体的策略，根据状态，而决定的下一步的动作。这个动作决定之后，会被智能体来执行。</p>
+<p>行动由两种数据类型：Continuous 连续型（-1.0 ~ 1.0）， Discrete 离散型（0，1，2，...）</p>
+<p><strong>Continuous</strong><br>
+连续型的动作，通常采用浮点型的数值。<br>
+可以在Behavior Parameters -&gt; Actions -&gt; Continuous Actions中指定其Size，也就是连续型动作的个数。<br>
+在滚球游戏中，它指的是 RollerAgent在X，Z轴上施加的力。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>actionBuffers.ContinuousActions[0] : -1.0~1.0
+actionBuffers.ContinuousActions[1] : -1.0~1.0
+</code></pre><p><strong>Discrete</strong><br>
+离散型的行动，比如 0：不移动，1，2，3，4分别表示上下左右移动。<br>
+可以在 Behaviro Parameters -&gt; Actions -&gt; Discrete Branches中设置<br>
+Branches：branch的个数；<br>
+Branch 0 size： 可以分别为各个branch设置size，比如上面的例子中，这个size为5.</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>actionBuffers.DiscretActions[0] : 0,1,2,3,4
+</code></pre><p><strong>行动设定要点</strong></p>
+<ul>
+<li>动作设置：包含全部动作，无用的动作不要加入。</li>
+<li>连续型动作力量如何调整？<br>
+连续型的值的默认范围为[-1.0 ~ 1.0]，如果希望的力量是[-10, 10]该如何处理呢？<br>
+可以通过乘以一个倍数来实现，参考如下：<pre data-role="codeBlock" data-info="" class="language-text text"><code>Vector3 controlSignal = Vector3.zero;
+controlSignal.x = action[0];
+controlSignal.z = action[1];
+rBody.AddForce(controlSignal * 10); # 此处将力量增加了10倍
+</code></pre></li>
+<li>离散型动作，如何设置不允许选择的行动：<br>
+采用Mask的方式， 也就是Agent类中的 WriteDiscreteActionMask 函数来实现。<br>
+具体方法，请参考：<a href="https://unity-technologies.github.io/ml-agents/Migrating/#idiscreteactionmask-changes">https://unity-technologies.github.io/ml-agents/Migrating/#idiscreteactionmask-changes</a></li>
+</ul>
+<h2 id="53-报酬和episode结束对应loss计算">5.3 报酬和Episode结束（对应Loss计算） </h2>
+<p><strong>报酬</strong><br>
+报酬是环境对智能体行动的评价。与报酬相关的概念还有收益，价值。<br>
+价值是收益的一种近似的计算。这里以收益来解释。<br>
+收益可以及时报酬和延迟报酬的总和。<br>
+强化学习的目标是收益的最大化。</p>
+<p>在ML-Agents中如何来管理及时报酬，延迟报酬呢？</p>
+<ul>
+<li>每一步的及时报酬设定</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>AddReward(float increment) ： 增加及时报酬
+SetReward(float reward)：设置及时报酬
+</code></pre><ul>
+<li>累计报酬的获取</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>float GetCumulativeReward() #可以读取Episode开始之后累计的报酬，不包含当前Step的及时报酬
+int StepCound ： 取得当前的Step数
+</code></pre><ul>
+<li>
+<p>Reward Signals<br>
+报酬，除了环境报酬，还可以有其他来源的报酬，比如Curiosity报酬，Gail报酬，rnd报酬，详细解释请参考：<br>
+<a href="https://unity-technologies.github.io/ml-agents/ML-Agents-Overview/#a-quick-note-on-reward-signals">https://unity-technologies.github.io/ml-agents/ML-Agents-Overview/#a-quick-note-on-reward-signals</a></p>
+</li>
+<li>
+<p>报酬设置的要点</p>
+<ul>
+<li>对Episode的结果上施加报酬更有效，也就是对游戏的成功和失败来奖励（这个也并不完全如此，要根据具体情况来设置）。</li>
+<li>报酬的值推荐范围[-1.0 ~ 1.0]</li>
+<li>正值报酬比负值报酬，让模型更容易被训练（也就是采取奖励的方式，比惩罚更容易对模型进行训练；惩罚有时候更高效，但是也需要更高的设置技巧，今后，我会在贪吃蛇游戏中进行对比）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Episode结束</strong><br>
+Episode结束，是指游戏结束的设置。有两种方式可以让游戏结束：</p>
+<ul>
+<li>EndEpisode() 函数</li>
+<li>Max Step： 当Step数超过此数值时，游戏就会结束。这个设置可以防止游戏陷入死循环中。当设置为0时，表示可以无限循环下去。</li>
+</ul>
+<p>Max Step的设置要点</p>
+<ul>
+<li>Max Step数在尽可能的设置的小（要注意，过小可能不能覆盖所有情况） --&gt; 可以提高训练的效率</li>
+<li>有可能出现死循环的学习环境，一定要设置 Max Step</li>
+</ul>
+<p>模型训练的是基于Episode收益的，所以，如果每一局的游戏步数太多，那么训练的效率就会太低，尤其是出现死循环无法结束游戏时，训练就会出现被卡住的现象。</p>
+<p>问题：这里的Step与模型训练时log的Step是一个概念吗？<br>
+不是，模型训练时的Step应该是更新的Step，是一个mini-batch的处理后更新一次模型为一个Step。<br>
+这一点可以在训练配置的参数可以看到，这边MaxStep设置于训练配置的设置是不一样的。<br>
+那么，如果在有Decision的情况下，又是如何算的呢？</p>
+<h2 id="54-决定decision">5.4 决定（Decision） </h2>
+<p>决定这个概念是Unity ML-Agents独有的一种概念。其目的是为了让模型训练效率更高。<br>
+在强化学习中，一个Step对应着一次模型参数更新，包含 forward，loss计算，backward参数更新等操作。<br>
+正常情况下，这种更新每一局游戏更新一次。但是，如果一次游戏的步数太多，那么模型的训练效率就会非常的低。</p>
+<p>在Unity ML-Agents中，引入了决定的概念来改善训练的效率。一次决定对应着一个训练的Step，通过设置决定的 Decision Period 可以让模型的参数更新基于更少的动作，从而提高了模型训练的效率。</p>
+<p>决定设置的方法有两个：</p>
+<ul>
+<li>Decision Requester：每隔N个Step（动作）数进行一次模型更新<br>
+参数1：Decision Period<br>
+参数2：Take Actions Between Decisions: 不执行decision的Step是否调用OnActionReceived（执行行动，取得报酬）。</li>
+<li>RequestDecision(): 可以在任何时间更新一次模型<br>
+在Agent类中，通过调用RequestDecision()函数，可以在任意时刻执行一次模型更新。</li>
+</ul>
+<p>一个决定对应的操作如下： 状态取得， 行动决定， 行动执行，报酬取得，策略更新（模型更新）</p>
+<p>问题1：执行一次决定后，收益会清零吗？</p>
+<p>问题2：上面提到的Step有两种意思，分别是什么？<br>
+一个是游戏Step，一个游戏step是0.02秒；<br>
+一个是训练Step，一个训练step对应多个游戏step。</p>
+<h2 id="55-训练配置文件">5.5 训练配置文件 </h2>
+<p>模型训练相关的配置文件，内容包括： 训练的trainer类型， 基本的训练配置， 网络结构，环境报酬。</p>
+<p>配置文件的要点：</p>
+<ul>
+<li>最初建立时，建议从ML-agents提供的例子中，选择一个最相似的模板来修改</li>
+<li>配置文件第二行的Session Name要与Behavior parameters中的Behavior Name一致</li>
+<li>注意强化学习有些参数的概念与一般的深度学习有些不一样。需要注意的参数有（time_horizon，buffer_size，batch_size，normalize，steps_per_update，num_epoch，vis_encoder_type，strength）</li>
+</ul>
+<p>详细的说明，请参考官方文档：<br>
+<a href="https://unity-technologies.github.io/ml-agents/Training-Configuration-File/">https://unity-technologies.github.io/ml-agents/Training-Configuration-File/</a></p>
+<p>常见问题解答：</p>
+<ul>
+<li>
+<p>Q1：steps_per_update 与 decision requester 功能是否重叠了？<br>
+steps_per_update是SAC的专用参数。</p>
+</li>
+<li>
+<p>Q2：如何每隔100个训练step保存一次模型呢？</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>keep_checkpoints=1000 #要设置的足够大，根据你的训练step数来确定
+even_checkpoints=false #如果为true，则checkpoint_interval的设置会无效。计算方式变为：checkpoint_interval = max_steps / keep_checkpoints
+checkpoint_interval=100
+</code></pre></li>
+<li>
+<p>Q3：PPO与SAC选择谁？<br>
+不清楚的话，可以先选择PPO</p>
+</li>
+<li>
+<p>Q4：num_epoch 是什么意思？ 与常见的 epoch 一个意思吗？<br>
+不是一个意思。这里的 num_epoch 是 PPO 的专用参数。</p>
+<p>与常见epoch相似的设置，也就是训练step是由 max_steps 来设置的。</p>
+</li>
+<li>
+<p>Q5：time_horizon 和 buffer_size 是什么？<br>
+这两个参数是智能体收集经验（观察，行动，报酬）相关的参数。<br>
+各个智能体收集 time_horizon 份经验后，会将经验传递给学习算法。 学习算法在累计收集到 buffer_size 经验后会对网络进行更新。<br>
+PPO对time_horizon的设置比较敏感，智能体频繁获得报酬时，设置较小的值，发欧泽设置较大的值。<br>
+但是SAC算法对此数值设置不敏感，差不多设置一个默认值即可。</p>
+</li>
+<li>
+<p>Q6： 如何指定初始化模型？<br>
+使用参数 init_path。</p>
+</li>
+<li>
+<p>Q7：network_settings -&gt; normalize 是网络层之间的norm-layer吗？<br>
+不是，这是对 vector observation 进行normalization操作的参数。<br>
+在连续型时有效果，在discrete离散数据时，可能会有负面效果。</p>
+</li>
+<li>
+<p>Q8：图像作为状态输入时，使用什么网络？<br>
+通过 vis_encoder_type 来设定适合图像处理的模型，比如 nature_cnn, resnet等。</p>
+</li>
+<li>
+<p>Q9： batch_size 是什么意思？<br>
+是指的经验的数量。</p>
+</li>
+</ul>
+<h2 id="56-mlagents-learn">5.6 mlagents-learn </h2>
+<p>Unity ML-Agents 通过使用 mlagents-learn 来训练智能体。<br>
+最基本的启动方式如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>mlagents-learn ./config/sample/RollerBall.yaml --run-id=rollerball-0
+</code></pre><p>此命令还有其他的参数，可以通过 --help 来查看相关参数的说明。</p>
+<h2 id="58-tensorboard">5.8 Tensorboard </h2>
+<p>Tensorboard 工具是一个查看深度学习输出的统计信息的可视化工具。<br>
+通过此工具可以查看：</p>
+<ul>
+<li>实时了解训练过程中的各种数值的变化（比如Loss，学习率等）</li>
+<li>对比不同的训练设置，辅助我们进行模型训练的优化工作，比如调整参数，训练方法的对比。</li>
+</ul>
+<p><strong>使用方法</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>1. 启动终端：开始-&gt;anaconda prompt
+2 激活运行环境：conda activate mlagents
+3 切换到训练目录下，执行命令 tensorboard --logdir=./results
+4 打开浏览器，输入URL：localhost:6006
+</code></pre><p><strong>强化学习相关的Graph的说明</strong></p>
+<ul>
+<li>cumulative reward（累积奖励）：是指在一个 episode 中，智能体从环境中获得的所有奖励的总和。它是评估智能体行为好坏的一个重要指标。</li>
+<li>Episode Length： 智能体（agent）与环境（environment）互动的平均步数。</li>
+<li>Policy loss（策略损失）：策略损失是用来指导策略参数更新的关键度量，表示当前策略与理想策略之间的差距。通过最小化这个损失函数，我们可以推动策略朝着提升累积奖励的方向改进。</li>
+<li>Value loss（价值损失）：用来描述模型预测的准确度的度量。随着学习，数值会逐渐变小。</li>
+<li>Learning Rate（学习率）：学习率的变化图示。</li>
+<li>其他关于Policy的指标，比如：Entropy， Extrinsic reward， Extrinsic Value Estimate</li>
+</ul>
+<h1 id="笔记6强化学习算法pposac对比">笔记6：强化学习算法PPO，SAC对比 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/2WJ_A48Vos0" target="_blank">【观看视频解说】</a></p>
+</div>
+<h2 id="61-ppo与sac是什么">6.1 PPO与SAC是什么？ </h2>
+<p>PPO(Proximal Policy Optimization：近端策略优化)：核心思想是在每次更新中只允许策略进行有限的改变，从而使学习过程更加平稳和可控。这种方法通过在优化目标中加入一个描述新旧策略之间差异的项来实现，这个项通常通过KL散度（一种衡量两个概率分布差异的方法）或者通过剪裁技术来限制策略更新的范围。</p>
+<ul>
+<li>特点：
+<ul>
+<li>支持大规模并行化训练，On-policy策略，更适合在仿真环境里训练</li>
+<li>侧重使用最新收集的数据来更新策略，渐进收敛性</li>
+<li>支持更高的任务维度</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>不太适合难以收集经验的环境</li>
+</ul>
+</li>
+</ul>
+<p>SAC(Soft Actor-Critic) 是一种基于演员-评论家（Actor-Critic）框架的深度强化学习算法，它在传统的演员-评论家方法中引入了熵正则化，以促进探索和提高学习稳定性。</p>
+<p>Actor负责选择动作，Critic负责评估动作的价值，即预测采取某个动作后能获得的累积奖励。在SAC中，评论家是通过值函数（例如Q函数）来实现。Soft是指SAC算法特有的熵正则化方法。在SAC中，策略不仅旨在最大化累积奖励，还要最大化熵，也就是鼓励策略保持一定的随机性。这样做的目的是为了促进探索未知的状态和动作，避免过早地收敛到次优策略，并提高学习的鲁棒性。</p>
+<ul>
+<li>特点：
+<ul>
+<li>可以利用过去的策略经验学习，更适用于实际的机器人应用等难以收集经验的环境。在实际应用中</li>
+<li>支持Offline learning（SAC存储过去的经验在回放缓冲区中，并从这个缓冲区中采样来更新策略，这使得它能够有效地使用旧的数据）</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>收敛比较慢。</li>
+</ul>
+</li>
+</ul>
+<p>思路：PPO+SAC，使用PPO在模拟环境中的大量数据上进行预训练，然后使用SAC在实际环境中收集的少量数据上做微调。</p>
+<p>POCA（Policy Covering Option Critic Architecture）它是基于Option-Critic架构的一个变体，专注于多智能体强化学习环境。在深度强化学习领域，尤其是在多智能体系统中，POCA提供了一种有效的方式来学习和优化策略。其参数与PPO一样。</p>
+<div class="mermaid">%%{ init: { 'flowchart': { 'nodeSpacing': 15, 'rankSpacing': 80 } } }%%
+
+graph LR
+    C[策略更新]
+    subgraph PPO[PPO经验Buffer]
+        direction LR
+        A1[当前的策略经验]
+        A2[当前的策略经验]
+        A3[当前的策略经验]
+    end
+    A1 --&gt; C
+    A2 --&gt; C
+    A3 --&gt; C
+
+    style C color:#fff, fill:#f66, stroke:#00f, stroke-width:2px
+</div><div class="mermaid">%%{ init: { 'flowchart': { 'nodeSpacing': 15, 'rankSpacing': 80 } } }%%
+
+graph LR
+    C[策略更新]
+    subgraph SAC[SAC经验Buffer]
+        direction LR
+        A1[当前的策略经验]
+        A2[当前的策略经验]
+        A3[当前的策略经验]
+        B1[以前的策略经验]
+        B2[以前的策略经验]
+        B3[以前的策略经验]
+
+    end
+    A1 --&gt; C
+    B1 --&gt; C
+    B3 --&gt; C
+
+    style B1 color:#fff, fill:#0af, stroke:#00f, stroke-width:2px
+    style B2 color:#fff, fill:#0af, stroke:#00f, stroke-width:2px
+    style B3 color:#fff, fill:#0af, stroke:#00f, stroke-width:2px
+    style C color:#fff, fill:#f66, stroke:#00f, stroke-width:2px
+
+</div><h2 id="模型训练参数">模型训练参数 </h2>
+<p>PPO和SAC训练相关的参数设置，其中PPO有两个版本v1,v2。v3是SAC的训练参数设置。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>#########################
+### RollerBall-v1-PPO ###
+#########################
+behaviors:
+  RollerBall:
+    trainer_type: ppo
+    hyperparameters:
+      # General setting for PPO
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 0.0003
+      learning_rate_schedule: linear
+
+      # PPO
+      beta: 0.005
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+        
+    max_steps: 300000
+    time_horizon: 64
+    summary_freq: 1000
+
+#########################
+### RollerBall-v2-PPO ###
+#########################
+behaviors:
+  RollerBall:
+    trainer_type: ppo
+    hyperparameters:
+      # General setting for PPO
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 0.0003
+      learning_rate_schedule: linear
+
+      # PPO
+      beta: 0.0005 #v1 is 0.005
+      epsilon: 0.2
+      lambd: 0.99  #v1 is 0.95
+      num_epoch: 3
+      beta_schedule: constant
+      epsilon_schedule: linear
+
+
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+        
+    max_steps: 300000
+    time_horizon: 64
+    summary_freq: 1000
+
+#########################
+### RollerBall-v2-SAC ###
+#########################
+behaviors:
+  RollerBall:
+    trainer_type: sac
+    hyperparameters:
+      #For SAC
+      batch_size: 64
+      buffer_size: 12000
+      learning_rate: 3.0e-4
+      learning_rate_schedule: constant
+      
+      #SAC
+      buffer_init_steps: 0
+      init_entcoef: 0.01
+      save_replay_buffer: false
+      tau: 0.005
+      steps_per_update: 10.0
+
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    max_steps: 300000
+    time_horizon: 64
+    summary_freq: 1000
+
+</code></pre><p><strong>参数如何调整：</strong></p>
+<ul>
+<li>使用推荐设置建立Baseline</li>
+<li>参考其他人的设置（论文，高性能系统，尤其是比赛中的系统）</li>
+<li>在自己的任务上，进行对比实验，积累经验</li>
+</ul>
+<p><strong>训练参数的详细文档：</strong><br>
+<a href="https://unity-technologies.github.io/ml-agents/Training-Configuration-File/#common-trainer-configurations">https://unity-technologies.github.io/ml-agents/Training-Configuration-File/#common-trainer-configurations</a></p>
+<h1 id="参考资料">参考资料 </h1>
+<ul>
+<li>
+<p>ML-Agents官方参考资料：<br>
+<a href="https://unity-technologies.github.io/ml-agents/ML-Agents-Toolkit-Documentation/">https://unity-technologies.github.io/ml-agents/ML-Agents-Toolkit-Documentation/</a></p>
+</li>
+<li>
+<p>Ml-Agents安装参考资料：<br>
+<a href="https://unity-technologies.github.io/ml-agents/Installation/">https://unity-technologies.github.io/ml-agents/Installation/</a></p>
+</li>
+<li>
+<p>滚球游戏制作：<br>
+<a href="https://unity-technologies.github.io/ml-agents/Learning-Environment-Create-New/">https://unity-technologies.github.io/ml-agents/Learning-Environment-Create-New/</a></p>
+</li>
+<li>
+<p>训练参数文档：<br>
+<a href="https://unity-technologies.github.io/ml-agents/Training-Configuration-File">https://unity-technologies.github.io/ml-agents/Training-Configuration-File</a></p>
+</li>
+</ul>
+<h1 id="后续内容安排">后续内容安排 </h1>
+<ul>
+<li>MLAgents 观察对比：连续型与离散型</li>
+<li>MLAgents 观察对比：几种观察的对比（Visual，Raycast）</li>
+<li>MLAgents 游戏制作：乒乓球游戏制作与自我博弈训练</li>
+<li>训练的高速化</li>
+</ul>
 <p><br><br></p>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KZC24J7TE5"></script>
 <script>
@@ -561,17 +1185,124 @@ ERROR: Could not build wheels for numpy, which is required to install pyproject.
             <p>2.2 安装步骤</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#23-常见问题" class="md-toc-link">
-            <p>2.3 常见问题</p>
+          <a href="#23-mlagents-learn参数" class="md-toc-link">
+            <p>2.3 mlagents-learn参数</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#24-参考资料" class="md-toc-link">
-            <p>2.4 参考资料</p>
+          <a href="#24-常见问题" class="md-toc-link">
+            <p>2.4 常见问题</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#25-参考资料" class="md-toc-link">
+            <p>2.5 参考资料</p>
 
           </a></div>
         </div>
       </details>
-    
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#分享3滚球游戏演示" class="md-toc-link">
+            <p>分享3：滚球游戏演示</p>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#笔记4滚球游戏开发实战" class="md-toc-link"><p>笔记4：滚球游戏开发实战</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#学习目标" class="md-toc-link">
+            <p>学习目标</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#31-新建项目" class="md-toc-link">
+            <p>3.1 新建项目</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#32-制作步骤" class="md-toc-link">
+            <p>3.2 制作步骤</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#33-学习与推论" class="md-toc-link">
+            <p>3.3 学习与推论</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#34相关知识" class="md-toc-link">
+            <p>3.4相关知识</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#注意事项" class="md-toc-link">
+            <p>注意事项</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#笔记5unity-ml-agents的基础" class="md-toc-link"><p>笔记5：Unity ML-Agents的基础</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#学习目标-1" class="md-toc-link">
+            <p>学习目标</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#51-状态和观察" class="md-toc-link">
+            <p>5.1 状态和观察</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#52-行动模型输出" class="md-toc-link">
+            <p>5.2 行动（模型输出）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#53-报酬和episode结束对应loss计算" class="md-toc-link">
+            <p>5.3 报酬和Episode结束（对应Loss计算）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#54-决定decision" class="md-toc-link">
+            <p>5.4 决定（Decision）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#55-训练配置文件" class="md-toc-link">
+            <p>5.5 训练配置文件</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#56-mlagents-learn" class="md-toc-link">
+            <p>5.6 mlagents-learn</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#58-tensorboard" class="md-toc-link">
+            <p>5.8 Tensorboard</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#笔记6强化学习算法pposac对比" class="md-toc-link"><p>笔记6：强化学习算法PPO，SAC对比</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#61-ppo与sac是什么" class="md-toc-link">
+            <p>6.1 PPO与SAC是什么？</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#模型训练参数" class="md-toc-link">
+            <p>模型训练参数</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#参考资料" class="md-toc-link">
+            <p>参考资料</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#后续内容安排" class="md-toc-link">
+            <p>后续内容安排</p>
+
+          </a></div>
 </div>
 </div>
       <a id="sidebar-toc-btn">≡</a>
