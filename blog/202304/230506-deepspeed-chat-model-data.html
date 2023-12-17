@@ -1,0 +1,438 @@
+<!DOCTYPE html><html><head>
+      <title>DeepSpeed-Chat 模型与数据 | 大模型训练入门实战</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<link rel="stylesheet" href="assets/styles.css">
+<p><font size="7px"><b>专题：大模型训练入门实战</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC3%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE">第3章：DeepSpeed-Chat 模型与数据</a>
+<ul>
+<li><a href="#1-%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%95%B0%E6%8D%AE">1 实验设置：模型与数据</a>
+<ul>
+<li><a href="#11-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E6%AD%A4%E6%A8%A1%E5%9E%8B">1.1 为什么选择此模型？</a></li>
+<li><a href="#12-%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B">1.2 预训练模型</a></li>
+<li><a href="#13-%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE">1.3 训练数据</a></li>
+</ul>
+</li>
+<li><a href="#2-%E6%9B%BF%E6%8D%A2%E6%A8%A1%E5%9E%8B">2 替换模型</a></li>
+<li><a href="#3-%E6%9B%BF%E6%8D%A2%E6%95%B0%E6%8D%AE">3 替换数据</a>
+<ul>
+<li><a href="#31-%E5%A6%82%E4%BD%95%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE">3.1 如何准备数据</a></li>
+<li><a href="#32-%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">3.2 修改代码读取数据</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="第3章deepspeed-chat-模型与数据">第3章：DeepSpeed-Chat 模型与数据 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=P7dIMYdOUl8&amp;t=0s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>前两章，我们介绍了如何使用DS-Chat来训练类似ChatGPT的模型，并介绍了其代码。本章将演示如何在DS-Chat代码中使用除facebook opt之外的其他预训练模型，以及如何准备并使用自定义数据进行模型训练，以便训练出针对特定领域或应用的大型模型。</p>
+<p>本章的主要内容包括以下几点：</p>
+<ul>
+<li>
+<p>实验设置介绍：我们将介绍本实验的设置，并为你介绍这样选择的原因，希望能够给你AI技术学习提供一个参考。</p>
+</li>
+<li>
+<p>如何替换模型：我们将介绍如何替换DS-Chat中使用的预训练模型以及如何将自己的预训练模型集成到DS-Chat中。</p>
+</li>
+<li>
+<p>如何准备数据，替换数据：我们将介绍如何准备自己的数据集，包括模型训练需要的数据格式，数据格式的转换等。以及如何将自己的数据集用到DS-Chat的模型训练中。</p>
+</li>
+</ul>
+<p>希望以上内容能够帮助您更好地了解如何在DS-Chat中使用不同的模型和数据集，从而训练出更适合您特定应用场景的大型模型。</p>
+<p>现在，NLP领域的许多模型和公开数据都可以在Huggingface上找到，DS-Chat工具也使用了来自Huggingface的模型和数据，因此，本章的内容也是主要基于Huggingface的模型和数据为基础进行介绍。</p>
+<h2 id="1-实验设置模型与数据">1 实验设置：模型与数据 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=P7dIMYdOUl8&amp;t=43s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>本章的实验主要是参考 LLMZoo 来进行设置的。<br>
+<a href="https://github.com/FreedomIntelligence/LLMZoo">https://github.com/FreedomIntelligence/LLMZoo</a></p>
+<h3 id="11-为什么选择此模型">1.1 为什么选择此模型？ </h3>
+<p>选择这个模型的主要原因有两点：</p>
+<ul>
+<li>模型和数据都是公开的，有相关文章可供参考</li>
+<li>该模型（Phoenix-inst-chat-7b）在中文数据上表现非常出色。</li>
+</ul>
+<p>模型和数据的公开性，以及相关文章的介绍，可以帮助我们最大限度地复现该公开模型的性能，从而让我们更容易确认我们的操作是否正确。</p>
+<p>在本视频制作时，7B规模的Phoenix-inst-chat-7b模型在中文数据上的表现非常出色。以下是作者们的评价结果，可以看出，尽管与ChatGPT和Baidu-Wenxin等超大模型有一定差距，但在7B参数规模的模型中，其表现依然非常优秀。虽然6B参数的ChatGLM表现看似更好，但其训练数据并未公开。</p>
+<p>有条件的同学可以以复现这个模型为目标，来学习大型模型的训练技巧。</p>
+<p>下表是GPT-4对模型的评价</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phoenix-inst-chat-7b vs. ChatGPT</td>
+<td>85.2%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. ChatGLM-6b</td>
+<td>94.6%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. Baidu-Wenxin</td>
+<td>96.8%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. MOSS-moon-003-sft</td>
+<td>109.7%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. BELLE-7b-2m</td>
+<td>122.7%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. Chinese-Alpaca-7b</td>
+<td>135.3%</td>
+</tr>
+<tr>
+<td>Phoenix-inst-chat-7b vs. Chinese-Alpaca-13b</td>
+<td>125.2%</td>
+</tr>
+</tbody>
+</table>
+<p>下面是人工评价的结果</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>win</th>
+<th>tie</th>
+<th>lose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phoenix vs. ChatGPT</td>
+<td>12</td>
+<td>35</td>
+<td>53</td>
+</tr>
+<tr>
+<td>Phoenix vs. ChatGLM-6b</td>
+<td>36</td>
+<td>11</td>
+<td>53</td>
+</tr>
+<tr>
+<td>Phoenix vs. Baidu-Wenxin</td>
+<td>29</td>
+<td>25</td>
+<td>46</td>
+</tr>
+<tr>
+<td>Phoenix vs. BELLE-7b-2m</td>
+<td>55</td>
+<td>31</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Phoenix vs. Chinese-Alpaca-13b</td>
+<td>56</td>
+<td>31</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-预训练模型">1.2 预训练模型 </h3>
+<p>LLMZoo中目前发布了两种类型的模型，我们主要参考的是偏向中文的Phoenix-inst-chat-7b模型，该模型的训练使用的预训练模型为：BLOOMZ-7b1-mt。虽然这个7B模型相较于现在的OpenAI模型要小很多，但依然是规模非常大的模型。要训练这个模型需要数十块GPU才能进行训练。</p>
+<p>在学习初期阶段，推荐你使用参数量更少的BLOOMZ-560M模型。虽然这个模型较小，但通过调整参数并对其进行不断优化，依然可以有效地学习LLM训练的相关知识和技巧。</p>
+<p>当代码在这个较小的模型上运行顺利后，有条件的同学可以尝试使用更多的硬件资源来训练7B规模的模型。当然，这时你需要了解更多关于DeepSpeed的相关知识，以掌握如何在多节点上进行训练。</p>
+<p>相关的预训练模型如下：</p>
+<ul>
+<li>BLOOMZ-7b1-mt：Phoenix-inst-chat-7b 使用的预训练模型，Huggingface 的名称为 bigscience/bloomz-7b1-mt，大约需要 48 枚 32G GPU 才可以训练。</li>
+<li>BLOOMZ-560M：学习用模型，bigscience/bloomz-560m，单个 24G GPU 即可训练。</li>
+</ul>
+<p>参考：不同配置所需要的 GPU 资源：</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>最低GPU量</th>
+<th>batch-size</th>
+<th>batch-size(device)</th>
+<th>max_seq_len</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLOOMZ-7b1-mt</td>
+<td>48（6x8， 32G）</td>
+<td>48x8x1</td>
+<td>8</td>
+<td>512</td>
+<td>正常训练</td>
+</tr>
+<tr>
+<td>BLOOMZ-560m</td>
+<td>1 （32G）</td>
+<td>2</td>
+<td>2</td>
+<td>512</td>
+<td>正常训练</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-训练数据">1.3 训练数据 </h3>
+<p>LLMZoo 中的模型训练数据已在 Huggingface 上公开，名称为 FreedomIntelligence/phoenix-sft-data-v1。此训练数据共包含 473K 条记录，包括 instruction 和 conversation 两种类型。其中，instruction 类型有 267K 条记录，conversation 类型有 198K 条记录。这些数据涵盖多种语言，包括中文（113K 条记录）和英语（51K 条记录），共涉及 40 多种语言。</p>
+<p>下载此数据，可以直接通过下面的链接进行下载：<br>
+<a href="https://huggingface.co/datasets/FreedomIntelligence/phoenix-sft-data-v1/resolve/main/data.json">https://huggingface.co/datasets/FreedomIntelligence/phoenix-sft-data-v1/resolve/main/data.json</a></p>
+<p>关于数据的更多信息，请参考：<a href="https://arxiv.org/abs/2304.10453">https://arxiv.org/abs/2304.10453</a></p>
+<h2 id="2-替换模型">2 替换模型 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=P7dIMYdOUl8&amp;t=198s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>DS-chat 的训练中默认使用的是基于 Huggingface 格式的模型和数据，因此切换到基于 Huggingface 的 BLOOMZ 模型非常简单，只需将 model_name_or_path 参数修改为要使用的模型即可。<br>
+注意：由于模型架构和封装类的影响，并不是所有 Huggingface 上的模型都可以直接使用。例如，GLM 模型并不能直接被 DS-Chat 使用。</p>
+<p>下面以 BLOOMZ-560M 模型为例，介绍如何在 DS-Chat 中使用 BLOOMZ 模型。</p>
+<p>以下是修改后的 <code>run1.3b.sh</code> 脚本，通过将 model_name_or_path 修改为 bigscience/bloomz-560m 来使用此预训练模型：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>deepspeed --num_gpus 1 main.py \
+   --data_path Dahoas/rm-static \
+   --model_name_or_path bigscience/bloomz-560m \
+   --gradient_accumulation_steps 8 --lora_dim 128 --zero_stage $ZERO_STAGE \
+   --per_device_train_batch_size 8 --per_device_eval_batch_size 8 \
+   --deepspeed --output_dir $OUTPUT 2&gt;&amp;1 | tee $OUTPUT/training.log
+</code></pre><p>注：以上设置显存占用约30G， 你可以调整 per_device_train_batch_size 和 per_device_eval_batch_size 来降低显存的使用。</p>
+<p>模型导入可以分为三个部分：</p>
+<ul>
+<li>导入 tokenizer： AutoTokenizer.from_pretrained(...)</li>
+<li>导入 model_config： AutoConfig.from_pretrained(...)</li>
+<li>导入 model: AutoModelForCausalLM.from_pretrained(...)</li>
+</ul>
+<p>详细的实现细节，可以参考下面的代码。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>from utils.model.model_utils import create_hf_model
+tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path,
+                                          fast_tokenizer=True)
+model = create_hf_model(AutoModelForCausalLM,
+                        args.model_name_or_path,
+                        tokenizer,
+                        ds_config,
+                        disable_dropout=args.disable_dropout)
+</code></pre><p>create_hf_model函数的实现代码如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>def create_hf_model(model_class,
+                    model_name_or_path,
+                    tokenizer,
+                    ds_config=None,
+                    rlhf_training=False,
+                    disable_dropout=False):
+    model_config = AutoConfig.from_pretrained(model_name_or_path)
+    if disable_dropout:
+        model_config.dropout = 0.0
+    # Note: dschf is defined in function scope to avoid global effects
+    # https://huggingface.co/docs/transformers/main_classes/deepspeed#nontrainer-deepspeed-integration
+    if ds_config is not None and ds_config["zero_optimization"]["stage"] == 3:
+        dschf = HfDeepSpeedConfig(ds_config)
+    else:
+        dschf = None
+    if rlhf_training:
+        # the weight loading is handled by create critic model
+        model = model_class.from_config(model_config)
+    else:
+        model = model_class.from_pretrained(
+            model_name_or_path,
+            from_tf=bool(".ckpt" in model_name_or_path),
+            config=model_config)
+
+    model.config.end_token_id = tokenizer.eos_token_id
+    model.config.pad_token_id = model.config.eos_token_id
+    model.resize_token_embeddings(int(8 *math.ceil(len(tokenizer) / 8.0)))  
+    # make the vocab size multiple of 8
+
+    return model
+</code></pre><p>使用 BLOOMZ 系列模型时，不需要修改任何模型导入代码。但在使用其他模型，例如 GLM 时，DS-Chat 无法直接导入模型，这时需要对上述代码进行调整。</p>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>
+<p>训练过程中出现内存不足：<br>
+对策：调小 batch-size，可以添加参数 <code>--per_device_train_batch_size 1 --per_device_eval_batch_size 1</code><br>
+另外也可以修改参数：<code>--max_seq_len 255</code></p>
+</li>
+<li>
+<p>从 Huggingface 下载的模型，本地存放位置：<br>
+默认位置在：<code>~/.cache/huggingface/hub</code> 目录下</p>
+</li>
+<li>
+<p>如何使用自己的模型<br>
+设置参数 <code>model_name_or_path</code> 为本地的路径即可。<br>
+注意需要确认模型文件夹下是否有 <code>tokenizer_config.json</code> 和 <code>tokenizer.json</code> 两个文件（DS-Chat 保存模型时，并不存储此两个文件）。</p>
+</li>
+</ul>
+<h2 id="3-替换数据">3 替换数据 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=P7dIMYdOUl8&amp;t=372s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>针对大型模型的一个重要开发工作是使用特定任务的数据对模型进行进一步优化。通常情况下，使用相关任务的数据进行优化的模型会在目标任务上表现更好。在 DS-Chat 工具中使用自己的数据进行模型训练可以分为以下三个步骤：</p>
+<ol>
+<li>准备数据，并按照一定的格式整理数据，例如使用 JSON 格式。</li>
+<li>修改 data_utils.py 和 raw_datasets.py 的代码，以添加对新数据的支持。</li>
+<li>在训练 shell 脚本中设置使用新数据，并开始模型训练。</li>
+</ol>
+<h3 id="31-如何准备数据">3.1 如何准备数据 </h3>
+<p>在准备数据之前，首先需要了解模型训练时所需的数据格式。我们可以通过查看 raw_datasets.py 代码来了解训练时使用的数据格式。以下是代码中实现的其中一种类型数据读取的示例：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>class HelloSimpleAIHC3ChineseDataset(PromptRawDataset):
+    def get_prompt(self, sample):
+        if sample['question'] is not None:
+            return " Human: " + sample['question'] + " Assistant:"
+        return None
+
+    def get_chosen(self, sample):
+        if sample['human_answers'][0] is not None:
+            return " " + sample['human_answers'][0]
+        return None
+
+    def get_prompt_and_chosen(self, sample):
+        if sample['question'] is not None and sample['human_answers'][
+                0] is not None:
+            return " Human: " + sample['question'] + " Assistant: " + sample[
+                'human_answers'][0]
+        return None
+
+    def get_rejected(self, sample):
+        ...
+    def get_prompt_and_rejected(self, sample):
+        ...
+</code></pre><p>通过上面的代码，我们可以看到，此数据中共有三种数据格式：prompt、answer、rejected，以及它们的组合：prompt+answer 和 prompt+rejected。因此，训练数据最基本的内容是 prompt、answer 和 rejected。</p>
+<p>然后，我们可以在 data_utils.py 文件中第 141 行的部分了解到：</p>
+<ul>
+<li>
+<p>在 Stage 1 阶段调用了 get_prompt_and_chosen() 来读取训练数据。所以，如果要进行 Stage 1 的训练，我们需要准备 prompt 和 answer 即可。</p>
+</li>
+<li>
+<p>Stage 2 中调用了 get_prompt_and_chosen 和 get_prompt_and_rejected 读取数据来训练 reward 模型， 也就是此部分需要  prompt、answer 和 rejected 数据。</p>
+</li>
+<li>
+<p>Stage 3 中只调用了 get_prompt， 因此只需要有 prompt 即可进行 Stage 3 的训练。</p>
+</li>
+</ul>
+<p>LLMZoo模型中模型的训练类似 Stage 1，所以，你需要准备的数据只需包含 prompt 和 answer 即可。</p>
+<p>为了便于数据读取，我对 phoenix-sft-data-v1 数据进行格式转换，下面是其数据的 JSON 示例：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>[
+  {
+    "id": "0",
+    "type": "Instruction",
+    "from_human": "假设你是一位Airbnb房主。... \n",
+    "from_gpt": "很抱歉，作为AI语言模型，我无法检查您的Airbnb列表。"
+  },
+  {
+    "id": "1",
+    "type": "Instruction",
+    "from_human": "假设你是一位翻译。... \n",
+    "from_gpt": "\"Al dente\" means cooking the ..."
+  }
+]
+</code></pre><p>其中，from_human 为 prompt，而 from_gpt 为 answer。接下来，如果你有自己的数据，就可以按照上述格式来准备数据了。</p>
+<h3 id="32-修改代码读取数据">3.2 修改代码读取数据 </h3>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=P7dIMYdOUl8&amp;t=485s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>接下来，我们将介绍如何修改代码以读取自定义数据。DS-Chat 中提供了多种格式的数据读取方式，你可以选择与自己数据格式相似的数据读取类进行修改。或者直接选择其中一个格式，并按照其格式准备数据，这样可以减少代码修改量。</p>
+<p>代码修改包括（修改过程请参考视频）：</p>
+<ul>
+<li>data_utils.py<br>
+新增内容：需要定义新数据类的对象及接口。</li>
+<li>raw_datasets.py<br>
+新增内容：定义新的数据读取类。load_dataset 的本地数据读取方式：self.raw_datasets = load_dataset(path="/home/data/", data_files="yourData.json")。</li>
+<li><a href="http://run1.3b.sh">run1.3b.sh</a><br>
+修改：设置使用自己的数据库名称。</li>
+</ul>
+<p>模型训练过程中，会通过数据库名称，在 data_utils.py 中调用数据的读取类，来初始化数据读取对象。然后在 raw_datasets.py 文件中，第一次调用 load_dataset 时，load_dataset 会将 JSON 文件转换为 arrow 格式，并缓存到 cache_dir 目录下。在下次再次读取数据时，会直接读取缓存的 arrow 文件。</p>
+<p><strong>注意事项：</strong><br>
+如果是使用分布式训练时，建议先使用单 GPU 进程对数据部分进行缓存处理，因为在分布式训练时，多进程对数据进行缓存可能会出现错误，尤其是在数据量比较大的情况下。</p>
+<p>另外要注意，DS-Chat 会对数据进行第二次的本机数据缓存处理，这可能会额外占用你的硬盘存储空间。并且这种方法在数据量比较大时，也会导致内存消耗过大的问题。目前官方正在解决中，具体信息可以参考下面的链接。在学习阶段，你可以使用少量样本，或者使用多 GPU 训练的方式来缓解此问题。<br>
+<a href="https://github.com/microsoft/DeepSpeedExamples/issues/450">https://github.com/microsoft/DeepSpeedExamples/issues/450</a></p>
+<p><strong>数据调用流程</strong><br>
+接下来，我给出了代码修改的过程。在修改代码时，你可以参考以下的调用过程进行修改。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>- File: step1_supervised_finetuning/main.py： 
+  - Line 224 （train_dataset, eval_dataset = create_prompt_dataset（） 
+    - File: /training/utils/data/data_utils.py
+      - Line 268: train_dataset, eval_dataset = create_dataset()
+      - Line 212: raw_dataset = get_raw_dataset()
+        - Line 20：def get_raw_dataset(): 
+            return raw_datasets.Wangrui6ZhihuKOLDataset()
+            - File: training/utils/data/raw_datasets.py
+              - Line 307: class Wangrui6ZhihuKOLDataset(PromptRawDataset)
+      
+      - Line 220: train_dataset = create_dataset_split()
+        - Line 141: if train_phase == 1:
+            chosen_sentence = raw_dataset.get_prompt_and_chosen()
+</code></pre><p><strong>常见问题</strong></p>
+<ul>
+<li>
+<p><strong>Q/A 1：错误 Exception: Current loss scale already at minimum - cannot decrease scale anymore. Exiting run</strong><br>
+问题描述：训练过程中，可能会遇到上述错误。此问题通常是由于模型训练不稳定造成的，建议将 batch size 调大以增加训练的稳定性。调大 batch size 会增加显存的使用，一个替代的做法是使用多 GPU，或者设置 gradient_accumulation_steps 以达到增加 batch size 的效果。<br>
+如果依然有问题，可以尝试使用 float32（一般是针对 nan 的错误）。</p>
+</li>
+<li>
+<p><strong>Q/A 2：注意删除临时数据</strong><br>
+DS-Chat 程序，默认会对数据进行多次缓存，其中包括：</p>
+<ul>
+<li>Huggingface 对数据的缓存，例如 map 操作会自动缓存数据（程序修改可能会引起重新缓存，所以要注意删除旧缓存文件）。</li>
+<li>load_dataset 会自动将 json 数据缓存为 arrow 数据格式。</li>
+<li>DS-Chat 会将数据缓存到本机：<a href="http://traindata-xxxx.pt">traindata-xxxx.pt</a> <a href="http://evaldata-xxx.pt">evaldata-xxx.pt</a> 文件在本机的 /tmp/data_files/ 目录下，另外还包括一个数据 index 文件（*.npy）。</li>
+</ul>
+</li>
+<li>
+<p><strong>Q/A 3: 分布式训练时，数据读取错误</strong><br>
+建议在单 GPU 上单独执行一次数据 load_dataset 部分，对基本的数据处理进行缓存后，再启动多节点的分布式训练。</p>
+</li>
+<li>
+<p><strong>Q/A 4：数据量较大时，如何降低机器内存的使用</strong><br>
+适当地对数据进行拆分处理（需要相应的代码调整）。<br>
+可以采用动态调用的方式， 官方正在解决中，你可以关注下面的链接以了解最新进度：<a href="https://github.com/microsoft/DeepSpeedExamples/issues/450">https://github.com/microsoft/DeepSpeedExamples/issues/450</a></p>
+</li>
+<li>
+<p><strong>Q/A 5：本地数据修改后，重新训练时，数据依旧是修改前的</strong><br>
+这是因为DS-Chat对数据的缓存引起的，需要手动删除本机上的缓存文件：<br>
+默认的缓存目录：/tmp/data_files/， 可以将此目录删除后重新开始训练。</p>
+</li>
+</ul>
+<h2 id="参考文献">参考文献 </h2>
+<ul>
+<li>[1] <a href="https://github.com/microsoft/DeepSpeedExamples">https://github.com/microsoft/DeepSpeedExamples</a></li>
+<li>[2] 模型 BLOOM：<a href="https://huggingface.co/bigscience/bloom-560m">https://huggingface.co/bigscience/bloom-560m</a></li>
+<li>[3] Huggingface 数据读取方式：<a href="https://huggingface.co/docs/datasets/loading">https://huggingface.co/docs/datasets/loading</a></li>
+<li>[4] LLMZoo项目：<a href="https://github.com/FreedomIntelligence/LLMZoo">https://github.com/FreedomIntelligence/LLMZoo</a></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

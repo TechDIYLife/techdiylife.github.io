@@ -1,0 +1,414 @@
+<!DOCTYPE html><html><head>
+      <title>DeepSpeed-Chat 模型训练实战 | 大模型训练入门实战</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<link rel="stylesheet" href="assets/styles.css">
+<p><font size="7px"><b>专题：大模型训练入门实战</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC1%E7%AB%A0deepspeed-chat-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%AE%9E%E6%88%98">第1章：DeepSpeed-Chat 模型训练实战</a>
+<ul>
+<li><a href="#1-deepspeed-chat%E6%98%AF%E4%BB%80%E4%B9%88">1 DeepSpeed-Chat是什么？</a></li>
+<li><a href="#2-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85">2 开发环境安装</a></li>
+<li><a href="#3-chatgpt%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B">3 ChatGPT模型训练基本流程</a></li>
+<li><a href="#4-%E4%BB%A3%E7%A0%81%E4%B8%8E%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E4%BB%8B%E7%BB%8D">4 代码与训练过程介绍</a></li>
+<li><a href="#5-%E5%AE%9E%E6%88%98step1%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83">5 实战Step1：监督微调</a></li>
+<li><a href="#6-%E5%AE%9E%E6%88%98step2reward%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">6 实战Step2：Reward模型微调</a></li>
+<li><a href="#7-%E5%AE%9E%E6%88%98step3rlhf%E8%AE%AD%E7%BB%83">7 实战Step3：RLHF训练</a></li>
+<li><a href="#8-%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%B5%8B%E8%AF%95">8 评价与测试</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="第1章deepspeed-chat-模型训练实战">第1章：DeepSpeed-Chat 模型训练实战 </h1>
+<p>本章内容介绍如何使用微软最新发布的 DeepSpeed Chat 来训练类 ChatGPT 的大模型。<br>
+通过本章内容，你将了解：</p>
+<ul>
+<li>DS-Chat是什么？</li>
+<li>如何准备运行环境</li>
+<li>ChatGPT训练的基本知识</li>
+<li>DS-Chat的使用方法</li>
+</ul>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=0s" target="_blank">【观看视频解说】</a></p>
+</div>
+<h2 id="1-deepspeed-chat是什么">1 DeepSpeed-Chat是什么？ </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=31s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>DeepSpeed-Chat是微软最新公布的一套工具，用于训练类ChatGPT模型。该工具基于微软的大模型训练工具DeepSpeed，使用它可以非常简单高效地训练自己的ChatGPT。该工具具有以下特点：</p>
+<ul>
+<li>完整的训练类ChatGPT的代码：包括预训练模型下载、数据下载、InstructGPT训练过程和测试。</li>
+<li>多种规模的模型：模型参数从1.3B到66B，即适合新手学习也可用于商用部署。</li>
+<li>高效的训练：通过使用最新技术，如ZeRO和LoRA等技术改善训练过程，让训练过程更高效。例如，一个67亿（6.7B）参数的模型，使用8块A00只需要约5个小时就可以完成训练。</li>
+<li>推理API：提供易于使用的推理API，方便进行对话式的交互测试。</li>
+</ul>
+<h2 id="2-开发环境安装">2 开发环境安装 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=116s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>推荐设置：Linux操作系统，GPU 24G以上显存，CUDA版本11.7</li>
+<li>视频中的机器配置：Ubuntu 20.04， RTX 3090 24G， CUDA 11.7</li>
+</ul>
+<p><strong>安装步骤：</strong></p>
+<ul>
+<li>
+<p>安装 conda<br>
+下载地址：<a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a><br>
+安装方法的视频介绍（Linux版）：<a href="https://www.youtube.com/watch?v=lOVObb9MGBc&amp;t=16s">https://www.youtube.com/watch?v=lOVObb9MGBc&amp;t=16s</a></p>
+</li>
+<li>
+<p>配置 CUDA 环境<br>
+确认你的CUDA安装路径，比如<code>/usr/local/cuda-11.7</code>，在命令行终端执行以下命令，设置CUDA环境：</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>export CUDA_HOME=/usr/local/cuda-11.7
+export PATH=$CUDA_HOME/bin:$PATH 
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+</code></pre><ul>
+<li>新建 conda 运行环境<br>
+本实例中，使用基于Conda的运行环境来运行DS-Chat。下面的命令新建了名为Test01的运行环境，并在安装完成后使用 activate 命令激活此运行环境。最后，将运行环境的路径加入系统PATH和LD_LIBRARY_PATH中，从而可以优先使用此运行环境下安装的工具和编译器。</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>conda create -n Test01 python=3.10 anaconda
+conda activate Test01
+
+# 将conda环境加入PATH和LD_LIBRARY_PATH中，从而可以优先利用conda安装的程序
+export LD_LIBRARY_PATH=~/anaconda3/envs/Test01/lib/:$LD_LIBRARY_PATH
+export PATH=~/anaconda3/envs/Test01/bin:$PATH
+</code></pre><ul>
+<li>下载 DeepSpeedExamples 代码<br>
+DS-Chat 工具的代码位于 DeepSpeedExamples 仓库中。要下载其代码，请执行以下命令。如果尚未安装 git 命令，需要先安装 git。<br>
+下载完成后，切换到代码的目录下，使用pip命令安装所需要的开发库。</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>conda install git
+git clone https://github.com/microsoft/DeepSpeedExamples.git
+cd DeepSpeedExamples/applications/DeepSpeed-Chat/
+
+# 安装依赖
+pip install -r requirements.txt
+</code></pre><p>最近这个开发库更新得非常频繁，所以你下载的最新版本可能与我在视频中介绍的内容不一致。以下是视频中所使用的版本：<br>
+<a href="https://github.com/TechDIYLife/DeepSpeedExamples20230415.git">https://github.com/TechDIYLife/DeepSpeedExamples20230415.git</a></p>
+<ul>
+<li>重新安装 pytorch（GPU版）<br>
+在我的环境中，按照上述步骤完成安装后，我得到的是 PyTorch 的 CPU 版本。然而，模型训练需要使用 GPU 版本。为了安装最新的 PyTorch 并指定 CUDA 版本为 11.7，可以执行以下命令：</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+</code></pre><p><strong>常见问题：</strong></p>
+<ul>
+<li>
+<p><strong>Q/A 1. 第一步（Step1）编译不通过，提示 GCC 和 G++ 版本问题：</strong><br>
+如果你使用的是 CUDA 10.2（不推荐，因为 Step3 无法通过编译），可以选择将 GXX 的版本降到 8.5.0：<br>
+conda install -c conda-forge gxx==8.5.0</p>
+</li>
+<li>
+<p><strong>Q/A 2. 第三步（Step3）编译不通过：</strong><br>
+这很可能是因为你的 CUDA 版本较旧。建议升级 PyTorch 和 CUDA。在我的环境中，PyTorch 1.12.1 + CUDA 10.2 时编译失败，而 PyTorch 2.0 和 CUDA 11.7 版本编译通过。</p>
+</li>
+<li>
+<p><strong>Q/A 3. 如何检查PyTorch是GPU还是CPU版？</strong><br>
+可以参考使用以下命令：</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>python
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; torch.cuda.is_available()
+True
+&gt;&gt;&gt; torch.cuda.device_count()
+1
+&gt;&gt;&gt; torch.cuda.current_device()
+0
+&gt;&gt;&gt; torch.cuda.device(0)
+&lt;torch.cuda.device at 0x7efce0b03be0&gt;
+&gt;&gt;&gt; torch.cuda.get_device_name(0)
+'GeForce GTX 950M'
+</code></pre><ul>
+<li>
+<p><strong>Q/A 4. Step1第一次运行时，出现GCC版本过低的问题</strong><br>
+错误信息：<br>
+Your compiler (c++ 4.8.5) may be ABI-incompatible with PyTorch!<br>
+Please use a compiler that is ABI-compatible with GCC 5.0 and above.<br>
+See <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html">https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html</a>.<br>
+解决方法：<br>
+conda install -c conda-forge gxx==10.3.0 # 我安装时，要求版本不能高于11</p>
+</li>
+<li>
+<p><strong>Q/A 5. RuntimeError: Ninja is required to load C++ extensions</strong><br>
+解决方法，安装ninja<br>
+安装方法： pip install ninja #安装快， 推荐<br>
+也可以参考： conda install -c conda-forge ninja<br>
+分布式训练时，需要确认是否真的将PATH，LD_LIBRARY_PATH，CUDA_HOME等环境便利传递到其他节点<br>
+如何还有问题，可以清除缓存后再试：删除 <code>~/.cache/torch_extensions</code> 目录下的缓存文件</p>
+</li>
+<li>
+<p><strong>Q/A 5. 如何使用mpirun启动程序</strong><br>
+DeepSpeed支持多种的多节点的训练启动方式，可以参考安装以下工具：<br>
+conda install -c conda-forge mpi4py<br>
+conda install -c conda-forge openmpi<br>
+conda install -c anaconda openmpi<br>
+conda install -c pkgs/main openmpi</p>
+<ul>
+<li>安装中的问题：solving environment 长时间不结束：<br>
+执行完以下操作后，安装成功：
+<ul>
+<li>建议停止在运行的程序</li>
+<li>清理缓存文件： conda clearn --all</li>
+</ul>
+</li>
+</ul>
+<p>参考网页说明：<a href="https://www.deepspeed.ai/getting-started/">https://www.deepspeed.ai/getting-started/</a></p>
+</li>
+<li>
+<p>**<em>Q/A 6. Conda安装库时出现inconsistent问题</em><br>
+conda update -n YOUR_ENV_NAME -c defaults anaconda --force<br>
+参考：<a href="https://github.com/conda/conda/issues/8490">https://github.com/conda/conda/issues/8490</a></p>
+</li>
+</ul>
+<h2 id="3-chatgpt模型训练基本流程">3 ChatGPT模型训练基本流程 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=371s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>ChatGPT 的训练过程共分为四个步骤：</p>
+<ul>
+<li>a) 训练预训练模型，如 GPT-3.5 或 GPT-4；</li>
+<li>b) 监督微调（SFT：supervised finetuning）（对应 DS-Chat 中的 Step1）；</li>
+<li>c) 奖励模型微调（RM：Reward model finetuning）（对应 DS-Chat 中的 Step2）；</li>
+<li>d) 基于人类反馈的强化学习（RLHF：Reinforcement learning with human feedback）（对应 DS-Chat 中的 Step3）。</li>
+</ul>
+<p>其中，阶段（a）的 GPT-3.5 或 GPT-4 预训练部分是计算量最大的阶段。这不仅需要大量的 GPU（几十到数百个），而且训练时间非常长（数月），因此通常只有大型企业才能进行训练。在本实例中，我们使用了 Facebook 公开的 opt 系列预训练模型，并主要针对 b、c、d 三个步骤进行训练。这三个步骤分别对应案例中的 Step 1、2、3。</p>
+<h2 id="4-代码与训练过程介绍">4 代码与训练过程介绍 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=423s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>DS-chat代码位于 applications/DeepSpeed-Chat 目录下，下面是主要程序的结构，详细解释请观看视频中的解说：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>- train.py  # 入口程序
+- training  # 训练脚本
+  - step1_supervised_finetuning   # 第一步训练
+    - evaluation_scripts      # 第一步训练完成后评价用
+    - training_scripts        # 模型训练脚本
+    - README.md               # 说明文档
+    - main.py                 # 主程序，训练过程的实现细节
+    - prompt_eval.py          # 评价主程序
+  - step2_reward_model_finetuning # 第二步训练
+    - 省略
+  - step3_rlhf_finetuning         # 第三步训练
+    - 省略
+  - utils 模型训练，评价的相关函数库
+- inference # 测试，评价代码
+</code></pre><p><strong>模型训练调用过程（以1.3b模型为例）</strong></p>
+<ul>
+<li>
+<p>入口程序： <code>train.py</code></p>
+<ul>
+<li>主要参数<br>
+--step 1 2 3<br>
+--deployment-type single_gpu single_node multi_node 不同的type主要是参数的设置不同<br>
+--actor-model: "1.3b", "6.7b", "13b", "66b" 预训练模型，默认是1.3b的模型<br>
+--reward-model：使用的是 350m 的模型</li>
+<li>其他参数，可以去参考train.py中的说明</li>
+</ul>
+</li>
+<li>
+<p>配置脚本：<code>training/step1_supervised_finetuning/training_scripts/single_node/run_1.3b.sh</code></p>
+<ul>
+<li><a href="http://train.py">train.py</a> 程序会调用 run_1.3b.sh 来执行模型训练</li>
+<li>un_1.3b.sh 中可以设置参数，并调用对应的 <a href="http://main.py">main.py</a> 来开始模型训练</li>
+</ul>
+</li>
+<li>
+<p>训练程序：training/step1_supervised_finetuning/main.py<br>
+核心训练脚本，主要功能如下：</p>
+<ul>
+<li>数据，模型的下载</li>
+<li>模型的训练</li>
+</ul>
+</li>
+<li>
+<p>评价与测试用程序：prompt_eval.py<br>
+用于测试训练后的模型，并提供了微调前后的对比。</p>
+</li>
+</ul>
+<p><strong>Facebook opt系列模型</strong><br>
+本实例中使用的预训练模型是 facebook opt系列模型，根据OPT论文介绍，OPT-175B模型与GPT-3有类似的性能。<br>
+OPT：Open Pre-trained Transformer Language Models<br>
+论文地址：<a href="https://arxiv.org/abs/2205.01068">https://arxiv.org/abs/2205.01068</a></p>
+<p>模型在Huggingface上的地址：<br>
+<a href="https://huggingface.co/facebook/opt-125m">https://huggingface.co/facebook/opt-125m</a><br>
+<a href="https://huggingface.co/facebook/opt-350m">https://huggingface.co/facebook/opt-350m</a><br>
+<a href="https://huggingface.co/facebook/opt-1.3b">https://huggingface.co/facebook/opt-1.3b</a><br>
+<a href="https://huggingface.co/facebook/opt-6.7b">https://huggingface.co/facebook/opt-6.7b</a><br>
+<a href="https://huggingface.co/facebook/opt-13b">https://huggingface.co/facebook/opt-13b</a><br>
+<a href="https://huggingface.co/facebook/opt-30b">https://huggingface.co/facebook/opt-30b</a><br>
+<a href="https://huggingface.co/facebook/opt-66b">https://huggingface.co/facebook/opt-66b</a></p>
+<p>如果要使用最大的175B的模型，需要申请，获得授权后才能使用。<br>
+申请地址：<a href="https://forms.gle/dag8g7nKiR4o4VZq5">https://forms.gle/dag8g7nKiR4o4VZq5</a></p>
+<h2 id="5-实战step1监督微调">5 实战Step1：监督微调 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=485s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>任务说明：</strong> 使用标定的数据对预训练模型进行微调。</p>
+<p><strong>启动训练：</strong><br>
+通过执行下面的命令，就可以开启模型的训练。 在执行以下命令以开始模型训练之前，请确保设置了 CUDA 并激活了 conda 运行环境（请参考【2 开发环境安装】）。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>python3 train.py --step 1 --deployment-type single_gpu  #单GPU训练
+python3 train.py --step 1 --deployment-type single_node #多GPU训练
+python3 train.py --step 1 --deployment-type multi_node  #多Node训练
+</code></pre><p>在上述三种方式中，single_gpu 只适合训练较小的模型，而 single_node 和 multi_node 更适合训练较大的模型。第一次运行时，建议使用 single_gpu，因为在这种模式下，输出的错误信息会更详细。如果遇到 GPU 内存不足的问题，可以尝试使用 single_node 和 multi_node 来训练。如果问题仍然存在，需要手动调整 batch-size。</p>
+<p>此步骤主要进行：</p>
+<ul>
+<li>模型下载：代码会自动的下载对应的模型，默认情况下模型被存放在</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>~/.cache/huggingface/hub/models--facebook--opt-1.3b
+</code></pre><ul>
+<li>数据下载： 此步训练使用了以下数据</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Dahoas/rm-static    # 对话（prompt，response，chosen，rejected） 
+Dahoas/full-hh-rlhf # 对话（prompt，response，chosen，rejected）
+Dahoas/synthetic-instruct-gptj-pairwise #对话（prompt，chosen，rejected）
+yitingxie/rlhf-reward-datasets  # 对话（prompt，chosen，rejected）
+openai/webgpt_comparisons       # 带人工打分的数据，comparisons with human feedback，19,578 comparisons）
+stanfordnlp/SHP                 # 18个领域的385k 人类标注数据
+</code></pre><ul>
+<li>模型训练： 模型训练完成之后会被存储在 output/actor-models/1.3b 下面。你可以通过 training.log 文件来查看训练的进度。</li>
+</ul>
+<p><strong>评价与测试：</strong><br>
+打开文件 <code>run_prompt.sh</code> 添加 baseline 模型，和 finetune 后的模型：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>export CUDA_VISIBLE_DEVICES=0
+python prompt_eval.py \
+    --model_name_or_path_baseline facebook/opt-1.3b \
+    --model_name_or_path_finetune ../../output/actor-models/1.3b
+</code></pre><p>评价程序会调用 <code>prompt_eval.py</code> 来分别输出 baseline 和 finetune 后模型的结果。</p>
+<p>要执行此代码，需要切换到 step1_supervised_finetuning 目录下。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>cd training/step1_supervised_finetuning
+bash evaluation_scripts/run_prompt.sh
+</code></pre><p><strong>常见问题：</strong></p>
+<ul>
+<li>Q/A 1. 训练过程，无法找到GPU，或者GPU调用错误，可以尝试使用如下设置：</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>export CUDA_VISIBLE_DEVICES=0,1 # 2块GPU
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 # 8块GPU
+</code></pre><ul>
+<li>Q/A 2. 训练过程，出现端口被占用的问题<br>
+通过以下命令来设置 MASTER_ADDR 和 MASTER_PORT，尤其是使用多个node来训练时， 必需要设置 MASTER_ADDR。</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>export MASTER_ADDR=127.0.0.1 # 多node时，需要设置为主node的IP或者机器名
+export MASTER_PORT=29701
+</code></pre><p>以上设置，也可以在 <code>run1.3b.sh</code> 文件中进行设置，例如：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>CUDA_VISIBLE_DEVICES=0,1 deepspeed --master_addr=127.0.0.1 --master_port=29701 main.py
+</code></pre><ul>
+<li>Q/A 3. 评价过程， 出现模型参数不匹配问题： model.decoder.embed_tokens.weight: found shape torch.Size([50272, 2048]) in the checkpoint and torch.Size([50265, 2048]) in the model ...</li>
+</ul>
+<p>原因是由于模型被finetune以后，Token对应的词典数量发生了变化，导致输入数据维度变化了（这应该是个bug，在输入端应尽量保持与预训练模型一致）。应对方法，打开文件 prompt_eval.py，增加新的 config 读取脚本，并把来源模型从 baseline 模型中修改为finerune后的模型：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    config = AutoConfig.from_pretrained(args.model_name_or_path_finetune) # 新增
+    model_fintuned = get_model(config, args.model_name_or_path_finetune, tokenizer)
+</code></pre><ul>
+<li>Q/A 4. 评价过程，出现 RuntimeError: CUDA out of memory<br>
+当对比较大的模型评价时，可能会碰到此问题。比如在32G GPU上使用13b的模型时，就曾出现此问题。<br>
+建议尝试使用 <code>chat.py</code> 命令（需要移动到 DeepSpeed-Chat 目录下），执行方式如下：<pre data-role="codeBlock" data-info="" class="language-text text"><code>python chat.py --path output/actor-models/1.3b
+</code></pre></li>
+</ul>
+<h2 id="6-实战step2reward模型微调">6 实战Step2：Reward模型微调 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=727s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>任务介绍：</strong> 在第三步（Step3）中，强化学习阶段需要使用奖励模型。奖励模型会对模型生成的答案进行打分，Step3 的强化训练会根据这些分数对模型进行优化，从而使最终模型生成更高分的答案。奖励模型同样基于预训练模型进行训练，在这里我们使用了 350M 的 opt 模型。</p>
+<p><strong>启动训练：</strong><br>
+启动训练方法与前面类似：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>python3 train.py --step 2 --deployment-type single_gpu  #单GPU训练
+python3 train.py --step 2 --deployment-type single_node #多GPU训练
+python3 train.py --step 2 --deployment-type multi_node  #多Node训练
+</code></pre><p>训练数据：</p>
+<ul>
+<li>单GPU训练时只使用了 Dahoas/rm-static 数据</li>
+<li>多GPU训练使用了更多的数据：</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>Dahoas/rm-static
+Dahoas/full-hh-rlhf
+Dahoas/synthetic-instruct-gptj-pairwise
+yitingxie/rlhf-reward-datasets
+openai/webgpt_comparisons
+stanfordnlp/SHP
+</code></pre><p><strong>评价与测试：</strong></p>
+<p>步骤如下：</p>
+<ul>
+<li>打开文件 run_eval.sh 设置 <code>--model_name_or_path</code> 参数。</li>
+<li>转移到目录 <code>step2_reward_model_finetuning</code> 下</li>
+<li>执行：<code>bash evaluation_scripts/run_eval.sh</code></li>
+</ul>
+<p><strong>常见错误：</strong></p>
+<ul>
+<li>Q/A 1. 与上面类似，通常会出现GPU内存不足错误<br>
+需要调整batch-size或者使用更多GPU训练。比如：在 run_350m.sh 文件中添加参数 --per_device_train_batch_size 8 将默认batch size从16修改为8，如果问题依然存在，可以进一步调小。</li>
+</ul>
+<h2 id="7-实战step3rlhf训练">7 实战Step3：RLHF训练 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=862s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>任务介绍：</strong><br>
+RLHF 是基于人类反馈的强化学习的缩写。根据官方介绍，此步训练面临两个主要挑战：</p>
+<ul>
+<li>同时使用多个模型的内存消耗问题：此步训练不仅使用被训练的主模型，还使用奖励模型进行评分，因此会占用更多的 GPU 内存。</li>
+<li>如何有效地生成答案：在 RLHF 训练过程中，需要生成多个备选答案。由于模型一次推理只能生成一个答案，因此需要进行多次模型推理，这种操作会大幅度增加训练时间。</li>
+</ul>
+<p>在此实例中，通过将 DeepSpeed 训练和推理功能整合为一个统一的混合引擎（Hybrid Engine）来应对这些挑战。更多详细信息可以参考官方说明。</p>
+<p>在此步骤首次运行时，会安装并编译新的工具（transformer_inference）。如果编辑过程出现问题，建议升级 PyTorch 和 CUDA 版本。在我的环境下，使用 PyTorch 2.0 和 CUDA 11.7 下可以成功编译。</p>
+<p><strong>启动训练：</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>python3 train.py --step 3 --deployment-type single_gpu  #单GPU训练
+python3 train.py --step 3 --deployment-type single_node #多GPU训练
+python3 train.py --step 3 --deployment-type multi_node  #多Node训练
+</code></pre><p>此步训练后的模型被存储在 <code>output/step3-models/1.3b/</code> 下。</p>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>Q/A 1. GPU内存不足时，在sh脚本中增加如下设置，调整batch size：</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code> --per_device_train_batch_size 8　--per_device_mini_train_batch_size=8
+</code></pre><h2 id="8-评价与测试">8 评价与测试 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=RR8E9jy1eWk&amp;t=960s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>使用 <code>chat.py</code> 命令（需要移动到 DeepSpeed-Chat 目录下）进行评价与测试。 执行方式如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>python chat.py --path output/step3-models/1.3b/actor
+</code></pre><p>上面的程序可以启动13b的模型，但是66b的模型无法成功运行。</p>
+<p>备注：<br>
+这套工具刚刚发布不久，最近作者和贡献者们还在频繁的更新中。<br>
+更多的信息，请关注其github仓库中的动态。</p>
+<h2 id="参考文献">参考文献 </h2>
+<ul>
+<li>[1] <a href="https://github.com/microsoft/DeepSpeedExamples">https://github.com/microsoft/DeepSpeedExamples</a></li>
+<li>[2] <a href="https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat/chinese">https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat/chinese</a></li>
+<li>[3] OPT论文: <a href="https://arxiv.org/abs/2205.01068">https://arxiv.org/abs/2205.01068</a></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html><html><head>
+      <title>Transformers Generate 介绍 | 大模型训练技术介绍</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<link rel="stylesheet" href="assets/styles.css">
+<p><font size="7px"><b>大模型训练技术介绍</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC5%E7%AB%A0transformers-generate-%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">第5章：Transformers Generate 功能介绍</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-generate">为什么需要 Generate？</a></li>
+<li><a href="#transformer-%E6%A8%A1%E5%9E%8B">Transformer 模型</a></li>
+<li><a href="#%E5%AE%9E%E6%88%98transformers-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">实战：Transformers 代码分析</a>
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84">代码结构</a></li>
+<li><a href="#%E6%A8%A1%E5%9E%8B-modelswhisper">模型 models/whisper</a></li>
+<li><a href="#generate-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">Generate 代码分析</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE">代码修改建议</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="第5章transformers-generate-功能介绍">第5章：Transformers Generate 功能介绍 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=0s" target="_blank">【观看视频解说】</a></p>
+</div>
+<h2 id="介绍">介绍 </h2>
+<p>最近的大语言模型，很多都是基于Huggingface Transformers开发库进行训练和公开的。在Transformers开发库中进行文本生成时，会使用到一个Generate的文本生成函数。这个Generate函数都具体做了什么？ 这个函数与模型训练时的forward函数有什么区别，为什么文本的生成不能直接使用 forward 函数来实现呢？<br>
+本章内容将为你解释 Huggingface Transformers 中的 generate 文本生成功能。</p>
+<p><strong>本章将解答以下几个问题：</strong></p>
+<ul>
+<li>为什么需要generate功能？</li>
+<li>Generate的实现代码在什么位置？</li>
+<li>Generate函数的输入的是什么？</li>
+<li>如何处理 Decoder-only（比如GPT系列）和 encoder-decoder （完整Transformer）网络的generate？</li>
+<li>Auto-regressive 的迭代循环是如何处理的？</li>
+<li>函数返回的是什么样的数据？ 如何修改返回数据？</li>
+</ul>
+<p>通过对上面问题的理解和学习，你将会进一步了解Transformers的代码架构，从而可以尝试对核心代码进行个性化修改。</p>
+<p><strong>事前说明：</strong><br>
+以下内容为个人学习的总结，所有内容仅供参考使用。<br>
+这是一个在高速发展和进化的领域，由于个人能力和见识所限，因此无法保证介绍的内容能在其他环境和配置下正确运行。</p>
+<h2 id="为什么需要-generate">为什么需要 Generate？ </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=40s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>一般情况下，AI模型构建的主要包含训练部分（Training）和推理部分（Inference，生成，解码，识别，判定）。<br>
+模型训练部分通过设计网络结构，训练方法，以及调整训练参数来得到高精度的模型参数。推理部分根据不同的任务，也常被称为预测部分，或者生成部分，其主要工作就是使用训练好的模型参数，对测试数据或者部署中的实际数据进行识别或者文本生成等处理。所以，这两部分都是模型的很重要的部分。</p>
+<p>Transformer的模型训练时，有一个forward函数，是在模型训练时针对模型的输入来产生输出，从让来计算loss，来更新网络的参数。既然有这么一个生成的函数了，为什么transformers中还有专门的generate函数来负责生成呢？</p>
+<p>这里面主要有两个原因：</p>
+<ol>
+<li>
+<p><strong>模型训练与生成的差异：</strong> 一般情况下，在分类任务上，Forward函数与decoding或者prediction时的处理是一致的。但是在 LM 的训练过程中，训练时的forward函数中通常并不采用真正的递归的方式进行逐步处理。<br>
+在理论上，LM模型通过输入的一组 token，来预测下一个token。 然后再将新的预测出的 token 与前面的 token 序列进行链接，用来继续预测下一个 token。 在实际训练中，上面的自回归的训练方式，训练的效率非常的低，无法更好的利用GPU的并行处理能力。 因此实际训练中，作为模型输入的 token 并不通过模型的预测来获取，而是直接使用训练数据中的文本。也可以理解为，前面的预测是完全正确的。</p>
+</li>
+<li>
+<p><strong>LM Decoding方法的复杂性</strong><br>
+相比分类任务，LM这种自递归的生成任务的解码通常都比较复杂。比如在 LM 或者ASR任务中，解码方法有很多，比如 greedy_search(), contrastive_search(), sample(), beam_search(), beam_sample(), group_beam_search(), and constrained_beam_search() 等等。通过使用更加复杂的解码的方法，通常可以得到更好的效果。比如 beam_search的结果比greedy_search的结果通常会更好。但是在训练过程中，采用方法更加类似于greedy search的方法。因此，设计更好的解码算法也是一个很重要的研究方向。</p>
+</li>
+</ol>
+<p>以上两个原因导致了在 LLM 具体实现中，会经常可以见到非常复杂的 generate 功能用来生成文本。</p>
+<h2 id="transformer-模型">Transformer 模型 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=236s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>除了LLM的文本生成，基于LM架构的语音识别模型，也采用类似处理方式。其中OpenAI的Whisper模型就是采用了transformer的架构，因此其本质上更像是一个语言模型。（注意：whisper与常见的CTC-based的语音识别模型是不同的）</p>
+<p>比如，whisper 模型进行语音识别时，Encoder部分用于提取声学特征，Decoder部分用于文本的生成（语言学特征）。</p>
+<p>处理过程类似于：</p>
+<ul>
+<li>声学特征： 声学特征的提取是输入一个30秒的语音片段，Encoder部分会将此输入编码为一个定长的向量。</li>
+<li>文本生成： 将声学特征和前面生成的文本输入到 Decoder 网络。 Decoder网络就和传统的 LM 一样，努力的预测下一个token的输出。</li>
+<li>Loss计算： 通过计算预测的token与正确token之间的差异来计算参数更新所需要的loss。</li>
+</ul>
+<p>与上面提到的一样，训练过程中，直接使用了文本的 label 数据来作为Decoder的输入，在forward函数中并不实际存在一个递归的预测过程。 但是在实际使用模型进行文本产生或者语音识别时，是必需要进行auto-regressive的操作来逐步产生文本。这个产生文本的过程，就被封装在generate函数中。</p>
+<h2 id="实战transformers-代码分析">实战：Transformers 代码分析 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1B49HWUk3Kg&amp;t=322s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>下面，我们来通过 transformers 中的代码，来看看generate是如何实现的。<br>
+在Transformers中，具体模型的代码可以在 transformers/models 目录下找到，比如 OpenAI 的 whisper 模型的主要实现在 transformers/models/whisper/modeling_whisper.py文件中。</p>
+<h3 id="代码结构">代码结构 </h3>
+<p>Transformers的代码可以在GitHub上找到：<a href="https://github.com/huggingface/transformers">https://github.com/huggingface/transformers</a><br>
+其代码的结构如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>docs
+scripts
+utils
+examples : 使用方法，参考案例
+...
+src/transformers （Transformer相关的代码）
+  data： 数据处理
+  models ： 模型的实现代码，比如BERT， GPT，Whisper模型，都在此目录下实现  
+  generation : 文本生成相关代码
+
+  ...
+</code></pre><p>从上面的代码中，examples中提供了模型的使用方法的参考例子。<br>
+我们的今天介绍的主要内容都在 src/transformers 目录下，其中 models 目录下，是基于transformer的各种模型的实现代码，Generation 包含通用的文本产生的实现代码。</p>
+<h3 id="模型-modelswhisper">模型 models/whisper </h3>
+<p>我们以Whisper 模型为例来详细介绍一下代码的结构和调用关系。下面我们以v4.29.1的版本为例进行介绍。<br>
+首先，whisper模型的代码位于：src/transformers/models/whisper 目录下。其主要功能都封装在 modeling_whisper.py 文件中。</p>
+<p><strong>调用入口：WhisperForConditionalGeneration类</strong><br>
+此python文件中包含多个类，继承的关系比较复杂，它们之间的主要调用关系如下（以greedy search为例）：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>WhisperForConditionalGeneration （L1312） ： 调用入口类
+    forward() （L1359）  --&gt; 细节在：WhisperModel，WhisperEncoder，WhisperDecoder 类中实现
+    generate() （L1455） --&gt; 细节在: generation/utils.py#L1146 中实现
+        greedy_search(): L2164 --&gt; 调用 search 函数来做实际的处理，比如自回归处理
+</code></pre><p><strong>Forward函数：</strong><br>
+forward函数位于 class transformers.WhisperModel 类中，代码位置请参考：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1215">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1215</a></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>def forward():
+    # Encoder将输入的语音信号，编码为声学信息，也就是 encoder_outputs
+    encoder_outputs = self.encoder(
+        input_features,
+        head_mask=head_mask,
+        output_attentions=output_attentions,
+        output_hidden_states=output_hidden_states,
+        return_dict=return_dict,
+    )
+    # Decoder 的主要输入为 decoder_input_ids （对应文本） 和 encoder_outputs （对应声学信息，在翻译任务中，对应着源语言）
+    decoder_outputs = self.decoder(
+        input_ids=decoder_input_ids,
+        attention_mask=decoder_attention_mask,
+        encoder_hidden_states=encoder_outputs[0],
+        head_mask=decoder_head_mask,
+        cross_attn_head_mask=cross_attn_head_mask,
+        past_key_values=past_key_values,
+        inputs_embeds=decoder_inputs_embeds,
+        use_cache=use_cache,
+        output_attentions=output_attentions,
+        output_hidden_states=output_hidden_states,
+        return_dict=return_dict,
+      )
+
+</code></pre><p>通过上面，我们可以看到有 Encoder 部分和 Decoder 部分，分别对应声学特征的提取和文本产生部分。</p>
+<p>在 WhisperForConditionalGeneration 类中，也有一个forward函数，是对上面forward函数的封装。<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1359">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1359</a></p>
+<p>其中self.encoder的实现代码位于 class WhisperEncoder(WhisperPreTrainedModel) 类中：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L735">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L735</a></p>
+<p>其中self.decoder的实现代码位于 class WhisperDecoder(WhisperPreTrainedModel) 类中：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L881">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L881</a></p>
+<p><strong>Generate函数</strong><br>
+Generate函数入口：位于 class WhisperForConditionalGeneration(WhisperPreTrainedModel) 类中：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455</a></p>
+<p>此处只是调用的入口，具体的实现代码位于 class GenerationMixin 类中：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a><br>
+def generate() L1146</p>
+<p>其中generate函数使用的greedy_search的实现位于：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L2164">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L2164</a></p>
+<h3 id="generate-代码分析">Generate 代码分析 </h3>
+<p>下面，我们来进一步了解 generate 的实现代码，来看看如何对此代码进行修改。</p>
+<p><strong>入口代码</strong><br>
+Generate函数的入口位于： WhisperForConditionalGeneration类中的 def generate 函数<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L1455</a></p>
+<p>代码的概要如下，从代码中可以看到，这个函数主要是进行了一些参数设置，具体的实现是调用了父类中的对应函数来执行的。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>def generate()
+        # 参数设置部分
+
+        # 调用部分（此处调用了父类中的generate实现）
+        return super().generate(
+            inputs,
+            generation_config,
+            logits_processor,
+            stopping_criteria,
+            prefix_allowed_tokens_fn,
+            synced_gpus,
+            **kwargs,
+        )
+
+</code></pre><p>然后，我们可以逐级向上搜索其父类，可以看到</p>
+<ul>
+<li>
+<p>上一级父类 WhisperPreTrainedModel ： 没有太多内容<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L575">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/models/whisper/modeling_whisper.py#L575</a></p>
+</li>
+<li>
+<p>上二级父类 PreTrainedModel<br>
+class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMixin)<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/modeling_utils.py#L1009">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/modeling_utils.py#L1009</a></p>
+</li>
+<li>
+<p>上三级父类 GenerationMixin<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L469">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L469</a><br>
+def generate() 函数 L1146<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a></p>
+</li>
+</ul>
+<p>到此为止，我们就可以看到，具体的实现都在 GenerationMixin 类中。</p>
+<p><strong>Generate函数实现细节</strong></p>
+<p>下面，我们来看一下 GenerationMixin类中的 generate 函数的实现细节。<br>
+代码位置：<br>
+<a href="https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146">https://github.com/huggingface/transformers/blob/v4.29.1/src/transformers/generation/utils.py#L1146</a></p>
+<p>其代码概要如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>def generate(): L1146
+      # 根据解码方式的不同，此函数中有最多14步的处理步骤，我们以greedy search为例
+      # 1. Handle `generation_config` and kwargs that might update it, and validate the `.generate()` call
+      # 2. Set generation parameters if not already defined
+      # 3. Define model inputs
+      # 4. Define other model kwargs
+      # 5. Prepare `input_ids` which will be used for auto-regressive generation
+      # 6. Prepare `max_length` depending on other stopping criteria.
+      # 7. determine generation mode
+      # 8. prepare distribution pre_processing samplers
+      # 9. prepare stopping criteria
+      # 10. go into different generation modes
+      # 11. run greedy search　(L1515)
+
+def greedy_search(): L2164
+      # 初始化，设置
+
+      # 循环处理
+      while True: # L2317
+          # prepare model inputs (下面函数的具体实现位于： modeling_whisper.py#L1627)
+          model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+
+          # forward pass to get next token 
+          # 这里是调用了 WhisperForConditionalGeneration 中的forward函数。这是因为 PyTorch 的 nn.Module 基类定义了一个 __call__ 方法，当你调用模型实例（即 self）时，它会自动调用这个 __call__ 方法，而这个 __call__ 方法又会调用 forward 方法。
+          outputs = self(
+              **model_inputs,
+              return_dict=True,
+              output_attentions=output_attentions,
+              output_hidden_states=output_hidden_states,
+          )
+
+          # 得到下一个token的logits
+          next_token_logits = outputs.logits[:, -1, :]
+
+          # pre-process distribution 得到其score
+          next_tokens_scores = logits_processor(input_ids, next_token_logits)
+          
+          # argmax ：使用argmax 获取对应的 tokens
+          next_tokens = torch.argmax(next_tokens_scores, dim=-1)
+
+          # update generated ids, model inputs, and length for next step
+          input_ids = torch.cat([input_ids, next_tokens[:, None]], dim=-1)
+
+          # 判断是否结束search：
+          #   if eos_token was found in one sentence, set sentence to finished
+          #   stop if we exceed the maximum length
+
+</code></pre><p>通过上面的代码概要，我们就可以知道generate函数进行了很多的设置以后，会调用 greedy_search() 函数来进行文本产生的实际处理。<br>
+到此为止，我们就已经对整个的代码结构了解了。</p>
+<p>下面我们通过几个问题，来回顾一下对代码的理解。</p>
+<ul>
+<li>
+<p>问题1： Generate函数的入口在什么位置？</p>
+</li>
+<li>
+<p>问题2： Generate函数的具体实现在什么位置？</p>
+</li>
+<li>
+<p>问题3： 在处理 Decoder-only 和 encoder-decoder 网络时有什么差异 ？<br>
+Generate同时可以支持Deocder-only和encoder-decoder（完整的transformer）。<br>
+Transformers可以理解为一个LM，Encoder编码后的向量只是Decoder的一个输入。</p>
+</li>
+<li>
+<p>问题4：Generate 函数的输入的是什么？<br>
+最主要的输入为 inputs，在作为LM时，可以为 prompt tokens，若为 None，则初始化为 bos_token_id。<br>
+如果是 decoder-only，则input为input_ids的格式， 如果为encoder-decoder，则支持input_ids和feature等多种格式。</p>
+</li>
+<li>
+<p>问题5：Auto-regressive 的迭代循环是如何处理的？ 在什么位置？<br>
+迭代循环可以在 greedy_search 函数中找到。</p>
+</li>
+<li>
+<p>问题6：函数返回的数据格式是什么？ 如何添加自己额外的数据？<br>
+返回的格式，根据网络结构不同也有不同的格式，可以支持 GreedySearchEncoderDecoderOutput 和 GreedySearchDecoderOnlyOutput。<br>
+也可以输出任意的数据，比如 L2421 只返回了 input_ids。<br>
+如果要添加额外的输出，可以修改上面的类 GreedySearchEncoderDecoderOutput 和 GreedySearchDecoderOnlyOutput，也可以在 L2421 添加输出的内容。</p>
+</li>
+<li>
+<p>问题7： 如何对Generate进行修改？在那个脚本中修改？<br>
+在src/transformers/generation/utils.py中修改，还是在src/transformers/models/whisper/modeling_whisper.py中修改呢？</p>
+</li>
+</ul>
+<h2 id="代码修改建议">代码修改建议 </h2>
+<p>针对上面的问题7，如果要对generate或者其他部分进行修改，建议在 models/whisper的目录下对父类函数进行重构。<br>
+比如，如果要对greedy_search功能进行调整来实现一些独特的功能时，可以在modeling_whisper.py中重构 greedy_search()，具体做法可以是：</p>
+<ol>
+<li>将 <a href="http://utils.py">utils.py</a> 中的 greedy_search 函数拷贝到 modeling_whisper.py 文件中。</li>
+<li>需要import 一些必要的库文件。（具体的库，可以根据运行时的错误提示确定）</li>
+<li>在greedy_search函数中进行修改，来实现想要的功能。</li>
+</ol>
+<p>函数在子类中被重新实现之后，调用时，将会优先调用新重构的函数。这样既实现了自己独特的功能，还不影响其他的模型的运行。</p>
+<h2 id="参考文献">参考文献 </h2>
+<ol>
+<li>【基本概念】<a href="https://huggingface.co/blog/how-to-generate">https://huggingface.co/blog/how-to-generate</a></li>
+<li><a href="https://huggingface.co/docs/transformers/main_classes/text_generation">https://huggingface.co/docs/transformers/main_classes/text_generation</a></li>
+<li><a href="https://huggingface.co/docs/transformers/internal/generation_utils">https://huggingface.co/docs/transformers/internal/generation_utils</a></li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

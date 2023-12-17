@@ -1,0 +1,352 @@
+<!DOCTYPE html><html><head>
+      <title>DeepSpeed-Chat 代码分析 | 大模型训练入门实战</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<link rel="stylesheet" href="assets/styles.css">
+<p><font size="7px"><b>专题：大模型训练入门实战</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%AC%AC2%E7%AB%A0deepspeed-chat-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">第2章：DeepSpeed-Chat 代码分析</a>
+<ul>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1 概要</a></li>
+<li><a href="#2-%E4%BB%A3%E7%A0%81%E6%A6%82%E8%A6%81">2 代码概要</a></li>
+<li><a href="#3-%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">3 分布式训练的基本概念</a></li>
+<li><a href="#3-%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3">3 代码：数据相关</a></li>
+<li><a href="#4-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3">4 代码：模型相关</a></li>
+<li><a href="#5-%E4%BB%A3%E7%A0%81%E8%AE%AD%E7%BB%83">5 代码：训练</a></li>
+<li><a href="#6-%E4%BB%A3%E7%A0%81%E8%AF%84%E4%BB%B7">6 代码：评价</a></li>
+<li><a href="#7-%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98">7 代码：模型的保存</a></li>
+<li><a href="#8-%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93%E4%BD%BF%E7%94%A8deepspeed%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">8 流程总结：使用DeepSpeed进行模型微调</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="第2章deepspeed-chat-代码分析">第2章：DeepSpeed-Chat 代码分析 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=0s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>本章内容，我们来了解这个工具是如何工作的，通过了解它的工作方式，我们就可以：</p>
+<ul>
+<li>替换预训练模型，训练数据： 除了facebook的预训练模型，我们也可以尝试使用其他的模型； 尤其是可以使用其他数据来优化模型。</li>
+<li>掌握DeepSpeed的使用方法： 通过上一章内容，我们知道DeepSpeed是一个强大的大模型训练工具。学会使用DeepSeed，不仅可以训练LLM，也可以用于其他DL任务的大模型训练。</li>
+</ul>
+<h2 id="1-概要">1 概要 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=78s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>DeepSpeed-Chat共有三个Step。其中Step1 和 2 比较类似，与Step3相比，也比较简单。所以，我们通过学习Step1来了解这套工具的基本功能。我们主要来学习 <code>step1_supervised_finetuning</code> 目录下的 <code>main.py</code> 程序，以及与其关联的 <code>utils</code> 下代码。<br>
+我们会在以下几个方面，对代码进行解读：</p>
+<ul>
+<li>数据处理部分</li>
+<li>模型初始化部分</li>
+<li>训练代码部分</li>
+<li>DeepSpeed并行处理的理解，以及使用流程</li>
+</ul>
+<h2 id="2-代码概要">2 代码概要 </h2>
+<p>第一步Step1的训练过程，是通过bash脚本 <code>run_1.3b.sh</code> 来调用 <code>main.py</code> 来进行训练的，所以，我们主要来学习 <code>main.py</code> 程序。</p>
+<p>run_1.3b.sh 脚本主要包含以下内容</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>deepspeed main.py \
+   --data_path Dahoas/rm-static \
+   --data_split 2,4,4 \
+   --model_name_or_path facebook/opt-1.3b \
+   --per_device_train_batch_size 8 \
+   --per_device_eval_batch_size 8 \
+   --max_seq_len 512 \
+   --learning_rate 9.65e-6 \
+   --weight_decay 0.1 \
+   --num_train_epochs 2 \
+   --gradient_accumulation_steps 1 \
+   --lr_scheduler_type cosine \
+   --num_warmup_steps 0 \
+   --seed 1234 \
+   --zero_stage $ZERO_STAGE \
+   --deepspeed \
+   --output_dir $OUTPUT \
+   &amp;&gt; $OUTPUT/training.log
+</code></pre><p>结合 <code>main.py</code> 程序，我们可以将参数分为三大类</p>
+<p><strong>与数据相关的参数</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>data_path        : 数据路径，huggingface数据库， 比如：Dahoas/rm-static
+data_split       : 数据的拆分方式，比如 2,4,4 是为step1，2，3分配的数据比例
+max_seq_len      : 最大序列长度（超过长度会被截掉）
+data_output_path : 相关数据的存储地址（local storage，不能是shared storage）
+</code></pre><p><strong>与模型相关的参数</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>model_name_or_path : 模型名称或路径，huggingface模型，比如：facebook/opt-1.3b
+lora_dim           : 如果大于0，则使用LoRA优化
+lora_module_name   : 设置LoRA的范围，比如可以只针对 decoder.layers
+only_optimize_lora : 是否只优化LoRA的参数
+</code></pre><p><strong>与训练相关的参数</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>per_device_train_batch_size : 训练时的 Batch size (per device： 每个GPU的Size)
+per_device_eval_batch_size  : 评价时的 Batch size (per device)
+learning_rate               : 学习率
+weight_decay                : 权重衰减，防止模型过拟合的技术。
+num_train_epochs            : 训练 epoch 数
+gradient_accumulation_steps : 累积多少个 mini-batch 的梯度后再进行一次参数更新。
+lr_scheduler_type           : learning rate的调整策略，比如 linear, cosine
+</code></pre><p><strong>deepspeed</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>zero_stage  : 这个对应者DeepSpeed工具中的zero方式，分别是0，1，2，3
+offload     : ZeRO-Offload 通过利用主机CPU上的计算和内存资源来执行优化器，从而减少此类模型的GPU计算和内存需求。
+local_rank  : 分布式训练时的一个变量，用于标识当前 GPU 设备的本地排名（本机排名，与global-rank不同）
+gradient_checkpointing : 降低深度学习模型训练过程中内存消耗的技术
+</code></pre><p><strong>其他</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>seed        : 随机排序是的seed
+output_dir  : 模型的存储目录
+</code></pre><h2 id="3-分布式训练的基本概念">3 分布式训练的基本概念 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=329s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>args.local_rank</strong><br>
+local_rank 在分布式训练时使用的一个变量，用于标识当前 GPU 设备的本地排名（local rank）。</p>
+<p>当 args.local_rank 等于 -1 时，表示代码不在分布式设置下运行，仅使用单个 GPU 进行训练。如果 args.local_rank 不等于 -1，则表示代码在分布式设置下运行，当前 GPU 设备被分配了一个唯一的本地排名。代码会将设备设置为指定的 GPU（torch.device("cuda", args.local_rank)），并使用 deepspeed.init_distributed() 函数调用初始化分布式后端。</p>
+<p>注意： 在 PyTorch 中也有分布式初始化方法 torch.distributed.init_process_group() 函数。但是当使用 DeepSpeed 库时，不要替换为 deepspeed.init_distributed()。</p>
+<p><strong>args.global_rank</strong><br>
+在分布式训练中，每个进程都有一个唯一的全局排名，用于标识该进程在分布式环境中的位置。全局排名的范围是从0到world_size-1，其中 world_size 是整个分布式环境中进程的总数。<br>
+本程序中通过 torch.distributed.get_rank() 来读取 global_rank， 本函数在初始化分布式后端之后才能调用。</p>
+<p><strong>torch.distributed.barrier()</strong><br>
+torch.distributed.barrier() 是一个同步函数，用于在分布式环境中同步各个进程的状态。在调用该函数时，进程会阻塞等待，直到所有进程都调用了该函数之后，才会解除阻塞并继续执行后面的代码。</p>
+<p>在分布式训练中，torch.distributed.barrier() 通常用于同步各个进程的梯度更新。在每个进程完成一轮前向传播和反向传播后，它们需要同步各自的梯度，并且等待其他进程完成同样的操作，才能进行下一轮更新。这时就可以使用 torch.distributed.barrier() 函数实现同步。</p>
+<p>另外一个用法，在模型参数并行训练时，数据的读取只需要在 local_rank 为 0 的GPU上进行，其他进程使用 torch.distributed.barrier() 来阻塞来等待数据读取完成。</p>
+<h2 id="3-代码数据相关">3 代码：数据相关 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=414s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>现在的NLP模型训练时，普遍的做法是，首先将文本转换为Token。Token通常是指一个单词或者字的一部分。将本文转换为Token时会使用到 tokenizer，tokenizer是在训练数据上统计并训练出来的。有很多工具可以来训练tokenizer，比如 Google 的 sentencepiece。下面给出了GPT-3的Token的例子。比如：</p>
+<ul>
+<li>good morning： 对应 2 个Token，其ID是 [11274, 3329]</li>
+<li>早上好 ： 对应 5 个Token，ID是 [33768, 102, 41468, 25001, 121]</li>
+<li>おはよう : 日语6个Token， ID是 [2515, 232, 31676, 1792, 230, 29557]</li>
+<li>1234567890： 对应4个Token，分别是 123， 45， 678， 90</li>
+<li>xa ： 对应2个Token，分别是 x，a</li>
+</ul>
+<p>你可以通过OpenAI网站来体验Token的拆分：<a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a></p>
+<p>DS-Chat工具中训练时使用的 tokenizer 是来自预训练模型，这段代码使用了 Hugging Face Transformers 库中的 AutoTokenizer 类，用于实例化一个预训练模型的 tokenizer。AutoTokenizer 类可以自动选择并加载对应的 tokenizer，从而避免了手动选择的步骤。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, fast_tokenizer=True)
+    tokenizer.pad_token = tokenizer.eos_token
+</code></pre><p>AutoTokenizer.from_pretrained() 函数有两个必选参数，model_name_or_path 是预训练模型的名称或路径，例如 "bert-base-uncased" 或 "/path/to/model/directory"。    fast_tokenizer: 是否使用快速 tokenizer。如果为 True，则会选择使用 Rust 实现的 tokenizer，速度更快；否则使用 Python 实现的 tokenizer。默认为 True。</p>
+<p>数据准备函数：create_prompt_dataset</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    train_phase = 1
+    train_dataset, eval_dataset = create_prompt_dataset(
+        args.local_rank, args.data_path, args.data_split,
+        args.data_output_path, train_phase, args.seed, tokenizer,
+        args.max_seq_len)
+</code></pre><p>local_rank 参数是为了让数据下载等基本处理,只在local rank为 0 的 GPU 上执行。也就是每个node上只处理一次数据即可。 data_output_path 需要设定为 local storage path，应该是为了在分布式训练时存储本地数据用的。</p>
+<p>然后是初始化sampler，单GPU使用RandomSampler和SequentialSampler，分布式处理使用DistributedSampler。sampler 主要用来设置数据采用的顺序。比如随机采样来提高模型的鲁棒性。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    # DataLoaders creation:
+    if args.local_rank == -1:
+        train_sampler = RandomSampler(train_dataset)
+        eval_sampler = SequentialSampler(eval_dataset)
+    else:
+        train_sampler = DistributedSampler(train_dataset)
+        eval_sampler = DistributedSampler(eval_dataset)
+</code></pre><p>数据读取使用 PyTorch 标准的 DataLoader 来处理。使用Dataloader 不仅可以设置sampler定义采样方式，还可以自动进行批处理，并且支持多进程数据加载。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    train_dataloader = DataLoader(train_dataset,
+                                  collate_fn=default_data_collator,
+                                  sampler=train_sampler,
+                                  batch_size=args.per_device_train_batch_size)
+    eval_dataloader = DataLoader(eval_dataset,
+                                 collate_fn=default_data_collator,
+                                 sampler=eval_sampler,
+                                 batch_size=args.per_device_eval_batch_size)
+</code></pre><h2 id="4-代码模型相关">4 代码：模型相关 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=584s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p><strong>模型初始化</strong><br>
+以下的代码用来对模型进行初始化。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>model = create_hf_model(AutoModelForCausalLM, args.model_name_or_path,
+                        tokenizer, ds_config)
+</code></pre><p>其中 AutoModelForCausalLM 是 Hugging Face Transformers 库中的一个类，能够自动选择并加载适当的预训练 Transformer 模型，它支持多种预训练 Transformer 模型，包括 GPT-2、GPT、CTRL、Transformer-XL、XLNet 和 XLM 等。使用该类时，您只需指定模型的名称或路径即可自动加载对应的模型。</p>
+<p>具体实现代码，可以参考：utils/model/model_utils.py。</p>
+<p><strong>LoRA</strong><br>
+当设置 lora_dim 大于0时，将会使用LoRA技术对模型进行调整。 从而让模型的优化参数大幅度的变少，改善优化的效率。通常情况下，使用LoRA技术，不仅可以减少参数量，还能进一步改善性能。这主要是因为，这种bottleneck的网络设计，可以防止过拟合，从而提高模型的鲁棒性。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    if args.lora_dim &gt; 0:
+        model = convert_linear_layer_to_lora(model, args.lora_module_name,
+                                             args.lora_dim)
+        if args.only_optimize_lora:
+            model = only_optimize_lora_parameters(model)
+</code></pre><p><strong>提取需要被优化的参数 optimizer_grouped_parameters</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    # Split weights in two groups, one with weight decay and the other not.
+    optimizer_grouped_parameters = get_optimizer_grouped_parameters(
+        model, args.weight_decay)
+
+    AdamOptimizer = DeepSpeedCPUAdam if args.offload else FusedAdam
+    optimizer = AdamOptimizer(optimizer_grouped_parameters,
+                              lr=args.learning_rate,
+                              betas=(0.9, 0.95))
+</code></pre><p>在上面的代码中，get_optimizer_grouped_parameters() 函数被用来将权重分成两组，一组需要应用权重衰减，另一组则不需要。该函数通过遍历模型的所有参数，并检查参数名称是否包含 bias 或 LayerNorm 等特殊字符串，来区分需要应用权重衰减的参数和不需要的参数。</p>
+<p><i><strong>分组原因的解说：</strong> 一般来说，对于参数名称中不包含 bias 或 LayerNorm 等特殊字符串的参数，我们认为它们是需要应用权重衰减的参数。对于这些参数，通常会将它们的权重矩阵与权重衰减超参数相乘，以降低它们的权重。与此相反，对于参数名称中包含 bias 或 LayerNorm 等特殊字符串的参数，我们认为它们是不需要应用权重衰减的参数。这是因为 bias 或 LayerNorm 参数通常只是用来偏移或缩放其他层的输出，而不是真正的权重参数。通过将权重分成两组，并分别应用权重衰减和不应用权重衰减，我们可以更好地控制模型的复杂度，从而提高模型的泛化性能。</i></p>
+<p>然后设置Optimizer优化器，根据参数不同会选择 DeepSpeedCPUAdam 或者 FusedAdam 优化器。 并传入了一些参数，包括分组的参数、学习率和 betas。</p>
+<p><i><strong>Adam优化器的解说：</strong> 在 Hugging Face 的 Transformers 库中，有两种 Adam 优化器可供选择：FusedAdam 和 DeepSpeedCPUAdam。它们都是基于 PyTorch 实现的优化器，但在不同的硬件上具有不同的优化和性能特征。FusedAdam 是使用 NVIDIA Apex 库实现的优化器，它支持混合精度训练，并且可以同时计算梯度和权重更新操作，从而提高训练效率。FusedAdam 优化器在使用支持 CUDA 的 NVIDIA GPU 时具有较好的性能。DeepSpeedCPUAdam 是一种 CPU 上的优化器，它是 DeepSpeed 框架中的一部分，支持分布式训练和模型平行化。DeepSpeedCPUAdam 优化器在使用 CPU 时具有较好的性能。在上面的代码中，如果 args.offload 为 True，则表示使用基于 CPU 的优化，因此会选择使用 DeepSpeedCPUAdam 优化器。</i></p>
+<p><strong>设置lr_scheduler</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    num_update_steps_per_epoch = math.ceil(
+        len(train_dataloader) / args.gradient_accumulation_steps)
+    lr_scheduler = get_scheduler(
+        name=args.lr_scheduler_type,
+        optimizer=optimizer,
+        num_warmup_steps=args.num_warmup_steps,
+        num_training_steps=args.num_train_epochs * num_update_steps_per_epoch,
+    )
+</code></pre><p>lr_scheduler 是用来规划整个训练过程中 lr 是如何调整的。lr_scheduler_type 调度器类型，用来描述 lr 是按照什么样的方式变化，例如 LinearWarmup、CosineAnnealing 等。num_warmup_steps 预热步数指定了在训练的前期阶段 lr 增加过程的步数。 总训练步数指定模型共被更新多少次。</p>
+<p><strong>DS初始化</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    model, optimizer, _, lr_scheduler = deepspeed.initialize(
+        model=model,
+        optimizer=optimizer,
+        args=args,
+        config=ds_config,
+        lr_scheduler=lr_scheduler,
+        dist_init_required=True)    
+</code></pre><p>使用DeepSpeed进行优化是，需要使用deepspeed.initialize() 函数来初始化模型、优化器、学习率调度器等训练相关的组件。其中，model 和 optimizer 是必需的参数，而其他参数则是可选的。</p>
+<p>deepspeed.initialize() 函数会对传入的参数进行检查和优化，并返回新的模型、优化器和学习率调度器等组件。例如，它会根据训练参数设置和硬件配置自动调整优化器和梯度累积的设置，并设置模型权重的分布式训练策略。dist_init_required=True 参数指示 DeepSpeed 是否需要进行分布式训练初始化。</p>
+<p><strong>DS 配置文件</strong><br>
+配置文件包含DeepSpeed模型训练时所需要的相关设置信息，可以通过这里的修改来调整训练过程。下面是 utils/ds_utils.py 中给出的设置 ：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>ds_config = {
+    "train_batch_size": GLOBAL_BATCH_SIZE,
+    "train_micro_batch_size_per_gpu": MICRO_BATCH_SIZE,
+    "steps_per_print": 10,
+    "zero_optimization": {
+        "stage": stage,
+        "offload_param": {
+            "device": device
+        },
+        "offload_optimizer": {
+            "device": device
+        },
+        "stage3_param_persistence_threshold": 1e4,
+        "stage3_max_live_parameters": 3e7,
+        "stage3_prefetch_bucket_size": 3e7,
+        "memory_efficient_linear": False
+    },
+    "fp16": {
+        "enabled": True,
+        "loss_scale_window": 100
+    },
+    "gradient_clipping": 1.0,
+    "prescale_gradients": False,
+    "wall_clock_breakdown": False,
+    "hybrid_engine": {
+        "enabled": enable_hybrid_engine,
+        "inference_tp_size": inference_tp_size,
+        "release_inference_cache": release_inference_cache,
+        "pin_parameters": pin_parameters,
+        "tp_gather_partition_size": tp_gather_partition_size,
+    }
+}
+</code></pre><h2 id="5-代码训练">5 代码：训练 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=664s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>下面是训练部分的实现代码，需要注意的是，使用DS以后，训练部分的代码与标准的PyTorch代码不同。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    for epoch in range(args.num_train_epochs):
+        print_rank_0(
+            f"Beginning of Epoch {epoch+1}/{args.num_train_epochs}, Total Micro Batches {len(train_dataloader)}",
+            args.global_rank)
+        model.train()
+        for step, batch in enumerate(train_dataloader):
+            batch = to_device(batch, device)
+            outputs = model(**batch, use_cache=False)
+            loss = outputs.loss
+            model.backward(loss)
+            model.step()
+</code></pre><p><i><strong>关于<code>**batch</code>解释：</strong> 这个操作可以方便地将一个批次的数据传递给模型，避免手动拆分列表或元组，使代码更加简洁易读。</i></p><i>
+<p>*batch 表示将一个列表对象 batch 中的元素拆分成独立的参数传递给函数或方法。例如：<br>
+<code>batch = (input_ids, attention_mask, labels)</code><br>
+那么，使用 *batch 时，实际上等价于将这些 Tensor 对象拆分为独立的参数，即：<br>
+<code>model(*batch)</code> 等价于 <code>model(input_ids, attention_mask, labels)</code></p>
+</i><p><i>**batch 表示将一个字典对象 batch 拆分成独立的参数传递给函数或方法。例如：<br>
+<code>batch = {'input_ids': input_ids, 'attention_mask': attention_mask, 'labels': labels}</code><br>
+<code>model(**batch)</code> 等价于<br>
+<code>model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)</code><br>
+</i></p>
+<h2 id="6-代码评价">6 代码：评价 </h2>
+<p>此任务通过 perplexity 来对模型进行评价。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    # Evaluate perplexity on the validation set
+    perplexity = evaluation(model, eval_dataloader)
+
+</code></pre><h2 id="7-代码模型的保存">7 代码：模型的保存 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=e8FLIy0QxoI&amp;t=686s" target="_blank">【观看视频解说】</a></p>
+</div>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>    if args.output_dir is not None:
+        print_rank_0('saving the final model ...', args.global_rank)
+        model = convert_lora_to_linear_layer(model)
+
+        if args.global_rank == 0:
+            save_hf_format(model, tokenizer, args)
+
+        if args.zero_stage == 3:
+            # For zero stage 3, each gpu only has a part of the model, so we need a special save function
+            save_zero_three_model(model,
+                                  args.global_rank,
+                                  args.output_dir,
+                                  zero_stage=args.zero_stage)
+</code></pre><h2 id="8-流程总结使用deepspeed进行模型微调">8 流程总结：使用DeepSpeed进行模型微调 </h2>
+<p>根据上面的分析，对模型微调的完整流程如下：<br>
+<strong>数据部分</strong></p>
+<ul>
+<li>读取tokenizer: 从预训练模型中读取tokenizer</li>
+<li>读取处理数据 train_dataset, eval_dataset</li>
+<li>设置 train_sampler， eval_sampler</li>
+<li>设置train_dataloader， eval_dataloader （使用DataLoader）</li>
+</ul>
+<p><strong>模型部分</strong></p>
+<ul>
+<li>设置DeepSpeed配置参数</li>
+<li>导入并实例化 model</li>
+<li>可选：LoRA设置</li>
+<li>准备需要优化的参数：optimizer_grouped_parameters</li>
+<li>设置 optimizer</li>
+<li>设置 lr_scheduler</li>
+<li>进行初始化 deepspeed.initialize</li>
+</ul>
+<p><strong>训练及评价部分</strong></p>
+<ul>
+<li>开始训练 forward，backward，参数更新</li>
+<li>评价，测试</li>
+<li>模型保存： 注意ZeRO为3时，需要单独处理</li>
+</ul>
+<h2 id="常见问题">常见问题 </h2>
+<p><strong>Q/A 1:</strong> 模型初始化时，定义了dschf = HfDeepSpeedConfig(ds_config)，后面没有调用。<br>
+当使用 zero 3 时需要设置 dschf = HfDeepSpeedConfig(ds_config)。<br>
+具体说明请参考：<br>
+<a href="https://huggingface.co/docs/transformers/main_classes/deepspeed#nontrainer-deepspeed-integration">https://huggingface.co/docs/transformers/main_classes/deepspeed#nontrainer-deepspeed-integration</a><br>
+<strong>Q/A 2:</strong> ZeRO 是什么？<br>
+ZeRO（Zero Redundancy Optimizer）是 DeepSpeed 库中的一种优化技术，旨在提高大规模模型训练的效率和可扩展性。其中，ZeRO Offload 是 ZeRO 技术的一种变体，可以通过将模型参数存储在 CPU 上，从而减少模型训练时对GPU显存的占用，并加速模型参数的梯度累积、梯度压缩和通信等操作。 ZeRO 3 是在大模型进行模型参数并行时使用。</p>
+<h2 id="参考文献">参考文献 </h2>
+<ul>
+<li>[1] <a href="https://github.com/microsoft/DeepSpeedExamples">https://github.com/microsoft/DeepSpeedExamples</a></li>
+<li>[2] LoRA(Low-rank adaptation): <a href="https://arxiv.org/abs/2106.09685">https://arxiv.org/abs/2106.09685</a></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

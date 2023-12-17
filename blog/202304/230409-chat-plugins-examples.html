@@ -1,0 +1,276 @@
+<!DOCTYPE html><html><head>
+      <title>ChatGPT插件plugin案例实战：ChatGPT编程入门，零基础AI应用开发</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="chatgpt插件开发todo待办事项案例实战">ChatGPT插件开发：TODO待办事项案例实战 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://youtu.be/1hNrTVs2ma8" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>本章内容，将为你分享如何在本地开发环境中运行并调试OpenAI官方给出的案例。通过学习官方案例，可以帮助你了解如何开发ChatGPT插件的API服务。通过本章内容，你将了解到：</p>
+<ul>
+<li>配置API服务开发的本地环境</li>
+<li>运行，并测试官方的案例</li>
+</ul>
+<p>要了解ChatGPT插件开发的基本知识和开发流程，请阅读上一章内容：ChatGPT插件开发（基础知识）。</p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#chatgpt%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91todo%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98">ChatGPT插件开发：TODO待办事项案例实战</a>
+<ul>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1 概要</a></li>
+<li><a href="#2-%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86">2 前提知识</a></li>
+<li><a href="#3-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85windows%E7%B3%BB%E7%BB%9F">3 环境安装：Windows系统</a></li>
+<li><a href="#4-%E6%A1%88%E4%BE%8B1%E6%97%A0%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E7%9A%84%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E6%8F%92%E4%BB%B6">4 案例1：无身份验证的待办事项插件</a></li>
+<li><a href="#5-%E6%A1%88%E4%BE%8B2%E6%9C%8D%E5%8A%A1%E7%BA%A7%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E7%9A%84%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E6%8F%92%E4%BB%B6">5 案例2：服务级身份验证的待办事项插件</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-概要">1 概要 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=1hNrTVs2ma8&amp;t=41s" target="_blank">【本节视频解说】</a></p>
+</div>
+OpenAI官方给出了四个插件案例， 涵盖了不同的身份验证方案和用例。从简单的无身份验证待办事项列表插件到更强大的检索插件，通过这些例子我们就可以了解OpenAI希望通过插件实现的功能。
+四个插件分别是：
+- 简单的无身份验证待办事项列表插件
+- 带服务级身份验证的简单待办事项列表插件
+- 简单的体育统计插件
+- 语义搜索和检索插件。
+<p>这些插件，可以在本地计算机上或通过云开发环境（如GitHub Codespaces、Replit或CodeSandbox）上运行。本章内容，我们通过运行和调试前两个插件，也就是待办事项插件，来学习如何开发ChatGPT插件。</p>
+<h2 id="2-前提知识">2 前提知识 </h2>
+<p>阅读本章内容最好拥有以下的相关知识：</p>
+<ul>
+<li>了解基本Python编程知识</li>
+<li>阅读上一章《ChatGPT插件开发》了解插件开发的基本知识和开发流程</li>
+</ul>
+<h2 id="3-环境安装windows系统">3 环境安装：Windows系统 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=1hNrTVs2ma8&amp;t=80s" target="_blank">【本节视频解说】</a></p>
+</div>
+<ol>
+<li>
+<p>安装Python开发环境，推荐基于Anaconda的环境。<br>
+下载地址：<a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a></p>
+</li>
+<li>
+<p>安装Visual Studio Code（或者其他你熟悉的开发环境，文本编辑器等均可）。<br>
+下载地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</li>
+</ol>
+<h2 id="4-案例1无身份验证的待办事项插件">4 案例1：无身份验证的待办事项插件 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=1hNrTVs2ma8&amp;t=281s" target="_blank">【本节视频解说】</a></p>
+</div>
+<p>OpenAI官方给的第一个案例是一个无身份验证的待办事项插件，此插件支持待办事项的创建，删除，以及读取的基本操作。除此之外代码中还提供了Logo，清单文件和规范文件的访问方式。</p>
+<p>下面，我们就来在本地安装的环境中运行此案例。</p>
+<p><strong>第一步：安装开发库</strong></p>
+<p>首先，需要安装两个相关的开发库quart和quart_cors，步骤如下：</p>
+<ol>
+<li>打开终端： 点击 <code>开始 --&gt; Anaconda prompt</code></li>
+<li>激活环境：输入命令 <code>conda activate yourEnv</code> （如果你的开发环境不是base，需要执行此步来激活环境）</li>
+<li>安装quart库：<code>pip install quart</code></li>
+<li>安装quart_cors库：<code>pip install quart_cors</code></li>
+</ol>
+<p><strong>第二步：创建API代码文件 plugin_todo_v1.py</strong><br>
+开发库安装完成以后，打开Visual Studio Code，创建一个新的文件命名为 plugin_todo_v1.py，并将以下代码贴到文件中。并修改<code>app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")</code> 将<code>allow_origin</code>访问限制部分删除。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>import json
+import quart
+import quart_cors
+from quart import request
+#app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
+app = quart_cors.cors(quart.Quart(__name__)) # 删除了只需要来自openai.com的访问限制
+
+_TODOS = {} #定义存储TODO的变量
+
+@app.post("/todos/&lt;string:username&gt;") # 响应POST请求，用来添加用户的TODO
+async def add_todo(username): # 添加TODO函数
+    request = await quart.request.get_json(force=True)
+    if username not in _TODOS:
+        _TODOS[username] = []
+    _TODOS[username].append(request["todo"])
+    return quart.Response(response='OK', status=200)
+
+@app.get("/todos/&lt;string:username&gt;") #响应GET请求，读取用户的TODO数据
+async def get_todos(username):
+    return quart.Response(response=json.dumps(_TODOS.get(username, [])), status=200)
+
+@app.delete("/todos/&lt;string:username&gt;") 
+async def delete_todo(username):
+    request = await quart.request.get_json(force=True)
+    todo_idx = request["todo_idx"]
+    # fail silently, it's a simple plugin
+    if 0 &lt;= todo_idx &lt; len(_TODOS[username]):
+        _TODOS[username].pop(todo_idx)
+    return quart.Response(response='OK', status=200)
+
+@app.get("/logo.png") #响应读取logo的请求
+async def plugin_logo():
+    filename = 'logo.png'
+    return await quart.send_file(filename, mimetype='image/png')
+
+@app.get("/.well-known/ai-plugin.json") #响应读取manifest文件的请求
+async def plugin_manifest():
+    host = request.headers['Host']
+    with open("manifest.json") as f:
+        text = f.read()
+        text = text.replace("PLUGIN_HOSTNAME", f"https://{host}")
+        return quart.Response(text, mimetype="text/json")
+
+@app.get("/openapi.yaml")  #响应读取openAPI规范文件的请求
+async def openapi_spec():
+    host = request.headers['Host']
+    with open("openapi.yaml") as f:
+        text = f.read()
+        text = text.replace("PLUGIN_HOSTNAME", f"https://{host}")
+        return quart.Response(text, mimetype="text/yaml")
+
+def main():
+    app.run(debug=True, host="0.0.0.0", port=5002) #启动服务
+
+if __name__ == "__main__":
+    main()
+
+</code></pre><p><strong>第三步：创建API测试代码 plugin_todo_v1_test.py</strong><br>
+API服务代码准备好以后，开始准备测试代码。新建 plugin_todo_v1_test.py 文件，并将下面的代码拷贝到文件中。下面的代码，分别用来测试添加，删除和读取待办事项。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>import requests
+import json
+import sys
+
+# 测试程序，接受一个或两个参数
+# 参数1 opt:add，list， del
+# 参数2：   add时， todo的文本
+#           list ， N/A
+#           del  ， todo_id{0, 1, 2...}
+
+opt=sys.argv[1] # 
+
+# 设置请求头
+headers = {
+    "Content-Type": "application/json"
+}
+
+if opt=="add":
+    todo=sys.argv[2]
+    # 准备数据
+    data = {
+        "todo": todo
+    }
+    # 发送POST请求
+    response = requests.post("http://127.0.0.1:5002/todos/john", headers=headers, data=json.dumps(data))
+
+if opt=="list":
+    # 发送POST请求
+    response = requests.get("http://127.0.0.1:5002/todos/john", headers=headers)
+    
+if opt=="del":
+    _id=int(sys.argv[2])
+    data = {
+        "todo_idx": _id
+    }
+    response = requests.delete("http://127.0.0.1:5002/todos/john", headers=headers, data=json.dumps(data))
+
+
+# 打印响应结果
+print(response.status_code)
+print(response.content)
+print(response)
+</code></pre><p>这段 Python 代码是一个使用 requests 库发送 HTTP GET 请求的示例。该请求发送到本地主机上的 <a href="http://127.0.0.1:5002/todos/john">http://127.0.0.1:5002/todos/john</a> API 端点。requests.get 方法是用于发送 HTTP GET 请求的函数。它接受两个参数。第一个参数是请求的 URL，这里是 <a href="http://127.0.0.1:5002/todos/john%E3%80%82%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0%EF%BC%8C%E7%94%A8%E4%BA%8E%E6%8C%87%E5%AE%9A%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8%E4%BF%A1%E6%81%AF%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF">http://127.0.0.1:5002/todos/john。第二个参数是一个可选参数，用于指定请求头部信息，这里是</a> headers 变量。在发送请求之后，响应数据被存储在 response 变量中。您可以使用 response 对象访问响应状态码、响应头部和响应体。例如，要获取响应体的 JSON 数据，可以使用 response.json() 方法。</p>
+<p><strong>第四步：测试</strong><br>
+测试步骤如下：</p>
+<ol>
+<li>进入Anaconda prompt终端界面，并激活开发环境（比如：conda activate yourEnvName）</li>
+<li>切换到程序所在目录（使用 cd 命令）</li>
+<li>启动API服务，执行命令：python plugin_todo_v1.py</li>
+<li>测试：重新打开一个新的Anaconda prompt终端，分别输入以下命令，
+<ul>
+<li>添加测试：python plugin_todo_v1.py add “todo1”</li>
+<li>列表打印：python plugin_todo_v1.py list</li>
+<li>删除测试： python plugin_todo_v1.py del 0</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-案例2服务级身份验证的待办事项插件">5 案例2：服务级身份验证的待办事项插件 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=1hNrTVs2ma8&amp;t=505s" target="_blank">【本节视频解说】</a></p>
+</div>
+案例1中，并没有任何的身份验证。 为了保护数据的安全，通常需要添加身份验证功能。身份验证的方式有多种，OpenAI推荐的有服务级和OAuth两种验证方式。案例2提供了一个服务级身份验证方式。
+<p>操作步骤如下：<br>
+<strong>第一步：API服务端设置</strong><br>
+复制 plugin_todo_v1.py 文件并重命名为plugin_todo_v2.py，并添加以下代码：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>_SERVICE_AUTH_KEY = "yourAuthKey"
+
+# Bearer 是身份验证协议 OAuth 2.0 中的一种类型
+def assert_auth_header(req):
+    assert req.headers.get(
+        "Authorization", None) == f"Bearer {_SERVICE_AUTH_KEY}"
+</code></pre><p>以上代码定义了一个 _SERVICE_AUTH_KEY 字符串变量，用来存储身份验证的令牌。然后，代码定义了一个名为 assert_auth_header 的函数，该函数用于验证请求头中是否包含了正确的身份验证令牌。</p>
+<p>在函数内部，它检查传入的请求对象 req 的 header 中是否包含了一个名为 "Authorization" 的字段，并将其值与 _SERVICE_AUTH_KEY 拼接成一个 "Bearer" 令牌进行比较。如果两个值不相等，那么该函数将会抛出一个 AssertionError，表示身份验证失败。</p>
+<p>为 add_todo，get_todos，delete_todo 函数中添加用来验证身份的代码。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>assert_auth_header(quart.request)
+</code></pre><p>在 add_todo，get_todos 和 delete_todo 函数中，assert_auth_header 函数用于验证请求头部是否包含了正确的身份验证令牌。如果身份验证失败，那么 assert_auth_header 函数将会抛出 AssertionError，并且函数不会继续执行。</p>
+<p>通过将 assert_auth_header 函数嵌入到 add_todo，get_todos 和 delete_todo 函数中，可以确保这些函数只有在正确的身份验证令牌被传递时才会执行。这可以提高您的 API 的安全性，并保护其免受未经授权的访问。</p>
+<p><strong>第二步：测试代码部分修改</strong></p>
+<p>下面需要对测试代码进行相应的修改， 复制 plugin_todo_v1_test.py 为 plugin_todo_v2_test.py，并在文件中添加以下代码：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code># 设置身份验证密钥
+_SERVICE_AUTH_KEY = "yourAuthKey"
+
+# 设置请求头
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {_SERVICE_AUTH_KEY}"
+}
+</code></pre><p>和上面的类似，_SERVICE_AUTH_KEY 是身份验证密钥。 headers 是一个字典，用于存储请求头部信息。在这个示例中，它包含了两个键值对。第一个键值对是 "Content-Type"，其值为 "application/json"，指定了请求体的 MIME 类型。第二个键值对是 "Authorization"，其值为 "Bearer" 令牌，它包含了 _SERVICE_AUTH_KEY 的值，并指定了身份验证类型。</p>
+<p><strong>第三步：测试</strong><br>
+测试步骤如下：</p>
+<ol>
+<li>进入Anaconda prompt终端界面，并激活开发环境（比如：conda activate yourEnvName）</li>
+<li>切换到程序所在目录（使用 cd 命令）</li>
+<li>启动API服务，执行命令：python plugin_todo_v2.py</li>
+<li>测试：重新打开一个新的Anaconda prompt终端，分别输入以下命令，
+<ul>
+<li>添加测试：python plugin_todo_v2.py add “todo1”</li>
+<li>列表打印：python plugin_todo_v2.py list</li>
+<li>删除测试： python plugin_todo_v2.py del 0</li>
+</ul>
+</li>
+</ol>
+<h2 id="参考文献">参考文献 </h2>
+<ul>
+<li>官方文档： <a href="https://platform.openai.com/docs/plugins/introduction">https://platform.openai.com/docs/plugins/introduction</a></li>
+<li>Quart开发库： <a href="https://pgjones.gitlab.io/quart/">https://pgjones.gitlab.io/quart/</a></li>
+<li>Quart_cors开发库：<a href="https://github.com/pgjones/quart-cors/">https://github.com/pgjones/quart-cors/</a></li>
+<li>OpenAPI规范格式：<a href="https://swagger.io/tools/open-source/getting-started/">https://swagger.io/tools/open-source/getting-started/</a></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

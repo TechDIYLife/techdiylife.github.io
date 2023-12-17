@@ -1,0 +1,336 @@
+<!DOCTYPE html><html><head>
+      <title>快速入门 OpenAI API 手册</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><font size="7px"><b>快速入门 OpenAI API 手册</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#1-api%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86">1 API资料整理</a>
+<ul>
+<li><a href="#11-api%E5%BC%80%E5%8F%91%E5%BA%93%E5%AE%89%E8%A3%85">1.1 API开发库安装</a></li>
+<li><a href="#12-api-key%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95">1.2 API Key设置方法</a></li>
+<li><a href="#13-speech-to-textstt">1.3 Speech to text（STT）</a></li>
+<li><a href="#14-chat">1.4 Chat</a></li>
+<li><a href="#15-text-to-speech">1.5 Text-to-speech</a></li>
+<li><a href="#16-vision%E8%A7%86%E8%A7%89">1.6 Vision视觉</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-api资料整理">1 API资料整理 </h1>
+<h2 id="11-api开发库安装">1.1 API开发库安装 </h2>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>pip install openai
+</code></pre><p>常见问题：</p>
+<ol>
+<li>Error： ImportError: cannot import name 'OpenAI' from 'openai'<br>
+原因是版本过低，使用下面命令更新版本：<br>
+pip install openai --upgrade</li>
+</ol>
+<h2 id="12-api-key设置方法">1.2 API Key设置方法 </h2>
+<p><strong>方法一：在环境变量中设置</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>## Windows 环境设置（？？要进一步确认）
+set OPENAI_API_KEY=your_api_key_here
+## Linux
+export OPENAI_API_KEY=your_api_key_here
+## 在Python中设置
+os.environ['OPENAI_API_KEY'] = your_api_key_here
+
+## 初始化方式
+import openai
+
+class OpenAI_API:
+    def __init__(self):
+        api_key = os.getenv('OPENAI_API_KEY')
+        self.client = openai.OpenAI(api_key=api_key)
+
+</code></pre><p>方法二：存储在公共变量文件中，使用 python-dotenv 库来加载这些变量。</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>## 安装工具库
+pip install python-dotenv
+
+## 新建文件，比如.evn
+OPENAI_API_KEY=your_api_key_here
+
+## 使用方法
+import os
+from dotenv import load_dotenv
+import openai
+
+# 加载.env文件
+load_dotenv()
+
+class OpenAI_API:
+    def __init__(self):
+        api_key = os.getenv('OPENAI_API_KEY')
+        if not api_key:
+            raise ValueError("No OPENAI_API_KEY found in environment variables")
+        self.client = openai.OpenAI(api_key=api_key)
+
+
+</code></pre><h2 id="13-speech-to-textstt">1.3 Speech to text（STT） </h2>
+<p><strong>功能描述：</strong><br>
+语音识别，将语音转换为文本。</p>
+<p><strong>STT API的特点：</strong></p>
+<ul>
+<li>只接收语音文件，不支持实时语音数据传输。</li>
+<li>语言指定可以提高识别精度，并减少响应速度，需要根据需求来确定。</li>
+</ul>
+<p><strong>使用示例：</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>from openai import OpenAI
+client = OpenAI()
+
+audio_file= open("/path/to/file/audio.mp3", "rb")
+transcript = client.audio.transcriptions.create(
+  model="whisper-1", 
+  file=audio_file
+)
+
+
+# 默认返回值transcript为Transcription对象，访问方式如下
+return transcript.text
+
+</code></pre><p>文章描述中介绍返回值为json格式，但是需要按照对象的方式来访问。</p>
+<p><strong>主要参数：</strong><br>
+file：语音文件<br>
+model：whisper-1 #模型<br>
+language：zh   # 中文 zh，英语 en，不指定会自动判定。<br>
+prompt: 可以帮助改善识别率，具体参考官方文档。<br>
+response_format: json  #text, srt, verbose_json, vtt等<br>
+temperature: 0</p>
+<p><strong>识别精度改进建议：</strong></p>
+<ol>
+<li>使用Whisper Prompt：通过将一些单词加入到prompt中可以改善ASR识别精度。</li>
+<li>使用GPT-4进行后处理，让它修正识别结果（通过比whisper的prompt效果更好）</li>
+</ol>
+<p><strong>官方资料URL：</strong><br>
+<a href="https://platform.openai.com/docs/guides/speech-to-text">https://platform.openai.com/docs/guides/speech-to-text</a><br>
+<a href="https://platform.openai.com/docs/api-reference/audio/createSpeech">https://platform.openai.com/docs/api-reference/audio/createSpeech</a></p>
+<h2 id="14-chat">1.4 Chat </h2>
+<p><strong>功能：</strong><br>
+根据输入的文本提示词，生成文本。</p>
+<p><strong>主要特点：</strong></p>
+<ul>
+<li>支持多轮对话，需要对messages进行管理。</li>
+<li>支持Steaming处理</li>
+<li>提示词的设计影响很大</li>
+</ul>
+<p><strong>使用示例：</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>from openai import OpenAI
+client = OpenAI()
+
+completion = client.chat.completions.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+  ]
+)
+
+# 返回值的处理，与老版本不同，返回数据默认修改为对象格式了。
+print(completion.choices[0].message)
+</code></pre><p><strong>主要参数：</strong><br>
+messages：提示词<br>
+model： 指定模型<br>
+以下参数可选：<br>
+max_tokens: integer or null # 最大输出token长度<br>
+response_format：设置返回的数据格式<br>
+stop： ？？？ 不清楚如何使用<br>
+stream：是否支持stream处理<br>
+tools：工具列表，用来设置模型可以调用的函数。<br>
+tool_choice： none， auto，或者指定function调用方法<br>
+Returns：返回一个Chat Completion对象，或者一个streamed序列对象。</p>
+<p><strong>如何进行Steaming处理：</strong><br>
+请参考官方示例：<br>
+<a href="https://cookbook.openai.com/examples/how_to_stream_completions">https://cookbook.openai.com/examples/how_to_stream_completions</a></p>
+<p><strong>官方资料URL：</strong><br>
+<a href="https://platform.openai.com/docs/api-reference/chat/create?lang=python">https://platform.openai.com/docs/api-reference/chat/create?lang=python</a><br>
+<a href="https://platform.openai.com/docs/guides/text-generation">https://platform.openai.com/docs/guides/text-generation</a></p>
+<h2 id="15-text-to-speech">1.5 Text-to-speech </h2>
+<p><strong>功能：</strong><br>
+输入文本合成为语音。</p>
+<p><strong>主要特点：</strong></p>
+<ul>
+<li>六种声音，无法设置音色</li>
+<li>输出格式：mp3，Opus，AAC，FLAC</li>
+<li>支持多种语言，自动判定，不可设置</li>
+</ul>
+<p><strong>使用示例：</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>from pathlib import Path
+from openai import OpenAI
+client = OpenAI()
+
+speech_file_path = Path(__file__).parent / "speech.mp3"
+response = client.audio.speech.create(
+  model="tts-1",
+  voice="alloy",
+  input="Today is a wonderful day to build something people love!"
+)
+# 存储为wav文件
+response.stream_to_file(speech_file_path)
+
+
+# 实时播放
+import io
+from pydub import AudioSegment
+from pydub.playback import play
+
+audio_stream = io.BytesIO(response.content)
+# Convert stream to audio segment
+audio_segment = AudioSegment.from_file(audio_stream, format="mp3")
+# Play audio
+play(audio_segment)
+
+</code></pre><p><strong>相关参数</strong><br>
+model： tts-1 或者 tts-1-hd （高质量版）<br>
+input： 输入的文本，最长支持4094字符<br>
+voice： alloy, echo, fable, onyx, nova, shimmer<br>
+response_format: 输出格式：<br>
+mp3: 默认格式<br>
+Opus：用于互联网流媒体和通信，低延迟。<br>
+AAC：用于数字音频压缩，YouTube、Android、iOS 首选。<br>
+FLAC：用于无损音频压缩，受到音频爱好者存档的青睐。<br>
+speed: 语音速度，可选值范围：0.25 to 4.0。 默认为 1.0</p>
+<p><strong>官方文档：</strong><br>
+<a href="https://platform.openai.com/docs/guides/text-to-speech">https://platform.openai.com/docs/guides/text-to-speech</a></p>
+<h2 id="16-vision视觉">1.6 Vision视觉 </h2>
+<p><strong>功能：</strong><br>
+解释并理解图片，是视觉不是视频。<br>
+虽然不直接理解视频，通过对视频的预处理，就可以做到对视频的理解。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>目前API只有一个模型：gpt-4-vision-preview</li>
+<li>需要有访问GPT-4 API的权限</li>
+<li>模型输出max_tokens默认值比较小。</li>
+<li>目前不支持Functions，tools。</li>
+</ul>
+<p><strong>使用示例：</strong><br>
+可以直接传递图像的链接，或者传递base64编码的图像。<br>
+第一条system消息中目前不支持图像（难道system可以使用多次吗？）。</p>
+<p>使用方式与Chat相同，图像的传递通过messages</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>response = client.chat.completions.create(
+  model="gpt-4-vision-preview",
+  messages=[
+    {
+      "role": "user",
+      "content": [
+        {"type": "text", "text": "What’s in this image?"},
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "https://xxxxxx.jpg",
+          },
+        },
+      ],
+    }
+  ],
+  max_tokens=300,
+)
+</code></pre><p>通过Base64方式传递本地图像：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>import base64
+import requests
+
+# OpenAI API Key
+api_key = "YOUR_OPENAI_API_KEY"
+
+# Function to encode the image
+def encode_image(image_path):
+  with open(image_path, "rb") as image_file:
+    return base64.b64encode(image_file.read()).decode('utf-8')
+
+# Path to your image
+image_path = "path_to_your_image.jpg"
+
+# Getting the base64 string
+base64_image = encode_image(image_path)
+
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {api_key}"
+}
+
+payload = {
+  "model": "gpt-4-vision-preview",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "What’s in this image?"
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": f"data:image/jpeg;base64,{base64_image}"
+          }
+        }
+      ]
+    }
+  ],
+  "max_tokens": 300
+}
+
+response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+
+print(response.json())
+</code></pre><p>提交多张图片，只需要增加下面内容：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>        {
+          "type": "image_url",
+          "image_url": {
+            "url": xxxx,
+            "detail": high
+          }
+        }
+</code></pre><p><strong>Detail 参数与成本：</strong><br>
+图像传递结构中包含一个detail参数，用来设置图像的解析度（解析度与费用的计算有关）。<br>
+auto：自动处理<br>
+low：以512x512 px进行处理。每张图像以65 tokens计算费用，响应速度快。<br>
+high：可以处理512px，对于高分辨率图像，将拆分为512x512的剪切图像进行处理。</p>
+<p>比如一个1024x1024的图像在 high模式下，需要765 tokens<br>
+首先会将图像调整为 768x768，然后切分为 4个512方形，因此 tokens数为：170 * 4 + 85</p>
+<p>注意：？？？费用计算文档中描述前后不一致，请自行确认。</p>
+<p>图像size建议：<br>
+low：512x512； high：小于 768x2000</p>
+<p><strong>局限性：</strong></p>
+<ul>
+<li>不适合医学使用</li>
+<li>非英语内容：性能可能会下降。</li>
+<li>文本：放大图像可以提高文本的可读性。</li>
+<li>旋转：可能会造成误解</li>
+<li>计数：可以给出近似的计数</li>
+<li>无法处理验证码</li>
+</ul>
+<p>如何理解视频的例子：<br>
+<a href="https://cookbook.openai.com/examples/gpt_with_vision_for_video_understanding">https://cookbook.openai.com/examples/gpt_with_vision_for_video_understanding</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

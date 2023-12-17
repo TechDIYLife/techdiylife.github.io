@@ -1,0 +1,138 @@
+<!DOCTYPE html><html><head>
+      <title>ChatGPT高质量翻译的提示词技巧</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><font size="6px" style="line-height: 1.3;"><b>如何用 ChatGPT 做好翻译？</b></font></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#1-chatgpt%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BF%BB%E8%AF%91%E7%9A%84%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%8A%80%E5%B7%A7">1 ChatGPT高质量翻译的提示词技巧</a>
+<ul>
+<li><a href="#11-%E5%9F%BA%E6%9C%AC%E7%90%86%E5%BF%B5step-by-step%E4%B8%80%E6%AD%A5%E6%AD%A5%E7%9A%84%E5%A4%84%E7%90%86">1.1 基本理念：Step-by-Step，一步步的处理</a></li>
+<li><a href="#12-%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%BC%98%E5%8C%96%E4%B9%8B%E7%BF%BB%E8%AF%91%E5%BA%94%E7%94%A8%E7%9B%B4%E8%AF%91--%E6%84%8F%E8%AF%91%E7%9A%84%E4%B8%A4%E6%AD%A5%E7%BF%BB%E8%AF%91-gpt-4%E7%94%A8">1.2 提示词优化之翻译应用：（直译 + 意译）的两步翻译 （GPT-4用）</a></li>
+<li><a href="#13-%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%BC%98%E5%8C%96%E4%B9%8B%E7%BF%BB%E8%AF%91%E5%BA%94%E7%94%A8%E7%9B%B4%E8%AF%91--%E6%84%8F%E8%AF%91%E7%9A%84%E4%B8%A4%E6%AD%A5%E7%BF%BB%E8%AF%91-gpt-35%E7%94%A8">1.3 提示词优化之翻译应用：（直译 + 意译）的两步翻译 （GPT-3.5用）</a></li>
+<li><a href="#14-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">1.4 参考文献</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-chatgpt高质量翻译的提示词技巧">1 ChatGPT高质量翻译的提示词技巧 </h1>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=BrED_LISUws&amp;t=0s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>这几天看到宝玉老师，分享了两篇博文，介绍了如何使用 ChatGPT 来改善翻译的质量。<br>
+相比谷歌翻译，ChatGPT 的翻译质量已经有很大的提高，但是在长文翻译时依然会有信息丢失，不自然等问题。</p>
+<p>为了解决这个问题，宝玉老师提出了一个 【直译 + 意译】 的两步翻译法。</p>
+<h2 id="11-基本理念step-by-step一步步的处理">1.1 基本理念：Step-by-Step，一步步的处理 </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=BrED_LISUws&amp;t=31s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>这个【直译 + 意译】多步翻译的方法，非常类似于Prompt魔法词， lets think step by step。 有研究证实，在提示词中，只需要再加上一句 “让我们一步一步的思考”，通过让 ChatGPT 输出中间的过程步骤就可以大幅度的改善生成的结果。</p>
+<p>研究文章（Large Language Models are Zero-Shot Reasoners）：<br>
+<a href="https://arxiv.org/abs/2205.11916">https://arxiv.org/abs/2205.11916</a></p>
+<p>关于Step by step的提示词的写法，可以参考：<br>
+<a href="https://techdiylife.github.io/GPT-best-practices/GPT-best-practices-chapter1.html#%E6%8A%80%E5%B7%A74%E6%8C%87%E5%AE%9A%E5%AE%8C%E6%88%90%E4%BB%BB%E5%8A%A1%E6%89%80%E9%9C%80%E7%9A%84%E6%AD%A5%E9%AA%A4">https://techdiylife.github.io/GPT-best-practices/GPT-best-practices-chapter1.html#技巧4指定完成任务所需的步骤</a></p>
+<h2 id="12-提示词优化之翻译应用直译--意译的两步翻译-gpt-4用">1.2 提示词优化之翻译应用：（直译 + 意译）的两步翻译 （GPT-4用） </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=BrED_LISUws&amp;t=75s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>宝玉老师提供的翻译用的提示词也是利用 Step-by-step 的思想。只是他提供的方法，就更加具体了。</p>
+<p>翻译用 Prompt （直译 + 意译）如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>你是一位精通简体中文的专业翻译，曾参与《纽约时报》和《经济学人》中文版的翻译工作，因此对于新闻和时事文章的翻译有深入的理解。我希望你能帮我将以下英文新闻段落翻译成中文，风格与上述杂志的中文版相似。
+
+规则：
+- 翻译时要准确传达新闻事实和背景。
+- 保留特定的英文术语或名字，并在其前后加上空格，例如："中 UN 文"。
+- 分成两次翻译，并且打印每一次结果：
+1. 根据新闻内容直译，不要遗漏任何信息
+2. 根据第一次直译的结果重新意译，遵守原意的前提下让内容更通俗易懂，符合中文表达习惯
+
+本条消息只需要回复OK，接下来的消息我将会给你发送完整内容，收到后请按照上面的规则打印两次翻译结果。
+</code></pre><p>我们来分析一下这个段提示词，首先给出了一个角色扮演的背景。最主要的关键词是【专业翻译】，关于《纽约时报》和《经济学人》的描述，我没有概念，我觉得可有可无吧，看你自己的需求。</p>
+<p>第二部分给出了规则，让 ChatGPT 翻译时先按字面意思直译，然后再根据直译结果和原文意译，这样可以得到很好的翻译结果，阅读起来更自然。</p>
+<p>最后一段，也挺重要，就是让 ChatGPT 等着，不然，它可能把这些提示词，给翻译了。</p>
+<p>下面我们看一下宝玉老师给的例子：</p>
+<p>优化以前：<a href="https://chat.openai.com/share/de048388-3d95-4e1d-b0e4-3a058a6d4873">https://chat.openai.com/share/de048388-3d95-4e1d-b0e4-3a058a6d4873</a><br>
+优化之后：<a href="https://chat.openai.com/share/22a908f6-526c-4321-b865-96f00f5de5b5">https://chat.openai.com/share/22a908f6-526c-4321-b865-96f00f5de5b5</a></p>
+<p><strong>前后对比</strong></p>
+<p>优化前：<br>
+“就像扎克伯格一样，盖茨曾从哈佛退学，以建立一个历史性的科技公司。就像扎克伯格一样，他是他领域的神童型人物。就像扎克伯格一样，他在一路奋进的过程中，创造了粉丝，树敌，也引发了反垄断的担忧。”</p>
+<p>优化后：<br>
+“与扎克伯格相似，盖茨也曾离开哈佛，去创建一家有着重要历史意义的科技公司；他们都曾是各自领域的奇迹之子；而且他们都在强势冲刺的过程中，赢得了粉丝，也树立了敌人，并产生了反垄断的担忧。”</p>
+<h2 id="13-提示词优化之翻译应用直译--意译的两步翻译-gpt-35用">1.3 提示词优化之翻译应用：（直译 + 意译）的两步翻译 （GPT-3.5用） </h2>
+<div style="text-align: right; display: flex; flex-direction: row-reverse; align-items: center;">
+  <p><a href="https://www.youtube.com/watch?v=BrED_LISUws&amp;t=324s" target="_blank">【观看视频解说】</a></p>
+</div>
+<p>上面的提示词，在 GPT-4 上执行后，效果非常好，但是在 GPT-3.5 上效果不理想，甚至有时候不能按照提示词的要求执行。这主要是由于 GPT-3.5 的能力确实要比 GPT-4 弱很多， 那么如何在能力较差的模型上来应用此方法呢？</p>
+<p>根据宝玉老师的分析 GPT-3.5 有时候失败的原因，是因为指令比较复杂，要求翻译两次，而 GPT-3.5 有时候不能很好的理解复杂指令。这里他推荐的方法是两步执行法。</p>
+<p>第一步 直译提示词：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>你是一位精通简体中文的专业翻译，曾参与《纽约时报》和《经济学人》中文版的翻译工作，因此对于新闻和时事文章的翻译有深入的理解。我希望你能帮我将以下英文新闻段落翻译成中文，风格与上述杂志的中文版相似。
+
+规则：
+- 翻译时要准确传达新闻事实和背景。
+- 保留特定的英文术语或名字，并在其前后加上空格，例如："中 UN 文"。
+- 根据新闻内容直译，不要遗漏任何信息。
+
+英文原文：
+{ 英文原文 }
+
+直译结果：
+</code></pre><p>第二步 意译提示词：</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>你是一位专业中文翻译，擅长对翻译结果进行二次修改和润色成通俗易懂的中文，我希望你能帮我将以下英文视频的中文翻译结果重新意译和润色。
+
+规则：
+- 这些字幕包含机器学习或AI等专业知识相关，注意翻译时术语的准确性
+- 保留特定的英文术语、数字或名字，并在其前后加上空格，例如："生成式 AI 产品"，"不超过 10 秒"。
+- 基于直译结果重新意译，意译时务必对照原始英文，不要添加也不要遗漏内容，并以让翻译结果通俗易懂，符合中文表达习惯
+
+英文原文：
+{ 英文原文 }
+
+直译结果：
+{ 第一直译的结果 }
+
+意译和润色后：
+</code></pre><p>上面的提示词分为两步，第一步让 GPT3.5 进行直译，得到直译的结果之后，再重新准备意译的提示词，将英文原文与直译的结果再一起送给 GPT3.5 处理， 从而得到最终的结果。<br>
+虽然这样处理，会消耗更多的 token，和麻烦了一些， 但是得到的结果也是很不错的。</p>
+<h2 id="14-参考文献">1.4 参考文献 </h2>
+<ol>
+<li>
+<p>一个简单的Prompt大幅提升ChatGPT翻译质量，告别“机翻感”<br>
+<a href="https://baoyu.io/blog/prompt-engineering/a-prompt-for-better-translation-result">https://baoyu.io/blog/prompt-engineering/a-prompt-for-better-translation-result</a></p>
+</li>
+<li>
+<p>如何让 ChatGPT 3.5 这样的小模型也能大幅提升翻译质量？也能像 GPT-4 一样执行复杂指令？ <a href="https://baoyu.io/blog/prompt-engineering/divide-your-prompt-to-mutiple-prompts">https://baoyu.io/blog/prompt-engineering/divide-your-prompt-to-mutiple-prompts</a></p>
+</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
