@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>专题：使用OpenAI API制作 Gemini 演示视频</title>
+      <title>专题：使用OpenAI API制作Gemini演示视频</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -28,20 +28,18 @@
 <p><font size="6px" style="line-height: 1.3;"><b>专题：使用OpenAI API制作Gemini演示视频</b></font></p>
 <p><strong>目录索引</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#1-%E8%AF%AD%E9%9F%B3%E5%AF%B9%E8%AF%9D%E9%83%A8%E5%88%86%E8%AF%86%E5%88%AB%E5%AF%B9%E8%AF%9D%E5%90%88%E6%88%90">1 语音对话部分：识别，对话，合成</a>
+<li><a href="#%E6%8C%91%E6%88%98%E5%88%86%E4%BA%AB%E5%A4%8D%E7%8E%B0gemini%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91%E4%BC%9A%E5%90%AC%E4%BC%9A%E8%AF%B4%E5%8F%88%E4%BC%9A%E7%9C%8B%E7%9A%84ai">【挑战分享】复现Gemini演示视频，会听会说又会看的AI</a>
 <ul>
-<li><a href="#11-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0">1.1 问题描述</a></li>
-<li><a href="#12-%E5%88%B6%E4%BD%9Cgui%E5%8F%8A%E5%A3%B0%E9%9F%B3%E6%94%B6%E5%BD%95">1.2 制作：GUI及声音收录</a></li>
-<li><a href="#13-api%E8%B0%83%E7%94%A8%E9%83%A8%E5%88%86">1.3 API调用部分</a></li>
-<li><a href="#14-%E9%81%97%E7%95%99%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8C%91%E6%88%98">1.4 遗留的问题与挑战</a></li>
-<li><a href="#15-api%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%89%8B%E5%86%8C">1.5 API快速上手手册</a></li>
+<li><a href="#%E8%BF%9B%E5%B1%951%E8%AF%AD%E9%9F%B3%E5%AF%B9%E8%AF%9D%E4%BC%9A%E5%90%AC%E4%BC%9A%E8%AF%B4%E7%9A%84ai">进展1：语音对话，会听会说的AI</a></li>
+<li><a href="#%E8%BF%9B%E5%B1%952%E8%A7%86%E8%A7%89%E8%BE%93%E5%85%A5%E4%BC%9A%E7%9C%8B%E7%9A%84ai">进展2：视觉输入，会看的AI</a></li>
+<li><a href="#%E9%81%97%E7%95%99%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E6%8C%91%E6%88%98">遗留的问题与挑战</a></li>
 </ul>
 </li>
 </ul>
-<h1 id="1-语音对话部分识别对话合成">1 语音对话部分：识别，对话，合成 </h1>
-<h2 id="11-问题描述">1.1 问题描述 </h2>
-<p><strong>目标是什么？</strong><br>
-实现Hands free的语音对话功能：</p>
+<h1 id="挑战分享复现gemini演示视频会听会说又会看的ai">【挑战分享】复现Gemini演示视频，会听会说又会看的AI </h1>
+<h2 id="进展1语音对话会听会说的ai">进展1：语音对话，会听会说的AI </h2>
+<p>为AI添加语音识别和语音合成功能，让AI像人一样通过声音与我们交流。</p>
+<p>要实现的Hands free的语音对话功能如下：</p>
 <ol>
 <li>收录：收集语音，存储为wav文件 （原因：API只接受语音文件）。</li>
 <li>识别：使用API对wav文件进行识别。</li>
@@ -49,73 +47,19 @@
 <li>合成：结果返回，使用语音合成功能合成语音</li>
 <li>播放：播放语音</li>
 </ol>
-<p><strong>挑战分析？</strong></p>
-<ul>
-<li>第一，录音问题：<br>
-只收录说话的声音，没有说话时，可以自动停止录音 --&gt; 可以通过声音能量来判断<br>
-挑战1：一句话中间出现暂时中断时，可能会造成录音中断的问题。<br>
-挑战2：当说错了，重新说时，是否会影响模型的理解？<br>
---&gt; 难道需要我像个电视台的播音员一样，吐字清晰，说话连续，稳定吗？</li>
-<li>第二，延迟问题：<br>
-识别，对话，合成，需要调用三次API。延迟是否很长？ 主要的延迟发生在什么位置？</li>
-<li>第三，界面问题：<br>
-作为一个程序，需要一个界面，来便于操作。</li>
-</ul>
-<h2 id="12-制作gui及声音收录">1.2 制作：GUI及声音收录 </h2>
-<p><strong>ChatGPT用提示词：</strong></p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>写一个python程序来收集语音数据，需要的功能如下：
-1. 制作一个UI界面：上面有一个开始按钮； 一个设备列表用来选择输入设备； 还要有一个区域，用来显示输入语音的能量（可以用波形来表示）
-2. 将所有可选语音输入设备，初始化到UI界面中的列表中，操作系统为Windows10.
-3. 语音收录条件如下：点击开始按钮后，根据能量值，自动检测所选的设备的输入是否有声音，如果检测到连续的0.3秒声音，开始录制声音，当出现0.5s没有声音时，自动停止录音
-4. 收录停止时，将收录的声音存储成16k的wav文件。wav文件名，采用日期的格式，精确到秒级别。
-</code></pre><p>ChatGPT写的程序可以运行，但是也出现了几个小问题<br>
-<strong>ChatGPT写的程序出现的几个问题</strong></p>
-<ol>
-<li>收录阻塞，录音无法停止</li>
-<li>保存文件时没有进行验证</li>
-<li>判断语音，非语音的能量值设置过大</li>
-</ol>
-<p><strong>使用ChatGPT调试代码的建议：</strong></p>
-<ul>
-<li>将执行的问题反馈给它</li>
-<li>将错误直接复制给它</li>
-<li>设计到数据时，打印出数据的结构，把数据结构反馈给它</li>
-</ul>
-<h2 id="13-api调用部分">1.3 API调用部分 </h2>
-<p><strong>目标是什么？</strong></p>
-<ul>
-<li>调用API，处理语音识别，问题解答，语音合成。</li>
-</ul>
-<p>考虑到功能比较独立，分步来制作。首先实现语音识别的部分。</p>
-<p><strong>ChatGPT用提示词</strong></p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>新建一个文件 OpenAI_API.py，定义一个新的类，用来调用OpenAI API来处理语音识别，文本处理，语音合成。
-
-先准备语音识别函数，功能如下：
-输入为wav文件，输出为经过API处理后返回的文本。
-文本要在GUI界面上显示。
-
-API调用的代码，可以参考下面的，也可以参考OpenAI网站上的
-from openai import OpenAI
-client = OpenAI()
-
-audio_file= open("/path/to/file/audio.mp3", "rb")
-transcript = client.audio.transcriptions.create(
-  model="whisper-1", 
-  file=audio_file
-)
-</code></pre><p>主要出现的问题是，ChatGPT并不掌握API最新的信息。<br>
-需要我们自己来调试，或者打印出相关的结果给ChatGPT反馈。</p>
-<p>调通了语音识别之后，再分别让它准备文本处理，和语音合成部分。</p>
-<h2 id="14-遗留的问题与挑战">1.4 遗留的问题与挑战 </h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XU7uCeO_lmw?si=f3jBPWwnRful2dHK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<h2 id="进展2视觉输入会看的ai">进展2：视觉输入，会看的AI </h2>
+<p>为AI添加视觉输入，并配合语音对话功能让AI不仅会听会说，还会看。</p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XUVIrHlkF68?si=AYJOMn4H6sB25Fj6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<h2 id="遗留的问题与挑战">遗留的问题与挑战 </h2>
 <ol>
 <li>讲话不连续的影响？讲话出错时重讲是否影响大模型理解？</li>
 <li>控制大模型输出：大模型回答倾向于全面，对话时会比较啰嗦，如来来控制？ 或者如何来打断它？</li>
 <li>LLM可以支持Streaming的处理，是否可以结合语音合成来减少延迟时间？</li>
 <li>界面的美化。</li>
+<li>提交给API的图像数量经常太多，需要进行控制</li>
+<li>增加唤醒功能</li>
 </ol>
-<h2 id="15-api快速上手手册">1.5 API快速上手手册 </h2>
-<p>我整理一个OpenAI API快速使用的手册，里面有我整理的一些使用方法。<br>
-链接：</p>
 
       </div>
       

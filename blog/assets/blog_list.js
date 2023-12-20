@@ -32,8 +32,8 @@ const blogList = [
   { id: "0011", category1: "c02", category2: "", create_date: "2023.10.09", title_short: "LLM开源模型调查", title_full: "LLM开源模型调查", href: "202304/231017-LLM-OpenModels.html", video_href: "" },
   { id: "0012", category1: "c01", category2: "", create_date: "2023.12.07", title_short: "谷歌最新大模型 Gemini 相关资料整理", title_full: "谷歌最新大模型 Gemini 相关资料整理", href: "202304/231207-Gemini-1.html", video_href: "" },
 
-  { id: "0013", category1: "c04", category2: "t04", create_date: "2023.12.07", title_short: "第1章：AI打爆贪吃蛇专题介绍", title_full: "第1章：AI打爆贪吃蛇专题介绍", href: "202304/230921-AI-snake-intro.html", video_href: "" },
-  { id: "0014", category1: "c04", category2: "t04", create_date: "2023.12.07", title_short: "第2章 AI打爆贪吃蛇：开发环境安装", title_full: "第2章 AI打爆贪吃蛇：开发环境安装", href: "202304/230922-AI-snake-install.html", video_href: "" },
+  { id: "0013", category1: "c04", category2: "t04", create_date: "2023.09.21", title_short: "第1章：AI打爆贪吃蛇专题介绍", title_full: "第1章：AI打爆贪吃蛇专题介绍", href: "202304/230921-AI-snake-intro.html", video_href: "" },
+  { id: "0014", category1: "c04", category2: "t04", create_date: "2023.09.22", title_short: "第2章 AI打爆贪吃蛇：开发环境安装", title_full: "第2章 AI打爆贪吃蛇：开发环境安装", href: "202304/230922-AI-snake-install.html", video_href: "" },
 
   { id: "0015", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "第1章：语音对话部分：识别，对话，合成", title_full: "第1章：语音对话部分：识别，对话，合成", href: "202312/231213-Challenge-hands-free-1.html", video_href: "" },
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (latestArticlesDiv) {
     // 按日期从新到旧排序
     blogList.sort((a, b) => new Date(b.create_date) - new Date(a.create_date));
-    const firstTenBlogs = blogList.slice(0, 20);
+    const firstTenBlogs = blogList.slice(0, 50);
     // 创建并插入链接
     firstTenBlogs.forEach(item => {
       const link = document.createElement('a');
