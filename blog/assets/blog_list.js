@@ -37,17 +37,18 @@ const blogList = [
 
   { id: "0015", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "第1章：语音对话部分：识别，对话，合成", title_full: "第1章：语音对话部分：识别，对话，合成", href: "202312/231213-Challenge-hands-free-1.html", video_href: "" },
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
+  { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
 
 ];
 
 
 const NeWvideoList = [
-  
+  { memo: "虚拟机", href: "https://www.youtube-nocookie.com/embed/NYPB04g7Lt0?si=UrlbcWJVMopk17mI" },
   { memo: "为AI装眼睛", href: "https://www.youtube-nocookie.com/embed/XUVIrHlkF68?si=AYJOMn4H6sB25Fj6" },
   { memo: "语音对话AI", href: "https://www.youtube.com/embed/XU7uCeO_lmw?si=ui9lRumLwvA4ifCM" },
   { memo: "", href: "https://www.youtube.com/embed/M8r8bH8IiqM?si=CZkJkjrz1sVXWnY3" },
   { memo: "", href: "https://www.youtube.com/embed/cno5CsQMcig?si=DN5yFSGyg4OLYTA1" },
-//  { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
+  { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
 
 ];
 
