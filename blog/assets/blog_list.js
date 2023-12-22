@@ -43,7 +43,7 @@ const blogList = [
 
 
 const NeWvideoList = [
-  { memo: "虚拟机", href: "https://www.youtube-nocookie.com/embed/NYPB04g7Lt0?si=UrlbcWJVMopk17mI" },
+  { memo: "虚拟机", href: "https://www.youtube-nocookie.com/embed/50NQ7KUC6-g?si=5AMXlfdmkzIQ7Dqo" },
   { memo: "为AI装眼睛", href: "https://www.youtube-nocookie.com/embed/XUVIrHlkF68?si=AYJOMn4H6sB25Fj6" },
   { memo: "语音对话AI", href: "https://www.youtube.com/embed/XU7uCeO_lmw?si=ui9lRumLwvA4ifCM" },
   { memo: "", href: "https://www.youtube.com/embed/M8r8bH8IiqM?si=CZkJkjrz1sVXWnY3" },
