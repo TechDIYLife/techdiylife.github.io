@@ -8,7 +8,7 @@ const category1List = [
 const category2List = [
   { id: "t01", title_full: "专题：大模型训练技术快速入门", title_short: "大模型训练" },
   { id: "t02", title_full: "专题：ChatGPT插件开发", title_short: "ChatGPT插件" },
-  { id: "t03", title_full: "专题：OpenAI API应用开发", title_short: "OpenAI API" },
+  { id: "t03", title_full: "专题：OpenAI API应用-复现Gemini演示视频", title_short: "复现Gemini演示视频" },
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
   { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
   //{ id: "t06", title_full: "专题：AI劝退偷吃猫", title_short: "AI劝退偷吃猫" },
@@ -38,19 +38,21 @@ const blogList = [
   { id: "0015", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "第1章：语音对话部分：识别，对话，合成", title_full: "第1章：语音对话部分：识别，对话，合成", href: "202312/231213-Challenge-hands-free-1.html", video_href: "" },
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
   { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
-  { id: "0018", category1: "c03", category2: "", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
+  { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
 
 ];
 
 
 const NeWvideoList = [
+  
+  { memo: "PyQt介绍", href: "https://www.youtube-nocookie.com/embed/GP3eedYiOns?si=ADEu-YPlvRdy2-bf" },
   { memo: "AI美颜", href: "https://www.youtube-nocookie.com/embed/VjdGG6-orxk?si=CkUybahuz5tjmcUc" },
   { memo: "虚拟机", href: "https://www.youtube-nocookie.com/embed/50NQ7KUC6-g?si=5AMXlfdmkzIQ7Dqo" },
   { memo: "为AI装眼睛", href: "https://www.youtube-nocookie.com/embed/XUVIrHlkF68?si=AYJOMn4H6sB25Fj6" },
   { memo: "语音对话AI", href: "https://www.youtube.com/embed/XU7uCeO_lmw?si=ui9lRumLwvA4ifCM" },
   { memo: "", href: "https://www.youtube.com/embed/M8r8bH8IiqM?si=CZkJkjrz1sVXWnY3" },
   { memo: "", href: "https://www.youtube.com/embed/cno5CsQMcig?si=DN5yFSGyg4OLYTA1" },
-//  { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
+  { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
 
 ];
 
@@ -280,9 +282,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 推荐视频列表（首页）
   const lastVideoList = document.getElementById('home_video_new_list');
   if (lastVideoList) {
-
+	const NeWvideoList2 = NeWvideoList.slice(0, 6);
     // 创建并插入链接
-    NeWvideoList.forEach(item => {
+    NeWvideoList2.forEach(item => {
       // 创建 iframe 元素
       const iframe = document.createElement('iframe');
       iframe.width = "365";
