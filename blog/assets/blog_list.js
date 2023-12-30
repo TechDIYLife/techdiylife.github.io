@@ -39,6 +39,7 @@ const blogList = [
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
   { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
   { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
+  { id: "0019", category1: "c02", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
 
 ];
 
