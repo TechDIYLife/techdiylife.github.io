@@ -10,7 +10,7 @@ const category2List = [
   { id: "t02", title_full: "专题：ChatGPT插件开发", title_short: "ChatGPT插件" },
   { id: "t03", title_full: "专题：OpenAI API应用-复现Gemini演示视频", title_short: "复现Gemini演示视频" },
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
-  { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
+ // { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
   //{ id: "t06", title_full: "专题：AI劝退偷吃猫", title_short: "AI劝退偷吃猫" },
 ];
 
@@ -35,7 +35,7 @@ const blogList = [
   { id: "0013", category1: "c04", category2: "t04", create_date: "2023.09.21", title_short: "第1章：AI打爆贪吃蛇专题介绍", title_full: "第1章：AI打爆贪吃蛇专题介绍", href: "202304/230921-AI-snake-intro.html", video_href: "" },
   { id: "0014", category1: "c04", category2: "t04", create_date: "2023.09.22", title_short: "第2章 AI打爆贪吃蛇：开发环境安装", title_full: "第2章 AI打爆贪吃蛇：开发环境安装", href: "202304/230922-AI-snake-install.html", video_href: "" },
 
-  { id: "0015", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "第1章：语音对话部分：识别，对话，合成", title_full: "第1章：语音对话部分：识别，对话，合成", href: "202312/231213-Challenge-hands-free-1.html", video_href: "" },
+  { id: "0015", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "开发基于语音视频的对话AI", title_full: "使用OpenAI API制作基于语音视频的对话AI", href: "202312/231213-Challenge-hands-free-1.html", video_href: "" },
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
   { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
   { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
@@ -46,6 +46,7 @@ const blogList = [
 
 const NeWvideoList = [
   
+  { memo: "语音AI收尾", href: "https://www.youtube-nocookie.com/embed/1wzS11LVXEE?si=XUneUnHi1msq-LE7" },
   { memo: "PyQt介绍", href: "https://www.youtube-nocookie.com/embed/GP3eedYiOns?si=ADEu-YPlvRdy2-bf" },
   { memo: "AI美颜", href: "https://www.youtube-nocookie.com/embed/VjdGG6-orxk?si=CkUybahuz5tjmcUc" },
   { memo: "虚拟机", href: "https://www.youtube-nocookie.com/embed/50NQ7KUC6-g?si=5AMXlfdmkzIQ7Dqo" },
