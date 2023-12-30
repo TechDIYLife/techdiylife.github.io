@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function () {
     firstTenBlogs.forEach(item => {
       const link = document.createElement('a');
       link.href = `blog.html?category1=${item.category1}&blogid=${item.id}`;
-      link.innerHTML = `&bull; ${item.title_short} <div class="icon-item-tag">${item.create_date}</div>`;
+      link.innerHTML = `&bull; ${item.title_full} <div class="icon-item-tag">${item.create_date}</div>`;
       latestArticlesDiv.appendChild(link);
       latestArticlesDiv.appendChild(document.createElement('br')); // 添加换行
     });
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
     firstTenBlogs.forEach(item => {
       const link = document.createElement('a');
       link.href = `blog.html?category1=${item.category1}&blogid=${item.id}`;
-      link.innerHTML = `&bull; ${item.title_short} <div class="icon-item-tag">${item.create_date}</div>`;
+      link.innerHTML = `&bull; ${item.title_full} <div class="icon-item-tag">${item.create_date}</div>`;
       allArticlesDiv.appendChild(link);
       allArticlesDiv.appendChild(document.createElement('br')); // 添加换行
     });
