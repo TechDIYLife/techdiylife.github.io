@@ -40,6 +40,7 @@ const blogList = [
   { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
   { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
   { id: "0019", category1: "c02", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
+  { id: "0020", category1: "c02", category2: "", create_date: "2024.01.07", title_short: "5行代码实现基于OpenAI API语音识别", title_full: "三分钟！只需5行代码就可实现基于OpenAI API的语音识别", href: "202401/240107-OpenAI-API-ASR.html", video_href: "" },
 
 ];
 
