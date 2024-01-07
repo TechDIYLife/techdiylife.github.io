@@ -47,6 +47,8 @@ const blogList = [
 
 const NeWvideoList = [
   
+  { memo: "OpenAI API ASR", href: "https://www.youtube-nocookie.com/embed/-qXSsYtRB9Y?si=ihpKSOQj6lEY8iRz" },
+  { memo: "AI视频年", href: "https://www.youtube-nocookie.com/embed/Z6TqSEBgdz0?si=jSAUiHihr5LvQCTt" },
   { memo: "语音AI收尾", href: "https://www.youtube-nocookie.com/embed/1wzS11LVXEE?si=XUneUnHi1msq-LE7" },
   { memo: "PyQt介绍", href: "https://www.youtube-nocookie.com/embed/GP3eedYiOns?si=ADEu-YPlvRdy2-bf" },
   { memo: "AI美颜", href: "https://www.youtube-nocookie.com/embed/VjdGG6-orxk?si=CkUybahuz5tjmcUc" },
@@ -58,8 +60,6 @@ const NeWvideoList = [
   { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
 
 ];
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 获取URL参数
 function getQueryVariable(variable) {
