@@ -93,10 +93,11 @@
 <p><strong>STT API的特点：</strong><br>
 只接收语音文件，不支持实时语音数据传输。<br>
 指定语言可以提高识别精度，并减少响应速度，需要根据需求来确定。</p>
-<pre data-role="codeBlock" data-info="" class="language-text text"><code>from openai import OpenAI
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>import os
+from openai import OpenAI
 
 ## 在Python中设置
-os.environ['OPENAI_API_KEY'] = your_api_key_here
+os.environ['OPENAI_API_KEY'] = "your_api_key_here"
 
 client = OpenAI()
 
