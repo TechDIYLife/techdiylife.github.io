@@ -47,6 +47,8 @@ const blogList = [
 
 const NeWvideoList = [
   
+  { memo: "AI错题本制作2", href: "https://www.youtube-nocookie.com/embed/O9ildE5qwO8?si=PEcDlC9orbbMfTod" },
+  { memo: "AI错题本制作1", href: "https://www.youtube-nocookie.com/embed/ef7Ww38th24?si=KOUaAa1bbevtzqv3" },
   { memo: "OpenAI API ASR", href: "https://www.youtube-nocookie.com/embed/-qXSsYtRB9Y?si=ihpKSOQj6lEY8iRz" },
   { memo: "AI视频年", href: "https://www.youtube-nocookie.com/embed/Z6TqSEBgdz0?si=jSAUiHihr5LvQCTt" },
   { memo: "语音AI收尾", href: "https://www.youtube-nocookie.com/embed/1wzS11LVXEE?si=XUneUnHi1msq-LE7" },
