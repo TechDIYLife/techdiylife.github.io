@@ -41,12 +41,14 @@ const blogList = [
   { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
   { id: "0019", category1: "c02", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
   { id: "0020", category1: "c02", category2: "", create_date: "2024.01.07", title_short: "5行代码实现基于OpenAI API语音识别", title_full: "三分钟！只需5行代码就可实现基于OpenAI API的语音识别", href: "202401/240107-OpenAI-API-ASR.html", video_href: "" },
-
+  { id: "0021", category1: "c02", category2: "", create_date: "2024.01.13", title_short: "五分钟掌握Faster Whisper语音识别模型", title_full: "五分钟！学会Window上都可运行的高精度语音识别模型Faster-whisper，完全免费开源", href: "202401/240108-Faster-Whisper.html", video_href: "" },
+  
 ];
 
 
 const NeWvideoList = [
   
+  { memo: "FasterWhisper", href: "https://www.youtube-nocookie.com/embed/7J422fh2AdA?si=4DJ8DTWj-uj7Qh__" },
   { memo: "AI错题本制作2", href: "https://www.youtube-nocookie.com/embed/O9ildE5qwO8?si=PEcDlC9orbbMfTod" },
   { memo: "AI错题本制作1", href: "https://www.youtube-nocookie.com/embed/ef7Ww38th24?si=KOUaAa1bbevtzqv3" },
   { memo: "OpenAI API ASR", href: "https://www.youtube-nocookie.com/embed/-qXSsYtRB9Y?si=ihpKSOQj6lEY8iRz" },
