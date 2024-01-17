@@ -48,6 +48,7 @@ const blogList = [
 
 const NeWvideoList = [
   
+  { memo: "GPT Store", href: "https://www.youtube-nocookie.com/embed/6twQZtJ9I3M?si=l1n_l37TT4B1EZcZ" },
   { memo: "FasterWhisper", href: "https://www.youtube-nocookie.com/embed/7J422fh2AdA?si=4DJ8DTWj-uj7Qh__" },
   { memo: "AI错题本制作2", href: "https://www.youtube-nocookie.com/embed/O9ildE5qwO8?si=PEcDlC9orbbMfTod" },
   { memo: "AI错题本制作1", href: "https://www.youtube-nocookie.com/embed/ef7Ww38th24?si=KOUaAa1bbevtzqv3" },
