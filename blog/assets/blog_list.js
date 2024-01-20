@@ -16,7 +16,6 @@ const category2List = [
 
 
 const blogList = [
-
   { id: "0001", category1: "c02", category2: "t01", create_date: "2023.04.16", title_short: "第1章：DeepSpeed-Chat 模型训练实战", title_full: "第1章：DeepSpeed-Chat 模型训练实战", href: "202304/230416-deepspeed-chat.html", video_href: "" },
   { id: "0002", category1: "c02", category2: "t01", create_date: "2023.04.26", title_short: "第2章：DeepSpeed-Chat 代码分析", title_full: "第2章：DeepSpeed-Chat 代码分析", href: "202304/230424-deepspeed-chat-code.html", video_href: "" },
   { id: "0003", category1: "c02", category2: "t01", create_date: "2023.05.06", title_short: "第3章：DeepSpeed-Chat 模型与数据", title_full: "第3章：DeepSpeed-Chat 模型与数据", href: "202304/230506-deepspeed-chat-model-data.html", video_href: "" },
@@ -42,12 +41,14 @@ const blogList = [
   { id: "0019", category1: "c02", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
   { id: "0020", category1: "c02", category2: "", create_date: "2024.01.07", title_short: "5行代码实现基于OpenAI API语音识别", title_full: "三分钟！只需5行代码就可实现基于OpenAI API的语音识别", href: "202401/240107-OpenAI-API-ASR.html", video_href: "" },
   { id: "0021", category1: "c02", category2: "", create_date: "2024.01.13", title_short: "五分钟掌握Faster Whisper语音识别模型", title_full: "五分钟！学会Window上都可运行的高精度语音识别模型Faster-whisper，完全免费开源", href: "202401/240108-Faster-Whisper.html", video_href: "" },
+  { id: "0022", category1: "c02", category2: "", create_date: "2024.01.20", title_short: "快速体验Qwen-Audio语音识别", title_full: "五分钟！快速体验Qwen-Audio语音识别，阿里最新开源的大语音模型", href: "202401/240114-Qwen-Audio-4ASR.html", video_href: "" },
+  
   
 ];
 
 
 const NeWvideoList = [
-  
+  { memo: "QwenAudio ASR", href: "https://www.youtube-nocookie.com/embed/fSo8IYm3Aq0?si=YmVmgTdwmzviM0to" },
   { memo: "GPT Store", href: "https://www.youtube-nocookie.com/embed/6twQZtJ9I3M?si=l1n_l37TT4B1EZcZ" },
   { memo: "FasterWhisper", href: "https://www.youtube-nocookie.com/embed/7J422fh2AdA?si=4DJ8DTWj-uj7Qh__" },
   { memo: "AI错题本制作2", href: "https://www.youtube-nocookie.com/embed/O9ildE5qwO8?si=PEcDlC9orbbMfTod" },
@@ -63,7 +64,6 @@ const NeWvideoList = [
   { memo: "", href: "https://www.youtube.com/embed/M8r8bH8IiqM?si=CZkJkjrz1sVXWnY3" },
   { memo: "", href: "https://www.youtube.com/embed/cno5CsQMcig?si=DN5yFSGyg4OLYTA1" },
   { memo: "", href: "https://www.youtube.com/embed/fZy9HRrkNvc?si=oKiMbVe5AXesMMsu" },
-
 ];
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // 获取URL参数
