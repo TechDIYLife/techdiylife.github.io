@@ -77,11 +77,11 @@
 </code></pre></li>
 <li>
 <p>第二步：环境安装（需要安装anaconda，或者其他python运行环境管理工具）<br>
-需要安装python运行环境</p>
+安装相关的开发库</p>
 <pre data-role="codeBlock" data-info="" class="language-text text"><code>pip install -r requirements.txt
 </code></pre></li>
 <li>
-<p>第三步：新建代码文件，拷贝代码，修改代码执行<br>
+<p>第三步：代码准备<br>
 更多代码，可以参考以下官方链接：<br>
 <a href="https://github.com/QwenLM/Qwen-Audio">https://github.com/QwenLM/Qwen-Audio</a></p>
 <pre data-role="codeBlock" data-info="" class="language-text text"><code>from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -125,20 +125,32 @@ C:\Users\UserName.cache\huggingface\hub\models--Qwen--Qwen-Audio</p>
 <ul>
 <li>
 <p>Q1： Windows上使用GPU时，出现错误：AssertionError: Torch not compiled with CUDA enabled</p>
-<p>解决方法：重新安装torch</p>
+<p>解决方法：重新安装pytorch</p>
 <pre data-role="codeBlock" data-info="" class="language-text text"><code>pip uninstall torch
 pip cache purge
 pip install torch -f https://download.pytorch.org/whl/torch_stable.html
-</code></pre><p>首先删除旧版本torch，然后清楚缓存。 第三行是按照最新的版本</p>
+</code></pre><p>首先删除旧版本pytorch，然后清除缓存。 第三行是安装最新的版本</p>
 <p>问题参考讨论：<a href="https://github.com/pytorch/pytorch/issues/30664">https://github.com/pytorch/pytorch/issues/30664</a></p>
 </li>
 <li>
-<p>Q2：为什么长语音只能识别前面的一部分？<br>
-Qwen-Audio是基于Whisper的encoder模型训练出来的，Whisper模型模型单次输入的语音长度，最长只能支持30秒。</p>
+<p>Q2：为什么长语音只能识别前面的一部分？</p>
+<p>Qwen-Audio是基于Whisper的encoder模型训练出来的，Whisper模型单次输入的语音长度，最长只能支持30秒。【要确认？】</p>
+</li>
+<li>
+<p>Q3：有没有webui，或者API服务</p>
+<p>本地部署的webui（代码库中有一个脚本可以使用）： web_demo_audio.py</p>
+<p>在线体验版（基于Qwen-Audio-Chat）：<br>
+魔搭：<br>
+<a href="https://modelscope.cn/studios/qwen/Qwen-Audio-Chat-Demo/summary">https://modelscope.cn/studios/qwen/Qwen-Audio-Chat-Demo/summary</a><br>
+Huggingface：<br>
+<a href="https://huggingface.co/spaces/Qwen/Qwen-Audio">https://huggingface.co/spaces/Qwen/Qwen-Audio</a></p>
+<p>阿里云提供的有API（可能支持，没确认）：<br>
+<a href="https://dashscope.aliyun.com/">https://dashscope.aliyun.com/</a></p>
+<p>其它的针对语音的通用WebUI，API没有关注过。</p>
 </li>
 </ul>
 <h2 id="3-本地化微调">3 本地化微调 </h2>
-<p>为了提高模型在特定的目标数据集（即本地化数据）上的性能，可以通过对模型进行微调（fine-tuning）来实现。尽管阿里巴巴还未公开实现这一过程的具体代码，但可以参考Qwen或Qwen-VL的代码来进行相应的自行修改和调整。未来，我们计划制作相关课程，以详细介绍大型模型微调的技术和方法。</p>
+<p>为了提高模型在特定的目标数据集（即本地化数据）上的性能，可以通过对模型进行微调（fine-tuning）来实现。尽管阿里巴巴还未公开实现这一过程的具体代码，但可以参考Qwen或Qwen-VL的代码来进行相应的自行修改和调整。未来，我计划制作相关课程，以详细介绍大型模型微调的技术和方法。</p>
 
       </div>
       
