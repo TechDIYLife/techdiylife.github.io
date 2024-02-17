@@ -43,11 +43,13 @@ const blogList = [
   { id: "0021", category1: "c02", category2: "", create_date: "2024.01.13", title_short: "五分钟掌握Faster Whisper语音识别模型", title_full: "五分钟！学会Window上都可运行的高精度语音识别模型Faster-whisper，完全免费开源", href: "202401/240108-Faster-Whisper.html", video_href: "" },
   { id: "0022", category1: "c02", category2: "", create_date: "2024.01.20", title_short: "快速体验Qwen-Audio语音识别", title_full: "五分钟！快速体验Qwen-Audio语音识别，阿里最新开源的大语音模型", href: "202401/240114-Qwen-Audio-4ASR.html", video_href: "" },
   { id: "0023", category1: "c02", category2: "", create_date: "2024.01.27", title_short: "Colossal-AI大模型高速训练工具快速入门", title_full: "五分钟！Colossal-AI大模型高速训练工具快速入门", href: "202401/240127-Colossal-AI-Intro.html", video_href: "" },
+  { id: "0024", category1: "c03", category2: "", create_date: "2024.02.17", title_short: "避坑必备：免安装便携版VSCode", title_full: "避坑必备：免安装便携版VSCode", href: "202401/240217-VSCode-Bug.html", video_href: "" },
   
 ];
 
 
 const NeWvideoList = [
+  { memo: "vscode", href: "https://www.youtube.com/embed/P-PezY3e2vI?si=xyIivFoOXBgxLDZX" },
   { memo: "Colossal-ai", href: "https://www.youtube.com/embed/AK5PM_WSqTY?si=wOxwx838-aqmP1V8" },
   { memo: "Qwen-VL", href: "https://www.youtube.com/embed/1PwBafQnCZQ?si=BkMjGph0kRpC9wv5" },
   { memo: "QwenAudio ASR", href: "https://www.youtube-nocookie.com/embed/fSo8IYm3Aq0?si=YmVmgTdwmzviM0to" },
