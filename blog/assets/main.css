@@ -2556,6 +2556,17 @@
     position: relative
 }
 
+.ovr-card-topic {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: 20px 24px;
+    position: relative
+}
+
 @media(max-width:800px) {
     .ovr-page .ovr-card {
         height: 164px

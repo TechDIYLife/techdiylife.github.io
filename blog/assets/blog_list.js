@@ -10,7 +10,9 @@ const category2List = [
   { id: "t02", title_full: "专题：ChatGPT插件开发", title_short: "ChatGPT插件" },
   { id: "t03", title_full: "专题：OpenAI API应用-复现Gemini演示视频", title_short: "复现Gemini演示视频" },
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
- // { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
+  { id: "t05", title_full: "专题：Transformers开发常见百个问题", title_short: "Transformers开发百问" },
+  { id: "t06", title_full: "专题：本地LLM部署", title_short: "本地LLM部署" },
+  // { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
   //{ id: "t06", title_full: "专题：AI劝退偷吃猫", title_short: "AI劝退偷吃猫" },
 ];
 
@@ -44,7 +46,9 @@ const blogList = [
   { id: "0022", category1: "c02", category2: "", create_date: "2024.01.20", title_short: "快速体验Qwen-Audio语音识别", title_full: "五分钟！快速体验Qwen-Audio语音识别，阿里最新开源的大语音模型", href: "202401/240114-Qwen-Audio-4ASR.html", video_href: "" },
   { id: "0023", category1: "c02", category2: "", create_date: "2024.01.27", title_short: "Colossal-AI大模型高速训练工具快速入门", title_full: "五分钟！Colossal-AI大模型高速训练工具快速入门", href: "202401/240127-Colossal-AI-Intro.html", video_href: "" },
   { id: "0024", category1: "c03", category2: "", create_date: "2024.02.17", title_short: "避坑必备：免安装便携版VSCode", title_full: "避坑必备：免安装便携版VSCode", href: "202401/240217-VSCode-Bug.html", video_href: "" },
-  { id: "0025", category1: "c03", category2: "", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
+  { id: "0025", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
+  { id: "0026", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
+  { id: "0027", category1: "c03", category2: "t06", create_date: "2024.02.29", title_short: "专题介绍：本地LLM部署技术", title_full: "专题汇总介绍：本地LLM部署技术", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
   
 ];
 
