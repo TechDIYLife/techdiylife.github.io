@@ -11,7 +11,7 @@ const category2List = [
   { id: "t03", title_full: "专题：OpenAI API应用-复现Gemini演示视频", title_short: "复现Gemini演示视频" },
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
   { id: "t05", title_full: "专题：Transformers开发常见百个问题", title_short: "Transformers开发百问" },
-  { id: "t06", title_full: "专题：本地LLM部署", title_short: "本地LLM部署" },
+  { id: "t06", title_full: "专题：本地AI环境搭建", title_short: "本地AI环境搭建" },
   // { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
   //{ id: "t06", title_full: "专题：AI劝退偷吃猫", title_short: "AI劝退偷吃猫" },
 ];
@@ -49,12 +49,12 @@ const blogList = [
   { id: "0025", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
   { id: "0026", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
   { id: "0027", category1: "c03", category2: "t06", create_date: "2024.02.29", title_short: "专题介绍：本地LLM部署技术", title_full: "专题汇总介绍：本地LLM部署技术", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
+  { id: "0028", category1: "c03", category2: "t06", create_date: "2024.03.02", title_short: "专题介绍：本地LLM部署技术", title_full: "专题汇总介绍：本地LLM部署技术", href: "202401/240302-Jupyter-Install.html", video_href: "" },
   
 ];
 
-
 const NeWvideoList = [
-  
+  { memo: "Jupyter install", href: "https://www.youtube.com/embed/FpWMhhGkyG0?si=xlqZw1MQTNnRy9s6" },
   { memo: "LLM debug", href: "https://www.youtube.com/embed/iaV9rCvFcGE?si=mQJRUD5bzd7iZvua" },
   { memo: "vscode", href: "https://www.youtube.com/embed/P-PezY3e2vI?si=xyIivFoOXBgxLDZX" },
   { memo: "Colossal-ai", href: "https://www.youtube.com/embed/AK5PM_WSqTY?si=wOxwx838-aqmP1V8" },
