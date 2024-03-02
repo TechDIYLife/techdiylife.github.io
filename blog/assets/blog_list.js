@@ -49,7 +49,7 @@ const blogList = [
   { id: "0025", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
   { id: "0026", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
   { id: "0027", category1: "c03", category2: "t06", create_date: "2024.02.29", title_short: "专题介绍：本地LLM部署技术", title_full: "专题汇总介绍：本地LLM部署技术", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
-  { id: "0028", category1: "c03", category2: "t06", create_date: "2024.03.02", title_short: "专题介绍：本地LLM部署技术", title_full: "专题汇总介绍：本地LLM部署技术", href: "202401/240302-Jupyter-Install.html", video_href: "" },
+  { id: "0028", category1: "c03", category2: "t06", create_date: "2024.03.02", title_short: "Linux上搭建 Jupyter notebook", title_full: "Linux上搭建类似Colab的开发环境 Jupyter Notebook", href: "202401/240302-Jupyter-Install.html", video_href: "" },
   
 ];
 
