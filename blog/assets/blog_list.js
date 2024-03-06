@@ -50,11 +50,12 @@ const blogList = [
   { id: "0026", category1: "c03", category2: "t05", create_date: "2024.03.01", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
   { id: "0027", category1: "c03", category2: "t06", create_date: "2024.03.01", title_short: "专题介绍：AI开发者de本地AI环境搭建", title_full: "专题汇总介绍：AI开发者de本地AI环境搭建", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
   { id: "0028", category1: "c03", category2: "t06", create_date: "2024.03.02", title_short: "Linux上搭建 Jupyter notebook", title_full: "Linux上搭建类似Colab的开发环境 Jupyter Notebook", href: "202401/240302-Jupyter-Install.html", video_href: "" },
-  { id: "0029", category1: "c03", category2: "t05", create_date: "2024.03.01", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
+  { id: "0029", category1: "c03", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
   
 ];
 
 const NeWvideoList = [
+  { memo: "Auto-map", href: "https://www.youtube.com/embed/rIk0OWz3tsc?si=SGrFJIizKUGm_iis" },
   { memo: "Jupyter install", href: "https://www.youtube.com/embed/FpWMhhGkyG0?si=xlqZw1MQTNnRy9s6" },
   { memo: "LLM debug", href: "https://www.youtube.com/embed/iaV9rCvFcGE?si=mQJRUD5bzd7iZvua" },
   { memo: "vscode", href: "https://www.youtube.com/embed/P-PezY3e2vI?si=xyIivFoOXBgxLDZX" },
