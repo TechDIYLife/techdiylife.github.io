@@ -40,21 +40,25 @@ const blogList = [
   { id: "0016", category1: "c02", category2: "t03", create_date: "2023.12.13", title_short: "快速入门 OpenAI API 手册", title_full: "快速入门 OpenAI API 手册", href: "202312/231213-ChatGPT-API.html", video_href: "" },
   { id: "0017", category1: "c03", category2: "", create_date: "2023.12.22", title_short: "三步搞定 VMWare Windows 11 虚拟机", title_full: "三步搞定 VMWare Windows 11 虚拟机", href: "202312/231221-VMWare.html", video_href: "" },
   { id: "0018", category1: "c03", category2: "t03", create_date: "2023.12.29", title_short: "PyQt5图形界面GUI开发", title_full: "Python 图形界面GUI开发库 PYQT5 快速入门", href: "202312/231224-Python-GUI-pyqt5.html", video_href: "" },
-  { id: "0019", category1: "c02", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
+  { id: "0019", category1: "c03", category2: "t03", create_date: "2023.12.30", title_short: "模糊图像检测", title_full: "OpenCV模糊图像检测", href: "202312/231227-Blurry.html", video_href: "" },
   { id: "0020", category1: "c02", category2: "", create_date: "2024.01.07", title_short: "5行代码实现基于OpenAI API语音识别", title_full: "三分钟！只需5行代码就可实现基于OpenAI API的语音识别", href: "202401/240107-OpenAI-API-ASR.html", video_href: "" },
   { id: "0021", category1: "c02", category2: "", create_date: "2024.01.13", title_short: "五分钟掌握Faster Whisper语音识别模型", title_full: "五分钟！学会Window上都可运行的高精度语音识别模型Faster-whisper，完全免费开源", href: "202401/240108-Faster-Whisper.html", video_href: "" },
   { id: "0022", category1: "c02", category2: "", create_date: "2024.01.20", title_short: "快速体验Qwen-Audio语音识别", title_full: "五分钟！快速体验Qwen-Audio语音识别，阿里最新开源的大语音模型", href: "202401/240114-Qwen-Audio-4ASR.html", video_href: "" },
   { id: "0023", category1: "c02", category2: "", create_date: "2024.01.27", title_short: "Colossal-AI大模型高速训练工具快速入门", title_full: "五分钟！Colossal-AI大模型高速训练工具快速入门", href: "202401/240127-Colossal-AI-Intro.html", video_href: "" },
   { id: "0024", category1: "c03", category2: "", create_date: "2024.02.17", title_short: "避坑必备：免安装便携版VSCode", title_full: "避坑必备：免安装便携版VSCode", href: "202401/240217-VSCode-Bug.html", video_href: "" },
-  { id: "0025", category1: "c03", category2: "t05", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
-  { id: "0026", category1: "c03", category2: "t05", create_date: "2024.03.01", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
-  { id: "0027", category1: "c03", category2: "t06", create_date: "2024.03.01", title_short: "专题介绍：AI开发者de本地AI环境搭建", title_full: "专题汇总介绍：AI开发者de本地AI环境搭建", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
-  { id: "0028", category1: "c03", category2: "t06", create_date: "2024.03.02", title_short: "Linux上搭建 Jupyter notebook", title_full: "Linux上搭建类似Colab的开发环境 Jupyter Notebook", href: "202401/240302-Jupyter-Install.html", video_href: "" },
-  { id: "0029", category1: "c03", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
+  { id: "0025", category1: "c02", category2: "t05", create_date: "2024.02.29", title_short: "小显存GPU如何调试大模型？", title_full: "Transformers开发百问：小显存GPU如何调试大模型？", href: "202401/240228-LLM-Debug.html", video_href: "" },
+  { id: "0026", category1: "c02", category2: "t05", create_date: "2024.03.01", title_short: "专题介绍：Transformers开发百问", title_full: "专题汇总介绍：Transformers开发常见百个问题", href: "202401/Topic-Transformers-Dev.html", video_href: "" },
+  { id: "0027", category1: "c02", category2: "t06", create_date: "2024.03.01", title_short: "专题介绍：AI开发者de本地AI环境搭建", title_full: "专题汇总介绍：AI开发者de本地AI环境搭建", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
+  { id: "0028", category1: "c02", category2: "t06", create_date: "2024.03.02", title_short: "Linux上搭建 Jupyter notebook", title_full: "Linux上搭建类似Colab的开发环境 Jupyter Notebook", href: "202401/240302-Jupyter-Install.html", video_href: "" },
+  { id: "0029", category1: "c02", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
+  { id: "0030", category1: "c01", category2: "", create_date: "2024.03.09", title_short: "开源大模型下载量量排行榜（2024年3月更新版）", title_full: "开源大模型下载量量排行榜（2024年3月更新版）", href: "202401/240309-LLM-OpenModels.html", video_href: "" },
+  
+
   
 ];
 
 const NeWvideoList = [
+  { memo: "LLM rank", href: "https://www.youtube.com/embed/Ur65L4iAM4o?si=nnbANprNJjFznOVp" },
   { memo: "Auto-map", href: "https://www.youtube.com/embed/rIk0OWz3tsc?si=SGrFJIizKUGm_iis" },
   { memo: "Jupyter install", href: "https://www.youtube.com/embed/FpWMhhGkyG0?si=xlqZw1MQTNnRy9s6" },
   { memo: "LLM debug", href: "https://www.youtube.com/embed/iaV9rCvFcGE?si=mQJRUD5bzd7iZvua" },
