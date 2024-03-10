@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (blogListDiv2) {
     filteredList = blogList.filter(item => item.category2 === category2);
   }
-  if (filteredList.length > 0) {
+  if (filteredList.length > 0 || blogId.length>0) {
 
     target_href = "";
     // 创建链接列表
@@ -224,6 +224,16 @@ document.addEventListener("DOMContentLoaded", function () {
         isHeaderDivAdded = true; // 设置标志，避免重复添加
       }
     });
+    
+    //如果BlogID与类别不一致，则更加blogID读取文章
+    if (target_href.length <=0) {
+      blogList.forEach((item, index) => {
+        if (blogId.length > 0 && item.id == blogId) {
+          target_href = item.href;
+        }
+      });
+    }
+
     loadContent(target_href);
   }
 
