@@ -51,7 +51,7 @@ const blogList = [
   { id: "0027", category1: "c02", category2: "t06", create_date: "2024.03.01", title_short: "专题介绍：AI开发者de本地AI环境搭建", title_full: "专题汇总介绍：AI开发者de本地AI环境搭建", href: "202401/Topic-Local-LLM-deployment.html", video_href: "" },
   { id: "0028", category1: "c02", category2: "t06", create_date: "2024.03.02", title_short: "Linux上搭建 Jupyter notebook", title_full: "Linux上搭建类似Colab的开发环境 Jupyter Notebook", href: "202401/240302-Jupyter-Install.html", video_href: "" },
   { id: "0029", category1: "c02", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
-  { id: "0030", category1: "c01", category2: "", create_date: "2024.03.09", title_short: "开源大模型下载量量排行榜（2024年3月更新版）", title_full: "开源大模型下载量量排行榜（2024年3月更新版）", href: "202401/240309-LLM-OpenModels.html", video_href: "" },
+  { id: "0030", category1: "c01", category2: "", create_date: "2024.03.09", title_short: "开源大模型下载量排行榜（2024年3月更新版）", title_full: "开源大模型下载量排行榜（2024年3月更新版）", href: "202401/240309-LLM-OpenModels.html", video_href: "" },
   
 
   
