@@ -63,7 +63,7 @@ const blogList = [
 ];
 
 const NeWvideoList = [
-  { memo: "LLM部署工具", href: "https://youtu.be/G4YbZfXdsJM" },
+  { memo: "LLM部署工具", href: "https://www.youtube.com/embed/G4YbZfXdsJM?si=G66g6dzXqzS3xvZG" },
   { memo: "分层推理法", href: "https://www.youtube.com/embed/A5cxHkRBx7o?si=3SCb77e_yk4H8Ebm" },
   { memo: "Estimate Memory", href: "https://www.youtube.com/embed/Z9eV9mbB6uY?si=ZXnKk11NWNNG4jjv" },
   { memo: "LLM rank", href: "https://www.youtube.com/embed/Ur65L4iAM4o?si=nnbANprNJjFznOVp" },
