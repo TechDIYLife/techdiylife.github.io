@@ -54,9 +54,10 @@ const blogList = [
   { id: "0029", category1: "c02", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
   { id: "0030", category1: "c01", category2: "", create_date: "2024.03.09", title_short: "开源大模型下载量排行榜（2024年3月更新版）", title_full: "开源大模型下载量排行榜（2024年3月更新版）", href: "202401/240309-LLM-OpenModels.html", video_href: "" },
   { id: "0031", category1: "c02", category2: "t05", create_date: "2024.03.13", title_short: "如何知道一个大模型在推理和训练时需要多少显存？", title_full: "如何知道一个大模型在推理和训练时需要多少显存？", href: "202401/240313-LLM-Memory.html", video_href: "" },
-  { id: "0032", category1: "c05", category2: "", create_date: "2024.03.14", title_short: "AI共学会：LLM部署实战交流", title_full: "AI共学会：LLM部署实战交流", href: "202401/240314-gongxue-bushu-1.html", video_href: "" },
+  { id: "0032", category1: "c05", category2: "", create_date: "2024.03.14", title_short: "AI共学会：LLM部署实战交流", title_full: "AI共学会：LLM部署实战交流", href: "202401/member-gongxue-bushu-1.html", video_href: "" },
   { id: "0033", category1: "c02", category2: "t05", create_date: "2024.03.16", title_short: "大模型推理技巧：分层推理法", title_full: "大模型推理技巧：分层推理法", href: "202401/240316-LLM-Inference.html", video_href: "" },
   { id: "0034", category1: "c02", category2: "t06", create_date: "2024.03.20", title_short: "大家都在用哪个LLM本机推理，部署工具？", title_full: "大家都在用哪个LLM本机推理，部署工具？", href: "202401/240320-Inference-tools.html", video_href: "" },
+  { id: "0035", category1: "c05", category2: "", create_date: "2024.03.23", title_short: "AI共学会：Transformers开发百问交流群", title_full: "AI共学会：Transformers开发百问交流群", href: "202401/member-gongxue-transformers-2.html", video_href: "" },
   
   
   
