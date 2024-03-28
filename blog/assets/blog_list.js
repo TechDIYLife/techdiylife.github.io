@@ -58,8 +58,8 @@ const blogList = [
   { id: "0033", category1: "c02", category2: "t05", create_date: "2024.03.16", title_short: "大模型推理技巧：分层推理法", title_full: "大模型推理技巧：分层推理法", href: "202401/240316-LLM-Inference.html", video_href: "" },
   { id: "0034", category1: "c02", category2: "t06", create_date: "2024.03.20", title_short: "大家都在用哪个LLM本机推理，部署工具？", title_full: "大家都在用哪个LLM本机推理，部署工具？", href: "202401/240320-Inference-tools.html", video_href: "" },
   { id: "0035", category1: "c05", category2: "", create_date: "2024.03.23", title_short: "AI共学会：Transformers开发百问交流群", title_full: "AI共学会：Transformers开发百问交流群", href: "202401/member-gongxue-transformers-2.html", video_href: "" },
-  
-  
+  { id: "0036", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "Linux上安装 Ollama + Open WebUI", title_full: "Linux上安装 Ollama + Open WebUI", href: "202401/240327-ollama-openwebui-linux.html", video_href: "" },
+  { id: "0037", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "ollama应用全面解析：20个问题精通ollama", title_full: "ollama应用全面解析：20个问题精通ollama", href: "202401/240327-ollama-20question.html", video_href: "" },
   
 ];
 
