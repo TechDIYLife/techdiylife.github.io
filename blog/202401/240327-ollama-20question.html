@@ -63,12 +63,16 @@
 <h1 id="ollama应用全面解析20个问题精通ollama">ollama应用全面解析：20个问题精通ollama </h1>
 <h2 id="入门篇">入门篇 </h2>
 <h3 id="1-ollama是什么">1 ollama是什么？ </h3>
-<p>Ollama 是一个支持在本地运行大型语言模型的工具，兼容 Windows、Linux 和 MacOS 操作系统。使用 Ollama，您仅需一行命令即可启动模型。</p>
+<p>Ollama 是一个支持在本地运行大语言模型的工具，兼容 Windows、Linux 和 MacOS 操作系统。使用 Ollama，您仅需一行命令即可启动模型。</p>
 <h3 id="2-如何安装">2 如何安装？ </h3>
 <ul>
 <li>
-<p>Windows和MacOS用户：从下面链接下载安装即可。<br>
+<p>Windows和MacOS用户，从下面链接下载安装即可：<br>
 下载地址：<a href="https://ollama.com/download">https://ollama.com/download</a></p>
+<p><strong>视频演示：B站</strong></p>
+<iframe width="560" height="315" src="http://player.bilibili.com/player.html?bvid=BV12D421L7hg&amp;page=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p><strong>视频演示：油管</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sf39i53XdBw?si=ZGpQUVIxJ7CEwjQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 </li>
 <li>
 <p>Linux系统安装请参考：<br>
@@ -79,24 +83,22 @@
 <p>执行下面命令，会自动下载模型，并开始运行：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>ollama run qwen
 </code></pre><h3 id="4-ollama支持哪些模型">4 ollama支持哪些模型？ </h3>
-<p>官方支持的模型，可以 <a href="https://ollama.com/library">https://ollama.com/library</a> 中找到。</p>
+<p>官方支持的模型，可以在 <a href="https://ollama.com/library">https://ollama.com/library</a> 上面找到。</p>
 <h2 id="进阶篇">进阶篇 </h2>
 <h3 id="5-模型下载后存放到哪里了">5 模型下载后存放到哪里了？ </h3>
-<p>默认情况下，存放在下面的位置：</p>
+<p>默认情况下，模型下载后存放在下面的位置：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>  macOS: ~/.ollama/models
   Linux: /usr/share/ollama/.ollama/models #作为系统服务启动时
   Linux: /home/&lt;username&gt;/.ollama/models #当前用户启动时
   Windows: C:\Users\&lt;username&gt;\.ollama\models
 </code></pre><h3 id="6-如何修改下载模型的默认存放目录">6 如何修改下载模型的默认存放目录？ </h3>
-<p>修改模型默认存放目录：<br>
-<strong>Windows用户</strong></p>
+<p><strong>Windows用户</strong></p>
 <ol>
 <li>设置 OLLAMA_MODELS</li>
 </ol>
-<pre data-role="codeBlock" data-info="" class="language-text"><code>##  ##
-# 当前用户
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 只设置当前用户
 setx OLLAMA_MODELS "D:\ollama_model" 
-# 所有用户
+# 为所有用户设置
 setx OLLAMA_MODELS "D:\ollama_model" /M
 </code></pre><ol start="2">
 <li>重启终端（setx命令在Windows中设置环境变量时，这个变量的更改只会在新打开的命令提示符窗口或终端会话中生效。）</li>
@@ -175,8 +177,8 @@ You are a helpful assistant.
 <pre data-role="codeBlock" data-info="" class="language-text"><code>ollama create qwen0_5b -f Modelfile
 </code></pre><h3 id="10-自定义模型模型创建后去了哪里">10 自定义模型：模型创建后去了哪里？ </h3>
 <p>模型被创建后，会被存放在以下位置：<br>
-模型文本被存储在： /home/<username>/.ollama/models/blobs<br>
-配置文件位于：/home/<username>/.ollama/models/manifests/registry.ollama.ai/library/qwen0_5b/latest</username></username></p>
+模型文本被存储在： <code>/home/&lt;username&gt;/.ollama/models/blobs</code><br>
+配置文件位于：<code>/home/&lt;username&gt;/.ollama/models/manifests/registry.ollama.ai/library/qwen0_5b/latest</code></p>
 <h3 id="11-如何重新修改模型的-temperature-等参数">11 如何重新修改模型的 temperature 等参数？ </h3>
 <p>模型被创建后，修改temperature等参数，需要重新create模型。</p>
 <p>通过以下命令可以查看一个模型的 modelfile 设置</p>
@@ -288,7 +290,10 @@ ollama serve 启动（不能使用 sudo systemctl start ollama.service）
 <a href="https://github.com/ollama/ollama/tree/main/examples/langchain-python-rag-websummary">https://github.com/ollama/ollama/tree/main/examples/langchain-python-rag-websummary</a></p>
 <h2 id="参考资料">参考资料 </h2>
 <ul>
-<li>官方QA：<a href="https://github.com/ollama/ollama/blob/main/docs/faq.md">https://github.com/ollama/ollama/blob/main/docs/faq.md</a></li>
+<li>Docker官网：<a href="https://www.docker.com/products/docker-desktop/">https://www.docker.com/products/docker-desktop/</a></li>
+<li>Ollama官网：<a href="https://ollama.com/">https://ollama.com/</a></li>
+<li>Open WebUI Github地址：<a href="https://github.com/open-webui/open-webui">https://github.com/open-webui/open-webui</a></li>
+<li>Ollama 官方QA：<a href="https://github.com/ollama/ollama/blob/main/docs/faq.md">https://github.com/ollama/ollama/blob/main/docs/faq.md</a></li>
 </ul>
 
       </div>
