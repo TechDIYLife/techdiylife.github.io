@@ -61,10 +61,10 @@ const blogList = [
   { id: "0036", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "Linux上安装 Ollama + Open WebUI", title_full: "Linux上安装 Ollama + Open WebUI", href: "202401/240327-ollama-openwebui-linux.html", video_href: "" },
   { id: "0037", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "ollama应用全面解析：20个问题精通ollama", title_full: "ollama应用全面解析：20个问题精通ollama", href: "202401/240327-ollama-20question.html", video_href: "" },
 
-  { id: "0038", category1: "c02", category2: "t07", create_date: "2024.04.01", title_short: "", title_full: "", href: "202401/240402-langchain-rag-00.html", video_href: "" },
-  { id: "0039", category1: "c02", category2: "t07", create_date: "2024.04.02", title_short: "", title_full: "", href: "202401/240402-langchain-rag-01-introduction.html", video_href: "" },
-  { id: "0040", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "", title_full: "", href: "202401/240402-langchain-rag-02-install.html", video_href: "" },
-  { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "", title_full: "", href: "202401/240402-langchain-rag-04-quickstart.html", video_href: "" },
+  { id: "0038", category1: "c02", category2: "t07", create_date: "2024.04.01", title_short: "基于 LangChain 的 RAG 开发实战学习资料", title_full: "基于 LangChain 的 RAG 开发实战学习资料", href: "202401/240402-langchain-rag-00.html", video_href: "" },
+  { id: "0039", category1: "c02", category2: "t07", create_date: "2024.04.02", title_short: "LangChain文档中文版：介绍", title_full: "LangChain文档中文版：介绍", href: "202401/240402-langchain-rag-01-introduction.html", video_href: "" },
+  { id: "0040", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "LangChain文档中文版：安装", title_full: "LangChain文档中文版：安装", href: "202401/240402-langchain-rag-02-install.html", video_href: "" },
+  { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "LangChain文档中文版：快速入门", title_full: "LangChain文档中文版：快速入门", href: "202401/240402-langchain-rag-04-quickstart.html", video_href: "" },
   
 ];
 
