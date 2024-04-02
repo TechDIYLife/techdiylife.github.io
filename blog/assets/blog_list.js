@@ -13,8 +13,8 @@ const category2List = [
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
   { id: "t05", title_full: "专题：Transformers开发常见百个问题", title_short: "Transformers开发百问" },
   { id: "t06", title_full: "专题：本地AI环境搭建", title_short: "本地AI环境搭建" },
-  // { id: "t05", title_full: "专题：Unity ML-Agents 游戏深度学习编程", title_short: "ML-Agents游戏编程" },
-  //{ id: "t06", title_full: "专题：AI劝退偷吃猫", title_short: "AI劝退偷吃猫" },
+  { id: "t07", title_full: "专题：LangChain + RAG 参考资料", title_short: "LangChain + RAG 参考资料" },
+
 ];
 
 
@@ -60,6 +60,11 @@ const blogList = [
   { id: "0035", category1: "c05", category2: "", create_date: "2024.03.23", title_short: "AI共学会：Transformers开发百问交流群", title_full: "AI共学会：Transformers开发百问交流群", href: "202401/member-gongxue-transformers-2.html", video_href: "" },
   { id: "0036", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "Linux上安装 Ollama + Open WebUI", title_full: "Linux上安装 Ollama + Open WebUI", href: "202401/240327-ollama-openwebui-linux.html", video_href: "" },
   { id: "0037", category1: "c02", category2: "t06", create_date: "2024.03.27", title_short: "ollama应用全面解析：20个问题精通ollama", title_full: "ollama应用全面解析：20个问题精通ollama", href: "202401/240327-ollama-20question.html", video_href: "" },
+
+  { id: "0038", category1: "c02", category2: "t07", create_date: "2024.04.01", title_short: "", title_full: "", href: "202401/240402-langchain-rag-00.html", video_href: "" },
+  { id: "0039", category1: "c02", category2: "t07", create_date: "2024.04.02", title_short: "", title_full: "", href: "202401/240402-langchain-rag-01-introduction.html", video_href: "" },
+  { id: "0040", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "", title_full: "", href: "202401/240402-langchain-rag-02-install.html", video_href: "" },
+  { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "", title_full: "", href: "202401/240402-langchain-rag-04-quickstart.html", video_href: "" },
   
 ];
 
