@@ -64,7 +64,9 @@ const blogList = [
   { id: "0038", category1: "c02", category2: "t07", create_date: "2024.04.01", title_short: "基于 LangChain 的 RAG 开发实战学习资料", title_full: "基于 LangChain 的 RAG 开发实战学习资料", href: "202401/240402-langchain-rag-00.html", video_href: "" },
   { id: "0039", category1: "c02", category2: "t07", create_date: "2024.04.02", title_short: "LangChain文档中文版：介绍", title_full: "LangChain文档中文版：介绍", href: "202401/240402-langchain-rag-01-introduction.html", video_href: "" },
   { id: "0040", category1: "c02", category2: "t07", create_date: "2024.04.03", title_short: "LangChain文档中文版：安装", title_full: "LangChain文档中文版：安装", href: "202401/240402-langchain-rag-02-install.html", video_href: "" },
-  { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.04", title_short: "LangChain文档中文版：快速入门", title_full: "LangChain文档中文版：快速入门", href: "202401/240402-langchain-rag-04-quickstart.html", video_href: "" },
+  { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.04", title_short: "LangChain文档中文版：快速入门", title_full: "LangChain文档中文版：快速入门", href: "202401/240402-langchain-rag-03-quickstart.html", video_href: "" },
+
+  { id: "0042", category1: "c02", category2: "t05", create_date: "2024.04.04", title_short: "GaLore 技术全参数训练模型，真的实用吗？", title_full: "GaLore 技术全参数训练模型，真的实用吗？", href: "202401/240403-GaLore.html", video_href: "" },
   
 ];
 
