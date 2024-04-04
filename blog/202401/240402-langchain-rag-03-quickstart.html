@@ -1,0 +1,397 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>【本文通过ChatGPT翻译，仅供参考使用，建议对照英文阅读】<br>
+原文地址：<a href="https://python.langchain.com/docs/get_started/quickstart">https://python.langchain.com/docs/get_started/quickstart</a></p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8quickstart--%EF%B8%8F-langchain">快速入门（QuickStart） | 🦜️🔗 Langchain</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE">设置</a>
+<ul>
+<li><a href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#langsmith">LangSmith</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8langchain%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA">使用LangChain进行构建</a></li>
+<li><a href="#llm-chain%E9%93%BE%E6%9D%A1">LLM Chain链条</a></li>
+<li><a href="#%E6%A3%80%E7%B4%A2%E9%93%BE%E6%9D%A1">检索链条</a></li>
+<li><a href="#%E5%AF%B9%E8%AF%9D%E5%BC%8F%E6%A3%80%E7%B4%A2%E9%93%BE%E6%9D%A1">对话式检索链条</a></li>
+<li><a href="#%E6%99%BA%E8%83%BD%E4%BD%93">智能体</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87langserve%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1">通过LangServe部署服务</a></li>
+<li><a href="#playground">Playground</a></li>
+<li><a href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E6%AD%A5%E9%AA%A4">接下来的步骤</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="快速入门quickstart--️-langchain">快速入门（QuickStart） | 🦜️🔗 Langchain </h1>
+<p>在这个快速入门教程中，我们会一步步指导您完成以下任务：</p>
+<ul>
+<li>安装并设置LangChain、LangSmith以及LangServe</li>
+<li>掌握LangChain中最基础和常用的元素：提示模板、模型和输出解析器</li>
+<li>学习和使用LangChain表达式语言，这是LangChain基础架构的核心，它使得各个组件能够进行链式连接</li>
+<li>利用LangChain开发一个简单的应用</li>
+<li>使用LangSmith来追踪和调试您的应用</li>
+<li>通过LangServe部署和提供您的应用服务<br>
+内容颇多，让我们开始吧！</li>
+</ul>
+<h2 id="设置">设置 </h2>
+<h3 id="jupyter-notebook">Jupyter Notebook </h3>
+<p>这个教程（包括文档中的其他多数教程）采用了Jupyter Notebook，并且假设您也将使用它。Jupyter Notebook是学习如何操作大语言模型系统的理想工具，因为在实际操作中很容易遇到各种问题（比如意外的输出结果、API无法访问等），通过交互式的学习环境，可以帮助我们更深入地理解这些系统。</p>
+<p>虽然不强制要求您通过Jupyter Notebook来学习这个教程，但我们还是推荐使用它。安装方法请参考：<a href="https://jupyter.org/install">https://jupyter.org/install</a></p>
+<p>【Linux上安装方法，也可以参考就爱瞎鼓捣整理的资料：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028%E3%80%91">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028】</a></p>
+<h3 id="安装">安装 </h3>
+<p>要安装LangChain，请运行：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># pip
+pip install langchain
+# conda
+conda install langchain -c conda-forge
+</code></pre><h3 id="langsmith">LangSmith </h3>
+<p>在您利用LangChain开发的应用中，往往会包含多步骤操作，这些步骤中可能会多次调用大语言模型(LLM)。随着应用的复杂度日益增加，能够清楚地查看并了解您的链条或智能体内部的具体运作情况显得尤为重要。实现这一点，LangSmith提供了最佳解决方案。</p>
+<p>需要指出的是，虽然LangSmith不是绝对必需的，但它在调试过程中极为有用。如果您打算使用LangSmith，请在上面提供的链接注册后，设置环境变量以启动日志跟踪功能：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>export LANGCHAIN_TRACING_V2="true"
+export LANGCHAIN_API_KEY="..."
+</code></pre><h2 id="使用langchain进行构建">使用LangChain进行构建 </h2>
+<p>LangChain让我们能够创建应用，这些应用能够把外部的数据源和计算能力接入到大型语言模型(LLM)中。在本快速入门指南中，我们将探索几种不同的实现方法。我们首先从构建一个简易的LLM链开始，这个链条仅仅依赖于提示模板里的信息来给出回应。接下来，我们会创建一个检索链条，它能从独立的数据库中拉取数据，并将这些数据整合到提示模板中。之后，我们还会引入对话历史功能，创建一个能够进行对话检索的链条。这样做让您可以以对话的形式与LLM交互，它能记住之前的提问。最终，我们将开发一个智能体，这个智能体会利用LLM来判断是否需要拉取外部数据来回答问题。我们将对这些内容做一个概览性的介绍，尽管这里面包含了很多细节！我们也会提供相关的文档链接。</p>
+<h2 id="llm-chain链条">LLM Chain链条 </h2>
+<p>我们将指导您如何调用像OpenAI这样通过API提供的模型，以及如何借助Ollama这类集成工具使用本地的开源模型。</p>
+<p><strong>使用Ollama</strong><br>
+Ollama使您能够本地运行开源的大型语言模型，比如Llama 2。</p>
+<p>首先，遵循以下步骤来设置并启动本地的Ollama实例：</p>
+<ul>
+<li>安装Ollama可以参考： <a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037%E3%80%91">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037】</a></li>
+<li>使用命令ollama pull llama2拉取模型</li>
+</ul>
+<p>接下来，请确保Ollama服务器处于运行状态。然后，您可以进行如下操作：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>llms <span class="token keyword keyword-import">import</span> Ollama
+llm <span class="token operator">=</span> Ollama<span class="token punctuation">(</span>model<span class="token operator">=</span><span class="token string">"llama2"</span><span class="token punctuation">)</span>
+</code></pre><p>一旦您安装并初始化了所选的LLM，我们就可以开始尝试使用它了！让我们询问它关于LangSmith的信息——考虑到这不是它训练数据中的内容，它可能无法给出很好的回答。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>llm<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token string">"how can langsmith help with testing?"</span><span class="token punctuation">)</span>
+</code></pre><p>我们还可以使用提示模板来引导它的回答。提示模板帮助将原始的用户输入转化为LLM能更好理解的输入形式。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>prompts <span class="token keyword keyword-import">import</span> ChatPromptTemplate
+prompt <span class="token operator">=</span> ChatPromptTemplate<span class="token punctuation">.</span>from_messages<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">(</span><span class="token string">"system"</span><span class="token punctuation">,</span> <span class="token string">"You are world class technical documentation writer."</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"{input}"</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre><p>现在，我们可以把这些元素组合成一个简单的LLM链条：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chain <span class="token operator">=</span> prompt <span class="token operator">|</span> llm
+</code></pre><p>现在我们再次提出同样的问题。尽管它可能仍旧不知道答案，但它应该会以一种更适合技术文档撰写者的语调来回应！</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"how can langsmith help with testing?"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>ChatModel（以及这个链条）的输出是一条消息。但是，通常将聊天消息转换成字符串形式更为方便。让我们添加一个简单的输出解析器来完成这一转换。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>output_parsers <span class="token keyword keyword-import">import</span> StrOutputParser
+
+output_parser <span class="token operator">=</span> StrOutputParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>现在，我们可以将这个解析器加入到之前的链条中：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chain <span class="token operator">=</span> prompt <span class="token operator">|</span> llm <span class="token operator">|</span> output_parser
+</code></pre><p>此时，我们再次提问相同的问题。现在的答案将是一个字符串（而不是ChatMessage）。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"how can langsmith help with testing?"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p><strong>进一步了解</strong><br>
+到目前为止，我们已经基本上完成了LLM链的初步设置。这里，我们仅仅涉及了提示、模型和输出解析器等方面的基础知识。如果您想深入学习这里提及的所有细节和知识点，请参考文档: <a href="https://python.langchain.com/docs/modules/model_io">https://python.langchain.com/docs/modules/model_io</a></p>
+<h2 id="检索链条">检索链条 </h2>
+<p>为了精确回答起初的问题（“how can langsmith help with testing?”），我们需要为大语言模型（LLM）提供更多的背景信息。这可以通过检索功能来完成。当直接向LLM传递大量数据变得不切实际时，检索尤其有用。你可以借助检索工具来挑选出最相关的信息进行传递。</p>
+<p>在这个流程里，我们会通过一个检索工具寻找相关文档，然后将这些文档整合进提示语中。检索工具可以基于各种资源——如SQL数据库、互联网等——但在本例中，我们将填充一个向量库，并将其作为检索工具。想了解更多关于向量库的信息，可以参考这份文档（<a href="https://python.langchain.com/docs/modules/data_connection/vectorstores%EF%BC%89%E3%80%82">https://python.langchain.com/docs/modules/data_connection/vectorstores）。</a></p>
+<p>首先，我们需要准备好要建立索引的数据。这里，我们将利用WebBaseLoader进行操作。操作前需安装BeautifulSoup：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install beautifulsoup4
+</code></pre><p>安装完成后，就可以导入并使用WebBaseLoader了。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>document_loaders <span class="token keyword keyword-import">import</span> WebBaseLoader
+loader <span class="token operator">=</span> WebBaseLoader<span class="token punctuation">(</span><span class="token string">"https://docs.smith.langchain.com/user_guide"</span><span class="token punctuation">)</span>
+
+docs <span class="token operator">=</span> loader<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>然后，我们需要将数据索引到向量库中。这个过程需要几个关键组件，包括嵌入模型和向量库。</p>
+<p>在嵌入模型方面，我们提供了通过API接入或本地运行模型的示例。</p>
+<p><strong>使用Ollama</strong><br>
+确保Ollama已经启动（设置方法与LLM相同）。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>embeddings <span class="token keyword keyword-import">import</span> OllamaEmbeddings
+
+embeddings <span class="token operator">=</span> OllamaEmbeddings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>借助这个嵌入模型，我们可以将文档引入到向量库中。为了简化过程，我们这里使用一个简单的本地向量库FAISS。</p>
+<p>首先，我们需要安装必需的软件包：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install faiss-cpu
+</code></pre><p>接下来，我们来建立我们的索引：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>vectorstores <span class="token keyword keyword-import">import</span> FAISS
+<span class="token keyword keyword-from">from</span> langchain_text_splitters <span class="token keyword keyword-import">import</span> RecursiveCharacterTextSplitter
+
+text_splitter <span class="token operator">=</span> RecursiveCharacterTextSplitter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+documents <span class="token operator">=</span> text_splitter<span class="token punctuation">.</span>split_documents<span class="token punctuation">(</span>docs<span class="token punctuation">)</span>
+vector <span class="token operator">=</span> FAISS<span class="token punctuation">.</span>from_documents<span class="token punctuation">(</span>documents<span class="token punctuation">,</span> embeddings<span class="token punctuation">)</span>
+</code></pre><p>将数据索引到向量库之后，我们接下来创建一个检索链。这个链条会接收一个问题，寻找相关的文档，然后将这些文档连同原始问题一起提交给LLM，请求它解答原问题。</p>
+<p>首先，我们来设置一个能够取得问题和检索文档并生成答案的链条。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>chains<span class="token punctuation">.</span>combine_documents <span class="token keyword keyword-import">import</span> create_stuff_documents_chain
+
+prompt <span class="token operator">=</span> ChatPromptTemplate<span class="token punctuation">.</span>from_template<span class="token punctuation">(</span><span class="token triple-quoted-string string">"""Answer the following question based only on the provided context:
+&lt;context&gt;
+{context}
+&lt;/context&gt;
+Question: {input}"""</span><span class="token punctuation">)</span>
+document_chain <span class="token operator">=</span> create_stuff_documents_chain<span class="token punctuation">(</span>llm<span class="token punctuation">,</span> prompt<span class="token punctuation">)</span>
+</code></pre><p>理论上，我们可以通过直接传递文档来运行这个链条：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>documents <span class="token keyword keyword-import">import</span> Document
+
+document_chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"how can langsmith help with testing?"</span><span class="token punctuation">,</span>
+    <span class="token string">"context"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Document<span class="token punctuation">(</span>page_content<span class="token operator">=</span><span class="token string">"langsmith can let you visualize test results"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>但我们希望文档能先通过我们刚设置好的检索器获取。这样，我们能动态地为特定问题选出最相关的文档并传递。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>chains <span class="token keyword keyword-import">import</span> create_retrieval_chain
+
+retriever <span class="token operator">=</span> vector<span class="token punctuation">.</span>as_retriever<span class="token punctuation">(</span><span class="token punctuation">)</span>
+retrieval_chain <span class="token operator">=</span> create_retrieval_chain<span class="token punctuation">(</span>retriever<span class="token punctuation">,</span> document_chain<span class="token punctuation">)</span>
+</code></pre><p>现在我们可以调用这个链条了。这会返回一个字典——LLM的回答在答案键中</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>response = retrieval_chain.invoke({"input": "how can langsmith help with testing?"})
+print(response["answer"])
+
+# LangSmith offers several features that can help with testing:...
+</code></pre><p>这个答案应该更加准确！<br>
+<strong>进一步了解</strong><br>
+我们已经成功地建立了一个基础的检索链条。这里我们只触及了检索的基本概念——想要深入学习这里提到的所有内容，请参考文档（<a href="https://python.langchain.com/docs/modules/data_connection%EF%BC%89%E3%80%82">https://python.langchain.com/docs/modules/data_connection）。</a></p>
+<h2 id="对话式检索链条">对话式检索链条 </h2>
+<p>我们之前创建的链条只能回答单个问题。而聊天机器人是人们正在构建的LLM应用中的一个主要类型。如何让我们的链条能够回答连续的问题呢？</p>
+<p>我们还是可以使用create_retrieval_chain函数，但需要调整两个方面：</p>
+<ul>
+<li>现在的检索方法不仅仅是基于最新的输入，而是应当考虑整个对话历史。</li>
+<li>最终的LLM链条也应该考虑到整个对话历史。</li>
+</ul>
+<p>更新检索过程</p>
+<p>为了更新检索过程，我们将创建一个新的链条。这个链条会将最新的输入和对话历史整合起来，利用LLM生成一个搜索查询。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>chains <span class="token keyword keyword-import">import</span> create_history_aware_retriever
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>prompts <span class="token keyword keyword-import">import</span> MessagesPlaceholder
+
+<span class="token comment"># 我们需要一个提示，通过它我们可以让LLM生成搜索查询</span>
+
+prompt <span class="token operator">=</span> ChatPromptTemplate<span class="token punctuation">.</span>from_messages<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    MessagesPlaceholder<span class="token punctuation">(</span>variable_name<span class="token operator">=</span><span class="token string">"chat_history"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"{input}"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"根据上述对话，生成一个搜索查询以查找与对话相关的信息"</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+retriever_chain <span class="token operator">=</span> create_history_aware_retriever<span class="token punctuation">(</span>llm<span class="token punctuation">,</span> retriever<span class="token punctuation">,</span> prompt<span class="token punctuation">)</span>
+</code></pre><p>我们可以通过一个用户提出后续问题的实例来进行测试。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>messages <span class="token keyword keyword-import">import</span> HumanMessage<span class="token punctuation">,</span> AIMessage
+
+chat_history <span class="token operator">=</span> <span class="token punctuation">[</span>HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"LangSmith能帮助测试我的LLM应用吗？"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AIMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"可以！"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+retriever_chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"chat_history"</span><span class="token punctuation">:</span> chat_history<span class="token punctuation">,</span>
+    <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"告诉我怎么做"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>你将会看到，这将返回关于在LangSmith中进行测试的文档。这是因为LLM根据聊天历史和后续问题生成了一个新的查询。</p>
+<p>有了这个新的检索工具后，我们可以创建一个新的链条，考虑这些检索到的文档来继续对话。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>prompt <span class="token operator">=</span> ChatPromptTemplate<span class="token punctuation">.</span>from_messages<span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">(</span><span class="token string">"system"</span><span class="token punctuation">,</span> <span class="token string">"根据下面的上下文回答用户的问题：\n\n{context}"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    MessagesPlaceholder<span class="token punctuation">(</span>variable_name<span class="token operator">=</span><span class="token string">"chat_history"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"{input}"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+document_chain <span class="token operator">=</span> create_stuff_documents_chain<span class="token punctuation">(</span>llm<span class="token punctuation">,</span> prompt<span class="token punctuation">)</span>
+
+retrieval_chain <span class="token operator">=</span> create_retrieval_chain<span class="token punctuation">(</span>retriever_chain<span class="token punctuation">,</span> document_chain<span class="token punctuation">)</span>
+</code></pre><p>现在我们可以整体进行测试了：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chat_history <span class="token operator">=</span> <span class="token punctuation">[</span>HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"LangSmith能帮助测试我的LLM应用吗？"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AIMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"可以！"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+retrieval_chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"chat_history"</span><span class="token punctuation">:</span> chat_history<span class="token punctuation">,</span>
+    <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"告诉我怎么做"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>我们可以看到，这给出了一个连贯的答案——我们已经成功地把我们的检索链条转变成了一个聊天机器人！</p>
+<h2 id="智能体">智能体 </h2>
+<p>我们之前创建了一系列链条，每一步的操作都是预先定义的。现在，我们要创建的是一个智能体，智能体将由LLM决定其下一步的操作。</p>
+<p>注意：本示例仅展示如何利用OpenAI模型创建智能体，因为目前本地模型的稳定性还不足。</p>
+<p>构建智能体的第一步是确定它应该能够访问哪些工具。在本例中，我们将为智能体提供两种工具：</p>
+<ul>
+<li>我们刚刚创建的检索器，使其能够轻松回答关于LangSmith的问题。</li>
+<li>一个搜索工具，使其能够轻松回答需要最新信息的问题。</li>
+</ul>
+<p>首先，为我们刚刚创建的检索器设置一个工具：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>retriever <span class="token keyword keyword-import">import</span> create_retriever_tool
+
+retriever_tool <span class="token operator">=</span> create_retriever_tool<span class="token punctuation">(</span>
+    retriever<span class="token punctuation">,</span>
+    <span class="token string">"langsmith_search"</span><span class="token punctuation">,</span>
+    <span class="token string">"搜索关于LangSmith的信息。对于任何关于LangSmith的问题，你必须使用这个工具！"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre><p>我们使用的搜索工具是Tavily，这需要一个API密钥（他们提供了宽松的免费额度）。在他们平台上创建后，你需要将其设置为一个环境变量：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>export TAVILY_API_KEY=...
+</code></pre><p>如果你不想设置API密钥，可以跳过这个工具的创建。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>tavily_search <span class="token keyword keyword-import">import</span> TavilySearchResults
+
+search <span class="token operator">=</span> TavilySearchResults<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>现在，我们可以开始创建我们想要使用的工具列表了：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>tools <span class="token operator">=</span> <span class="token punctuation">[</span>retriever_tool<span class="token punctuation">,</span> search<span class="token punctuation">]</span>
+</code></pre><p>有了这些工具，我们可以创建一个智能体来使用它们。我们将快速介绍这个过程——要更深入了解具体内容，请查看智能体入门文档（<a href="https://python.langchain.com/docs/modules/agents%EF%BC%89%E3%80%82">https://python.langchain.com/docs/modules/agents）。</a></p>
+<p>首先安装langchain hub：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install langchainhub
+</code></pre><p>安装langchain-openai包，以便我们能够与OpenAI交互，这需要使用连接到OpenAI SDK的langchain-openai[<a href="https://github.com/langchain-ai/langchain/tree/master/libs/partners/openai">https://github.com/langchain-ai/langchain/tree/master/libs/partners/openai</a>]。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install langchain-openai
+</code></pre><p>现在，我们可以获取一个预定义的提示：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_openai <span class="token keyword keyword-import">import</span> ChatOpenAI
+<span class="token keyword keyword-from">from</span> langchain <span class="token keyword keyword-import">import</span> hub
+<span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>agents <span class="token keyword keyword-import">import</span> create_openai_functions_agent
+<span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>agents <span class="token keyword keyword-import">import</span> AgentExecutor
+
+<span class="token comment"># 获取要使用的提示 - 你可以修改这个！</span>
+prompt <span class="token operator">=</span> hub<span class="token punctuation">.</span>pull<span class="token punctuation">(</span><span class="token string">"hwchase17/openai-functions-agent"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 你需要设置OPENAI_API_KEY环境变量或作为参数`openai_api_key`传递。</span>
+llm <span class="token operator">=</span> ChatOpenAI<span class="token punctuation">(</span>model<span class="token operator">=</span><span class="token string">"gpt-3.5-turbo"</span><span class="token punctuation">,</span> temperature<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+agent <span class="token operator">=</span> create_openai_functions_agent<span class="token punctuation">(</span>llm<span class="token punctuation">,</span> tools<span class="token punctuation">,</span> prompt<span class="token punctuation">)</span>
+agent_executor <span class="token operator">=</span> AgentExecutor<span class="token punctuation">(</span>agent<span class="token operator">=</span>agent<span class="token punctuation">,</span> tools<span class="token operator">=</span>tools<span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre><p>我们现在可以调用智能体并查看它的反应！我们可以询问它有关LangSmith的问题：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>agent_executor<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"LangSmith如何帮助进行测试？"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>我们也可以询问它天气情况：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>agent_executor<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"SF的天气怎么样？"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>我们可以与它进行对话：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>chat_history <span class="token operator">=</span> <span class="token punctuation">[</span>HumanMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"LangSmith能帮助测试我的LLM应用吗？"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AIMessage<span class="token punctuation">(</span>content<span class="token operator">=</span><span class="token string">"可以！"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+agent_executor<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"chat_history"</span><span class="token punctuation">:</span> chat_history<span class="token punctuation">,</span>
+    <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"告诉我怎么做"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>深入了解<br>
+我们已经成功地设置了一个基础智能体。这里我们只是初步介绍了智能体的基本概念——想要更深入了解这里提及的所有内容，请参考文档的相关部分（<a href="https://python.langchain.com/docs/modules/agents%EF%BC%89%E3%80%82">https://python.langchain.com/docs/modules/agents）。</a></p>
+<h2 id="通过langserve部署服务">通过LangServe部署服务 </h2>
+<p>既然我们已经开发出了一个应用，接下来就是将它部署成服务的时候了。LangServe就是为此而生。LangServe能够帮助开发者将LangChain的链条以REST API的形式部署。虽然使用LangChain不强制要求使用LangServe，但在本指南中，我们会向您展示如何利用LangServe来部署您的应用。</p>
+<p>本指南的前半部是在Jupyter Notebook中完成的，现在我们将转向不同的环境。我们即将创建一个Python文件，并通过命令行来操作它。</p>
+<p>安装LangServe：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install "langserve[all]"
+</code></pre><p>服务器设置</p>
+<p>为了搭建我们应用的服务器，我们需要创建一个名为serve.py的文件。该文件将包含服务逻辑。主要包括三个部分：</p>
+<ul>
+<li>我们之前构建的链条的定义</li>
+<li>FastAPI应用</li>
+<li>定义一个路由来提供链条服务，这通过使用langserve.add_routes来完成</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>#!/usr/bin/env python
+from typing import List
+
+from fastapi import FastAPI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.tools.retriever import create_retriever_tool
+from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain import hub
+from langchain.agents import create_openai_functions_agent
+from langchain.agents import AgentExecutor
+from langchain.pydantic_v1 import BaseModel, Field
+from langchain_core.messages import BaseMessage
+from langserve import add_routes
+
+# 1. Load Retriever
+loader = WebBaseLoader("https://docs.smith.langchain.com/user_guide")
+docs = loader.load()
+text_splitter = RecursiveCharacterTextSplitter()
+documents = text_splitter.split_documents(docs)
+embeddings = OpenAIEmbeddings()
+vector = FAISS.from_documents(documents, embeddings)
+retriever = vector.as_retriever()
+
+# 2. Create Tools
+retriever_tool = create_retriever_tool(
+    retriever,
+    "langsmith_search",
+    "Search for information about LangSmith. For any questions about LangSmith, you must use this tool!",
+)
+search = TavilySearchResults()
+tools = [retriever_tool, search]
+
+
+# 3. Create Agent
+prompt = hub.pull("hwchase17/openai-functions-agent")
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+agent = create_openai_functions_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
+
+# 4. App definition
+app = FastAPI(
+  title="LangChain Server",
+  version="1.0",
+  description="A simple API server using LangChain's Runnable interfaces",
+)
+
+# 5. Adding chain route
+
+# We need to add these input/output schemas because the current AgentExecutor
+# is lacking in schemas.
+
+class Input(BaseModel):
+    input: str
+    chat_history: List[BaseMessage] = Field(
+        ...,
+        extra={"widget": {"type": "chat", "input": "location"}},
+    )
+
+
+class Output(BaseModel):
+    output: str
+
+add_routes(
+    app,
+    agent_executor.with_types(input_type=Input, output_type=Output),
+    path="/agent",
+)
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="localhost", port=8000)
+</code></pre><p>完成！执行这个文件：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>python serve.py
+</code></pre><p>我们的链条应该就能在localhost:8000上提供服务了。</p>
+<h2 id="playground">Playground </h2>
+<p>LangServe服务自带了一个简洁的UI界面，可以帮助你配置和调用你的应用，同时支持输出流和展示过程中的每一个步骤。尝试访问<a href="http://localhost:8000/agent/playground/">http://localhost:8000/agent/playground/</a> 来体验一下吧！输入之前的问题 - "how can langsmith help with testing?" - 应该能得到和之前相同的答案。</p>
+<p>客户端</p>
+<p>接下来，我们将创建一个客户端，这样我们就可以编程地与我们的服务进行交互了。通过使用<a href="..\..\..\docs\langserve#client">langserve.RemoteRunnable</a>，这个过程变得非常简单。借助它，我们能够像本地客户端运行一样与服务端的链条进行交互。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langserve <span class="token keyword keyword-import">import</span> RemoteRunnable
+
+remote_chain <span class="token operator">=</span> RemoteRunnable<span class="token punctuation">(</span><span class="token string">"http://localhost:8000/agent/"</span><span class="token punctuation">)</span>
+remote_chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"how can langsmith help with testing?"</span><span class="token punctuation">,</span>
+    <span class="token string">"chat_history"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token comment"># 提供一个空列表，因为这是第一次调用</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>想要了解LangServe更多其他功能的详细信息，可以查看这里(<a href="https://python.langchain.com/docs/langserve">https://python.langchain.com/docs/langserve</a>)。</p>
+<h2 id="接下来的步骤">接下来的步骤 </h2>
+<p>我们已经简单探讨了如何利用LangChain来构建应用、通过LangSmith进行跟踪，以及借助LangServe进行部署。这三个组件都含有丰富的特性，远超过我们此处所能涉及的范围。为了进一步深化您对这些工具的理解，我们建议您阅读以下资料（建议按顺序）：</p>
+<ul>
+<li>所有这些功能都得益于<a href="https://python.langchain.com/docs/expression_language">LangChain表达式语言 (LCEL)</a> ——一个用于将各个组件链接起来的系统。深入该文档，您将更加明白如何打造个性化的链条。</li>
+<li><a href="https://python.langchain.com/docs/modules/model_io">模型输入输出</a> 部分将带您了解更多有关提示、LLMs以及输出解析器的细节。</li>
+<li><a href="https://python.langchain.com/docs/modules/data_connection">检索</a> 部分深入介绍了与数据检索相关的所有内容。</li>
+<li><a href="https://python.langchain.com/docs/modules/agents">智能体</a> 部分详细讲解了与智能体相关的所有信息。</li>
+<li>探索<a href="https://python.langchain.com/docs/use_cases/">端到端的使用案例</a>和<a href="https://python.langchain.com/docs/templates">模板应用</a>，了解LangChain的实际应用。</li>
+<li>阅读<a href="https://python.langchain.com/docs/langsmith/">LangSmith相关文档</a>，深入了解用于调试、测试、监控等方面的强大工具。</li>
+<li>学习如何使用<a href="https://python.langchain.com/docs/langserve">LangServe</a>来部署和提供您的应用服务。</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
