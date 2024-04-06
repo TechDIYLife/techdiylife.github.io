@@ -1,9 +1,9 @@
 <!DOCTYPE html><html><head>
-      <title>240406-langchain-rag-03-quickstart-summary</title>
+      <title>AI开发者频道</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\user01\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
       
       
       
@@ -24,6 +24,24 @@
     
       <div class="crossnote markdown-preview  ">
       
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#langchain%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">LangChain快速入门 (学习笔记)</a>
+<ul>
+<li><a href="#1-%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87">1 前期准备</a></li>
+<li><a href="#2-langchain%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%9F%BA%E4%BA%8Eollama">2 LangChain基本用法（基于Ollama）</a>
+<ul>
+<li><a href="#21-%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E7%94%A8%E6%B3%95">2.1 最简单的用法</a></li>
+<li><a href="#22-%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84chain%E7%9A%84%E7%94%A8%E6%B3%95">2.2 最简单的Chain的用法</a></li>
+</ul>
+</li>
+<li><a href="#3-retrieval-chain-%E6%A3%80%E7%B4%A2%E9%93%BE%E6%9D%A1">3 Retrieval Chain 检索链条</a></li>
+<li><a href="#4-%E5%9F%BA%E4%BA%8E%E5%8E%86%E5%8F%B2%E5%AF%B9%E8%AF%9D%E8%AE%B0%E5%BD%95%E7%9A%84%E6%A3%80%E7%B4%A2chain">4 基于历史对话记录的检索Chain</a></li>
+<li><a href="#5-agent%E6%99%BA%E8%83%BD%E4%BD%93">5 Agent智能体</a></li>
+<li><a href="#6-%E4%BD%BF%E7%94%A8-langserve-%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1">6 使用 LangServe 提供服务</a></li>
+</ul>
+</li>
+</ul>
 <h1 id="langchain快速入门-学习笔记">LangChain快速入门 (学习笔记) </h1>
 <p>本章内容是根据LangChain QuickStart文档整理而来。方便您快速执行验证其中的代码。</p>
 <p><strong>如何使用本文档</strong></p>
@@ -136,8 +154,8 @@ print(f"检索后：{response3['answer']}")
 第四步：准备Prompt，创建文档处理的LLMChain，检索Chain<br>
 第五步：代码执行与测试</li>
 </ul>
-<h2 id="4-基于历史对话记录的检索chain-conversation-retrieval-chain">4 基于历史对话记录的检索Chain （Conversation Retrieval Chain） </h2>
-<p>特点：可以对历史对话记录进行检索</p>
+<h2 id="4-基于历史对话记录的检索chain">4 基于历史对话记录的检索Chain </h2>
+<p>特点：可以对历史对话记录进行检索（Conversation Retrieval Chain）</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.embeddings import OllamaEmbeddings
@@ -210,7 +228,7 @@ print(response["answer"])
 </ol>
 </li>
 </ul>
-<h2 id="5-agent智能体代理">5 Agent智能体代理 </h2>
+<h2 id="5-agent智能体">5 Agent智能体 </h2>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.embeddings import OllamaEmbeddings
@@ -330,76 +348,13 @@ uvicorn.run(app, host="0.0.0.0", port=8085)</li>
 </ul>
 
       </div>
-      <div class="md-sidebar-toc">
-<div class="md-toc">
-<details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#langchain快速入门-学习笔记" class="md-toc-link"><p>LangChain快速入门 (学习笔记)</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#1-前期准备" class="md-toc-link">
-            <p>1 前期准备</p>
-
-          </a></div><details style="padding:0;;padding-left:24px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#2-langchain基本用法基于ollama" class="md-toc-link"><p>2 LangChain基本用法（基于Ollama）</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#21-最简单的用法" class="md-toc-link">
-            <p>2.1 最简单的用法</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#22-最简单的chain的用法" class="md-toc-link">
-            <p>2.2 最简单的Chain的用法</p>
-
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#3-retrieval-chain-检索链条" class="md-toc-link">
-            <p>3 Retrieval Chain 检索链条</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#4-基于历史对话记录的检索chain-conversation-retrieval-chain" class="md-toc-link">
-            <p>4 基于历史对话记录的检索Chain （Conversation Retrieval Chain）</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#5-agent智能体代理" class="md-toc-link">
-            <p>5 Agent智能体代理</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#6-使用-langserve-提供服务" class="md-toc-link">
-            <p>6 使用 LangServe 提供服务</p>
-
-          </a></div>
-        </div>
-      </details>
-    
-</div>
-</div>
-      <a id="sidebar-toc-btn">≡</a>
-    
-    
-    
-    
-    
-    
-<script>
-
-var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
-sidebarTOCBtn.addEventListener('click', function(event) {
-  event.stopPropagation()
-  if (document.body.hasAttribute('html-show-sidebar-toc')) {
-    document.body.removeAttribute('html-show-sidebar-toc')
-  } else {
-    document.body.setAttribute('html-show-sidebar-toc', true)
-  }
-})
-</script>
       
+      
+    
+    
+    
+    
+    
+    
   
     </body></html>
