@@ -67,6 +67,7 @@ const blogList = [
   { id: "0041", category1: "c02", category2: "t07", create_date: "2024.04.04", title_short: "LangChain文档中文版：快速入门", title_full: "LangChain文档中文版：快速入门", href: "202401/240402-langchain-rag-03-quickstart.html", video_href: "" },
 
   { id: "0042", category1: "c02", category2: "t05", create_date: "2024.04.04", title_short: "GaLore 技术全参数训练模型，真的实用吗？", title_full: "GaLore 技术全参数训练模型，真的实用吗？", href: "202401/240403-GaLore.html", video_href: "" },
+  { id: "0043", category1: "c02", category2: "t07", create_date: "2024.04.06", title_short: "LangChain快速入门 (学习笔记)", title_full: "LangChain快速入门 (学习笔记)", href: "202401/240406-langchain-rag-03-quickstart-summary.html", video_href: "" },
   
 ];
 

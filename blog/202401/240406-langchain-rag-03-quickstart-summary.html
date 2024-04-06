@@ -1,0 +1,405 @@
+<!DOCTYPE html><html><head>
+      <title>240406-langchain-rag-03-quickstart-summary</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\user01\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="langchain快速入门-学习笔记">LangChain快速入门 (学习笔记) </h1>
+<p>本章内容是根据LangChain QuickStart文档整理而来。方便您快速执行验证其中的代码。</p>
+<p><strong>如何使用本文档</strong></p>
+<ul>
+<li>搭建开发环境</li>
+<li>快速阅读一遍文档：<br>
+中文版：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0041">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0041</a><br>
+原版：<a href="https://python.langchain.com/docs/get_started/quickstart">https://python.langchain.com/docs/get_started/quickstart</a></li>
+<li>参考本文档中的代码执行</li>
+</ul>
+<h2 id="1-前期准备">1 前期准备 </h2>
+<ul>
+<li>本地安装Ollama：<br>
+Windows安装：<a href="https://www.bilibili.com/video/BV12D421L7hg/?share_source=copy_web&amp;vd_source=a05b2192d4d66ba804ff90f2045d8916">https://www.bilibili.com/video/BV12D421L7hg/?share_source=copy_web&amp;vd_source=a05b2192d4d66ba804ff90f2045d8916</a><br>
+Linux安装：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0036">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0036</a><br>
+Ollama常见20个问题：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037</a></li>
+<li>准备Python运行环境，安装LangChain
+<ul>
+<li>使用Conda创建运行环境（创建方法，可以参考：）</li>
+<li><code>pip install langchain</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-langchain基本用法基于ollama">2 LangChain基本用法（基于Ollama） </h2>
+<h3 id="21-最简单的用法">2.1 最简单的用法 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
+llm = Ollama(model="qwen")
+llm.invoke("你是谁？")
+</code></pre><p><strong>常见问题：</strong></p>
+<ul>
+<li>Q1. 注意点：<br>
+执行前需要在终端中使用ollama run qwen来下载模型。</li>
+</ul>
+<h3 id="22-最简单的chain的用法">2.2 最简单的Chain的用法 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
+from langchain_core.prompts import ChatPromptTemplate
+
+llm = Ollama(model="qwen")
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "现在你的名字叫小王."),
+    ("user", "{input}")
+])
+
+chain = prompt | llm
+chain.invoke("你是谁？")
+</code></pre><p>如果模型的处理返回的是数据对象，可以通过StrOutputParser将数据对象中的文本输出出来（这个例子中看不出效果）。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_core.output_parsers import StrOutputParser
+output_parser = StrOutputParser()
+chain = prompt | llm | output_parser
+</code></pre><h2 id="3-retrieval-chain-检索链条">3 Retrieval Chain 检索链条 </h2>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>#!pip install beautifulsoup4
+#!pip install faiss-cpu
+
+from langchain_community.llms import Ollama
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.documents import Document
+from langchain.chains import create_retrieval_chain
+from langchain_core.prompts import ChatPromptTemplate
+
+# 第一步：初始化模型对象：LLM，Embedding
+llm = Ollama(model="qwen")
+embeddings = OllamaEmbeddings(model="qwen")
+response1 = llm.invoke("langsmith是做什么的？")
+print(f"检索前：{response1}")
+# 第二步：获取数据
+loader = WebBaseLoader("https://docs.smith.langchain.com/user_guide")
+docs = loader.load()
+
+# 第三步：文本拆分，文本Vector化
+text_splitter = RecursiveCharacterTextSplitter()
+documents = text_splitter.split_documents(docs)
+vector = FAISS.from_documents(documents, embeddings)
+
+# 第四步：准备Prompt，创建文档处理的LLMChain，检索Chain
+prompt = ChatPromptTemplate.from_template("""Answer the following question based only on the provided context:
+&lt;context&gt;
+{context}
+&lt;/context&gt;
+Question: {input}""")
+
+document_chain = create_stuff_documents_chain(llm, prompt)
+retriever = vector.as_retriever()
+retrieval_chain = create_retrieval_chain(retriever, document_chain) #建立检索
+
+# 第五步：代码执行与测试
+response2 = document_chain.invoke({
+    "input": "langsmith是做什么的？",
+    "context": [Document(page_content="langsmith can let you visualize test results")]
+})
+print(f"检索前（运行测试）：{response2}")
+
+response3 = retrieval_chain.invoke({"input": "langsmith是做什么的？"})
+print(f"检索后：{response3['answer']}")
+
+</code></pre><p>输出结果：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>检索前：langsmith是一家致力于语言教育和软件开发的公司。他们在语言学习领域拥有丰富的经验和专业知识，为用户提供优质的语言学习服务。
+在软件开发方面，langsmith拥有专业的软件开发团队，他们精通各种编程语言和技术，并能够根据用户的需求和要求来开发出高质量、高效率的软件产品。
+
+检索后：LangSmith是一个用于创建LLM应用（语言模型应用程序）的平台。在该平台上，用户可以创建、修改和部署LLM应用程序。此外，该平台还提供了一些其他的功能，例如自动化的评估和测试、以及数据可视化等。
+</code></pre><p><strong>常见问题</strong></p>
+<ul>
+<li>Q1：检索chain的流程是什么样的？<br>
+第一步：初始化LLM，初始化Embdding模型<br>
+第二步：获取数据<br>
+第三步：文本拆分，文本Vector化<br>
+第四步：准备Prompt，创建文档处理的LLMChain，检索Chain<br>
+第五步：代码执行与测试</li>
+</ul>
+<h2 id="4-基于历史对话记录的检索chain-conversation-retrieval-chain">4 基于历史对话记录的检索Chain （Conversation Retrieval Chain） </h2>
+<p>特点：可以对历史对话记录进行检索</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_core.documents import Document
+from langchain.chains import create_retrieval_chain
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chains import create_history_aware_retriever
+from langchain_core.prompts import MessagesPlaceholder
+from langchain_core.messages import HumanMessage, AIMessage
+
+# 第一步： 准备LLM，Embedding模型，读取数据，数据处理
+llm = Ollama(model="qwen:14b")
+llm.invoke("langsmith是做什么的？")
+loader = WebBaseLoader("https://docs.smith.langchain.com/user_guide")
+docs = loader.load()
+
+embeddings = OllamaEmbeddings(model="qwen:14b") #模型默认为llama2
+text_splitter = RecursiveCharacterTextSplitter()
+documents = text_splitter.split_documents(docs)
+vector = FAISS.from_documents(documents, embeddings)
+
+retriever = vector.as_retriever()
+
+# 第二步：创建检索Chain，通过LLM根据历史对话记录检索相关内容
+prompt = ChatPromptTemplate.from_messages([
+    MessagesPlaceholder(variable_name="chat_history"),
+    ("user", "{input}"),
+    ("user", "根据上述对话，生成一个搜索查询以查找与对话相关的信息")
+])
+retriever_chain = create_history_aware_retriever(llm, retriever, prompt)
+
+# 动作确认：用来确认retriever_chain的执行情况，执行检索，不会真的回答问题"告诉我怎么做"
+#chat_history = [HumanMessage(content="LangSmith的网址？"), AIMessage(content="可以！")]
+#response1 = retriever_chain.invoke({
+#    "chat_history": chat_history,
+#    "input": "告诉我怎么做"
+#})
+
+# 第三步：创建检索chain，根据检索出的内容，历史对话，与用户的问题产生回答
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "根据下面的上下文回答用户的问题：\n\n{context}"),
+    MessagesPlaceholder(variable_name="chat_history"),
+    ("user", "{input}"),
+])
+document_chain = create_stuff_documents_chain(llm, prompt)
+retrieval_chain = create_retrieval_chain(retriever_chain, document_chain)
+
+# 第四步：代码执行与测试
+chat_history = [HumanMessage(content="LangSmith能帮助测试我的LLM应用吗？"), AIMessage(content="可以！")]
+response = retrieval_chain.invoke({
+    "chat_history": chat_history,
+    "input": "告诉我怎么做"
+})
+print(response["answer"])
+
+</code></pre><p><strong>效果说明：</strong><br>
+通过将chat_history传递给chain中，只需要询问"告诉我怎么做"，模型通过对话历史记录可以知道用户的要求【测试LLM应用该如何做？】。</p>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>Q1：create_history_aware_retriever 为什么需要使用LLM来进行检索？<br>
+使用LLM的目的是，要对历史对话记录进行理解后，进行检索（参考第一步中的prompt设计）。</li>
+<li>Q2：为什么会有两步？一个 retriever_chain，另一个 document_chain<br>
+一个负责检索，一个负责解答问题
+<ol>
+<li>创建 retriever_chain 来基于历史对话记录进行检索，返回<strong>文档</strong></li>
+<li>LLM处理时考虑<strong>所有历史对话</strong>，根据检索到的文档进行解答</li>
+</ol>
+</li>
+</ul>
+<h2 id="5-agent智能体代理">5 Agent智能体代理 </h2>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.llms import Ollama
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain.tools.retriever import create_retriever_tool
+from langchain_openai import ChatOpenAI
+from langchain import hub
+from langchain.agents import create_openai_functions_agent
+from langchain.agents import AgentExecutor
+
+# 第一步：初始化模型（模型建议使用GPT3.5，GPT4等大模型，小模型难以胜任）
+#OPENAI_API_KEY="xxxx" # 为避免泄露，可以设置到环境变量
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0, openai_api_key=OPENAI_API_KEY)
+embeddings = OllamaEmbeddings(model="qwen:14b")
+
+# 第二步：数据处理，embedding等准备
+loader = WebBaseLoader("https://docs.smith.langchain.com/user_guide")
+docs = loader.load()
+text_splitter = RecursiveCharacterTextSplitter()
+documents = text_splitter.split_documents(docs)
+vector = FAISS.from_documents(documents, embeddings)
+retriever = vector.as_retriever()
+
+# 第三步：创建工具（检索工具）
+retriever_tool = create_retriever_tool(
+    retriever,
+    "langsmith_search",
+    "Search for information about LangSmith. For any questions about LangSmith, you must use this tool!",
+)
+tools = [retriever_tool] #原代码中，还有一个检索天气预报的工具
+
+
+# 第四步：设置Prompt，创建基于LLM的Agent，以及AgentExecutor来执行和管理Agent。
+prompt = hub.pull("hwchase17/openai-functions-agent")
+agent = create_openai_functions_agent(llm, tools, prompt) #创建Agent
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
+# 第五步：代码执行与测试
+## 无历史对话的问答
+response1 = agent_executor.invoke({"input": "如何使用 langsmith 来做测试？"})
+print(response1)
+
+## 有历史对话的问答
+chat_history = [HumanMessage(content="Can LangSmith help test my LLM applications?"), AIMessage(content="Yes!")]
+response2 = agent_executor.invoke({
+    "chat_history": chat_history,
+    "input": "Tell me how"
+})
+print(response2)
+</code></pre><p><strong>常见问题</strong></p>
+<ul>
+<li>
+<p>Q1: Agent是做什么的？<br>
+智能体是控制器，它可以对任务进行控制和调度。 比如上面的例子中，Agent可以来判断是否使用tools中的工具，如果需要，它会调用工具，进行检索，检索完成后，将文本和问题都送入LLM进行处理。所以称他为智能体，或者叫做代理。</p>
+</li>
+<li>
+<p>Q2： 基于Agent的处理具体流程是怎么样的？<br>
+见代码中的第1-5步</p>
+</li>
+<li>
+<p>Q3: 使用Agent与前面RAG代码的区别之处？<br>
+最主要的区别是下面的部分</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>agent = create_openai_functions_agent(llm, tools, prompt) #创建Agent
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+</code></pre><p>Agent可以自己来判断并使用tools中的工具，而前面的RAG代码中，使用retrieval进行检索是在代码中指定的。<br>
+Agent会根据对话的需要，来确定使用哪一个工具来进行处理。从而可以完整复杂场景下的任务。</p>
+</li>
+<li>
+<p>Q4：langChain hub 是什么？<br>
+类似于huggingface hub， 用于共享langchain相关的资源。</p>
+</li>
+<li>
+<p>Q5：hwchase17/openai-functions-agent 是什么，起到什么样的作用？？<br>
+这是一个Prompt Template，通过hub，可以直接加载此template来使用，在python中，可以通过下面代码来替代它：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_messages(
+("system", "You are a helpful assistant"),
+("placeholder", "{chat_history}"),
+("human", "{input}"),
+("placeholder", "{agent_scratchpad}"),
+)
+</code></pre><p>网址：<a href="https://smith.langchain.com/hub/hwchase17/openai-functions-agent">https://smith.langchain.com/hub/hwchase17/openai-functions-agent</a></p>
+</li>
+</ul>
+<h2 id="6-使用-langserve-提供服务">6 使用 LangServe 提供服务 </h2>
+<ul>
+<li>安装langserve：<code>pip install "langserve[all]"</code></li>
+<li>运行方式：
+<ul>
+<li>创建serve.py文件，并拷贝代码</li>
+<li>打开终端，启动服务 <code>python serve.py</code><br>
+代码请参考： <a href="https://python.langchain.com/docs/get_started/quickstart/#serving-with-langserve">https://python.langchain.com/docs/get_started/quickstart/#serving-with-langserve</a></li>
+</ul>
+</li>
+<li>通过Playground访问：<br>
+通过网址访问：<a href="http://localhost:8080/agent/playground/">http://localhost:8080/agent/playground/</a><br>
+在Input中输入：how can langsmith help with testing?<br>
+删除Chat history，或者输入内容。不然会报错。</li>
+<li>通过代码访问：<pre data-role="codeBlock" data-info="" class="language-text"><code>from langserve import RemoteRunnable
+
+remote_chain = RemoteRunnable("http://localhost:8000/agent/")
+remote_chain.invoke({
+    "input": "how can langsmith help with testing?",
+    "chat_history": []  # Providing an empty list as this is the first call
+})
+
+</code></pre></li>
+</ul>
+<p><strong>常见问题</strong></p>
+<ul>
+<li>Q1：如何设置为其他机器可以访问：<br>
+将serve.py文件中的启动代码修改为：<br>
+uvicorn.run(app, host="0.0.0.0", port=8085)</li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc">
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#langchain快速入门-学习笔记" class="md-toc-link"><p>LangChain快速入门 (学习笔记)</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#1-前期准备" class="md-toc-link">
+            <p>1 前期准备</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#2-langchain基本用法基于ollama" class="md-toc-link"><p>2 LangChain基本用法（基于Ollama）</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#21-最简单的用法" class="md-toc-link">
+            <p>2.1 最简单的用法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#22-最简单的chain的用法" class="md-toc-link">
+            <p>2.2 最简单的Chain的用法</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#3-retrieval-chain-检索链条" class="md-toc-link">
+            <p>3 Retrieval Chain 检索链条</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#4-基于历史对话记录的检索chain-conversation-retrieval-chain" class="md-toc-link">
+            <p>4 基于历史对话记录的检索Chain （Conversation Retrieval Chain）</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#5-agent智能体代理" class="md-toc-link">
+            <p>5 Agent智能体代理</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#6-使用-langserve-提供服务" class="md-toc-link">
+            <p>6 使用 LangServe 提供服务</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

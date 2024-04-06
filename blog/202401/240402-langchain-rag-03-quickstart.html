@@ -43,7 +43,6 @@
 <li><a href="#%E5%AF%B9%E8%AF%9D%E5%BC%8F%E6%A3%80%E7%B4%A2%E9%93%BE%E6%9D%A1">对话式检索链条</a></li>
 <li><a href="#%E6%99%BA%E8%83%BD%E4%BD%93">智能体</a></li>
 <li><a href="#%E9%80%9A%E8%BF%87langserve%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1">通过LangServe部署服务</a></li>
-<li><a href="#playground">Playground</a></li>
 <li><a href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E6%AD%A5%E9%AA%A4">接下来的步骤</a></li>
 </ul>
 </li>
@@ -175,7 +174,7 @@ print(response["answer"])
 <li>现在的检索方法不仅仅是基于最新的输入，而是应当考虑整个对话历史。</li>
 <li>最终的LLM链条也应该考虑到整个对话历史。</li>
 </ul>
-<p>更新检索过程</p>
+<p><strong>更新检索过程</strong></p>
 <p>为了更新检索过程，我们将创建一个新的链条。这个链条会将最新的输入和对话历史整合起来，利用LLM生成一个搜索查询。</p>
 <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>chains <span class="token keyword keyword-import">import</span> create_history_aware_retriever
 <span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>prompts <span class="token keyword keyword-import">import</span> MessagesPlaceholder
@@ -233,7 +232,6 @@ retriever_tool <span class="token operator">=</span> create_retriever_tool<span 
 <pre data-role="codeBlock" data-info="" class="language-text"><code>export TAVILY_API_KEY=...
 </code></pre><p>如果你不想设置API密钥，可以跳过这个工具的创建。</p>
 <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_community<span class="token punctuation">.</span>tools<span class="token punctuation">.</span>tavily_search <span class="token keyword keyword-import">import</span> TavilySearchResults
-
 search <span class="token operator">=</span> TavilySearchResults<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre><p>现在，我们可以开始创建我们想要使用的工具列表了：</p>
 <pre data-role="codeBlock" data-info="python" class="language-python python"><code>tools <span class="token operator">=</span> <span class="token punctuation">[</span>retriever_tool<span class="token punctuation">,</span> search<span class="token punctuation">]</span>
@@ -242,13 +240,13 @@ search <span class="token operator">=</span> TavilySearchResults<span class="tok
 <pre data-role="codeBlock" data-info="" class="language-text"><code>pip install langchainhub
 </code></pre><p>安装langchain-openai包，以便我们能够与OpenAI交互，这需要使用连接到OpenAI SDK的langchain-openai[<a href="https://github.com/langchain-ai/langchain/tree/master/libs/partners/openai">https://github.com/langchain-ai/langchain/tree/master/libs/partners/openai</a>]。</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>pip install langchain-openai
-</code></pre><p>现在，我们可以获取一个预定义的提示：</p>
+</code></pre><p>现在，我们可以获取一个预定义的提示prompt：</p>
 <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_openai <span class="token keyword keyword-import">import</span> ChatOpenAI
 <span class="token keyword keyword-from">from</span> langchain <span class="token keyword keyword-import">import</span> hub
 <span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>agents <span class="token keyword keyword-import">import</span> create_openai_functions_agent
 <span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>agents <span class="token keyword keyword-import">import</span> AgentExecutor
 
-<span class="token comment"># 获取要使用的提示 - 你可以修改这个！</span>
+<span class="token comment"># 获取要使用的提示</span>
 prompt <span class="token operator">=</span> hub<span class="token punctuation">.</span>pull<span class="token punctuation">(</span><span class="token string">"hwchase17/openai-functions-agent"</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 你需要设置OPENAI_API_KEY环境变量或作为参数`openai_api_key`传递。</span>
@@ -265,17 +263,17 @@ agent_executor<span class="token punctuation">.</span>invoke<span class="token p
     <span class="token string">"chat_history"</span><span class="token punctuation">:</span> chat_history<span class="token punctuation">,</span>
     <span class="token string">"input"</span><span class="token punctuation">:</span> <span class="token string">"告诉我怎么做"</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><p>深入了解<br>
+</code></pre><p><strong>进一步了解</strong><br>
 我们已经成功地设置了一个基础智能体。这里我们只是初步介绍了智能体的基本概念——想要更深入了解这里提及的所有内容，请参考文档的相关部分（<a href="https://python.langchain.com/docs/modules/agents%EF%BC%89%E3%80%82">https://python.langchain.com/docs/modules/agents）。</a></p>
 <h2 id="通过langserve部署服务">通过LangServe部署服务 </h2>
 <p>既然我们已经开发出了一个应用，接下来就是将它部署成服务的时候了。LangServe就是为此而生。LangServe能够帮助开发者将LangChain的链条以REST API的形式部署。虽然使用LangChain不强制要求使用LangServe，但在本指南中，我们会向您展示如何利用LangServe来部署您的应用。</p>
 <p>本指南的前半部是在Jupyter Notebook中完成的，现在我们将转向不同的环境。我们即将创建一个Python文件，并通过命令行来操作它。</p>
 <p>安装LangServe：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>pip install "langserve[all]"
-</code></pre><p>服务器设置</p>
+</code></pre><p><strong>服务器设置</strong></p>
 <p>为了搭建我们应用的服务器，我们需要创建一个名为serve.py的文件。该文件将包含服务逻辑。主要包括三个部分：</p>
 <ul>
-<li>我们之前构建的链条的定义</li>
+<li>我们之前构建的chain的定义</li>
 <li>FastAPI应用</li>
 <li>定义一个路由来提供链条服务，这通过使用langserve.add_routes来完成</li>
 </ul>
@@ -360,9 +358,9 @@ if __name__ == "__main__":
 </code></pre><p>完成！执行这个文件：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>python serve.py
 </code></pre><p>我们的链条应该就能在localhost:8000上提供服务了。</p>
-<h2 id="playground">Playground </h2>
+<p><strong>Playground</strong></p>
 <p>LangServe服务自带了一个简洁的UI界面，可以帮助你配置和调用你的应用，同时支持输出流和展示过程中的每一个步骤。尝试访问<a href="http://localhost:8000/agent/playground/">http://localhost:8000/agent/playground/</a> 来体验一下吧！输入之前的问题 - "how can langsmith help with testing?" - 应该能得到和之前相同的答案。</p>
-<p>客户端</p>
+<p><strong>客户端访问</strong></p>
 <p>接下来，我们将创建一个客户端，这样我们就可以编程地与我们的服务进行交互了。通过使用<a href="..\..\..\docs\langserve#client">langserve.RemoteRunnable</a>，这个过程变得非常简单。借助它，我们能够像本地客户端运行一样与服务端的链条进行交互。</p>
 <pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langserve <span class="token keyword keyword-import">import</span> RemoteRunnable
 
