@@ -152,7 +152,7 @@ sudo systemctl status ollama.service
 <li>准备modelfile文件</li>
 </ol>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>#FROM qwen1_5-0_5b-chat-q4_0.gguf
-FROM ./qwen1_5-0_5b-chat-q4_0.gguf #注意本地模型需要 "./"
+FROM ./qwen1_5-0_5b-chat-q4_0.gguf
 
 # set the temperature to 1 [higher is more creative, lower is more coherent]
 PARAMETER temperature 0.7
