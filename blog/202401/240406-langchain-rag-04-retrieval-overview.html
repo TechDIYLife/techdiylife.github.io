@@ -1,0 +1,615 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>【本文通过ChatGPT翻译，仅供参考使用，建议对照英文阅读】<br>
+原文地址：</p>
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E6%A3%80%E7%B4%A2%E7%BB%BC%E8%BF%B0--%EF%B8%8F-langchain">数据检索（综述） | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E6%96%87%E6%A1%A3%E5%8A%A0%E8%BD%BD%E5%99%A8httpspythonlangchaincomdocsmodulesdata_connectiondocument_loaders">文档加载器</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2httpspythonlangchaincomdocsmodulesdata_connectiondocument_transformers">文本分割</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8Bhttpspythonlangchaincomdocsmodulesdata_connectiontext_embedding">文本嵌入模型</a></li>
+<li><a href="#%E5%90%91%E9%87%8F%E5%AD%98%E5%82%A8httpspythonlangchaincomdocsmodulesdata_connectionvectorstores">向量存储</a></li>
+<li><a href="#%E6%A3%80%E7%B4%A2%E5%99%A8httpspythonlangchaincomdocsmodulesdata_connectionretrievers">检索器</a></li>
+<li><a href="#%E7%B4%A2%E5%BC%95httpspythonlangchaincomdocsmodulesdata_connectionindexing">索引</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E6%A1%A3%E5%8A%A0%E8%BD%BD%E5%99%A8--%EF%B8%8F-langchain">文档加载器 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E9%97%AE%E9%A2%98">学习笔记（问题）：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2%E5%99%A8--%EF%B8%8F-langchain">文本分割器 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2%E5%99%A8%E7%9A%84%E7%B1%BB%E5%9E%8B">文本分割器的类型</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E8%AF%84%E4%BC%B0%E6%96%87%E6%9C%AC%E5%88%86%E5%89%B2%E5%99%A8">如何评估文本分割器</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E6%96%87%E6%A1%A3%E8%BD%AC%E6%8D%A2">其他文档转换</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E9%97%AE%E9%A2%98-1">学习笔记（问题）</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E6%9C%AC%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9E%8B--%EF%B8%8F-langchain">文本嵌入模型 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97openai">配置指南(OpenAI)</a></li>
+<li><a href="#embed_documents-%E6%96%87%E6%A1%A3%E5%B5%8C%E5%85%A5">embed_documents 文档嵌入</a></li>
+<li><a href="#embed_query%E6%9F%A5%E8%AF%A2%E5%B5%8C%E5%85%A5">embed_query查询嵌入</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E9%97%AE%E9%A2%98-2">学习笔记（问题）</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%91%E9%87%8F%E5%AD%98%E5%82%A8--%EF%B8%8F-langchain">向量存储 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97">入门指南</a>
+<ul>
+<li><a href="#%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E7%B4%A2">相似度检索</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8Evector%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E7%B4%A2">基于Vector的相似度检索</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E">异步操作说明</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E8%BE%B9%E9%99%85%E7%9B%B8%E5%85%B3%E6%80%A7%E6%90%9C%E7%B4%A2-mmr">最大边际相关性搜索 (MMR)</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A3%80%E7%B4%A2%E5%99%A8--%EF%B8%8F-langchain">检索器 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E9%AB%98%E7%BA%A7%E6%A3%80%E7%B4%A2%E7%B1%BB%E5%9E%8B">高级检索类型</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9B%86%E6%88%90">第三方集成</a></li>
+<li><a href="#%E5%9C%A8-lcel-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%A3%80%E7%B4%A2%E5%99%A8">在 LCEL 中使用检索器</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A3%80%E7%B4%A2%E5%99%A8">自定义检索器</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E9%97%AE%E9%A2%98-3">学习笔记（问题）</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B4%A2%E5%BC%95--%EF%B8%8F-langchain">索引 | 🦜️🔗 LangChain</a>
+<ul>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">工作原理</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%A8%A1%E5%BC%8F">删除模式</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%A6%81%E6%B1%82">使用要求</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">注意事项</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B-1">快速开始</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="数据检索综述--️-langchain">数据检索（综述） | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/">https://python.langchain.com/docs/modules/data_connection/</a></p>
+<p>在许多大语言模型（LLM）的应用场景中，我们经常需要处理用户特定的数据，这些数据并不包含在模型的训练集中。要实现这一点，通常采用的方法是检索增强生成（Retrieval Augmented Generation，RAG）。简单来说，就是在生成响应之前，先从外部获取所需的数据。</p>
+<p>LangChain为构建RAG应用提供了一整套解决方案，无论是简单还是复杂的应用场景。本文档部分详细介绍了数据检索过程，这可能看起来很直白，但实际上涉及不少复杂的细节，包括多个关键模块。</p>
+<p><img src="https://python.langchain.com/assets/images/data_connection-95ff2033a8faa5f3ba41376c0f6dd32a.jpg" alt="本图展示了数据连接的各个步骤，包括数据来源、加载、转换、嵌入、存储和检索。" title="数据连接过程图解"></p>
+<h2 id="文档加载器httpspythonlangchaincomdocsmodulesdata_connectiondocument_loaders"><a href="https://python.langchain.com/docs/modules/data_connection/document_loaders/">文档加载器</a> </h2>
+<p>文档加载器的作用是从各种来源导入文档。LangChain支持超过100种不同的文档加载器，并与市场上的主流服务如AirByte和Unstructured进行了集成，能够处理包括HTML、PDF和代码在内的各类文档，无论是来自私有S3 buckets（亚马逊AWS的一项服务）还是公共网站。</p>
+<h2 id="文本分割httpspythonlangchaincomdocsmodulesdata_connectiondocument_transformers"><a href="https://python.langchain.com/docs/modules/data_connection/document_transformers/">文本分割</a> </h2>
+<p>在数据检索过程中，仅提取文档的相关部分至关重要。这需要对文档进行多个转换步骤的处理，其中关键一步是将大型文档拆分为小块。LangChain提供了多种文档转换算法，还针对特定类型的文档（如代码、Markdown等）优化了处理逻辑。</p>
+<h2 id="文本嵌入模型httpspythonlangchaincomdocsmodulesdata_connectiontext_embedding"><a href="https://python.langchain.com/docs/modules/data_connection/text_embedding/">文本嵌入模型</a> </h2>
+<p>创建文档嵌入也是检索过程的关键一环。嵌入通过捕捉文本的语义意义，使得快速高效地查找相似文本成为可能。LangChain支持超过25种不同的嵌入提供方和方法，从开源到商业API，让用户可以根据自己的需要选择最合适的服务。我们提供了一个标准化接口，方便用户在不同模型间切换。</p>
+<h2 id="向量存储httpspythonlangchaincomdocsmodulesdata_connectionvectorstores"><a href="https://python.langchain.com/docs/modules/data_connection/vectorstores/">向量存储</a> </h2>
+<p>随着文本嵌入技术的发展，对于支持这些嵌入高效存储与搜索的数据库需求日益增加。LangChain集成了50多种不同的向量存储方案，从本地开源到云端私有，满足不同用户的需求。我们提供的标准接口使得在不同向量存储方案间切换变得简单便捷。</p>
+<h2 id="检索器httpspythonlangchaincomdocsmodulesdata_connectionretrievers"><a href="https://python.langchain.com/docs/modules/data_connection/retrievers/">检索器</a> </h2>
+<p>将数据存入数据库后，接下来的任务是如何检索这些数据。LangChain支持多种检索算法，这也是我们提供最大价值的方面之一。我们不仅支持简单的语义搜索，这对初学者友好，而且还开发了一系列高性能的算法。这些算法包括：</p>
+<ul>
+<li><a href="https://python.langchain.com/docs/modules/data_connection/retrievers/parent_document_retriever/">父文档检索器</a>：为每个父文档创建多个嵌入，使查找小块信息时能够返回更全面的上下文。</li>
+<li><a href="https://python.langchain.com/docs/modules/data_connection/retrievers/self_query/">自我查询检索器</a>：用户的查询往往包含了一些逻辑表达，不仅仅是基于语义的。自我查询功能能够将查询中的语义部分与其他元数据过滤条件区分开来。</li>
+<li><a href="https://python.langchain.com/docs/modules/data_connection/retrievers/ensemble/">集成检索器</a>：有时候，你可能需要从多个不同的数据源，或使用不同的算法来检索文档。集成检索功能使得这一切变得简单。</li>
+<li>更多功能等你探索！</li>
+</ul>
+<h2 id="索引httpspythonlangchaincomdocsmodulesdata_connectionindexing"><a href="https://python.langchain.com/docs/modules/data_connection/indexing/">索引</a> </h2>
+<p>LangChain的索引API能够帮助你将数据从任何来源同步到向量存储，实现以下目的：</p>
+<ul>
+<li>避免向量存储中的内容重复</li>
+<li>避免重复写入未更改的内容</li>
+<li>减少对未变更内容的嵌入重新计算</li>
+</ul>
+<p>这不仅可以节省你的时间和资金，还能提升向量搜索的效果。</p>
+<h1 id="文档加载器--️-langchain">文档加载器 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/document_loaders/">https://python.langchain.com/docs/modules/data_connection/document_loaders/</a></p>
+<p>文档加载器用于将数据从源头以<code>Document</code>的形式加载进来。<code>Document</code>指的是包含文本和相关元数据的数据单元。举例来说，存在专门加载简单<code>.txt</code>文件的文档加载器，能够加载任何网页的文本内容，乃至于加载YouTube视频的字幕文本。</p>
+<p>文档加载器提供了一个用于从配置源中以文档形式加载数据的“加载（load）”方法。此外，文档加载器还支持“懒加载”，可以按需将数据加载到内存中。</p>
+<p><strong>快速开始</strong><br>
+最基础的加载器功能是读取一个文件的文本内容，并把所有内容整合到一个文档里。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.document_loaders import TextLoader
+
+loader = TextLoader("./index.md")
+loader.load()
+</code></pre><p>输出结果：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>[    Document(page_content='---\\nsidebar_position: 0\\n---\\n# 文档加载器\\n\\n文档加载器用于将数据从源头以`Document`的形式加载进来。`Document`指的是包含文本和相关元数据的数据单元。举例来说，存在专门加载简单`.txt`文件的文档加载器，能够加载任何网页的文本内容，乃至于加载YouTube视频的字幕文本。\\n\\n每个文档加载器提供两种操作方式：\\n1. \"加载（Load）\": 从配置源中加载文档\\n2. \"加载并分割（Load and split）\": 从配置源中加载文档，并根据提供的文本分割器进行分割\\n\\n此外，文档加载器还支持：\\n\\n3. \"懒加载（Lazy load）\": 按需将文档加载到内存中\\n', metadata={'source': '../docs/docs/modules/data_connection/document_loaders/index.md'})]
+</code></pre><h2 id="学习笔记问题">学习笔记（问题）： </h2>
+<ul>
+<li>Q1：如何处理复杂文档，比如csv，PDF，office文档等？<br>
+LangChain提供的有常见文档的导入方法。<br>
+<a href="https://python.langchain.com/docs/modules/data_connection/document_loaders/">https://python.langchain.com/docs/modules/data_connection/document_loaders/</a></li>
+</ul>
+<h1 id="文本分割器--️-langchain">文本分割器 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/document_transformers/">https://python.langchain.com/docs/modules/data_connection/document_transformers/</a></p>
+<p>当你加载了文档后，往往需要对其进行转换，以便更好地适配你的应用场景。一个典型例子是，你可能需要将一篇长文档分割成若干小片段，使之能够适应你的模型的上下文窗口大小。LangChain内置了许多文档转换工具，简化了文档的分割、合并、过滤等操作。</p>
+<p>处理长文本时，将其分割成小块是必须的。虽然听起来简单，但实际上包含了不少复杂性。理想状态下，你会希望将语义上相关的文本保持在一起。所谓“语义相关”，其具体含义取决于文本的类型。本文档介绍了实现这一目标的几种方法。</p>
+<p>从宏观角度看，文本分割器遵循以下工作流程：</p>
+<ol>
+<li>将文本分割成小的、具有语义意义的块（通常是句子）。</li>
+<li>然后开始将这些小块合并成更大的块，直至达到某个预设大小（通过某种方式进行测量）。</li>
+<li>达到该大小后，将这一大块视为一个独立的文本片段，并开始创建新的文本块，同时保留一些重叠部分，以维持块与块之间的上下文联系。</li>
+</ol>
+<p>这意味着，你可以从两个不同的角度来自定义你的文本分割器：</p>
+<ol>
+<li>文本的分割方式</li>
+<li>块大小的测量方法</li>
+</ol>
+<h2 id="文本分割器的类型">文本分割器的类型 </h2>
+<p>LangChain提供多种文本分割器，所有这些都包含在<code>langchain-text-splitters</code>包中。下表列出了各种分割器及其特点：</p>
+<p><strong>名称</strong>：分割器的名称</p>
+<p><strong>分割依据</strong>：该分割器基于何种逻辑进行文本分割</p>
+<p><strong>添加元数据</strong>：该分割器是否会添加关于文本块来源的元数据</p>
+<p><strong>描述</strong>：分割器的具体描述及其使用推荐</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>分割依据</th>
+<th>添加元数据</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>递归</td>
+<td>用户定义字符</td>
+<td></td>
+<td>通过递归分割文本，以尽量保持相关文本片段的相邻性。推荐首选的文本分割方式。</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>特定于HTML的字符</td>
+<td>✅</td>
+<td>根据HTML特有字符分割文本，并提供了块来源的详细信息。</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>特定于Markdown的字符</td>
+<td>✅</td>
+<td>根据Markdown特有字符分割文本，并提供了块来源的详细信息。</td>
+</tr>
+<tr>
+<td>代码</td>
+<td>编程语言特定字符 (Python, JS)</td>
+<td></td>
+<td>根据不同编程语言的特定字符来分割文本，支持15种编程语言。</td>
+</tr>
+<tr>
+<td>Token</td>
+<td>Tokens</td>
+<td></td>
+<td>依据tokens来分割文本，存在多种计算token的方法。</td>
+</tr>
+<tr>
+<td>字符</td>
+<td>用户定义字符</td>
+<td></td>
+<td>通过用户指定的字符来分割文本，是最简单直接的分割方法之一。</td>
+</tr>
+<tr>
+<td>[实验性] 语义块</td>
+<td>句子</td>
+<td></td>
+<td>首先按句子分割，再根据语义相似度将相邻句子组合起来。来自 <a href="https://github.com/FullStackRetrieval-com/RetrievalTutorials/blob/main/tutorials/LevelsOfTextSplitting/5_Levels_Of_Text_Splitting.ipynb">Greg Kamradt</a> 的方法</td>
+</tr>
+<tr>
+<td><a href="https://python.langchain.com/docs/integrations/document_transformers/ai21_semantic_text_splitter/">AI21 语义文本分割器</a></td>
+<td>语义</td>
+<td>✅</td>
+<td>根据不同的主题将文本划分为连贯的片段。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="如何评估文本分割器">如何评估文本分割器 </h2>
+<p>你可以利用<code>Greg Kamradt</code>开发的<a href="https://www.chunkviz.com/">Chunkviz工具</a>来评估文本分割器的效果。<code>Chunkviz</code>是一个极佳的工具，能够直观地显示你的文本如何被分割，并协助调整分割参数。</p>
+<h2 id="其他文档转换">其他文档转换 </h2>
+<p>文本分割只是你可能想在提交给大语言模型(LLM)之前对文档进行的众多转换之一。请访问<a href="https://python.langchain.com/docs/integrations/document_transformers/">Integrations</a>了解更多有关与第三方工具集成的内置文档转换器的信息。</p>
+<h2 id="学习笔记问题-1">学习笔记（问题） </h2>
+<ul>
+<li>Q1：Chunkviz工具是什么？<br>
+此工具对文本分割展示的很形象，可以帮助理解文本分割，尤其是chunk-size， overlap。</li>
+</ul>
+<h1 id="文本嵌入模型--️-langchain">文本嵌入模型 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/text_embedding/">https://python.langchain.com/docs/modules/data_connection/text_embedding/</a></p>
+<p>访问<a href="https://python.langchain.com/docs/integrations/text_embedding/">Integrations</a>查看关于文本嵌入模型提供商的集成文档。</p>
+<p>Embeddings类专为与文本嵌入模型交互而设计。众多的模型提供商如OpenAI、Cohere、Hugging Face等，此类提供一个统一的接口，以便于使用它们。</p>
+<p>Embeddings的核心功能是将文本转换成向量表示形式。这种方式极为有用，因为它允许我们在向量空间内对文本进行分析和操作，例如进行语义搜索，即寻找在向量空间中最为相似的文本片段。</p>
+<p>LangChain中基础的Embeddings类提供了两个主要方法：嵌入文档和嵌入查询。嵌入文档接收多个文本作为输入，而嵌入查询则是基于单个文本。这样设计是因为不同的嵌入模型提供商对文档（搜索对象）和查询（搜索词）的处理方式可能不同。</p>
+<h2 id="快速开始">快速开始 </h2>
+<h3 id="配置指南openai">配置指南(OpenAI) </h3>
+<p>开始之前，我们需要先安装OpenAI的工具开发库：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install langchain-openai
+</code></pre><p>使用API之前，需要一个API密钥，您可以通过创建账户后访问<a href="https://platform.openai.com/account/api-keys">这里</a>获取。获取密钥后，建议通过如下命令设置环境变量：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>export OPENAI_API_KEY="..."
+</code></pre><p>如果您不想使用环境变量，也可以在初始化OpenAI的LLM类时，</p>
+<p>通过<code>openai_api_key</code>参数直接提供密钥：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_openai import OpenAIEmbeddings
+embeddings_model = OpenAIEmbeddings(openai_api_key="...")
+</code></pre><p>或者，您也可以不提供任何参数直接初始化：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_openai import OpenAIEmbeddings
+embeddings_model = OpenAIEmbeddings()
+</code></pre><h3 id="embed_documents-文档嵌入">embed_documents 文档嵌入 </h3>
+<p><strong>嵌入一系列文本</strong></p>
+<p>通过下面的代码，我们可以将一系列文本转换为向量表示：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>embeddings = embeddings_model.embed_documents([
+    "Hi there!",
+    "Oh, hello!",
+    "What's your name?",
+    "My friends call me World",
+    "Hello World!"
+])
+len(embeddings), len(embeddings[0])
+</code></pre><h3 id="embed_query查询嵌入">embed_query查询嵌入 </h3>
+<p><strong>嵌入一个查询</strong></p>
+<p>为了比较不同文本片段，我们可以嵌入一个单独的查询文本：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>embedded_query = embeddings_model.embed_query("What was the name mentioned in the conversation?")
+embedded_query[:5]
+</code></pre><p>展示的向量是这样的：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>[0.0053587136790156364, -0.0004999046213924885, 0.038883671164512634, -0.003001077566295862, -0.00900818221271038]
+</code></pre><h2 id="学习笔记问题-2">学习笔记（问题） </h2>
+<ul>
+<li>
+<p>Q1：几个常见问题<br>
+Embedding模型是如何处理的？<br>
+返回的vector维度是由什么决定的？<br>
+不同的模型vector维度有差异吗？<br>
+可以混合使用模型创建vector吗？比如embed_documents与embed_query使用不同的模型</p>
+</li>
+<li>
+<p>Q2：embed_documents 与 embed_query 有什么区别？<br>
+embed_documents是计算文档的embdding，可以处理多个文本。<br>
+embed_query只处理单个文本。在使用相同模型的情况下，两者返回的embedding的值是相同的。</p>
+</li>
+</ul>
+<h1 id="向量存储--️-langchain">向量存储 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/vectorstores/">https://python.langchain.com/docs/modules/data_connection/vectorstores/</a></p>
+<p>有关与第三方向量存储集成的更多信息，请访问 <a href="https://python.langchain.com/docs/integrations/vectorstores/">集成页面</a>。</p>
+<p>向量存储是一种常用的非结构化数据存储和搜索方法。其基本过程是将数据嵌入生成向量，并将这些向量存储起来；在查询时，同样将查询内容嵌入并寻找最匹配的向量。向量存储的主要功能就是自动完成数据嵌入和向量搜索。</p>
+<p><img src="https://python.langchain.com/assets/images/vector_stores-125d1675d58cfb46ce9054c9019fea72.jpg" alt="向量存储过程的示意图：1. 加载源数据，2. 查询向量存储，3. 检索‘最相似’的结果。" title="向量存储过程图"></p>
+<h2 id="入门指南">入门指南 </h2>
+<p>这个入门指南介绍了向量存储的基础功能。创建并存入向量存储的向量通常通过数据嵌入完成，因此建议您在开始前先熟悉 <a href="https://python.langchain.com/docs/modules/data_connection/text_embedding/">文本嵌入模型</a> 的接口。</p>
+<p>以下是几种优秀的向量存储方案，它们都是免费和开源的，且可以在本地机器上直接运行。您还可以查看更多的托管选项。</p>
+<p>下面以 FAISS 为例介绍，它利用了Facebook AI Similarity Search（FAISS）库。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># pip install faiss-cpu
+
+import os
+import getpass
+
+os.environ['OPENAI_API_KEY'] = getpass.getpass('OpenAI API Key:')
+
+
+from langchain_community.document_loaders import TextLoader
+from langchain_openai import OpenAIEmbeddings
+from langchain_text_splitters import CharacterTextSplitter
+from langchain_community.vectorstores import FAISS
+
+# Load the document, split it into chunks, embed each chunk and load it into the vector store.
+raw_documents = TextLoader('../../../state_of_the_union.txt').load()
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+documents = text_splitter.split_documents(raw_documents)
+db = FAISS.from_documents(documents, OpenAIEmbeddings())
+</code></pre><h3 id="相似度检索">相似度检索 </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>query = "What did the president say about Ketanji Brown Jackson"
+docs = db.similarity_search(query)
+print(docs[0].page_content)
+</code></pre><h3 id="基于vector的相似度检索">基于Vector的相似度检索 </h3>
+<p>您还可以通过 <code>similarity_search_by_vector</code> 使用向量而非文本字符串来进行文档搜索。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>embedding_vector = OpenAIEmbeddings().embed_query(query)
+docs = db.similarity_search_by_vector(embedding_vector)
+print(docs[0].page_content)
+</code></pre><h2 id="异步操作说明">异步操作说明 </h2>
+<p>向量存储通常独立运行为一个服务，并涉及输入/输出操作，因此通常需要异步处理。这种方式不仅可以节省等待外部服务响应的时间，对于使用异步框架（例如 <a href="https://fastapi.tiangolo.com/">FastAPI</a>）的开发环境尤为重要。</p>
+<p>LangChain支持对向量存储的异步操作。所有方法都可以使用它们的异步对应方法调用，方法名前缀为<code>a</code>，表示异步。</p>
+<p><code>Qdrant</code> 支持完整的异步操作，是本教程中使用的向量存储。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>#pip install qdrant-client
+from langchain_community.vectorstores import Qdrant
+db = await Qdrant.afrom_documents(documents, embeddings, "http://localhost:6333")
+
+# 异步检索
+query = "What did the president say about Ketanji Brown Jackson"
+docs = await db.asimilarity_search(query)
+print(docs[0].page_content)
+
+# 基于Vector的异步检索
+embedding_vector = embeddings.embed_query(query)
+docs = await db.asimilarity_search_by_vector(embedding_vector)
+</code></pre><h2 id="最大边际相关性搜索-mmr">最大边际相关性搜索 (MMR) </h2>
+<p>最大边际相关性搜索（Maximum marginal relevance search (MMR)）优化了与查询的匹配度及文档选择的多样性，也可通过异步 API 实现。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>query = "What did the president say about Ketanji Brown Jackson"
+found_docs = await qdrant.amax_marginal_relevance_search(query, k=2, fetch_k=10)
+for i, doc in enumerate(found_docs):
+    print(f"{i + 1}.", doc.page_content, "\n")
+</code></pre><h1 id="检索器--️-langchain">检索器 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/retrievers/">https://python.langchain.com/docs/modules/data_connection/retrievers/</a></p>
+<p>检索器是一个接口，它根据非结构化的查询返回文档。它的用途比向量存储更广泛，不需要存储文档，只需提供文档的返回（或检索）。向量存储可作为检索器的基础，同时还有其他类型的检索器存在。</p>
+<p>检索器接收一个字符串查询，并返回一个包含多个<code>Document</code>的列表。</p>
+<h2 id="高级检索类型">高级检索类型 </h2>
+<p>LangChain 提供多种先进的检索类型。以下是这些类型的完整列表及其详细信息：</p>
+<p><strong>名称</strong>：检索算法的名称。</p>
+<p><strong>索引类型</strong>：此算法依赖的索引类型（如果有）。</p>
+<p><strong>使用 LLM</strong>：该检索方法是否利用大语言模型（LLM）。</p>
+<p><strong>何时使用</strong>：关于何时考虑使用这种检索方法的建议。</p>
+<p><strong>描述</strong>：描述该检索算法的功能。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>索引类型</th>
+<th>使用 LLM</th>
+<th>何时使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vectorstore</td>
+<td>Vectorstore</td>
+<td>否</td>
+<td>刚开始时，寻找简单快捷的方法时。</td>
+<td>这是最基本的方法，也是最容易上手的。主要是为每个文本片段创建嵌入。</td>
+</tr>
+<tr>
+<td>ParentDocument</td>
+<td>Vectorstore + 文档存储</td>
+<td>否</td>
+<td>当你的页面包含许多需要单独索引但最好一起检索的小块信息时。</td>
+<td>这种方法为每个文档索引多个片段。然后寻找嵌入空间中最相似的片段，但返回的是完整的父文档而不是单个片段。</td>
+</tr>
+<tr>
+<td>Multi Vector</td>
+<td>Vectorstore + 文档存储</td>
+<td>有时在建立索引时</td>
+<td>当你可以从文档中提取出比文本本身更重要的信息进行索引时。</td>
+<td>这包括为每个文档创建多个向量，每个向量的生成方式多种多样，如文本的摘要或假设性问题。</td>
+</tr>
+<tr>
+<td>Self Query</td>
+<td>Vectorstore</td>
+<td>是</td>
+<td>当用户的问题更适合通过搜索文档的元数据而非文本的相似性来解答时。</td>
+<td>这种方法使用大语言模型将用户的输入转化为两个部分：一是语义查询字符串，二是相关的元数据过滤器。这样做的好处是，问题通常与文档的元数据而非其内容有关。</td>
+</tr>
+<tr>
+<td>Contextual Compression</td>
+<td>任何</td>
+<td>有时</td>
+<td>当你发现检索的文档含有过多无关信息，分散了大语言模型的注意力时。</td>
+<td>这种方法在另一检索器基础上添加了一个后处理步骤，仅提取检索到的文档中最关键的信息。可以通过嵌入或使用大语言模型来实现。</td>
+</tr>
+<tr>
+<td>Time-Weighted Vectorstore</td>
+<td>Vectorstore</td>
+<td>否</td>
+<td>当你希望依据文档的时间戳检索最新文档时。</td>
+<td>这种方法结合了语义相似性检索和时间近性检索，以时间戳为基准索引文档。</td>
+</tr>
+<tr>
+<td>Multi-Query Retriever</td>
+<td>任何</td>
+<td>是</td>
+<td>当用户的问题复杂，需要多个不同信息片段才能回答时。</td>
+<td>这种方法利用大语言模型从一个问题生成多个查询，这在原始查询需要关于多个主题的信息才能得到恰当回答时特别有用。通过生成多个查询，可以为每一个查询获取相应的文档。</td>
+</tr>
+<tr>
+<td>Ensemble</td>
+<td>任何</td>
+<td>否</td>
+<td>如果你有多种检索方法，希望试图将它们结合使用时。</td>
+<td>这种方法从多个检索器中获取文档，并将结果合并。</td>
+</tr>
+<tr>
+<td>Long-Context Reorder</td>
+<td>任何</td>
+<td>否</td>
+<td>如果你在使用长上下文模型并发现模型忽视了检索文档中间的信息时。</td>
+<td>这种方法从一个基础检索器中获取文档，然后重新排序，使得最相关的文档靠近起始和结尾部分。这对于长上下文模型来说很有用，因为这些模型有时会忽视上下文窗口中间的信息。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第三方集成">第三方集成 </h2>
+<p>LangChain 也整合了许多第三方检索服务。欲了解所有集成，请查看<a href="https://python.langchain.com/docs/integrations/retrievers/">这个列表</a>。</p>
+<h2 id="在-lcel-中使用检索器">在 LCEL 中使用检索器 </h2>
+<p>检索器作为<code>Runnable</code>，可以轻松地与其他<code>Runnable</code>对象组合使用：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_openai <span class="token keyword keyword-import">import</span> ChatOpenAI
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>prompts <span class="token punctuation">:</span> ChatPromptTemplate
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>output_parsers <span class="token punctuation">:</span> StrOutputParser
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>runnables <span class="token punctuation">:</span> RunnablePassthrough
+
+template <span class="token operator">=</span> <span class="token triple-quoted-string string">"""根据以下上下文回答问题：
+{context}
+问题：{question}"""</span>
+
+prompt <span class="token operator">=</span> ChatPromptTemplate<span class="token punctuation">.</span>from_template<span class="token punctuation">(</span>template<span class="token punctuation">)</span>
+model <span class="token operator">=</span> ChatOpenAI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-def">def</span> <span class="token function">format_docs</span><span class="token punctuation">(</span>docs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> <span class="token string">"\n\n"</span><span class="token punctuation">.</span>
+
+join<span class="token punctuation">(</span><span class="token punctuation">[</span>d<span class="token punctuation">.</span>page_content <span class="token keyword keyword-for">for</span> d <span class="token keyword keyword-in">in</span> docs<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+chain <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">{</span><span class="token string">"context"</span><span class="token punctuation">:</span> retriever <span class="token operator">|</span> format_docs<span class="token punctuation">,</span> <span class="token string">"question"</span><span class="token punctuation">:</span> RunnablePassthrough<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token operator">|</span> prompt
+    <span class="token operator">|</span> model
+    <span class="token operator">|</span> StrOutputParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+chain<span class="token punctuation">.</span>invoke<span class="token punctuation">(</span><span class="token string">"What did the president say about technology?"</span><span class="token punctuation">)</span>
+</code></pre><h2 id="自定义检索器">自定义检索器 </h2>
+<p>由于检索器接口极其简单，自行编写一个自定义检索器也非常容易。</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>retrievers <span class="token punctuation">:</span> BaseRetriever
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>callbacks <span class="token punctuation">:</span> CallbackManagerForRetrieverRun
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>documents <span class="token punctuation">:</span> Document
+<span class="token keyword keyword-from">from</span> typing <span class="token punctuation">:</span> List
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">CustomRetriever</span><span class="token punctuation">(</span>BaseRetriever<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">_get_relevant_documents</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span> query<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> run_manager<span class="token punctuation">:</span> CallbackManagerForRetrieverRun
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> List<span class="token punctuation">[</span>Document<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> <span class="token punctuation">[</span>Document<span class="token punctuation">(</span>page_content<span class="token operator">=</span>query<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+retriever <span class="token operator">=</span> CustomRetriever<span class="token punctuation">(</span><span class="token punctuation">)</span>
+retriever<span class="token punctuation">.</span>get_relevant_documents<span class="token punctuation">(</span><span class="token string">"bar"</span><span class="token punctuation">)</span>
+</code></pre><h2 id="学习笔记问题-3">学习笔记（问题） </h2>
+<p>Q1：什么是LCEL？<br>
+LCEL是指 LangChain Expression Language</p>
+<h1 id="索引--️-langchain">索引 | 🦜️🔗 LangChain </h1>
+<p>原文全文：<a href="https://python.langchain.com/docs/modules/data_connection/indexing/">https://python.langchain.com/docs/modules/data_connection/indexing/</a></p>
+<p>在这里，我们将探讨如何使用LangChain索引API执行一个基础的索引工作流程。</p>
+<p>索引API可以帮助您从任何数据来源加载文档，并将其与向量存储同步。这一过程特别有助于：</p>
+<ul>
+<li>防止向量存储中出现重复的内容</li>
+<li>避免重新写入未改变的内容</li>
+<li>减少对未更改内容的嵌入计算</li>
+</ul>
+<p>这不仅可以节省您的时间和资金，还能提高向量搜索的效果。</p>
+<p>关键是，即使文档经过了多个转换步骤（比如文本切分），索引API仍然能有效运行。</p>
+<h2 id="工作原理">工作原理 </h2>
+<p>LangChain的索引功能通过一个记录管理器（<code>RecordManager</code>）来追踪文档在向量存储中的写入动作。</p>
+<p>在进行索引时，系统会为每份文档计算哈希值，并在记录管理器中记录以下信息：</p>
+<ul>
+<li>文档的哈希值（包括页面内容和元数据）</li>
+<li>文档的写入时间</li>
+<li>来源ID——每份文档的元数据中应包含此信息，以便追踪文档的来源</li>
+</ul>
+<h2 id="删除模式">删除模式 </h2>
+<p>向向量存储索引文档时，可能需要删除存储中已存在的某些文档。在某些情况下，您可能需要移除所有来自同一来源的现有文档；在其他情况下，则可能需要全面删除所有文档。索引API的删除模式允许您选择合适的处理方式：</p>
+<table>
+<thead>
+<tr>
+<th>清理模式</th>
+<th>内容去重</th>
+<th>支持并行操作</th>
+<th>清除已删除的来源文档</th>
+<th>清除来源或派生文档的变更</th>
+<th>清理时间点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无（None）</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>-</td>
+</tr>
+<tr>
+<td>增量（Incremental）</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>持续进行</td>
+</tr>
+<tr>
+<td>全量（Full）</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>索引结束时</td>
+</tr>
+</tbody>
+</table>
+<p>“无”模式不会自动进行任何清理，用户需要手动清除旧内容。“增量”和“全量”模式则提供自动清理功能：</p>
+<ul>
+<li>如果来源文档或其派生文档的内容发生变化，“增量”和“全量”模式都会清除旧版本。</li>
+<li>如果来源文档已被删除（即当前索引操作未包括此文档），则“全量”模式会将其从向量存储中彻底清除，但“增量”模式则不会。</li>
+</ul>
+<p>在内容发生变化时（例如，源PDF文件被修订），新旧版本可能会在索引过程中同时出现。这种情况通常发生在新内容写入后、旧版本删除</p>
+<p>前。</p>
+<ul>
+<li>“增量”索引可以缩短这一时间窗口，因为它可以在写入过程中持续进行清理。</li>
+<li>“全量”模式则在所有数据批次完成后进行清理。</li>
+</ul>
+<h2 id="使用要求">使用要求 </h2>
+<ol>
+<li>不要将索引API与已独立填充内容的向量存储一起使用，因为记录管理器无法识别这些预先插入的记录。</li>
+<li>此API仅适用于支持以下操作的LangChain向量存储：
+<ul>
+<li>通过ID添加文档（使用<code>add_documents</code>方法，需要<code>ids</code>参数）</li>
+<li>通过ID删除文档（使用<code>delete</code>方法，需要<code>ids</code>参数）</li>
+</ul>
+</li>
+</ol>
+<p>支持的向量存储系统包括：<code>AnalyticDB</code>, <code>AstraDB</code>, <code>AwaDB</code>, <code>Bagel</code>, <code>Cassandra</code>, <code>Chroma</code>, <code>CouchbaseVectorStore</code>, <code>DashVector</code>, <code>DatabricksVectorSearch</code>, <code>DeepLake</code>, <code>Dingo</code>, <code>ElasticVectorSearch</code>, <code>ElasticsearchStore</code>, <code>FAISS</code>, <code>HanaDB</code>, <code>Milvus</code>, <code>MyScale</code>, <code>OpenSearchVectorSearch</code>, <code>PGVector</code>, <code>Pinecone</code>, <code>Qdrant</code>, <code>Redis</code>, <code>Rockset</code>, <code>ScaNN</code>, <code>SupabaseVectorStore</code>, <code>SurrealDBStore</code>, <code>TimescaleVector</code>, <code>Vald</code>, <code>VDMS</code>, <code>Vearch</code>, <code>VespaStore</code>, <code>Weaviate</code>, <code>ZepVectorStore</code>, <code>OpenSearchVectorSearch</code>.</p>
+<h2 id="注意事项">注意事项 </h2>
+<p>记录管理器使用基于时间的机制来判断哪些内容需要被清理（使用“全量”或“增量”清理模式时）。</p>
+<p>如果两个任务连续执行，且第一个任务在时钟时间变更前完成，则第二个任务可能无法执行清理操作。</p>
+<p>这在实际应用中通常不会成问题，因为：</p>
+<ol>
+<li>记录管理器采用更高精度的时间戳。</li>
+<li>数据变更需要在两个任务之间发生，如果两个任务间隔很短，则这种情况不太可能发生。</li>
+<li>索引任务通常需要的时间远不止几毫秒。</li>
+</ol>
+<h2 id="快速开始-1">快速开始 </h2>
+<p>初始化向量存储和设置嵌入的示例代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> langchain<span class="token punctuation">.</span>indexes <span class="token keyword keyword-import">import</span> SQLRecordManager<span class="token punctuation">,</span> index
+<span class="token keyword keyword-from">from</span> langchain_core<span class="token punctuation">.</span>documents <span class="token keyword keyword-import">import</span> Document
+<span class="token keyword keyword-from">from</span> langchain_elasticsearch <span class="token keyword keyword-import">import</span> ElasticsearchStore
+<span class="token keyword keyword-from">from</span> langchain_openai <span class="token keyword keyword-import">import</span> OpenAIEmbeddings
+
+collection_name <span class="token operator">=</span> <span class="token string">"test_index"</span>
+embedding <span class="token operator">=</span> OpenAIEmbeddings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+vectorstore <span class="token operator">=</span> ElasticsearchStore<span class="token punctuation">(</span>
+    es_url<span class="token operator">=</span><span class="token string">"http://localhost:9200"</span><span class="token punctuation">,</span> index_name<span class="token operator">=</span><span class="token string">"test_index"</span><span class="token punctuation">,</span> embedding<span class="token operator">=</span>embedding
+<span class="token punctuation">)</span>
+
+namespace <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"elasticsearch/</span><span class="token interpolation"><span class="token punctuation">{</span>collection_name<span class="token punctuation">}</span></span><span class="token string">"</span></span>
+record_manager <span class="token operator">=</span> SQLRecordManager<span class="token punctuation">(</span>
+    namespace<span class="token punctuation">,</span> db_url<span class="token operator">=</span><span class="token string">"sqlite:///record_manager_cache.sql"</span>
+<span class="token punctuation">)</span>
+record_manager<span class="token punctuation">.</span>create_schema<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 示例文档</span>
+doc1 <span class="token operator">=</span> Document<span class="token punctuation">(</span>page_content<span class="token operator">=</span><span class="token string">"kitty"</span><span class="token punctuation">,</span> metadata<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"source"</span><span class="token punctuation">:</span> <span class="token string">"kitty.txt"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+doc2 <span class="token operator">=</span> Document<span class="token punctuation">(</span>page_content<span class="token operator">=</span><span class="token string">"doggy"</span><span class="token punctuation">,</span> metadata<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"source"</span><span class="token punctuation">:</span> <span class="token string">"doggy.txt"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 索引操作</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">_clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""为清理内容提供辅助方法。请参阅`full`模式部分了解其工作原理。"""</span>
+    index<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> record_manager<span class="token punctuation">,</span> vectorstore<span class="token punctuation">,</span> cleanup<span class="token operator">=</span><span class="token string">"full"</span><span class="token punctuation">,</span> source_id_key<span class="token operator">=</span><span class="token string">"source"</span><span class="token punctuation">)</span>
+
+index<span class="token punctuation">(</span>
+    <span class="token punctuation">[</span>doc1<span class="token punctuation">,</span> doc1<span class="token punctuation">,</span> doc1<span class="token punctuation">,</span> doc1<span class="token punctuation">,</span> doc1<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    record_manager<span class="token punctuation">,</span>
+    vectorstore<span class="token punctuation">,</span>
+    cleanup<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+    source_id_key<span class="token operator">=</span><span class="token string">"source"</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre><p>此代码段展示了如何初始化向量存储并进行基础的索引操作，同时介绍了不同的删除模式及其应用场景。通过这种方式，用户可以更加直观地理解如何管理向量存储中的文档数据。</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
