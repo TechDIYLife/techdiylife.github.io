@@ -70,10 +70,16 @@ const blogList = [
   { id: "0043", category1: "c02", category2: "t07", create_date: "2024.04.06", title_short: "LangChain快速入门 (学习笔记)", title_full: "LangChain快速入门 (学习笔记)", href: "202401/240406-langchain-rag-03-quickstart-summary.html", video_href: "" },
   { id: "0044", category1: "c02", category2: "t07", create_date: "2024.04.11", title_short: "LangChain文档中文版：数据检索（概要）", title_full: "LangChain文档中文版：数据检索（概要）", href: "202401/240406-langchain-rag-04-retrieval-overview.html", video_href: "" },
   { id: "0045", category1: "c02", category2: "t07", create_date: "2024.04.11", title_short: "使用Zephyr和LangChain快速构建RAG", title_full: "使用 Hugging Face Zephyr 和 LangChain 快速构建 RAG", href: "202401/240411-LangChain-RAG-Baseline.html", video_href: "" },
+  { id: "0046", category1: "c02", category2: "t07", create_date: "2024.04.13", title_short: "10个问题带你了解RAG", title_full: "LangChain + RAG 概念篇： 10个问题带你了解RAG", href: "202401/240412-RAG-10QA.html", video_href: "" },
+
   
 ];
 
 const NeWvideoList = [
+  { memo: "LLM部署工具", href: "https://www.youtube.com/embed/d60FAktet4M?si=K-_BES-Sugdb6Mox" },
+  { memo: "openai api预算限制", href: "https://www.youtube.com/embed/oON4slDzaSw?si=yedcVQSmVkRIDQ7b" },
+  { memo: "20个Ollama问题", href: "https://www.youtube.com/embed/jici2ffUHug?si=8EXF5d7TO3ondvjB" },
+  { memo: "Ollama", href: "https://www.youtube.com/embed/sf39i53XdBw?si=M8RhHInZlNYcsHQI" },
   { memo: "LLM部署工具", href: "https://www.youtube.com/embed/G4YbZfXdsJM?si=G66g6dzXqzS3xvZG" },
   { memo: "分层推理法", href: "https://www.youtube.com/embed/A5cxHkRBx7o?si=3SCb77e_yk4H8Ebm" },
   { memo: "Estimate Memory", href: "https://www.youtube.com/embed/Z9eV9mbB6uY?si=ZXnKk11NWNNG4jjv" },
