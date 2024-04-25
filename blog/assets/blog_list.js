@@ -71,6 +71,7 @@ const blogList = [
   { id: "0044", category1: "c02", category2: "t07", create_date: "2024.04.11", title_short: "LangChain文档中文版：数据检索（概要）", title_full: "LangChain文档中文版：数据检索（概要）", href: "202401/240406-langchain-rag-04-retrieval-overview.html", video_href: "" },
   { id: "0045", category1: "c02", category2: "t07", create_date: "2024.04.11", title_short: "使用Zephyr和LangChain快速构建RAG", title_full: "使用 Hugging Face Zephyr 和 LangChain 快速构建 RAG", href: "202401/240411-LangChain-RAG-Baseline.html", video_href: "" },
   { id: "0046", category1: "c02", category2: "t07", create_date: "2024.04.13", title_short: "10个问题带你了解RAG", title_full: "LangChain + RAG 概念篇： 10个问题带你了解RAG", href: "202401/240412-RAG-10QA.html", video_href: "" },
+  { id: "0047", category1: "c02", category2: "t07", create_date: "2024.04.20", title_short: "如何选择RAG的Embedding模型？", title_full: "如何选择RAG的Embedding模型？", href: "202401/240420-RAG-how-to-select-embedding.html", video_href: "" },
 
   
 ];
