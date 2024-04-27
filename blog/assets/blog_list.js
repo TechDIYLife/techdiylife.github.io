@@ -72,7 +72,12 @@ const blogList = [
   { id: "0045", category1: "c02", category2: "t07", create_date: "2024.04.11", title_short: "使用Zephyr和LangChain快速构建RAG", title_full: "使用 Hugging Face Zephyr 和 LangChain 快速构建 RAG", href: "202401/240411-LangChain-RAG-Baseline.html", video_href: "" },
   { id: "0046", category1: "c02", category2: "t07", create_date: "2024.04.13", title_short: "10个问题带你了解RAG", title_full: "LangChain + RAG 概念篇： 10个问题带你了解RAG", href: "202401/240412-RAG-10QA.html", video_href: "" },
   { id: "0047", category1: "c02", category2: "t07", create_date: "2024.04.20", title_short: "如何选择RAG的Embedding模型？", title_full: "如何选择RAG的Embedding模型？", href: "202401/240420-RAG-how-to-select-embedding.html", video_href: "" },
+  { id: "0048", category1: "c02", category2: "t07", create_date: "2024.04.27", title_short: "Rerankers和两阶段RAG检索", title_full: "Rerankers和两阶段RAG检索", href: "202401/240421-RAG-rerank.html", video_href: "" },
+  { id: "0049", category1: "c02", category2: "t07", create_date: "2024.04.28", title_short: "ReRank模型以及如何选择RAG的ReRank模型？", title_full: "ReRank模型以及如何选择RAG的ReRank模型？", href: "202401/240421-RAG-how-to-select-rerank.html", video_href: "" },
 
+
+
+  
   
 ];
 
