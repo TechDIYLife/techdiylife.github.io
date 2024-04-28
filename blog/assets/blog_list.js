@@ -11,9 +11,9 @@ const category2List = [
   { id: "t02", title_full: "专题：ChatGPT插件开发", title_short: "ChatGPT插件" },
   { id: "t03", title_full: "专题：OpenAI API应用-复现Gemini演示视频", title_short: "复现Gemini演示视频" },
   { id: "t04", title_full: "专题：AI打爆贪吃蛇", title_short: "AI贪吃蛇" },
-  { id: "t05", title_full: "专题：Transformers开发常见百个问题", title_short: "Transformers开发百问" },
+  { id: "t05", title_full: "专题：Transformers开发常见百个问题", title_short: "Transformers百问" },
   { id: "t06", title_full: "专题：本地AI环境搭建", title_short: "本地AI环境搭建" },
-  { id: "t07", title_full: "专题：LangChain + RAG 参考资料", title_short: "LangChain + RAG 参考资料" },
+  { id: "t07", title_full: "专题：LangChain + RAG 参考资料", title_short: "RAG专题" },
 
 ];
 
@@ -76,13 +76,14 @@ const blogList = [
   { id: "0049", category1: "c02", category2: "t07", create_date: "2024.04.28", title_short: "ReRank模型以及如何选择RAG的ReRank模型？", title_full: "ReRank模型以及如何选择RAG的ReRank模型？", href: "202401/240421-RAG-how-to-select-rerank.html", video_href: "" },
 
 
-
-  
   
 ];
 
 const NeWvideoList = [
-  { memo: "LLM部署工具", href: "https://www.youtube.com/embed/d60FAktet4M?si=K-_BES-Sugdb6Mox" },
+  
+  { memo: "rerank模型如何选？", href: "https://www.youtube.com/embed/9RQNKoaw2kg?si=ayXPwgk6aHOI-nbQ" },
+  { memo: "Embedding如何选？", href: "https://www.youtube.com/embed/HNjYL0gSExs?si=bVL93oDkelJouDER" },
+  { memo: "RAG-intro", href: "https://www.youtube.com/embed/d60FAktet4M?si=debQ1KC4DukCfLa_" },
   { memo: "openai api预算限制", href: "https://www.youtube.com/embed/oON4slDzaSw?si=yedcVQSmVkRIDQ7b" },
   { memo: "20个Ollama问题", href: "https://www.youtube.com/embed/jici2ffUHug?si=8EXF5d7TO3ondvjB" },
   { memo: "Ollama", href: "https://www.youtube.com/embed/sf39i53XdBw?si=M8RhHInZlNYcsHQI" },
