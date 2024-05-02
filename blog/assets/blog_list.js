@@ -74,7 +74,7 @@ const blogList = [
   { id: "0047", category1: "c02", category2: "t07", create_date: "2024.04.20", title_short: "如何选择RAG的Embedding模型？", title_full: "如何选择RAG的Embedding模型？", href: "202401/240420-RAG-how-to-select-embedding.html", video_href: "" },
   { id: "0048", category1: "c02", category2: "t07", create_date: "2024.04.27", title_short: "Rerankers和两阶段RAG检索", title_full: "Rerankers和两阶段RAG检索", href: "202401/240421-RAG-rerank.html", video_href: "" },
   { id: "0049", category1: "c02", category2: "t07", create_date: "2024.04.28", title_short: "ReRank模型以及如何选择RAG的ReRank模型？", title_full: "ReRank模型以及如何选择RAG的ReRank模型？", href: "202401/240421-RAG-how-to-select-rerank.html", video_href: "" },
-
+  { id: "0050", category1: "c02", category2: "t07", create_date: "2024.05.02", title_short: "RAG共学一：16个问题帮你快速入门RAG", title_full: "RAG共学一：16个问题帮你快速入门RAG", href: "202401/240501-RAG-Scratch-Step1to4-1.html", video_href: "" },
 
   
 ];
