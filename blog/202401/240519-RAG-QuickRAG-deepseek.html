@@ -80,7 +80,7 @@
 <p>DeepSeek模型完全遵循OpenAI的标准，所以可以直接使用OpenAI库来使用此模型。可以通过下面的代码来运行此模型：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>from openai import OpenAI
 # for backward compatibility, you can still use `https://api.deepseek.com/v1` as `base_url`.
-client = OpenAI(api_key="sk-839366e9e1fb4ab1a3d55939c87031c8", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="xxxxxxxxxx", base_url="https://api.deepseek.com")
 
 response = client.chat.completions.create(
     model="deepseek-chat",
