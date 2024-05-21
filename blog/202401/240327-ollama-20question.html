@@ -59,6 +59,7 @@
 <li><a href="#23-%E8%A1%A5%E5%85%85ollama%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E5%90%8D%E7%94%A8%E6%88%B7%E5%90%8D%E6%88%96%E8%80%85%E7%9B%AE%E5%BD%95%E5%90%97">23 补充：Ollama支持中文名用户名，或者目录吗？</a></li>
 <li><a href="#24-%E8%A1%A5%E5%85%85ollama%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AE%B5%E6%97%B6%E9%97%B4%E5%90%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%81%9C%E6%AD%A2">24 补充：Ollama使用一段时间后，为什么会自动停止？</a></li>
 <li><a href="#25-%E8%A1%A5%E5%85%85windows%E4%B8%8A%E5%AE%89%E8%A3%85%E5%AE%8C%E5%90%8E%E5%9C%A8%E7%BB%88%E7%AB%AF%E6%89%A7%E8%A1%8C%E6%8F%90%E7%A4%BA-ollama-%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4">25 补充：windows上安装完后，在终端执行提示 ollama 不是内部或外部命令</a></li>
+<li><a href="#26-%E8%A1%A5%E5%85%85windows%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF-errorcould-not-connect-to-ollama-app-is-it-running">26 补充：Windows系统，提示错误 Error：Could not connect to ollama app， is it running</a></li>
 </ul>
 </li>
 <li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
@@ -316,10 +317,12 @@ docker run -d -p 3001:8080 -e xxxxxxxx
 <pre data-role="codeBlock" data-info="" class="language-text"><code>cd ./backend
 PORT=1234 start.sh #使用端口1234
 </code></pre><h3 id="23-补充ollama支持中文名用户名或者目录吗">23 补充：Ollama支持中文名用户名，或者目录吗？ </h3>
-<p>当前（2024年4月）Ollama是不支持中文作为目录的，请检查：</p>
+<p>从0.1.33版开始增加了对中文名目录的支持。<br>
+<a href="https://github.com/ollama/ollama/issues/3367">https://github.com/ollama/ollama/issues/3367</a><br>
+0.1.33之前的版本不支持。如果你使用的老版本，请检查：</p>
 <ul>
 <li>你的windows用户名是否为中文名</li>
-<li>ollama的模型存放目录中是否包含中文</li>
+<li>ollama的模型存放目录是否包含中文</li>
 </ul>
 <p>如果存在以上情况，可以修改ollama模型默认存放目录。（修改方式参考，问题6）</p>
 <h3 id="24-补充ollama使用一段时间后为什么会自动停止">24 补充：Ollama使用一段时间后，为什么会自动停止？ </h3>
@@ -336,6 +339,13 @@ win+r打开运行，输入“control system”-高级系统设置-高级-环境�
 <li>设置PATH后重新启动ollama服务，在ollama图标上点击右键，以管理员身份启动。<br>
 启动后，在右下角任务栏中确认是否有ollama的“小羊”图标</li>
 <li>启动终端输入：ollama run qwen 确认是否可以运行（如果出错，可以尝试以管理员身份）</li>
+</ol>
+<h3 id="26-补充windows系统提示错误-errorcould-not-connect-to-ollama-app-is-it-running">26 补充：Windows系统，提示错误 Error：Could not connect to ollama app， is it running </h3>
+<p>运行 ollama run xxx 出现此错误，说明ollama没有正确启动。<br>
+可以尝试：</p>
+<ol>
+<li>关闭ollama程序</li>
+<li>以管理员身份重新启动ollama。</li>
 </ol>
 <h2 id="参考资料">参考资料 </h2>
 <ul>
