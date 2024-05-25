@@ -50,6 +50,7 @@
 <li><a href="#q14%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89langsmith%E7%9A%84project%E5%90%8D%E7%A7%B0">Q14：如何自定义LangSmith的Project名称？</a></li>
 <li><a href="#q15%E4%BB%80%E4%B9%88%E6%98%AFrunnable-protocol%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">Q15：什么是Runnable protocol？如何使用？</a></li>
 <li><a href="#q16%E4%BD%A0%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%98%AF%E4%BB%80%E4%B9%88">Q16：你的最佳实践是什么？</a></li>
+<li><a href="#q17%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9rag%E6%A3%80%E7%B4%A2%E8%BF%94%E5%9B%9E%E7%9A%84%E6%96%87%E6%A1%A3%E6%95%B0%E9%87%8F">Q17：如何修改RAG检索返回的文档数量？</a></li>
 </ul>
 </li>
 </ul>
@@ -134,6 +135,22 @@ rag_chain = (
 
 # Question
 rag_chain.invoke("ollama支持哪些模型?")
+
+# RAG测试集
+dataset=["ollama支持哪些模型?",
+            "Linux系统上，模型下载后存放到哪里了？",
+            "windows下如何修改模型默认下载目录？",
+            "Modelfile是做什么用的？",
+            "如何导入safetensors格式的模型？",
+            "有什么webui可用吗？",
+            "Windows如何卸载ollama？",
+            "Linux如何卸载ollama？",
+            "如何让ollma只使用第二张GPU？",
+            "Ollama支持RAG吗？"]
+for idx, _q in enumerate(dataset, start=1):
+    print(f"问题{idx}：{_q}")
+    print(rag_chain.invoke(_q))
+
 </code></pre><h3 id="q4如何通过ollama使用embedding模型">Q4：如何通过Ollama使用Embedding模型？ </h3>
 <p>Ollama可以支持Embedding模型。<br>
 <a href="https://ollama.com/blog/embedding-models">https://ollama.com/blog/embedding-models</a></p>
@@ -181,17 +198,111 @@ llm = Ollama(model="qwen:72b")
 <li>方案2：确认检索结果，并进行调整，比如，选择不同的embedding模型，chunk-size</li>
 </ul>
 <h3 id="q10如何使用huggingface的embedding模型">Q10：如何使用Huggingface的Embedding模型？ </h3>
-<p>整理中...</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Embed
+model_name = "maidalun1020/bce-embedding-base_v1"
+model_kwargs = {'device': 'cpu'}
+encode_kwargs = {'normalize_embeddings': False}
+hf = HuggingFaceEmbeddings(
+    model_name=model_name,
+    model_kwargs=model_kwargs,
+    encode_kwargs=encode_kwargs
+)
+vectorstore = Chroma.from_documents(documents=splits, embedding=hf)
+</code></pre><p><a href="https://api.python.langchain.com/en/latest/embeddings/langchain_community.embeddings.huggingface.HuggingFaceEmbeddings.html">https://api.python.langchain.com/en/latest/embeddings/langchain_community.embeddings.huggingface.HuggingFaceEmbeddings.html</a></p>
 <h3 id="q11如何使用huggingface的llm模型">Q11：如何使用Huggingface的LLM模型？ </h3>
-<p>整理中...</p>
+<p>方法一：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+model_id = "THUDM/chatglm3-6b"
+tokenizer = AutoTokenizer.from_pretrained(model_id,trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
+pipe = pipeline(
+    "text-generation", model=model, tokenizer=tokenizer, max_new_tokens=2000
+)
+llm = HuggingFacePipeline(pipeline=pipe)
+</code></pre><p>方法二：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain.llms import HuggingFacePipeline
+model_id = "THUDM/chatglm3-6b"
+llm = HuggingFacePipeline.from_model_id(
+    model_id=model_id,
+    task="text-generation",
+    device=0,
+    model_kwargs={"temperature": 0.01, "max_length": 2000, "trust_remote_code": True},
+)
+# ?? 遗留问题：replace with device_map="auto" to use the accelerate library. (cannot work)
+</code></pre><p><a href="https://python.langchain.com/docs/integrations/llms/huggingface_pipelines/">https://python.langchain.com/docs/integrations/llms/huggingface_pipelines/</a></p>
 <h3 id="q12如何使用自定义prompt提示词">Q12：如何使用自定义prompt提示词？ </h3>
-<p>整理中...</p>
-<h3 id="q13如何修改为读取本地文档">Q13：如何修改为读取本地文档？ </h3>
-<p>整理中...</p>
+<p>方法1（来自Part4）：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain.prompts import ChatPromptTemplate
+
+# Prompt
+template = """Answer the question based only on the following context:
+{context}
+
+Question: {question}
+"""
+
+prompt = ChatPromptTemplate.from_template(template)
+prompt
+</code></pre><p>方法2：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_core.prompts import PromptTemplate
+prompt = PromptTemplate(input_variables=['context', 'question'], template='你是一个回答问题的助手。请使用以下检索到的中的背景信息来回答问题。如果你不知道答案，直接说你不知道。请用最多三句话来保持回答的简洁性，\n我的问题是：{question} \n检索到的背景信息是：{context}\n 答案：')
+</code></pre><h3 id="q13如何修改为读取本地文档">Q13：如何修改为读取本地文档？ </h3>
+<p>首先下载文件：wget xxxx</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_community.document_loaders import TextLoader
+loader = TextLoader("./index.md")
+docs = loader.load()
+
+from langchain_community.document_loaders import UnstructuredHTMLLoader
+loader = UnstructuredHTMLLoader("example_data/fake-content.html")
+docs = loader.load()
+</code></pre><p><a href="https://python.langchain.com/docs/modules/data_connection/document_loaders/">https://python.langchain.com/docs/modules/data_connection/document_loaders/</a></p>
 <h3 id="q14如何自定义langsmith的project名称">Q14：如何自定义LangSmith的Project名称？ </h3>
-<p>整理中...</p>
-<h3 id="q15什么是runnable-protocol如何使用">Q15：什么是Runnable protocol？如何使用？ </h3>
-<p>整理中...</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import os
+os.environ['LANGCHAIN_TRACING_V2'] = 'true'
+os.environ['LANGCHAIN_ENDPOINT'] = 'https://api.smith.langchain.com'
+os.environ['LANGCHAIN_API_KEY'] = &lt;your-api-key&gt;
+os.environ['LANGCHAIN_PROJECT'] = "my project name"
+
+</code></pre><h3 id="q15什么是runnable-protocol如何使用">Q15：什么是Runnable protocol？如何使用？ </h3>
+<p>常见用法：1 通过RunnablePassthrough读取输入</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Chain
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+# Question
+rag_chain.invoke("What is Task Decomposition?")
+</code></pre><p>常见用法：2：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+model = ChatOpenAI()
+prompt = ChatPromptTemplate.from_template("tell me a joke about {topic}")
+chain = prompt | model
+#Invoke
+chain.invoke({"topic": "bears"})
+#Batch：
+chain.batch([{"topic": "bears"}, {"topic": "cats"}])
+
+#Async Invoke
+await chain.ainvoke({"topic": "bears"})
+</code></pre><p>更多用法，请参考：<a href="https://python.langchain.com/docs/expression_language/interface/">https://python.langchain.com/docs/expression_language/interface/</a></p>
+<p>常见用法：2</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from langchain_anthropic import ChatAnthropic
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_template("tell me a joke about {topic}")
+model = ChatAnthropic(model_name="claude-3-haiku-20240307")
+
+chain = prompt | model | StrOutputParser()
+
+chain.invoke({"topic": "bears"})
+</code></pre><p>更多用法，请参考：<a href="https://python.langchain.com/docs/expression_language/primitives/sequence/">https://python.langchain.com/docs/expression_language/primitives/sequence/</a></p>
+<p>类定义：<a href="https://api.python.langchain.com/en/stable/runnables/langchain_core.runnables.base.Runnable.html#langchain_core.runnables.base.Runnable">https://api.python.langchain.com/en/stable/runnables/langchain_core.runnables.base.Runnable.html#langchain_core.runnables.base.Runnable</a></p>
 <h3 id="q16你的最佳实践是什么">Q16：你的最佳实践是什么？ </h3>
 <ul>
 <li>数据如何处理的？</li>
@@ -200,6 +311,10 @@ llm = Ollama(model="qwen:72b")
 <li>Prompt如何设计？检索的topN如何设置？</li>
 <li>LLM模型选择的什么？</li>
 </ul>
+<h3 id="q17如何修改rag检索返回的文档数量">Q17：如何修改RAG检索返回的文档数量？ </h3>
+<p>只返回top K 个检索结果</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>retriever = db.as_retriever(search_kwargs={"k": 1})
+</code></pre><p>更多 langchain VectorStore as_retriever 用法总结：<a href="https://t.zsxq.com/2Nhoz">https://t.zsxq.com/2Nhoz</a></p>
 
       </div>
       
