@@ -78,7 +78,7 @@ const blogList = [
   { id: "0051", category1: "c02", category2: "t07", create_date: "2024.05.18", title_short: "如何在云服务器上学习RAG？", title_full: "如何在云服务器上学习RAG？", href: "202401/240518-RAG-Use-ShareHost.html", video_href: "" },
   { id: "0052", category1: "c02", category2: "t07", create_date: "2024.05.24", title_short: "如何使用LangSmith创建测试数据以及对RAG评估？", title_full: "如何使用LangSmith创建测试数据以及对RAG评估？", href: "202401/240523-RAG-Evaluation.html", video_href: "" },
   { id: "0053", category1: "c02", category2: "t07", create_date: "2024.05.30", title_short: "RAG评估资料大全", title_full: "RAG评估资料大全", href: "202401/240528-PT-RAG_LangChain-Eval.html", video_href: "" },
-
+  { id: "0054", category1: "c02", category2: "", create_date: "2024.06.01", title_short: "DeepSeek v2", title_full: "DeepSeek v2", href: "202401/240519-RAG-QuickRAG-deepseek.html", video_href: "" },
   
   
   
