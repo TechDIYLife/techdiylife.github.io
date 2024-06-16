@@ -16,7 +16,49 @@
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script type="text/javascript" src="./assets/blog_list.js"></script>
 </head>
-
+<style>
+    .three-columns {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        margin-top: 0; /* 减少列表的上边距 */
+    }
+    .three-columns li {
+        flex: 0 0 33.3%; /* 分成三列 */
+        padding: 5px; /* 提供一些内边距 */
+    }
+    .four-columns {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        margin-top: 0; /* 减少列表的上边距 */
+    }
+    .four-columns li {
+        flex: 0 0 25.0%; /* 分成三列 */
+        padding: 5px; /* 提供一些内边距 */
+    }
+    .five-columns {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        padding: 0;
+        margin-top: 0; /* 减少列表的上边距 */
+    }
+    .five-columns li {
+        flex: 0 0 20.0%; /* 分成三列 */
+        padding: 5px; /* 提供一些内边距 */
+    }
+    h4 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    ul {
+        margin-top: 0;
+        margin-bottom: 0px;
+    }
+</style>
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
@@ -53,38 +95,122 @@
                     </div>
                 </div>
 
-
                 <div class="page-body ovr-page">
-                    <h1><span>AI开发者de频道&nbsp;<br class="mobile-break">（视频介绍 + 技术文档）</span></h1>
+                    <h1>爱鼓捣 -- AI开发者de频道（视频介绍 + 技术文档）</h1>
+                    <div class="ovr-section">
+                        <h2>AI开发者技术交流群</h2>
+                        <h2> <a href="blog.html?category1=c05&blogid=0032">邀请您加入：AI共学会-技术交流群</a></h2>
+                    </div>
 
                     <div class="ovr-section">
-                        <h2>近期共学专题推荐（进行中）</h2>
+                        <h2>频道六月专题推荐（进行中）</h2>
                         <div id="home_topic" class="ovr-shortcuts">
-                            <a class="ovr-card-topic" href="https://techdiylife.github.io/blog/topic.html?category2=t07">
+                            <a class="ovr-card-topic" href="topic.html?category2=t08">
                                 <picture>
-                                    <source type="image/png" srcset=""><img src="img/topic-t07.png" alt=""
+                                    <source type="image/png" srcset=""><img src="img/topic-t08.png" alt=""
                                         class="ovr-card-bg">
                                 </picture>
                             </a>
-                            <a class="ovr-card-topic" href="https://techdiylife.github.io/blog/blog.html?category1=c03&blogid=0026">
+                            <a class="ovr-card-topic" href="topic.html?category2=t07">
                                 <picture>
-                                    <source type="image/png" srcset=""><img src="img/topic-t05.png" alt=""
+                                    <source type="image/png" srcset=""><img src="img/topic-t07.png" alt=""
                                         class="ovr-card-bg">
                                 </picture>
                             </a>
 
                         </div>
                     </div>
+
                     <div class="ovr-section">
-                        <h2>共学会交流群</h2>
-                        <h2> <a href="https://techdiylife.github.io/blog/blog.html?category1=c05&blogid=0032">邀请您加入：AI共学会-技术交流群</a></h2>
+                        <h2>爱鼓捣AI技术推荐</h2>
+                        <h4>&#128640; AI 排行榜（各种排行榜持续制作中）：</h4>
+                        <ul class="five-columns">
+                            <li><a href="topic.html?category2=t08&blogid=0056">Hugggingface排行</a></li>
+                            <li><a href="topic.html?category2=t08&blogid=0055">Ollama排行</a></li>
+                            <li><a href="topic.html?category2=t08&blogid=0057">魔搭排行</a></li>
+                            <li><a href="topic.html?category2=t08&blogid=0047">Embedding模型</a></li>
+                            <li><a href="topic.html?category2=t08&blogid=0049">Rerank模型</a></li>
+                            <li> MoE模型</li>
+                            <li> Code模型</li>
+                            <li> VLM模型</li>
+                            <li> TTS模型</li>
+                            <li> 语音识别模型</li>
+                        </ul>
+                        <h4>&#128209; RAG教程：</h4>
+                        <ul class="five-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0038">RAG快速入门</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0053">RAG评估</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0047">Embedding模型</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0049">ReRank模型</a></li>
+                        </ul>
+
+                        <h4>⚙️ OpenAI相关：</h4>
+                        <ul class="five-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0016">OpenAI API</a></li>
+                            <li><a href="topic.html?category2=t02">插件开发</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0007">插件TODO案例</a></li>
+                        </ul>
+                        
+                        <h4>🛕 LLM介绍：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c01&blogid=0012">Gemini</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0054">DeepSeek V2 Chat</a></li>
+                        </ul>
+                        
+                        <h4>🎢 LLM使用技巧：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0008">提示词技巧</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0009">翻译技巧</a></li>
+                        </ul>
+                        
+                        <h4>🍀 本地部署：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0034">部署工具</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0037">Ollama安装</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0036">Ollama-WebUI安装</a></li>
+                        </ul>
+                        
+                        <h4>🎯 训练与微调：</h4>
+                        <ul class="four-columns">
+                            <li><a href="topic.html?category2=t01">DeeSpeed-Chat教程</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0023">Colossal-AI</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0025">模型调试技巧</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0029">自定义模型开发</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0031">显存占用计算</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0033">分层推理法</a></li>
+                        </ul>
+                        
+                        <h4>🎧 语音识别：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0021">FasterWhisper</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0020">OpenAI语音识别</a></li>
+                            <li><a href="blog.html?category1=c02&blogid=0022">Qwen-Audio</a></li>
+                        </ul>
+                        <h4>&#128266; 语音合成：</h4>
+                        <ul class="four-columns">
+                            <li>ChatTTS</li>
+
+                        </ul>
+                        
+                        <h4>&#128187; 开发环境：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0028">Jupyter安装</a></li>
+                            <li><a href="blog.html?category1=c03&blogid=0017">VMWare安装</a></li>
+                            <li><a href="blog.html?category1=c03&blogid=0024">便携版VSCode</a></li>
+                        </ul>
+                        
+                        <h4>✨ 其他：</h4>
+                        <ul class="four-columns">
+                            <li><a href="blog.html?category1=c02&blogid=0015">语音视频对话AI</a></li>
+                            <li><a href="blog.html?category1=c03&blogid=0018">GUI界面PYQT5</a></li>
+                            <li><a href="blog.html?category1=c03&blogid=0019">模糊图像检测</a></li>
+                        </ul>
                     </div>
 
+                    <!--
                     <div class="ovr-section">
                         <h2>最新视频推荐（YouTube观看）</h2>
                         <div id="home_video_new_list" class="ovr-shortcuts">
-
-                            <!--
                             <a class="ovr-card"
                                 href="">
                                 <picture>
@@ -96,10 +222,9 @@
                                 <div class="ovr-card-title body-large bold">xxxxxxxx</div>
                                 <div class="ovr-card-desc body-small">xxxxxxxxxxx</div>
                             </a>
-                            -->
-
                         </div>
                     </div>
+                    -->
 
                     <div class="ovr-build ovr-section">
                         <h2>最新文章</h2>

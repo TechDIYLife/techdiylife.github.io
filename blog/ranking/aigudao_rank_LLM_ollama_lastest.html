@@ -1,0 +1,2078 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><h1 id="爱鼓捣ai排行榜ollama大模型人气榜">爱鼓捣AI排行榜（Ollama大模型人气榜） </h1>
+<div class="alert alert-warning">
+<p>本排行数据根据Ollama模型库中下载量统计而来。<br>
+由于Ollama公开的下载量没有区分尺寸大小，所以本排行榜中的下载量数据为模型总下载量。</p>
+</div>
+<h2 id="最新周排行榜-2024-06-09---2024-06-16">最新周排行榜 (2024-06-09 - 2024-06-16) </h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">llama3</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">730819</td>
+<td style="text-align:right">3232582</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">gemma</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">667498</td>
+<td style="text-align:right">3271636</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">phi3</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">565551</td>
+<td style="text-align:right">1518270</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">mistral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">561875</td>
+<td style="text-align:right">2112187</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">qwen</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">548686</td>
+<td style="text-align:right">1648727</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">qwen2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">82511</td>
+<td style="text-align:right">116883</td>
+<td style="text-align:center"><span style="color:red">+24 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">llama2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">44029</td>
+<td style="text-align:right">1759578</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">codellama</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">20477</td>
+<td style="text-align:right">542700</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">15337</td>
+<td style="text-align:right">294976</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">nomic-embed-text</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">11275</td>
+<td style="text-align:right">160833</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">codestral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">9987</td>
+<td style="text-align:right">49601</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">aya</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">9836</td>
+<td style="text-align:right">48201</td>
+<td style="text-align:center"><span style="color:red">+6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">mixtral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">9423</td>
+<td style="text-align:right">292651</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">phi</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">8365</td>
+<td style="text-align:right">131105</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">codegemma</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">7487</td>
+<td style="text-align:right">114920</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">llama2-uncensored</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">7009</td>
+<td style="text-align:right">219775</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">deepseek-coder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">6755</td>
+<td style="text-align:right">174704</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">dolphin-mixtral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">6669</td>
+<td style="text-align:right">272845</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">starcoder2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">6029</td>
+<td style="text-align:right">89499</td>
+<td style="text-align:center"><span style="color:green">-6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">yi</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">4306</td>
+<td style="text-align:right">76624</td>
+<td style="text-align:center"><span style="color:green">-6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">dolphin-mistral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">4147</td>
+<td style="text-align:right">128071</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">orca-mini</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3490</td>
+<td style="text-align:right">117367</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">command-r</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2982</td>
+<td style="text-align:right">47499</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">codeqwen</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2828</td>
+<td style="text-align:right">37236</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">zephyr</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2032</td>
+<td style="text-align:right">94771</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">deepseek-llm</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">1203</td>
+<td style="text-align:right">28381</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">command-r-plus</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">1153</td>
+<td style="text-align:right">35115</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">falcon2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">645</td>
+<td style="text-align:right">7739</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">mistral-openorca</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">642</td>
+<td style="text-align:right">128609</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">codebooga</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">421</td>
+<td style="text-align:right">13434</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mxbai-embed-large</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">87116</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">adrienbrault/nous-hermes2pro-llama3-8b</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">86786</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nous-hermes2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">86053</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">dolphin-llama3</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">83406</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llama2-chinese</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">75112</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">vicuna</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">74041</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizard-vicuna-uncensored</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">72822</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">tinyllama</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">68419</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizardlm2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">66856</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">starcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">62486</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">openchat</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">60418</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">openhermes</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">57833</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">tinydolphin</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">53031</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizardcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">52245</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">stable-code</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">51171</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">neural-chat</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">42708</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizard-math</td>
+<td style="text-align:left">math</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">40324</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">phind-codellama</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38674</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">stablelm2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">35318</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">starling-lm</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">33710</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">dolphincoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">33177</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nous-hermes</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">32996</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sqlcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">32351</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">falcon</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">31890</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">orca2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">31826</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llama3-gradient</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">28580</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">yarn-llama2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">28261</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">solar</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">27984</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">dolphin-phi</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">27183</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">xwinlm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">26367</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">all-minilm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">25599</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llama3-chatqa</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">25130</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">samantha-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">24827</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizardlm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">24037</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">bakllava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">23236</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">stable-beluga</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">22449</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">medllama2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">21282</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wizardlm-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">21087</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nous-hermes2-mixtral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">20414</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">yarn-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">19205</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llava-llama3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">18951</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">codeup</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">18286</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llama-pro</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">17998</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">meditron</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">17672</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">granite-code</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">17241</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">everythinglm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">17124</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">snowflake-arctic-embed</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">16562</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nexusraven</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">15531</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">moondream</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">15252</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">hhao/openbmb-minicpm-llama3-v-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">14634</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">magicoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">14299</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">stablelm-zephyr</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">14264</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mistrallite</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">12708</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">herald/phi3-128k</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">12121</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llava-phi3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">11032</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">duckdb-nsql</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">10151</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">chroma/all-minilm-l6-v2-f32</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9866</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-q8</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9844</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">goliath</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9831</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">open-orca-platypus2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9739</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">megadolphin</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9728</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">notux</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">9570</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">notus</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8809</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">dbrx</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8648</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">deepseek-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8428</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">alfred</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">6557</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ollam/unichat-llama3-chinese-8b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">5442</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">brxce/stable-diffusion-prompt-generator</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">4917</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3421</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">shaw/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3358</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">lgkt/llama3-chinese-unichat</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3220</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-fp16</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3034</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jimscard/whiterabbit-neo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3003</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">znbang/bge</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2999</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">impactframes/llama3_ifai_sd_prompt_mkr_q4km</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2929</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gurubot/llama3-guru-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2734</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">llamafamily/llama3-chinese-8b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2517</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">julianallchin/sclip</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2191</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">spooknik/beyonder-4x7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2040</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">taozhiyuai/llama-3-8b-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2012</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">fixt/home-3b-v3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1961</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">thinkverse/towerinstruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1844</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sammcj/smaug</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1684</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mannix/qwen2-57b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1641</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">knoopx/hermes-2-pro-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1626</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">electricalgorithm/hippomistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1434</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/mistral-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1432</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sunapi386/llama-3-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1289</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">demsking/oremi</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1279</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wangshenzhi/llama3-70b-chinese-chat-ollama-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1238</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">fixt/home-3b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1200</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eas/nous-hermes-2-solar-10.7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1163</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ycchen/breeze-7b-instruct-v1_0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1075</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wangshenzhi/llama3-70b-chinese-chat-ollama-q8</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1038</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">maxkb/baichuan2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1016</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">calebfahlgren/natural-functions</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1015</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">pxlksr/opencodeinterpreter-ds</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1003</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nollama/mythomax-l2-13b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">968</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">lgkt/llama3-chinese-alpaca</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">935</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sroecker/sauerkrautlm-7b-hero</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">914</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jimscard/adult-film-screenwriter-nsfw</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">894</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">milkey/m3e</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">845</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">yabi/minicpm_llama3_v_2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">839</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">pxlksr/defog_sqlcoder-7b-2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">836</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mannix/llama3-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">773</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">avr/sfr-embedding-mistral</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">744</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">bengt0/em_german_leo_mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">739</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">u1i/sea-lion</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">718</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">scomper/minicpm-v2.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">694</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">taozhiyuai/llama-3-uncensored-lumi-tess-gradient</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">678</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">azure99/blossom-v5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">660</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">adrienbrault/nous-hermes2theta-llama3-8b</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">659</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">xiayu/openbmb-minicpm-llama3-v-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">626</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">openbuddy/openbuddy-llama3-8b-v21.1-8k</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">624</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eas/nous-capybara</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">621</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/mixtral-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">615</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">cwchang/llama3-taide-lx-8b-chat-alpha1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">615</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">joefamous/grok-1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">595</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">modelbest/minicpm-2b-dpo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">593</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">spooknik/hermes-2-pro-mistral-7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">580</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gurubot/llama3-alpha-centauri-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">571</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">hexbenjamin/memgpt-dpo-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">557</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">rfc/whiterabbitneo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">530</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">adrienbrault/gorilla-openfunctions-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">529</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">0ssamaak0/xtuner-llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">527</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jcai/llama3-taide-lx-8b-chat-alpha1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">521</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">codegpt/deepseek-coder-1.3b-typescript</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">506</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jack/llama3-8b-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">489</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mannix/defog-llama3-sqlcoder-8b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">485</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ifioravanti/lwm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">470</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">t1c/deepseek-math-7b-rl</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">448</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">macadeliccc/laser-dolphin-mixtral-2x7b-dpo</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">446</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mofanke/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">444</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">lstep/neuraldaredevil-8b-abliterated</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">442</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">cniongolo/biomistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">441</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/pygmalion</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">429</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">marco/em_german_mistral_v01</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">418</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">g1ibby/miqu</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">417</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">transcriptionstream/transcriptionstream</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">416</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/zephyr-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">414</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">andrewcanis/command-r</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">412</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nollama/una-cybertron-7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">412</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">elvee/hermes-2-pro-llama-3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">405</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mannix/dolphin-2.9-llama3-8b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">396</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/llama2-13b-tiefighter</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">396</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">cyberlis/saiga-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">394</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">roger/minicpm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">386</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">vanilj/smaug-llama-3-70b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">385</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">impactframes/ifai_promptmkr_dolphin_phi3</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">382</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">chevalblanc/acge_text_embedding</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">382</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ifioravanti/alphamonarch</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">382</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">scomper/llama3-zh-inst</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">368</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">argilla/notus</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">366</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jimscard/blackhat-hacker</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">365</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">bramvanroy/geitje-7b-ultra</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">361</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">willh/taide-lx-7b-chat-4bit</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">359</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">benzie/llava-phi-3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">357</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ifioravanti/neuralbeagle14-7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">357</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">pokmon/llama3-8b-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">356</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">taozhiyuai/llama-3-8b-ultra-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">344</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">vanilj/midnight-miqu-70b-v1.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">343</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">taozhiyuai/openbiollm-llama-3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">343</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">orionstar/orion14b-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">342</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eas/dragon-mistral-v0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">341</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sushruth/solar-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">341</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">saikatkumardey/tinyllama</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">340</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">datouxia/llama3-8b-chinese-chat-q8-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">336</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">Godmoded/llama3-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">336</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gengshenghong/internlm2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">333</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">milkey/gte</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">332</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/loganalyzer</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">332</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gfg/solar-10.7b-instruct-v1.0-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">330</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jmorgan/grok</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">328</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">superone/llama3-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">328</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">knoopx/llava-phi-2</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">320</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/neural-chat-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">317</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">openllm/causallm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">313</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/phi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">309</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">rouge/autocoder-s-6.7b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">308</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">srizon/pixie</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">307</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">emsi/mixtral-8x22b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">307</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">gdisney/orca2-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">307</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">zhaoyun/phi3-128k-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">306</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">ghyghoo8/minicpm-llama3-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">305</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">reefer/monica</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">304</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">zhuhuan/llama3-8b-chinese-chat</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">303</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jina/jina-embeddings-v2-base-de</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">303</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/guanaco-13b-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">299</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">yabi/breeze-7b-instruct-v1_0_q8_0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">298</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">smartcreation/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">295</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eramax/aura_v3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">292</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">cas/nous-hermes-2-mistral-7b-dpo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">291</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">f0rodo/miqu-1-70b.q4_k_m</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">289</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">quentinz/bge-large-zh-v1.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">286</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/pygmalion2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">285</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eramax/nxcode-cq-7b-orpo</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">282</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">superdrew100/llama3-abliterated</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">281</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">smangrul/llama-3-8b-instruct-function-calling</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">278</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">highsunz/llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">277</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">herald/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">276</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">monotykamary/medichat-llama3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">275</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">sammcj/sfr-embedding-mistral</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">275</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mike/llama2-function-calling</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">275</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">eramax/starling-lm-7b-beta</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">273</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">kaiserdan/llama3-120b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">270</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">jina/jina-embeddings-v2-base-en</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">270</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mwiewior/bielik</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">267</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">bambucha/saiga-llama3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">266</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">salmatrafi/acegpt</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">264</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mskimomadto/chat-gph-vision</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">258</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">mattw/causallm_14b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">257</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">captainkyd/whiterabbitneo7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">253</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">molbal/moistral-11b-v1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">250</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">nxphi47/seallm-7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">249</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">caft/llama3-chinese-8b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">248</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">cas/discolm-mfto-german</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">247</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">fotiecodes/jarvis</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">244</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">wojtek/opencodeinterpreter</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">241</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="最新月排行榜-2024-06-09---2024-06-16">最新月排行榜 (2024-06-09 - 2024-06-16) </h2>
+<p>统计中。。。</p>
+<p><a href="https://wx.zsxq.com/dweb2/index/columns/88888812514582" target="_blank"><b>历史统计结果，数据统计来源（准备中）</b></a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
