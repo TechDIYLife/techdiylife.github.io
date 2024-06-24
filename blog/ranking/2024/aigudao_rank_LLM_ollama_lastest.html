@@ -1,0 +1,2094 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%88%B1%E9%BC%93%E6%8D%A3ai%E6%8E%92%E8%A1%8C%E6%A6%9Collama%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%BA%E6%B0%94%E6%A6%9C">爱鼓捣AI排行榜（Ollama大模型人气榜）</a>
+<ul>
+<li><a href="#%E6%9C%80%E6%96%B0%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C-2024-06-16---2024-06-23">最新周排行榜 (2024-06-16 - 2024-06-23)</a></li>
+<li><a href="#%E6%9C%80%E6%96%B0%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C-2024-06-16---2024-06-23">最新月排行榜 (2024-06-16 - 2024-06-23)</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="爱鼓捣ai排行榜ollama大模型人气榜">爱鼓捣AI排行榜（Ollama大模型人气榜） </h1>
+<div class="alert alert-warning">
+<p>本排行数据根据Ollama模型库中下载量统计而来。<br>
+由于Ollama公开的下载量没有区分尺寸大小，所以本排行榜中的下载量数据为模型总下载量。</p>
+</div>
+<h2 id="最新周排行榜-2024-06-16---2024-06-23">最新周排行榜 (2024-06-16 - 2024-06-23) </h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">llama3</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">735996</td>
+<td style="text-align:right">3968578</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">gemma</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">567533</td>
+<td style="text-align:right">3839169</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">mistral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">465941</td>
+<td style="text-align:right">2578128</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">phi3</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">457625</td>
+<td style="text-align:right">1975895</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">qwen</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">448154</td>
+<td style="text-align:right">2096881</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">llama2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">65545</td>
+<td style="text-align:right">1825123</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">qwen2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">52036</td>
+<td style="text-align:right">168919</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">llama2-chinese</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">27747</td>
+<td style="text-align:right">102859</td>
+<td style="text-align:center"><span style="color:red">+27 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">codellama</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">27085</td>
+<td style="text-align:right">569785</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">24025</td>
+<td style="text-align:right">319001</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">phi</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">22420</td>
+<td style="text-align:right">153525</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">nomic-embed-text</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">19879</td>
+<td style="text-align:right">180712</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">mixtral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">13427</td>
+<td style="text-align:right">306078</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">deepseek-coder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">13236</td>
+<td style="text-align:right">187940</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">dolphin-llama3</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">12619</td>
+<td style="text-align:right">96025</td>
+<td style="text-align:center"><span style="color:red">+19 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">codegemma</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">12076</td>
+<td style="text-align:right">126996</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">mxbai-embed-large</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">12070</td>
+<td style="text-align:right">99186</td>
+<td style="text-align:center"><span style="color:red">+14 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">codestral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">11425</td>
+<td style="text-align:right">61026</td>
+<td style="text-align:center"><span style="color:green">-7</span></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">dolphin-mixtral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">11371</td>
+<td style="text-align:right">284216</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">starcoder2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">10672</td>
+<td style="text-align:right">100171</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">command-r</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">10113</td>
+<td style="text-align:right">57612</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">yi</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">9788</td>
+<td style="text-align:right">86412</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">tinydolphin</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">9350</td>
+<td style="text-align:right">62381</td>
+<td style="text-align:center"><span style="color:red">+20 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">llama2-uncensored</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">9307</td>
+<td style="text-align:right">229082</td>
+<td style="text-align:center"><span style="color:green">-8</span></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">orca-mini</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">9292</td>
+<td style="text-align:right">126659</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">dolphin-mistral</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">8872</td>
+<td style="text-align:right">136943</td>
+<td style="text-align:center"><span style="color:green">-5</span></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">granite-code</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">7266</td>
+<td style="text-align:right">24507</td>
+<td style="text-align:center"><span style="color:red">+48 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">aya</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">6824</td>
+<td style="text-align:right">55025</td>
+<td style="text-align:center"><span style="color:green">-16</span></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">all-minilm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">6764</td>
+<td style="text-align:right">32363</td>
+<td style="text-align:center"><span style="color:red">+32 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">starcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">5649</td>
+<td style="text-align:right">68135</td>
+<td style="text-align:center"><span style="color:red">+10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">vicuna</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">5599</td>
+<td style="text-align:right">79640</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">wizard-vicuna-uncensored</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">4697</td>
+<td style="text-align:right">77519</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">tinyllama</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">4682</td>
+<td style="text-align:right">73101</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">zephyr</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">4595</td>
+<td style="text-align:right">99366</td>
+<td style="text-align:center"><span style="color:green">-9</span></td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:left">stablelm2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3996</td>
+<td style="text-align:right">39314</td>
+<td style="text-align:center"><span style="color:red">+14 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:left">deepseek-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3954</td>
+<td style="text-align:right">12382</td>
+<td style="text-align:center"><span style="color:red">+59 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:left">openchat</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3905</td>
+<td style="text-align:right">64323</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:left">mistral-openorca</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3590</td>
+<td style="text-align:right">132199</td>
+<td style="text-align:center"><span style="color:green">-9</span></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:left">llama3-chatqa</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3480</td>
+<td style="text-align:right">28610</td>
+<td style="text-align:center"><span style="color:red">+23 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:left">wizardcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">3438</td>
+<td style="text-align:right">55683</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td style="text-align:left">codeqwen</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">3275</td>
+<td style="text-align:right">40511</td>
+<td style="text-align:center"><span style="color:green">-17</span></td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td style="text-align:left">wizard-math</td>
+<td style="text-align:left">math</td>
+<td style="text-align:right">3253</td>
+<td style="text-align:right">43577</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td style="text-align:left">wizardlm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3118</td>
+<td style="text-align:right">27155</td>
+<td style="text-align:center"><span style="color:red">+21 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">44</td>
+<td style="text-align:left">yarn-llama2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3108</td>
+<td style="text-align:right">31369</td>
+<td style="text-align:center"><span style="color:red">+13 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td style="text-align:left">xwinlm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3098</td>
+<td style="text-align:right">29465</td>
+<td style="text-align:center"><span style="color:red">+15 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">46</td>
+<td style="text-align:left">llama3-gradient</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3097</td>
+<td style="text-align:right">31677</td>
+<td style="text-align:center"><span style="color:red">+10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:left">deepseek-llm</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3061</td>
+<td style="text-align:right">31442</td>
+<td style="text-align:center"><span style="color:green">-21</span></td>
+</tr>
+<tr>
+<td style="text-align:center">48</td>
+<td style="text-align:left">wizardlm2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">3026</td>
+<td style="text-align:right">69882</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">49</td>
+<td style="text-align:left">openhermes</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2951</td>
+<td style="text-align:right">60784</td>
+<td style="text-align:center"><span style="color:green">-7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:left">nous-hermes</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2895</td>
+<td style="text-align:right">35891</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">51</td>
+<td style="text-align:left">neural-chat</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2887</td>
+<td style="text-align:right">45595</td>
+<td style="text-align:center"><span style="color:green">-5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">52</td>
+<td style="text-align:left">stable-code</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2878</td>
+<td style="text-align:right">54049</td>
+<td style="text-align:center"><span style="color:green">-7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">53</td>
+<td style="text-align:left">sqlcoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2769</td>
+<td style="text-align:right">35120</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">54</td>
+<td style="text-align:left">llava-llama3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">2721</td>
+<td style="text-align:right">21672</td>
+<td style="text-align:center"><span style="color:red">+17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">55</td>
+<td style="text-align:left">phind-codellama</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2471</td>
+<td style="text-align:right">41145</td>
+<td style="text-align:center"><span style="color:green">-7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">56</td>
+<td style="text-align:left">moondream</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">2465</td>
+<td style="text-align:right">17717</td>
+<td style="text-align:center"><span style="color:red">+23 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">57</td>
+<td style="text-align:left">solar</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2433</td>
+<td style="text-align:right">30417</td>
+<td style="text-align:center"><span style="color:red">+1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">58</td>
+<td style="text-align:left">snowflake-arctic-embed</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">2423</td>
+<td style="text-align:right">18985</td>
+<td style="text-align:center"><span style="color:red">+19 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">59</td>
+<td style="text-align:left">samantha-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">2389</td>
+<td style="text-align:right">27216</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">60</td>
+<td style="text-align:left">dolphincoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2352</td>
+<td style="text-align:right">35529</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">61</td>
+<td style="text-align:left">nous-hermes2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">2202</td>
+<td style="text-align:right">88255</td>
+<td style="text-align:center"><span style="color:green">-28 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">62</td>
+<td style="text-align:left">starling-lm</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2090</td>
+<td style="text-align:right">35800</td>
+<td style="text-align:center"><span style="color:green">-12 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">63</td>
+<td style="text-align:left">falcon</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">2014</td>
+<td style="text-align:right">33904</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">64</td>
+<td style="text-align:left">stable-beluga</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1966</td>
+<td style="text-align:right">24415</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">65</td>
+<td style="text-align:left">orca2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">1747</td>
+<td style="text-align:right">33573</td>
+<td style="text-align:center"><span style="color:green">-10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">66</td>
+<td style="text-align:left">command-r-plus</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">1621</td>
+<td style="text-align:right">36736</td>
+<td style="text-align:center"><span style="color:green">-39</span></td>
+</tr>
+<tr>
+<td style="text-align:center">67</td>
+<td style="text-align:left">llava-phi3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">1593</td>
+<td style="text-align:right">12625</td>
+<td style="text-align:center"><span style="color:red">+18 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">68</td>
+<td style="text-align:left">yarn-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1446</td>
+<td style="text-align:right">20651</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">69</td>
+<td style="text-align:left">llama-pro</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1414</td>
+<td style="text-align:right">19412</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">70</td>
+<td style="text-align:left">nexusraven</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1375</td>
+<td style="text-align:right">16906</td>
+<td style="text-align:center"><span style="color:red">+8 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">71</td>
+<td style="text-align:left">bakllava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">1249</td>
+<td style="text-align:right">24485</td>
+<td style="text-align:center"><span style="color:green">-6 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">72</td>
+<td style="text-align:left">dolphin-phi</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">1231</td>
+<td style="text-align:right">28414</td>
+<td style="text-align:center"><span style="color:green">-13 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">73</td>
+<td style="text-align:left">meditron</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1222</td>
+<td style="text-align:right">18894</td>
+<td style="text-align:center"><span style="color:red">+1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">74</td>
+<td style="text-align:left">wizardlm-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1173</td>
+<td style="text-align:right">22260</td>
+<td style="text-align:center"><span style="color:green">-6 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">75</td>
+<td style="text-align:left">medllama2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1065</td>
+<td style="text-align:right">22347</td>
+<td style="text-align:center"><span style="color:green">-8 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">76</td>
+<td style="text-align:left">falcon2</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">1040</td>
+<td style="text-align:right">8779</td>
+<td style="text-align:center"><span style="color:green">-48</span></td>
+</tr>
+<tr>
+<td style="text-align:center">77</td>
+<td style="text-align:left">codeup</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">967</td>
+<td style="text-align:right">19253</td>
+<td style="text-align:center"><span style="color:green">-5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">78</td>
+<td style="text-align:left">magicoder</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">958</td>
+<td style="text-align:right">15257</td>
+<td style="text-align:center"><span style="color:red">+3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">79</td>
+<td style="text-align:left">nous-hermes2-mixtral</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">922</td>
+<td style="text-align:right">21336</td>
+<td style="text-align:center"><span style="color:green">-10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:left">goliath</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">922</td>
+<td style="text-align:right">10753</td>
+<td style="text-align:center"><span style="color:red">+9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">81</td>
+<td style="text-align:left">hhao/openbmb-minicpm-llama3-v-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">915</td>
+<td style="text-align:right">15549</td>
+<td style="text-align:center"><span style="color:green">-1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">82</td>
+<td style="text-align:left">everythinglm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">868</td>
+<td style="text-align:right">17992</td>
+<td style="text-align:center"><span style="color:green">-6 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">83</td>
+<td style="text-align:left">stablelm-zephyr</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">850</td>
+<td style="text-align:right">15114</td>
+<td style="text-align:center"><span style="color:green">-1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">84</td>
+<td style="text-align:left">duckdb-nsql</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">847</td>
+<td style="text-align:right">10998</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">85</td>
+<td style="text-align:left">dbrx</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">828</td>
+<td style="text-align:right">9476</td>
+<td style="text-align:center"><span style="color:red">+9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">86</td>
+<td style="text-align:left">mistrallite</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">781</td>
+<td style="text-align:right">13489</td>
+<td style="text-align:center"><span style="color:green">-3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">87</td>
+<td style="text-align:left">codebooga</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">765</td>
+<td style="text-align:right">14199</td>
+<td style="text-align:center"><span style="color:green">-57</span></td>
+</tr>
+<tr>
+<td style="text-align:center">88</td>
+<td style="text-align:left">notus</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">749</td>
+<td style="text-align:right">9558</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">89</td>
+<td style="text-align:left">megadolphin</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">733</td>
+<td style="text-align:right">10461</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">90</td>
+<td style="text-align:left">notux</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">730</td>
+<td style="text-align:right">10300</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">91</td>
+<td style="text-align:left">open-orca-platypus2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">705</td>
+<td style="text-align:right">10444</td>
+<td style="text-align:center"><span style="color:green">-1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">92</td>
+<td style="text-align:left">brxce/stable-diffusion-prompt-generator</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">531</td>
+<td style="text-align:right">5448</td>
+<td style="text-align:center"><span style="color:red">+6 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">93</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-q8</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">438</td>
+<td style="text-align:right">10282</td>
+<td style="text-align:center"><span style="color:green">-5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">94</td>
+<td style="text-align:left">alfred</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">438</td>
+<td style="text-align:right">6995</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">95</td>
+<td style="text-align:left">Godmoded/llama3-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">385</td>
+<td style="text-align:right">721</td>
+<td style="text-align:center"><span style="color:red">+103 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">96</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">357</td>
+<td style="text-align:right">3778</td>
+<td style="text-align:center"><span style="color:red">+3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">97</td>
+<td style="text-align:left">llamafamily/llama3-chinese-8b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">329</td>
+<td style="text-align:right">2846</td>
+<td style="text-align:center"><span style="color:red">+10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">98</td>
+<td style="text-align:left">taozhiyuai/llama-3-8b-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">328</td>
+<td style="text-align:right">2340</td>
+<td style="text-align:center"><span style="color:red">+12 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">99</td>
+<td style="text-align:left">gurubot/llama3-guru-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">317</td>
+<td style="text-align:right">3051</td>
+<td style="text-align:center"><span style="color:red">+7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:left">lstep/neuraldaredevil-8b-abliterated</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">272</td>
+<td style="text-align:right">714</td>
+<td style="text-align:center"><span style="color:red">+64 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">101</td>
+<td style="text-align:left">shaw/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">253</td>
+<td style="text-align:right">3611</td>
+<td style="text-align:center"><span style="color:green">-1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">102</td>
+<td style="text-align:left">impactframes/llama3_ifai_sd_prompt_mkr_q4km</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">226</td>
+<td style="text-align:right">3155</td>
+<td style="text-align:center"><span style="color:red">+3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">103</td>
+<td style="text-align:left">znbang/bge</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">216</td>
+<td style="text-align:right">3215</td>
+<td style="text-align:center"><span style="color:red">+1 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">104</td>
+<td style="text-align:left">quentinz/bge-large-zh-v1.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">135</td>
+<td style="text-align:right">421</td>
+<td style="text-align:center"><span style="color:red">+120 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">105</td>
+<td style="text-align:left">wangshenzhi/llama3-8b-chinese-chat-ollama-fp16</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">132</td>
+<td style="text-align:right">3166</td>
+<td style="text-align:center"><span style="color:green">-3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">106</td>
+<td style="text-align:left">taozhiyuai/llama-3-uncensored-lumi-tess-gradient</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">132</td>
+<td style="text-align:right">810</td>
+<td style="text-align:center"><span style="color:red">+34 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">107</td>
+<td style="text-align:left">gurubot/llama3-alpha-centauri-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">127</td>
+<td style="text-align:right">698</td>
+<td style="text-align:center"><span style="color:red">+44 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">108</td>
+<td style="text-align:left">avr/sfr-embedding-mistral</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">126</td>
+<td style="text-align:right">870</td>
+<td style="text-align:center"><span style="color:red">+28 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">109</td>
+<td style="text-align:left">fixt/home-3b-v3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">125</td>
+<td style="text-align:right">2086</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">110</td>
+<td style="text-align:left">yabi/minicpm_llama3_v_2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">121</td>
+<td style="text-align:right">960</td>
+<td style="text-align:center"><span style="color:red">+23 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">111</td>
+<td style="text-align:left">mannix/llama3-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">121</td>
+<td style="text-align:right">894</td>
+<td style="text-align:center"><span style="color:red">+24 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">112</td>
+<td style="text-align:left">adrienbrault/nous-hermes2pro-llama3-8b</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">119</td>
+<td style="text-align:right">86905</td>
+<td style="text-align:center"><span style="color:green">-80 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">113</td>
+<td style="text-align:left">sunapi386/llama-3-lexi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">119</td>
+<td style="text-align:right">1408</td>
+<td style="text-align:center"><span style="color:red">+5 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">114</td>
+<td style="text-align:left">ollam/unichat-llama3-chinese-8b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">114</td>
+<td style="text-align:right">5556</td>
+<td style="text-align:center"><span style="color:green">-17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">115</td>
+<td style="text-align:left">wangshenzhi/llama3-70b-chinese-chat-ollama-q8</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">114</td>
+<td style="text-align:right">1152</td>
+<td style="text-align:center"><span style="color:red">+9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">116</td>
+<td style="text-align:left">mannix/qwen2-57b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">106</td>
+<td style="text-align:right">1747</td>
+<td style="text-align:center"><span style="color:green">-2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">117</td>
+<td style="text-align:left">demsking/oremi</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">1379</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">118</td>
+<td style="text-align:left">jcai/llama3-taide-lx-8b-chat-alpha1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">95</td>
+<td style="text-align:right">616</td>
+<td style="text-align:center"><span style="color:red">+38 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">119</td>
+<td style="text-align:left">scomper/minicpm-v2.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">94</td>
+<td style="text-align:right">788</td>
+<td style="text-align:center"><span style="color:red">+20 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">120</td>
+<td style="text-align:left">chevalblanc/acge_text_embedding</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">92</td>
+<td style="text-align:right">474</td>
+<td style="text-align:center"><span style="color:red">+60 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">121</td>
+<td style="text-align:left">ycchen/breeze-7b-instruct-v1_0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">87</td>
+<td style="text-align:right">1162</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">122</td>
+<td style="text-align:left">jimscard/whiterabbit-neo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">86</td>
+<td style="text-align:right">3089</td>
+<td style="text-align:center"><span style="color:green">-19 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">123</td>
+<td style="text-align:left">milkey/m3e</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">84</td>
+<td style="text-align:right">929</td>
+<td style="text-align:center"><span style="color:red">+9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">124</td>
+<td style="text-align:left">jina/jina-embeddings-v2-base-de</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">78</td>
+<td style="text-align:right">381</td>
+<td style="text-align:center"><span style="color:red">+93 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">125</td>
+<td style="text-align:left">jina/jina-embeddings-v2-base-en</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">73</td>
+<td style="text-align:right">343</td>
+<td style="text-align:center"><span style="color:red">+111 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">126</td>
+<td style="text-align:left">adrienbrault/nous-hermes2theta-llama3-8b</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">72</td>
+<td style="text-align:right">731</td>
+<td style="text-align:center"><span style="color:red">+16 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">127</td>
+<td style="text-align:left">xiayu/openbmb-minicpm-llama3-v-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">71</td>
+<td style="text-align:right">697</td>
+<td style="text-align:center"><span style="color:red">+16 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">128</td>
+<td style="text-align:left">eramax/nxcode-cq-7b-orpo</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">69</td>
+<td style="text-align:right">351</td>
+<td style="text-align:center"><span style="color:red">+98 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">129</td>
+<td style="text-align:left">wangshenzhi/llama3-70b-chinese-chat-ollama-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">67</td>
+<td style="text-align:right">1305</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">130</td>
+<td style="text-align:left">openllm/causallm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">66</td>
+<td style="text-align:right">379</td>
+<td style="text-align:center"><span style="color:red">+77 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">131</td>
+<td style="text-align:left">mannix/defog-llama3-sqlcoder-8b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">65</td>
+<td style="text-align:right">550</td>
+<td style="text-align:center"><span style="color:red">+28 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">132</td>
+<td style="text-align:left">taozhiyuai/openbiollm-llama-3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">407</td>
+<td style="text-align:center"><span style="color:red">+60 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">133</td>
+<td style="text-align:left">impactframes/ifai_promptmkr_dolphin_phi3</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">61</td>
+<td style="text-align:right">443</td>
+<td style="text-align:center"><span style="color:red">+46 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">134</td>
+<td style="text-align:left">rouge/autocoder-s-6.7b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">368</td>
+<td style="text-align:center"><span style="color:red">+75 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">135</td>
+<td style="text-align:left">smartcreation/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">59</td>
+<td style="text-align:right">354</td>
+<td style="text-align:center"><span style="color:red">+85 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">136</td>
+<td style="text-align:left">lgkt/llama3-chinese-unichat</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">58</td>
+<td style="text-align:right">3278</td>
+<td style="text-align:center"><span style="color:green">-35 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">137</td>
+<td style="text-align:left">jimscard/blackhat-hacker</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">58</td>
+<td style="text-align:right">423</td>
+<td style="text-align:center"><span style="color:red">+47 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">138</td>
+<td style="text-align:left">calebfahlgren/natural-functions</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">1070</td>
+<td style="text-align:center"><span style="color:green">-12 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">139</td>
+<td style="text-align:left">transcriptionstream/transcriptionstream</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">55</td>
+<td style="text-align:right">471</td>
+<td style="text-align:center"><span style="color:red">+30 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">140</td>
+<td style="text-align:left">gdisney/mistral-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">54</td>
+<td style="text-align:right">1486</td>
+<td style="text-align:center"><span style="color:green">-23 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">141</td>
+<td style="text-align:left">superdrew100/llama3-abliterated</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">54</td>
+<td style="text-align:right">335</td>
+<td style="text-align:center"><span style="color:red">+86 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">142</td>
+<td style="text-align:left">mskimomadto/chat-gph-vision</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">54</td>
+<td style="text-align:right">312</td>
+<td style="text-align:center"><span style="color:red">+98 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">143</td>
+<td style="text-align:left">gdisney/neural-chat-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">367</td>
+<td style="text-align:center"><span style="color:red">+63 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">144</td>
+<td style="text-align:left">monotykamary/medichat-llama3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">325</td>
+<td style="text-align:center"><span style="color:red">+87 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">145</td>
+<td style="text-align:left">cwchang/llama3-taide-lx-8b-chat-alpha1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">49</td>
+<td style="text-align:right">664</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">146</td>
+<td style="text-align:left">adrienbrault/gorilla-openfunctions-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">49</td>
+<td style="text-align:right">578</td>
+<td style="text-align:center"><span style="color:red">+8 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">147</td>
+<td style="text-align:left">fixt/home-3b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">1248</td>
+<td style="text-align:center"><span style="color:green">-26 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">148</td>
+<td style="text-align:left">jimscard/adult-film-screenwriter-nsfw</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">47</td>
+<td style="text-align:right">941</td>
+<td style="text-align:center"><span style="color:green">-17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">149</td>
+<td style="text-align:left">cniongolo/biomistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">45</td>
+<td style="text-align:right">486</td>
+<td style="text-align:center"><span style="color:red">+16 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">150</td>
+<td style="text-align:left">lgkt/llama3-chinese-alpaca</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">43</td>
+<td style="text-align:right">978</td>
+<td style="text-align:center"><span style="color:green">-21 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">151</td>
+<td style="text-align:left">0ssamaak0/xtuner-llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">43</td>
+<td style="text-align:right">570</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">152</td>
+<td style="text-align:left">gengshenghong/internlm2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">41</td>
+<td style="text-align:right">374</td>
+<td style="text-align:center"><span style="color:red">+47 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">153</td>
+<td style="text-align:left">milkey/gte</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">372</td>
+<td style="text-align:center"><span style="color:red">+47 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">154</td>
+<td style="text-align:left">reefer/monica</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">344</td>
+<td style="text-align:center"><span style="color:red">+61 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">155</td>
+<td style="text-align:left">smangrul/llama-3-8b-instruct-function-calling</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">40</td>
+<td style="text-align:right">318</td>
+<td style="text-align:center"><span style="color:red">+73 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">156</td>
+<td style="text-align:left">nollama/mythomax-l2-13b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">1006</td>
+<td style="text-align:center"><span style="color:green">-28 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">157</td>
+<td style="text-align:left">herald/phi3-128k</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">12158</td>
+<td style="text-align:center"><span style="color:green">-73 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">158</td>
+<td style="text-align:left">eas/nous-hermes-2-solar-10.7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">1200</td>
+<td style="text-align:center"><span style="color:green">-36 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">159</td>
+<td style="text-align:left">eramax/aura_v3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">37</td>
+<td style="text-align:right">329</td>
+<td style="text-align:center"><span style="color:red">+62 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">160</td>
+<td style="text-align:left">maxkb/baichuan2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">1052</td>
+<td style="text-align:center"><span style="color:green">-35 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">161</td>
+<td style="text-align:left">gdisney/mixtral-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">651</td>
+<td style="text-align:center"><span style="color:green">-15 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">162</td>
+<td style="text-align:left">rfc/whiterabbitneo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">34</td>
+<td style="text-align:right">564</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">163</td>
+<td style="text-align:left">thinkverse/towerinstruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">1877</td>
+<td style="text-align:center"><span style="color:green">-51 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">164</td>
+<td style="text-align:left">modelbest/minicpm-2b-dpo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">625</td>
+<td style="text-align:center"><span style="color:green">-15 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">165</td>
+<td style="text-align:left">scomper/llama3-zh-inst</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">400</td>
+<td style="text-align:center"><span style="color:red">+17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">166</td>
+<td style="text-align:left">sushruth/solar-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">32</td>
+<td style="text-align:right">373</td>
+<td style="text-align:center"><span style="color:red">+29 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">167</td>
+<td style="text-align:left">sroecker/sauerkrautlm-7b-hero</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">31</td>
+<td style="text-align:right">945</td>
+<td style="text-align:center"><span style="color:green">-37 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">168</td>
+<td style="text-align:left">mwiewior/bielik</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">31</td>
+<td style="text-align:right">298</td>
+<td style="text-align:center"><span style="color:red">+69 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">169</td>
+<td style="text-align:left">bramvanroy/geitje-7b-ultra</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">391</td>
+<td style="text-align:center"><span style="color:red">+16 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">170</td>
+<td style="text-align:left">herald/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">306</td>
+<td style="text-align:center"><span style="color:red">+60 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">171</td>
+<td style="text-align:left">gfg/solar-10.7b-instruct-v1.0-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">359</td>
+<td style="text-align:center"><span style="color:red">+31 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">172</td>
+<td style="text-align:left">mofanke/dmeta-embedding-zh</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">28</td>
+<td style="text-align:right">472</td>
+<td style="text-align:center"><span style="color:green">-9 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">173</td>
+<td style="text-align:left">elvee/hermes-2-pro-llama-3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">432</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">174</td>
+<td style="text-align:left">codegpt/deepseek-coder-1.3b-typescript</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">532</td>
+<td style="text-align:center"><span style="color:green">-17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">175</td>
+<td style="text-align:left">mattw/causallm_14b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">283</td>
+<td style="text-align:center"><span style="color:red">+66 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">176</td>
+<td style="text-align:left">chroma/all-minilm-l6-v2-f32</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">9891</td>
+<td style="text-align:center"><span style="color:green">-89 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">177</td>
+<td style="text-align:left">molbal/moistral-11b-v1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">275</td>
+<td style="text-align:center"><span style="color:red">+66 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">178</td>
+<td style="text-align:left">mannix/dolphin-2.9-llama3-8b</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">419</td>
+<td style="text-align:center"><span style="color:green">-4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">179</td>
+<td style="text-align:left">mattw/llama2-13b-tiefighter</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">419</td>
+<td style="text-align:center"><span style="color:green">-4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">180</td>
+<td style="text-align:left">sammcj/sfr-embedding-mistral</td>
+<td style="text-align:left">embedding</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">298</td>
+<td style="text-align:center"><span style="color:red">+52 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">181</td>
+<td style="text-align:left">bambucha/saiga-llama3</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">289</td>
+<td style="text-align:center"><span style="color:red">+57 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">182</td>
+<td style="text-align:left">knoopx/hermes-2-pro-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">1648</td>
+<td style="text-align:center"><span style="color:green">-67 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">183</td>
+<td style="text-align:left">bengt0/em_german_leo_mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">761</td>
+<td style="text-align:center"><span style="color:green">-46 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">184</td>
+<td style="text-align:left">hexbenjamin/memgpt-dpo-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">579</td>
+<td style="text-align:center"><span style="color:green">-32 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">185</td>
+<td style="text-align:left">benzie/llava-phi-3</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">379</td>
+<td style="text-align:center"><span style="color:red">+2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">186</td>
+<td style="text-align:left">gdisney/phi-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">331</td>
+<td style="text-align:center"><span style="color:red">+22 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">187</td>
+<td style="text-align:left">pxlksr/opencodeinterpreter-ds</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">1024</td>
+<td style="text-align:center"><span style="color:green">-60 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">188</td>
+<td style="text-align:left">marco/em_german_mistral_v01</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">439</td>
+<td style="text-align:center"><span style="color:green">-21 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">189</td>
+<td style="text-align:left">jmorgan/grok</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">349</td>
+<td style="text-align:center"><span style="color:red">+14 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">190</td>
+<td style="text-align:left">fotiecodes/jarvis</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">265</td>
+<td style="text-align:center"><span style="color:red">+57 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">191</td>
+<td style="text-align:left">openbuddy/openbuddy-llama3-8b-v21.1-8k</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">644</td>
+<td style="text-align:center"><span style="color:green">-47 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">192</td>
+<td style="text-align:left">gdisney/zephyr-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">434</td>
+<td style="text-align:center"><span style="color:green">-22 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">193</td>
+<td style="text-align:left">taozhiyuai/llama-3-8b-ultra-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">363</td>
+<td style="text-align:center"><span style="color:green">-3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">194</td>
+<td style="text-align:left">spooknik/hermes-2-pro-mistral-7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">598</td>
+<td style="text-align:center"><span style="color:green">-44 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">195</td>
+<td style="text-align:left">gdisney/orca2-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">325</td>
+<td style="text-align:center"><span style="color:red">+17 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">196</td>
+<td style="text-align:left">wojtek/opencodeinterpreter</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">259</td>
+<td style="text-align:center"><span style="color:red">+52 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">197</td>
+<td style="text-align:left">cyberlis/saiga-mistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">411</td>
+<td style="text-align:center"><span style="color:green">-21 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">198</td>
+<td style="text-align:left">mattw/loganalyzer</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">349</td>
+<td style="text-align:center"><span style="color:red">+3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">199</td>
+<td style="text-align:left">t1c/deepseek-math-7b-rl</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">464</td>
+<td style="text-align:center"><span style="color:green">-38 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:left">mattw/pygmalion</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">444</td>
+<td style="text-align:center"><span style="color:green">-34 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">201</td>
+<td style="text-align:left">mattw/pygmalion2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">300</td>
+<td style="text-align:center"><span style="color:red">+24 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">202</td>
+<td style="text-align:left">sammcj/smaug</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">1698</td>
+<td style="text-align:center"><span style="color:green">-89 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">203</td>
+<td style="text-align:left">ghyghoo8/minicpm-llama3-2_5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">319</td>
+<td style="text-align:center"><span style="color:red">+11 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">204</td>
+<td style="text-align:left">cas/discolm-mfto-german</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">261</td>
+<td style="text-align:center"><span style="color:red">+42 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">205</td>
+<td style="text-align:left">pxlksr/defog_sqlcoder-7b-2</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">13</td>
+<td style="text-align:right">849</td>
+<td style="text-align:center"><span style="color:green">-71 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">206</td>
+<td style="text-align:left">joefamous/grok-1</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">607</td>
+<td style="text-align:center"><span style="color:green">-58 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">207</td>
+<td style="text-align:left">vanilj/smaug-llama-3-70b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">397</td>
+<td style="text-align:center"><span style="color:green">-29 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">208</td>
+<td style="text-align:left">willh/taide-lx-7b-chat-4bit</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">371</td>
+<td style="text-align:center"><span style="color:green">-22 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">209</td>
+<td style="text-align:left">zhaoyun/phi3-128k-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">318</td>
+<td style="text-align:center"><span style="color:red">+4 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">210</td>
+<td style="text-align:left">eas/nous-capybara</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">632</td>
+<td style="text-align:center"><span style="color:green">-65 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">211</td>
+<td style="text-align:left">mattw/guanaco-13b-uncensored</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">309</td>
+<td style="text-align:center"><span style="color:red">+7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">212</td>
+<td style="text-align:left">cas/nous-hermes-2-mistral-7b-dpo</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">301</td>
+<td style="text-align:center"><span style="color:red">+10 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">213</td>
+<td style="text-align:left">u1i/sea-lion</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">727</td>
+<td style="text-align:center"><span style="color:green">-75 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">214</td>
+<td style="text-align:left">azure99/blossom-v5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">669</td>
+<td style="text-align:center"><span style="color:green">-73 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">215</td>
+<td style="text-align:left">roger/minicpm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">395</td>
+<td style="text-align:center"><span style="color:green">-38 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">216</td>
+<td style="text-align:left">yabi/breeze-7b-instruct-v1_0_q8_0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">307</td>
+<td style="text-align:center"><span style="color:red">+3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">217</td>
+<td style="text-align:left">captainkyd/whiterabbitneo7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">262</td>
+<td style="text-align:center"><span style="color:red">+25 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">218</td>
+<td style="text-align:left">zhuhuan/llama3-8b-chinese-chat</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">311</td>
+<td style="text-align:center"><span style="color:green">-2 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">219</td>
+<td style="text-align:left">andrewcanis/command-r</td>
+<td style="text-align:left">llm</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">419</td>
+<td style="text-align:center"><span style="color:green">-48 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">220</td>
+<td style="text-align:left">datouxia/llama3-8b-chinese-chat-q8-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">343</td>
+<td style="text-align:center"><span style="color:green">-23 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">221</td>
+<td style="text-align:left">kaiserdan/llama3-120b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">277</td>
+<td style="text-align:center"><span style="color:red">+14 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">222</td>
+<td style="text-align:left">nxphi47/seallm-7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">256</td>
+<td style="text-align:center"><span style="color:red">+22 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">223</td>
+<td style="text-align:left">spooknik/beyonder-4x7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">2046</td>
+<td style="text-align:center"><span style="color:green">-114 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">224</td>
+<td style="text-align:left">electricalgorithm/hippomistral</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">1439</td>
+<td style="text-align:center"><span style="color:green">-108 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">225</td>
+<td style="text-align:left">ifioravanti/lwm</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">475</td>
+<td style="text-align:center"><span style="color:green">-65 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">226</td>
+<td style="text-align:left">macadeliccc/laser-dolphin-mixtral-2x7b-dpo</td>
+<td style="text-align:left">code</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">451</td>
+<td style="text-align:center"><span style="color:green">-64 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">227</td>
+<td style="text-align:left">ifioravanti/neuralbeagle14-7b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">362</td>
+<td style="text-align:center"><span style="color:green">-39 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">228</td>
+<td style="text-align:left">jack/llama3-8b-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">493</td>
+<td style="text-align:center"><span style="color:green">-70 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">229</td>
+<td style="text-align:left">vanilj/midnight-miqu-70b-v1.5</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">347</td>
+<td style="text-align:center"><span style="color:green">-38 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">230</td>
+<td style="text-align:left">saikatkumardey/tinyllama</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">344</td>
+<td style="text-align:center"><span style="color:green">-34 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">231</td>
+<td style="text-align:left">srizon/pixie</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">311</td>
+<td style="text-align:center"><span style="color:green">-21 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">232</td>
+<td style="text-align:left">salmatrafi/acegpt</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">268</td>
+<td style="text-align:center"><span style="color:red">+7 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">233</td>
+<td style="text-align:left">caft/llama3-chinese-8b-instruct</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">252</td>
+<td style="text-align:center"><span style="color:red">+12 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">234</td>
+<td style="text-align:left">g1ibby/miqu</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">420</td>
+<td style="text-align:center"><span style="color:green">-66 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">235</td>
+<td style="text-align:left">orionstar/orion14b-q4</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">345</td>
+<td style="text-align:center"><span style="color:green">-42 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">236</td>
+<td style="text-align:left">knoopx/llava-phi-2</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">323</td>
+<td style="text-align:center"><span style="color:green">-31 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">237</td>
+<td style="text-align:left">eramax/starling-lm-7b-beta</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">276</td>
+<td style="text-align:center"><span style="color:green">-3 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">238</td>
+<td style="text-align:left">pokmon/llama3-8b-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">358</td>
+<td style="text-align:center"><span style="color:green">-49 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">239</td>
+<td style="text-align:left">emsi/mixtral-8x22b</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">309</td>
+<td style="text-align:center"><span style="color:green">-28 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">240</td>
+<td style="text-align:left">highsunz/llava</td>
+<td style="text-align:left">vlm</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">279</td>
+<td style="text-align:center"><span style="color:green">-11 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">241</td>
+<td style="text-align:left">mike/llama2-function-calling</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">277</td>
+<td style="text-align:center"><span style="color:green">-8 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">242</td>
+<td style="text-align:left">ifioravanti/alphamonarch</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">383</td>
+<td style="text-align:center"><span style="color:green">-61 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">243</td>
+<td style="text-align:left">eas/dragon-mistral-v0</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">342</td>
+<td style="text-align:center"><span style="color:green">-49 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">244</td>
+<td style="text-align:left">superone/llama3-chinese</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">329</td>
+<td style="text-align:center"><span style="color:green">-40 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">245</td>
+<td style="text-align:left">julianallchin/sclip</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2191</td>
+<td style="text-align:center"><span style="color:green">-137 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">246</td>
+<td style="text-align:left">nollama/una-cybertron-7b-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">412</td>
+<td style="text-align:center"><span style="color:green">-74 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">247</td>
+<td style="text-align:left">argilla/notus</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">366</td>
+<td style="text-align:center"><span style="color:green">-64 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">248</td>
+<td style="text-align:left">f0rodo/miqu-1-70b.q4_k_m</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">289</td>
+<td style="text-align:center"><span style="color:green">-25 new</span></td>
+</tr>
+<tr>
+<td style="text-align:center">新追加</td>
+<td style="text-align:left">deepseek-coder-v2</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">65794</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="最新月排行榜-2024-06-16---2024-06-23">最新月排行榜 (2024-06-16 - 2024-06-23) </h2>
+<p>统计中。。。</p>
+<p><a href="https://wx.zsxq.com/dweb2/index/columns/88888812514582" target="_blank"><b>历史统计结果，数据统计来源（准备中）</b></a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

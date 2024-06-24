@@ -1,0 +1,1979 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E7%88%B1%E9%BC%93%E6%8D%A3ai%E6%8E%92%E8%A1%8C%E6%A6%9Chuggingface%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BA%BA%E6%B0%94%E6%A6%9C">爱鼓捣AI排行榜（Huggingface大模型人气榜）</a>
+<ul>
+<li><a href="#%E6%9C%80%E6%96%B0%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C-2024-06-16---2024-06-23">最新周排行榜 (2024-06-16 - 2024-06-23)</a>
+<ul>
+<li><a href="#5b%E4%BB%A5%E4%B8%8B%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">5B以下模型 周排行榜</a></li>
+<li><a href="#7b%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">7B模型 周排行榜</a></li>
+<li><a href="#14b%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">14B模型 周排行榜</a></li>
+<li><a href="#40b%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">40B模型 周排行榜</a></li>
+<li><a href="#70b%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">70B模型 周排行榜</a></li>
+<li><a href="#100b%E4%BB%A5%E4%B8%8A%E6%A8%A1%E5%9E%8B-%E5%91%A8%E6%8E%92%E8%A1%8C%E6%A6%9C">100B以上模型 周排行榜</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E6%96%B0%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C-2024-06-23">最新月排行榜 (2024-06-23)</a>
+<ul>
+<li><a href="#5b%E4%BB%A5%E4%B8%8B%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">5B以下模型 月排行榜</a></li>
+<li><a href="#7b%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">7B模型 月排行榜</a></li>
+<li><a href="#14b%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">14B模型 月排行榜</a></li>
+<li><a href="#40b%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">40B模型 月排行榜</a></li>
+<li><a href="#70b%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">70B模型 月排行榜</a></li>
+<li><a href="#100b%E4%BB%A5%E4%B8%8A%E6%A8%A1%E5%9E%8B-%E6%9C%88%E6%8E%92%E8%A1%8C%E6%A6%9C">100B以上模型 月排行榜</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="爱鼓捣ai排行榜huggingface大模型人气榜">爱鼓捣AI排行榜（Huggingface大模型人气榜） </h1>
+<h2 id="最新周排行榜-2024-06-16---2024-06-23">最新周排行榜 (2024-06-16 - 2024-06-23) </h2>
+<h3 id="5b以下模型-周排行榜">5B以下模型 周排行榜 </h3>
+<p>模型参数量：5B以下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Phi-3-mini-3.8B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">196055</td>
+<td style="text-align:right">1056022</td>
+<td style="text-align:right">3620343</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Qwen2-0.5B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">26942</td>
+<td style="text-align:right">270763</td>
+<td style="text-align:right">314213</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">gemma-2b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">101272</td>
+<td style="text-align:right">62597</td>
+<td style="text-align:right">2824948</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Qwen2-1.5B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">14633</td>
+<td style="text-align:right">34658</td>
+<td style="text-align:right">57398</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Phi-3-vision-4.2B</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">43321</td>
+<td style="text-align:right">22359</td>
+<td style="text-align:right">242337</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Qwen2-0.5B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">14332</td>
+<td style="text-align:right">13870</td>
+<td style="text-align:right">35261</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">gemma-1.1-2b-it</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">20744</td>
+<td style="text-align:right">13286</td>
+<td style="text-align:right">461078</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">Qwen2-1.5B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">8338</td>
+<td style="text-align:right">9847</td>
+<td style="text-align:right">21360</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">codegemma-2b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">529</td>
+<td style="text-align:right">413</td>
+<td style="text-align:right">13767</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">codegemma-1.1-2b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">316</td>
+<td style="text-align:right">282</td>
+<td style="text-align:right">6202</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">WebGLM-2B</td>
+<td style="text-align:left">Web</td>
+<td style="text-align:right">19</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">10686</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7b模型-周排行榜">7B模型 周排行榜 </h3>
+<p>模型参数量：6B - 9B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Meta-Llama-3-8B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">563593</td>
+<td style="text-align:right">721098</td>
+<td style="text-align:right">5472155</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">falcon-7b-instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">372807</td>
+<td style="text-align:right">428094</td>
+<td style="text-align:right">23628373</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Meta-Llama-3-8B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">244018</td>
+<td style="text-align:right">324137</td>
+<td style="text-align:right">2479860</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Mistral-7B-Instruct-v0.3</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">54622</td>
+<td style="text-align:right">110104</td>
+<td style="text-align:right">375869</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen2-7B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">74722</td>
+<td style="text-align:right">66191</td>
+<td style="text-align:right">163905</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Phi-3-small-7B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">15780</td>
+<td style="text-align:right">59653</td>
+<td style="text-align:right">143430</td>
+<td style="text-align:center"><span style="color:red">+6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Mistral-7B-v0.3</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">24238</td>
+<td style="text-align:right">28323</td>
+<td style="text-align:right">126367</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">gemma-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">40440</td>
+<td style="text-align:right">28167</td>
+<td style="text-align:right">836678</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">gemma-1.1-7b-it</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">23382</td>
+<td style="text-align:right">26082</td>
+<td style="text-align:right">351501</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">glm-4-9b-chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">12650</td>
+<td style="text-align:right">20568</td>
+<td style="text-align:right">48328</td>
+<td style="text-align:center"><span style="color:red">+5</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">chatglm3-6b</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">16820</td>
+<td style="text-align:right">18708</td>
+<td style="text-align:right">2955089</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">falcon-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">20166</td>
+<td style="text-align:right">15241</td>
+<td style="text-align:right">11048059</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">Qwen1.5-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">14347</td>
+<td style="text-align:right">14276</td>
+<td style="text-align:right">192422</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">Qwen2-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">12804</td>
+<td style="text-align:right">13122</td>
+<td style="text-align:right">31534</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">Yi-1.5-9B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">5004</td>
+<td style="text-align:right">11956</td>
+<td style="text-align:right">39154</td>
+<td style="text-align:center"><span style="color:red">+4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">glm-4v-9b</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">2101</td>
+<td style="text-align:right">11162</td>
+<td style="text-align:right">25816</td>
+<td style="text-align:center"><span style="color:red">+6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">CodeQwen1.5-7B-Chat</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">6446</td>
+<td style="text-align:right">10335</td>
+<td style="text-align:right">289068</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">Qwen1.5-7B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">9032</td>
+<td style="text-align:right">10324</td>
+<td style="text-align:right">526919</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">Yi-1.5-9B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">5376</td>
+<td style="text-align:right">5307</td>
+<td style="text-align:right">29454</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">chatglm3-6b-base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2410</td>
+<td style="text-align:right">2947</td>
+<td style="text-align:right">62103</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">Yi-1.5-6B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2747</td>
+<td style="text-align:right">2907</td>
+<td style="text-align:right">10568</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">Baichuan2-7B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">1830</td>
+<td style="text-align:right">2583</td>
+<td style="text-align:right">205750</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">CodeLlama-7b-hf</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">25269</td>
+<td style="text-align:right">2227</td>
+<td style="text-align:right">46111</td>
+<td style="text-align:center"><span style="color:green">-16</span></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">glm-4-9b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2053</td>
+<td style="text-align:right">1933</td>
+<td style="text-align:right">5733</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">Yi-1.5-6B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">1646</td>
+<td style="text-align:right">1630</td>
+<td style="text-align:right">11654</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">deepseek-coder-7b-instruct-v1.5</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">1123</td>
+<td style="text-align:right">1458</td>
+<td style="text-align:right">91325</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">CodeLlama-7b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">722</td>
+<td style="text-align:right">1245</td>
+<td style="text-align:right">19127</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">Baichuan2-7B-Base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">631</td>
+<td style="text-align:right">778</td>
+<td style="text-align:right">145366</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">CodeQwen1.5-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1343</td>
+<td style="text-align:right">689</td>
+<td style="text-align:right">14953</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">agentlm-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">94</td>
+<td style="text-align:right">438</td>
+<td style="text-align:right">5848</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">visualglm-6b</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">100</td>
+<td style="text-align:right">132</td>
+<td style="text-align:right">93154</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">codegeex2-6b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">39</td>
+<td style="text-align:right">50</td>
+<td style="text-align:right">55492</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">deepseek-coder-7b-base-v1.5</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">186</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">6327</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">aya-23-8B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">30938</td>
+<td style="text-align:right">30938</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14b模型-周排行榜">14B模型 周排行榜 </h3>
+<p>模型参数量：10B - 20B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Phi-3-medium-14B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">125542</td>
+<td style="text-align:right">230967</td>
+<td style="text-align:right">514319</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Llama-2-13b-chat-hf</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">158840</td>
+<td style="text-align:right">226943</td>
+<td style="text-align:right">5351328</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Llama-2-13b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">19778</td>
+<td style="text-align:right">20032</td>
+<td style="text-align:right">1931016</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Qwen1.5-14B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">8897</td>
+<td style="text-align:right">10412</td>
+<td style="text-align:right">262022</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-14B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">10237</td>
+<td style="text-align:right">6995</td>
+<td style="text-align:right">86990</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">DeepSeek-V2-Lite</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">785</td>
+<td style="text-align:right">2302</td>
+<td style="text-align:right">5375</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Baichuan2-13B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1362</td>
+<td style="text-align:right">1714</td>
+<td style="text-align:right">732276</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">DeepSeek-V2-Lite-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">363</td>
+<td style="text-align:right">552</td>
+<td style="text-align:right">19725</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">Baichuan2-13B-Base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">469</td>
+<td style="text-align:right">349</td>
+<td style="text-align:right">84211</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">CodeLlama-13b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">297</td>
+<td style="text-align:right">329</td>
+<td style="text-align:right">1776</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">Skywork-13B-base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">243</td>
+<td style="text-align:right">281</td>
+<td style="text-align:right">13095</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">CodeLlama-13b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">152</td>
+<td style="text-align:right">162</td>
+<td style="text-align:right">950</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">aya-101</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">97344</td>
+<td style="text-align:right">97344</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="40b模型-周排行榜">40B模型 周排行榜 </h3>
+<p>模型参数量：30B - 50B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Mixtral-8x7B-v0.1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">580224</td>
+<td style="text-align:right">248363</td>
+<td style="text-align:right">2079104</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Mixtral-8x7B-Instruct-v0.1</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">78313</td>
+<td style="text-align:right">184372</td>
+<td style="text-align:right">4843660</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">deepseek-coder-33b-instruct</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">3056</td>
+<td style="text-align:right">21310</td>
+<td style="text-align:right">371193</td>
+<td style="text-align:center"><span style="color:red">+5</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">falcon-40b-instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">17369</td>
+<td style="text-align:right">17883</td>
+<td style="text-align:right">9044365</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-32B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">5818</td>
+<td style="text-align:right">17160</td>
+<td style="text-align:right">235929</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Yi-1.5-34B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2877</td>
+<td style="text-align:right">7236</td>
+<td style="text-align:right">90594</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">falcon-40b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">5305</td>
+<td style="text-align:right">4374</td>
+<td style="text-align:right">986135</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">Qwen2-57B-A14B-Instruct</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">14564</td>
+<td style="text-align:right">3279</td>
+<td style="text-align:right">38621</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">Yi-1.5-34B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2799</td>
+<td style="text-align:right">2686</td>
+<td style="text-align:right">16459</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">deepseek-coder-33b-base</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">1798</td>
+<td style="text-align:right">2280</td>
+<td style="text-align:right">36726</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">Qwen1.5-32B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">3248</td>
+<td style="text-align:right">2022</td>
+<td style="text-align:right">126721</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">Qwen2-57B-A14B</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">2216</td>
+<td style="text-align:right">1241</td>
+<td style="text-align:right">4842</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">CodeLlama-34b-Instruct-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">94</td>
+<td style="text-align:right">199</td>
+<td style="text-align:right">1304</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">CodeLlama-34b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">181</td>
+<td style="text-align:right">128</td>
+<td style="text-align:right">1258</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">Yi-VL-34B</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">48</td>
+<td style="text-align:right">350217</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">c4ai-command-r-v01</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">191457</td>
+<td style="text-align:right">191457</td>
+<td style="text-align:center">new</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">aya-23-35B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">104332</td>
+<td style="text-align:right">104332</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="70b模型-周排行榜">70B模型 周排行榜 </h3>
+<p>模型参数量：70B 左右</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Meta-Llama-3-70B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">123748</td>
+<td style="text-align:right">103322</td>
+<td style="text-align:right">982453</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Qwen2-72B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">28717</td>
+<td style="text-align:right">79218</td>
+<td style="text-align:right">132703</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Meta-Llama-3-70B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">16066</td>
+<td style="text-align:right">20602</td>
+<td style="text-align:right">459663</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Qwen2-72B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">4273</td>
+<td style="text-align:right">9599</td>
+<td style="text-align:right">15757</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">CodeLlama-70b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">1096</td>
+<td style="text-align:right">158</td>
+<td style="text-align:right">4509</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">CodeLlama-70b-hf</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">1181</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">agentlm-70b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">1001</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="100b以上模型-周排行榜">100B以上模型 周排行榜 </h3>
+<p>模型参数量：100B以上</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上周下载量</th>
+<th style="text-align:right">周下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Mixtral-8x22B-Instruct-v0.1</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">8623</td>
+<td style="text-align:right">11203</td>
+<td style="text-align:right">226016</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Qwen1.5-110B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">2646</td>
+<td style="text-align:right">3628</td>
+<td style="text-align:right">153765</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">DeepSeek-V2</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">722</td>
+<td style="text-align:right">2183</td>
+<td style="text-align:right">19748</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Mixtral-8x22B-v0.1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">1928</td>
+<td style="text-align:right">1794</td>
+<td style="text-align:right">26365</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-110B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1356</td>
+<td style="text-align:right">1342</td>
+<td style="text-align:right">12873</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">falcon-180B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">942</td>
+<td style="text-align:right">1068</td>
+<td style="text-align:right">224682</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">DeepSeek-V2-Chat</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">390</td>
+<td style="text-align:right">528</td>
+<td style="text-align:right">69212</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">falcon-180B-chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">271</td>
+<td style="text-align:right">324</td>
+<td style="text-align:right">101293</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">grok-1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">168</td>
+<td style="text-align:right">211</td>
+<td style="text-align:right">46723</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">Skywork-MoE-Base</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">70</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">c4ai-command-r-plus</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">273614</td>
+<td style="text-align:right">273614</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h2 id="最新月排行榜-2024-06-23">最新月排行榜 (2024-06-23) </h2>
+<h3 id="5b以下模型-月排行榜">5B以下模型 月排行榜 </h3>
+<p>模型参数量：5B以下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Phi-3-mini-3.8B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">1559183</td>
+<td style="text-align:right">1971661</td>
+<td style="text-align:right">3620343</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">gemma-2b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">346050</td>
+<td style="text-align:right">352887</td>
+<td style="text-align:right">2824948</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Qwen2-0.5B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">16508</td>
+<td style="text-align:right">314213</td>
+<td style="text-align:right">314213</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Phi-3-vision-4.2B</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">176657</td>
+<td style="text-align:right">233630</td>
+<td style="text-align:right">242337</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">gemma-1.1-2b-it</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">66970</td>
+<td style="text-align:right">58690</td>
+<td style="text-align:right">461078</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Qwen2-1.5B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">8107</td>
+<td style="text-align:right">57398</td>
+<td style="text-align:right">57398</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Qwen2-0.5B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">7059</td>
+<td style="text-align:right">35260</td>
+<td style="text-align:right">35261</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">Qwen2-1.5B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">3175</td>
+<td style="text-align:right">21360</td>
+<td style="text-align:right">21360</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">codegemma-2b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">3202</td>
+<td style="text-align:right">2160</td>
+<td style="text-align:right">13767</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">codegemma-1.1-2b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">5127</td>
+<td style="text-align:right">1034</td>
+<td style="text-align:right">6202</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">WebGLM-2B</td>
+<td style="text-align:left">Web</td>
+<td style="text-align:right">139</td>
+<td style="text-align:right">148</td>
+<td style="text-align:right">10686</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="7b模型-月排行榜">7B模型 月排行榜 </h3>
+<p>模型参数量：6B - 9B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Meta-Llama-3-8B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">2580891</td>
+<td style="text-align:right">2761510</td>
+<td style="text-align:right">5472155</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">falcon-7b-instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">694841</td>
+<td style="text-align:right">1416414</td>
+<td style="text-align:right">23628373</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Meta-Llama-3-8B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1030752</td>
+<td style="text-align:right">1156214</td>
+<td style="text-align:right">2479860</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Mistral-7B-Instruct-v0.3</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">211143</td>
+<td style="text-align:right">369877</td>
+<td style="text-align:right">375869</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">gemma-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">196026</td>
+<td style="text-align:right">187095</td>
+<td style="text-align:right">836678</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Qwen2-7B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">22992</td>
+<td style="text-align:right">163905</td>
+<td style="text-align:right">163905</td>
+<td style="text-align:center"><span style="color:red">+8</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Phi-3-small-7B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">67997</td>
+<td style="text-align:right">131602</td>
+<td style="text-align:right">143430</td>
+<td style="text-align:center"><span style="color:red">+4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">Mistral-7B-v0.3</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">73806</td>
+<td style="text-align:right">115507</td>
+<td style="text-align:right">126367</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">gemma-1.1-7b-it</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">113193</td>
+<td style="text-align:right">109479</td>
+<td style="text-align:right">351501</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">chatglm3-6b</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">228437</td>
+<td style="text-align:right">98241</td>
+<td style="text-align:right">2955089</td>
+<td style="text-align:center"><span style="color:green">-6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">falcon-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">78233</td>
+<td style="text-align:right">78061</td>
+<td style="text-align:right">11048059</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">Qwen1.5-7B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">101580</td>
+<td style="text-align:right">60746</td>
+<td style="text-align:right">526919</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">Qwen1.5-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">40008</td>
+<td style="text-align:right">53639</td>
+<td style="text-align:right">192422</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">glm-4-9b-chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">15110</td>
+<td style="text-align:right">48328</td>
+<td style="text-align:right">48328</td>
+<td style="text-align:center"><span style="color:red">+4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">CodeQwen1.5-7B-Chat</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">50142</td>
+<td style="text-align:right">37864</td>
+<td style="text-align:right">289068</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">Qwen2-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">5608</td>
+<td style="text-align:right">31420</td>
+<td style="text-align:right">31534</td>
+<td style="text-align:center"><span style="color:red">+10</span></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">CodeLlama-7b-hf</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">5648</td>
+<td style="text-align:right">31032</td>
+<td style="text-align:right">46111</td>
+<td style="text-align:center"><span style="color:red">+8</span></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">Yi-1.5-9B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">22194</td>
+<td style="text-align:right">30541</td>
+<td style="text-align:right">39154</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">glm-4v-9b</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">12553</td>
+<td style="text-align:right">25816</td>
+<td style="text-align:right">25816</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">Yi-1.5-9B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">18771</td>
+<td style="text-align:right">24483</td>
+<td style="text-align:right">29454</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">CodeLlama-7b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">12848</td>
+<td style="text-align:right">11823</td>
+<td style="text-align:right">19127</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">chatglm3-6b-base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">11940</td>
+<td style="text-align:right">11282</td>
+<td style="text-align:right">62103</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">Baichuan2-7B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">17907</td>
+<td style="text-align:right">11232</td>
+<td style="text-align:right">205750</td>
+<td style="text-align:center"><span style="color:green">-6</span></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">Yi-1.5-6B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">4914</td>
+<td style="text-align:right">8707</td>
+<td style="text-align:right">10568</td>
+<td style="text-align:center"><span style="color:red">+3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">deepseek-coder-7b-instruct-v1.5</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">11501</td>
+<td style="text-align:right">8122</td>
+<td style="text-align:right">91325</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">Yi-1.5-6B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">8378</td>
+<td style="text-align:right">8037</td>
+<td style="text-align:right">11654</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">glm-4-9b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1747</td>
+<td style="text-align:right">5733</td>
+<td style="text-align:right">5733</td>
+<td style="text-align:center"><span style="color:red">+4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">CodeQwen1.5-7B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">6637</td>
+<td style="text-align:right">4401</td>
+<td style="text-align:right">14953</td>
+<td style="text-align:center"><span style="color:green">-4</span></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">Baichuan2-7B-Base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">4828</td>
+<td style="text-align:right">4020</td>
+<td style="text-align:right">145366</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">codegeex2-6b</td>
+<td style="text-align:left">Code</td>
+<td style="text-align:right">4621</td>
+<td style="text-align:right">3130</td>
+<td style="text-align:right">55492</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">deepseek-coder-7b-base-v1.5</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">1373</td>
+<td style="text-align:right">945</td>
+<td style="text-align:right">6327</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">agentlm-7b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2524</td>
+<td style="text-align:right">807</td>
+<td style="text-align:right">5848</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">visualglm-6b</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">1307</td>
+<td style="text-align:right">710</td>
+<td style="text-align:right">93154</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">aya-23-8B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">30412</td>
+<td style="text-align:right">30938</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14b模型-月排行榜">14B模型 月排行榜 </h3>
+<p>模型参数量：10B - 20B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Llama-2-13b-chat-hf</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">556471</td>
+<td style="text-align:right">656540</td>
+<td style="text-align:right">5351328</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Phi-3-medium-14B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">157810</td>
+<td style="text-align:right">478404</td>
+<td style="text-align:right">514319</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Llama-2-13b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">255950</td>
+<td style="text-align:right">87838</td>
+<td style="text-align:right">1931016</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Qwen1.5-14B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">92204</td>
+<td style="text-align:right">82337</td>
+<td style="text-align:right">262022</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-14B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">14129</td>
+<td style="text-align:right">24985</td>
+<td style="text-align:right">86990</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Baichuan2-13B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">11922</td>
+<td style="text-align:right">8210</td>
+<td style="text-align:right">732276</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">DeepSeek-V2-Lite</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2288</td>
+<td style="text-align:right">4404</td>
+<td style="text-align:right">5375</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">DeepSeek-V2-Lite-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">18810</td>
+<td style="text-align:right">2909</td>
+<td style="text-align:right">19725</td>
+<td style="text-align:center"><span style="color:green">-3</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">Baichuan2-13B-Base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">2170</td>
+<td style="text-align:right">1778</td>
+<td style="text-align:right">84211</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">Skywork-13B-base</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1607</td>
+<td style="text-align:right">1370</td>
+<td style="text-align:right">13095</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">CodeLlama-13b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">714</td>
+<td style="text-align:right">981</td>
+<td style="text-align:right">1776</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">CodeLlama-13b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">464</td>
+<td style="text-align:right">540</td>
+<td style="text-align:right">950</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">aya-101</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">10278</td>
+<td style="text-align:right">97344</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="40b模型-月排行榜">40B模型 月排行榜 </h3>
+<p>模型参数量：30B - 50B</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Mixtral-8x7B-v0.1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">325678</td>
+<td style="text-align:right">1128119</td>
+<td style="text-align:right">2079104</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Mixtral-8x7B-Instruct-v0.1</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">364939</td>
+<td style="text-align:right">386977</td>
+<td style="text-align:right">4843660</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Yi-1.5-34B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">80481</td>
+<td style="text-align:right">81225</td>
+<td style="text-align:right">90594</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">falcon-40b-instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">287132</td>
+<td style="text-align:right">78930</td>
+<td style="text-align:right">9044365</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-32B-Chat</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">83633</td>
+<td style="text-align:right">67975</td>
+<td style="text-align:right">235929</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Qwen2-57B-A14B-Instruct</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">20778</td>
+<td style="text-align:right">38621</td>
+<td style="text-align:right">38621</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">deepseek-coder-33b-instruct</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">19544</td>
+<td style="text-align:right">31756</td>
+<td style="text-align:right">371193</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">falcon-40b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">30198</td>
+<td style="text-align:right">24911</td>
+<td style="text-align:right">986135</td>
+<td style="text-align:center"><span style="color:green">-2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">Yi-1.5-34B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">10974</td>
+<td style="text-align:right">11414</td>
+<td style="text-align:right">16459</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">Qwen1.5-32B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">10104</td>
+<td style="text-align:right">10972</td>
+<td style="text-align:right">126721</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">deepseek-coder-33b-base</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">8942</td>
+<td style="text-align:right">10791</td>
+<td style="text-align:right">36726</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">Qwen2-57B-A14B</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">1385</td>
+<td style="text-align:right">4842</td>
+<td style="text-align:right">4842</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">Yi-VL-34B</td>
+<td style="text-align:left">VLM</td>
+<td style="text-align:right">1278</td>
+<td style="text-align:right">625</td>
+<td style="text-align:right">350217</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">CodeLlama-34b-Instruct-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">447</td>
+<td style="text-align:right">470</td>
+<td style="text-align:right">1304</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">CodeLlama-34b-hf</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">402</td>
+<td style="text-align:right">436</td>
+<td style="text-align:right">1258</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">aya-23-35B</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">104078</td>
+<td style="text-align:right">104332</td>
+<td style="text-align:center">new</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">c4ai-command-r-v01</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">7739</td>
+<td style="text-align:right">191457</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<h3 id="70b模型-月排行榜">70B模型 月排行榜 </h3>
+<p>模型参数量：70B 左右</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Meta-Llama-3-70B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">474057</td>
+<td style="text-align:right">485362</td>
+<td style="text-align:right">982453</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Qwen2-72B-Instruct</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">24768</td>
+<td style="text-align:right">132703</td>
+<td style="text-align:right">132703</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Meta-Llama-3-70B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">73067</td>
+<td style="text-align:right">68756</td>
+<td style="text-align:right">459663</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Qwen2-72B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">1885</td>
+<td style="text-align:right">15612</td>
+<td style="text-align:right">15757</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">CodeLlama-70b-Instruct-hf</td>
+<td style="text-align:left">Chat-Code</td>
+<td style="text-align:right">1634</td>
+<td style="text-align:right">2417</td>
+<td style="text-align:right">4509</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">CodeLlama-70b-hf</td>
+<td style="text-align:left">Base-Code</td>
+<td style="text-align:right">249</td>
+<td style="text-align:right">166</td>
+<td style="text-align:right">1181</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">agentlm-70b</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">20</td>
+<td style="text-align:right">1001</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="100b以上模型-月排行榜">100B以上模型 月排行榜 </h3>
+<p>模型参数量：100B以上</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">排名</th>
+<th style="text-align:left">模型名称</th>
+<th style="text-align:left">模型类别</th>
+<th style="text-align:right">上月下载量</th>
+<th style="text-align:right">月下载量</th>
+<th style="text-align:right">总下载量</th>
+<th style="text-align:center">排名变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">🥇</td>
+<td style="text-align:left">Mixtral-8x22B-Instruct-v0.1</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">145797</td>
+<td style="text-align:right">87082</td>
+<td style="text-align:right">226016</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">🥈</td>
+<td style="text-align:left">Qwen1.5-110B-Chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">51645</td>
+<td style="text-align:right">19675</td>
+<td style="text-align:right">153765</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">🥉</td>
+<td style="text-align:left">Mixtral-8x22B-v0.1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">16019</td>
+<td style="text-align:right">10994</td>
+<td style="text-align:right">26365</td>
+<td style="text-align:center"><span style="color:red">+1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">falcon-180B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">10496</td>
+<td style="text-align:right">6500</td>
+<td style="text-align:right">224682</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Qwen1.5-110B</td>
+<td style="text-align:left">Base</td>
+<td style="text-align:right">6522</td>
+<td style="text-align:right">6225</td>
+<td style="text-align:right">12873</td>
+<td style="text-align:center"><span style="color:red">+2</span></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">DeepSeek-V2</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">11533</td>
+<td style="text-align:right">5011</td>
+<td style="text-align:right">19748</td>
+<td style="text-align:center"><span style="color:green">-1</span></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">DeepSeek-V2-Chat</td>
+<td style="text-align:left">Chat-MoE</td>
+<td style="text-align:right">60690</td>
+<td style="text-align:right">4575</td>
+<td style="text-align:right">69212</td>
+<td style="text-align:center"><span style="color:green">-5</span></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">grok-1</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">2291</td>
+<td style="text-align:right">1645</td>
+<td style="text-align:right">46723</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">falcon-180B-chat</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">1337</td>
+<td style="text-align:right">1249</td>
+<td style="text-align:right">101293</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">Skywork-MoE-Base</td>
+<td style="text-align:left">Base-MoE</td>
+<td style="text-align:right">58</td>
+<td style="text-align:right">70</td>
+<td style="text-align:right">70</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">c4ai-command-r-plus</td>
+<td style="text-align:left">Chat</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">38112</td>
+<td style="text-align:right">273614</td>
+<td style="text-align:center">new</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://wx.zsxq.com/dweb2/index/columns/88888812514582" target="_blank"><b>历史统计结果，数据统计来源（准备中）</b></a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
