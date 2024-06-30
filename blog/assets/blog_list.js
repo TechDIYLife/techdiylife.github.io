@@ -84,6 +84,7 @@ const blogList = [
   { id: "0056", category1: "c01", category2: "t08", create_date: "2024.06.15", title_short: "排行榜：Huggingface模型最新下载排行榜", title_full: "排行榜：Huggingface模型最新下载排行榜", href: "ranking/aigudao_rank_LLM_hf_lastest.html", video_href: "" },
   { id: "0057", category1: "c01", category2: "t08", create_date: "2024.06.16", title_short: "排行榜：ModelScope模型最新下载排行榜", title_full: "排行榜：ModelScope模型最新下载排行榜", href: "ranking/aigudao_rank_LLM_ms_lastest.html", video_href: "" },
   { id: "0058", category1: "c01", category2: "t08", create_date: "2024.06.23", title_short: "LLM基础资料整理：推理所需显存与速度", title_full: "LLM基础资料整理：推理所需显存与速度", href: "ranking/aigudao-rank-LLM-MemoryUsage.html", video_href: "" },
+  { id: "0059", category1: "c01", category2: "t08", create_date: "2024.06.30", title_short: "排行榜：AI大模型性能排行榜", title_full: "排行榜：AI大模型性能排行榜", href: "ranking/aigudao-rank-LLM-performance.html", video_href: "" },
   
   
 ];
