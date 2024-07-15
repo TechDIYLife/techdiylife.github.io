@@ -64,7 +64,7 @@
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%B8%80%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8graphrag">共学分享一：如何使用GraphRAG？</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%BA%8Cgraphrag%E5%88%B6%E4%BD%9C%E7%9A%84%E5%87%A1%E4%BA%BA%E4%BF%AE%E4%BB%99%E4%BC%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7">共学分享二：GraphRAG制作的《凡人修仙传》知识图谱长什么样？</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%B8%89%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E4%BD%BF%E7%94%A8deepseek">共学分享三：降低费用 -- 使用DeepSeek</a></li>
-<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%9B%9B%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E4%BD%BF%E7%94%A8qwen2%E6%A8%A1%E5%9E%8B">共学分享四：降低费用 -- 使用Qwen2模型</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%9B%9B%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E9%80%9A%E8%BF%87ollama%E4%BD%BF%E7%94%A8qwen2%E6%A8%A1%E5%9E%8B">共学分享四：降低费用 -- 通过Ollama使用Qwen2模型</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%BA%94%E4%B8%AD%E6%96%87%E5%A4%84%E7%90%86%E4%BC%98%E5%8C%96">共学分享五：中文处理优化</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86%E7%9C%8B%E7%9C%8B%E5%B0%8F%E4%BC%99%E4%BC%B4%E4%BB%AC%E9%83%BD%E9%97%AE%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">共学问题整理：看看小伙伴们都问了什么问题？</a></li>
 </ul>
@@ -130,9 +130,49 @@
 </li>
 </ul>
 <h2 id="共学分享三降低费用---使用deepseek">共学分享三：降低费用 -- 使用DeepSeek </h2>
-<p>整理中。。。</p>
-<h2 id="共学分享四降低费用---使用qwen2模型">共学分享四：降低费用 -- 使用Qwen2模型 </h2>
-<p>整理中。。。</p>
+<ul>
+<li>
+<p>概要<br>
+GraphRAG默认支持GPT-4-turbo-preview模型，但是这个模型费用比较高。使用它运行一次GraphRAG例子，就要花费11美元。本篇文章中为你介绍如何通过使用DeepSeek Chat来替换GPT-4模型降低使用费用。</p>
+<p>降低费用幅度：11美元 --&gt; 0.9 美元 （由于处理数据不一样，比较只供参考）</p>
+</li>
+<li>
+<p>配置文件（参考下面的配置进行设置）</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>llm:
+  api_key: YOUR_DEEPSEEK_API_KEY
+  type: openai_chat # or azure_openai_chat
+  model: deepseek-chat
+  model_supports_json: false # recommended if this is available for your model.
+  api_base: https://api.deepseek.com/v1
+
+embeddings:
+  async_mode: threaded # or asyncio
+  llm:
+    api_key: YOUR_OPENAI_API_KEY
+    type: openai_embedding # or azure_openai_embedding
+    model: text-embedding-3-small
+    api_base: https://api.openai.com/v1
+</code></pre></li>
+<li>
+<p>详细步骤，请访问：<br>
+<a href="https://articles.zsxq.com/id_5pr1x5tp69ns.html">https://articles.zsxq.com/id_5pr1x5tp69ns.html</a></p>
+</li>
+</ul>
+<h2 id="共学分享四降低费用---通过ollama使用qwen2模型">共学分享四：降低费用 -- 通过Ollama使用Qwen2模型 </h2>
+<ul>
+<li>
+<p>概要<br>
+本篇文章介绍如何通过Ollama来使用本地模型来使用GraphRAG。我们会使用 nomic-embed-text embedding模型和Qwen2:72B模型。</p>
+</li>
+<li>
+<p>实现方式， 请参考自己来实现：<br>
+<a href="https://github.com/TheAiSingularity/graphrag-local-ollama">https://github.com/TheAiSingularity/graphrag-local-ollama</a></p>
+</li>
+<li>
+<p>UP实践的详细步骤介绍：<br>
+<a href="https://articles.zsxq.com/id_01banwkwwavv.html">https://articles.zsxq.com/id_01banwkwwavv.html</a></p>
+</li>
+</ul>
 <h2 id="共学分享五中文处理优化">共学分享五：中文处理优化 </h2>
 <p>整理中。。。</p>
 <h2 id="共学问题整理看看小伙伴们都问了什么问题">共学问题整理：看看小伙伴们都问了什么问题？ </h2>
