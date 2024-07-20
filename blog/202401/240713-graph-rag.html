@@ -66,6 +66,7 @@
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%B8%89%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E4%BD%BF%E7%94%A8deepseek">共学分享三：降低费用 -- 使用DeepSeek</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%9B%9B%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E9%80%9A%E8%BF%87ollama%E4%BD%BF%E7%94%A8qwen2%E6%A8%A1%E5%9E%8B">共学分享四：降低费用 -- 通过Ollama使用Qwen2模型</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%BA%94%E4%B8%AD%E6%96%87%E5%A4%84%E7%90%86%E4%BC%98%E5%8C%96">共学分享五：中文处理优化</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%85%AD%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-gpt-4o-minigpt-4odeepseek">共学分享六：模型比较 GPT-4o-mini，GPT-4o，DeepSeek</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86%E7%9C%8B%E7%9C%8B%E5%B0%8F%E4%BC%99%E4%BC%B4%E4%BB%AC%E9%83%BD%E9%97%AE%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">共学问题整理：看看小伙伴们都问了什么问题？</a></li>
 </ul>
 </li>
@@ -175,6 +176,67 @@ embeddings:
 </ul>
 <h2 id="共学分享五中文处理优化">共学分享五：中文处理优化 </h2>
 <p>整理中。。。</p>
+<h2 id="共学分享六模型比较-gpt-4o-minigpt-4odeepseek">共学分享六：模型比较 GPT-4o-mini，GPT-4o，DeepSeek </h2>
+<ul>
+<li>LLM as judge 提示词：</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>下面有一个基于上传文档的阅读理解题目的解答，请对学生的解答进行打分。
+打分时请针对回答是否准确，回答顺序是否与文档中描述的一致，回答是否简洁，不包含无用信息进行判断。
+请先指出回答中的问题，然后在进行打分。
+分数范围 1 到 10 分。
+问题：韩立是如何进入七玄门的？
+请先对此问题进行解答，然后根据你的解答，结合学生的解答以及上传文档进行分析并打分
+学生解答如下：
+</code></pre><ul>
+<li>
+<p>《凡人修仙传》前500行数据<br>
+<a href="..\..\..\blog\202401\book_utf8-top500.txt">文本链接</a></p>
+</li>
+<li>
+<p>评价结果</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模型（检索方法）</th>
+<th>三次评分</th>
+<th>平均分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4o Global</td>
+<td>7,6,7</td>
+<td>6.7</td>
+</tr>
+<tr>
+<td>GPT-4o Local</td>
+<td>6,6,7</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>GPT-4o mini Global</td>
+<td>3,4,5</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>GPT-4o mini Local</td>
+<td>7,5,7</td>
+<td>6.3</td>
+</tr>
+<tr>
+<td>Deepseek Global</td>
+<td>7,7,8</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>Deepseek Local</td>
+<td>9,6,6</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="共学问题整理看看小伙伴们都问了什么问题">共学问题整理：看看小伙伴们都问了什么问题？ </h2>
 <p>整理中： <a href="https://articles.zsxq.com/id_s4zre0pc4w6o.html">https://articles.zsxq.com/id_s4zre0pc4w6o.html</a></p>
 
