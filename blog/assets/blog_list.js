@@ -87,7 +87,7 @@ const blogList = [
   { id: "0059", category1: "c01", category2: "t08", create_date: "2024.06.30", title_short: "排行榜：AI大模型性能排行榜", title_full: "排行榜：AI大模型性能排行榜", href: "ranking/aigudao_rank_LLM_performance.html", video_href: "" },
   { id: "0060", category1: "c01", category2: "t06", create_date: "2024.07.01", title_short: "如何将ollama升级来试用Gemma2？", title_full: "如何将ollama升级来试用Gemma2？", href: "202401/240701-Try-LLM.html", video_href: "" },
   { id: "0061", category1: "c01", category2: "t07", create_date: "2024.07.14", title_short: "GraphRAG快速入门", title_full: "GraphRAG快速入门", href: "202401/240713-graph-rag.html", video_href: "" },
-  { id: "0062", category1: "c01", category2: "t07", create_date: "2024.08.07", title_short: "用72B Qwen2跑一次GraphRAG要多少钱？", title_full: "用72B Qwen2跑一次GraphRAG要多少钱？", href: "202401/240802-AD-zhisuanyun.html", video_href: "" },
+  { id: "0062", category1: "c01", category2: "t07", create_date: "2024.08.07", title_short: "用72B Qwen2跑一次GraphRAG要多少钱？", title_full: "用72B Qwen2跑一次GraphRAG要多少钱？", href: "202401/240801-AD-zhisuanyun.html", video_href: "" },
 
 ];
 
