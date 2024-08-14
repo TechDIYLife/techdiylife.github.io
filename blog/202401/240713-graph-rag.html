@@ -67,7 +67,15 @@
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%9B%9B%E9%99%8D%E4%BD%8E%E8%B4%B9%E7%94%A8---%E9%80%9A%E8%BF%87ollama%E4%BD%BF%E7%94%A8qwen2%E6%A8%A1%E5%9E%8B">共学分享四：降低费用 -- 通过Ollama使用Qwen2模型</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%BA%94%E4%B8%AD%E6%96%87%E5%A4%84%E7%90%86%E4%BC%98%E5%8C%96">共学分享五：中文处理优化</a></li>
 <li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%85%AD%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-gpt-4o-minigpt-4odeepseek">共学分享六：模型比较 GPT-4o-mini，GPT-4o，DeepSeek</a></li>
-<li><a href="#%E5%85%B1%E5%AD%A6%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86%E7%9C%8B%E7%9C%8B%E5%B0%8F%E4%BC%99%E4%BC%B4%E4%BB%AC%E9%83%BD%E9%97%AE%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98">共学问题整理：看看小伙伴们都问了什么问题？</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%B8%83%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%96%87%E4%BB%B6%E8%BE%93%E5%87%BA%E4%B8%8E%E6%9F%A5%E7%9C%8B%E6%96%B9%E5%BC%8F">共学分享七：知识图谱文件输出与查看方式</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E5%85%AB%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E4%B8%80%E6%AC%A1graphrag%E8%A6%81%E5%8C%96%E5%A4%9A%E5%B0%91%E9%92%B1">共学分享八：云服务器跑一次GraphRAG要化多少钱？</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E5%88%86%E4%BA%AB%E4%B9%9D%E5%B0%86graphrag%E4%B8%8E%E6%9C%AC%E5%9C%B0%E7%A8%8B%E5%BA%8F%E9%9B%86%E6%88%90local-global-search">共学分享九：将GraphRAG与本地程序集成（Local Global search）</a></li>
+<li><a href="#%E5%85%B1%E5%AD%A6%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86">共学问题整理</a>
+<ul>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7">其他相关工具</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98">相关问题</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -175,11 +183,17 @@ embeddings:
 </li>
 </ul>
 <h2 id="共学分享五中文处理优化">共学分享五：中文处理优化 </h2>
-<p>整理中。。。</p>
+<p>在prompts目录下的四个文件中加入如下的提示词，来防止模型将中文翻译为英语：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Note: The following text is in Chinese, so please understand the document according to Chinese conventions and perform the necessary processing. Do not translate entities, claims, Description, etc., into English.
+</code></pre><p>详细说明：<a href="https://articles.zsxq.com/id_l2c2ahidwwzf.html">https://articles.zsxq.com/id_l2c2ahidwwzf.html</a></p>
 <h2 id="共学分享六模型比较-gpt-4o-minigpt-4odeepseek">共学分享六：模型比较 GPT-4o-mini，GPT-4o，DeepSeek </h2>
 <ul>
-<li>LLM as judge 提示词：</li>
-</ul>
+<li>
+<p>视频介绍（B站）：<br>
+<a href="https://www.bilibili.com/video/BV1pU411S7h9/">https://www.bilibili.com/video/BV1pU411S7h9/</a></p>
+</li>
+<li>
+<p>LLM as judge 提示词：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>下面有一个基于上传文档的阅读理解题目的解答，请对学生的解答进行打分。
 打分时请针对回答是否准确，回答顺序是否与文档中描述的一致，回答是否简洁，不包含无用信息进行判断。
 请先指出回答中的问题，然后在进行打分。
@@ -187,14 +201,12 @@ embeddings:
 问题：韩立是如何进入七玄门的？
 请先对此问题进行解答，然后根据你的解答，结合学生的解答以及上传文档进行分析并打分
 学生解答如下：
-</code></pre><ul>
+</code></pre></li>
 <li>
 <p>《凡人修仙传》前500行数据: <a href="..\..\..\blog\202401\book_utf8-top500.txt">文本链接</a></p>
 </li>
 <li>
 <p>评价结果</p>
-</li>
-</ul>
 <table>
 <thead>
 <tr>
@@ -236,7 +248,46 @@ embeddings:
 </tr>
 </tbody>
 </table>
-<h2 id="共学问题整理看看小伙伴们都问了什么问题">共学问题整理：看看小伙伴们都问了什么问题？ </h2>
+</li>
+</ul>
+<h2 id="共学分享七知识图谱文件输出与查看方式">共学分享七：知识图谱文件输出与查看方式 </h2>
+<p>GraphRAG提取的知识图谱可以通过Gephi等软件进行查看。</p>
+<p>要查看提取的知识图谱，需要修改setting.yaml文件中的以下设置为true</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>snapshots:
+  graphml: true
+  raw_entities: true
+  top_level_nodes: true
+</code></pre><p>然后提取知识图谱后，通过Gephi软件打开summarized_graph.graphml 等文件，既可以查看提取后的知识图谱。</p>
+<p>注：如果是中文文档，需要将Unicode编码的字符转换为中文字符。</p>
+<p>详细步骤及代码，可以参考：<a href="https://articles.zsxq.com/id_uufa0tqjcexr.html">https://articles.zsxq.com/id_uufa0tqjcexr.html</a></p>
+<h2 id="共学分享八云服务器跑一次graphrag要化多少钱">共学分享八：云服务器跑一次GraphRAG要化多少钱？ </h2>
+<p>本期内容包括：<br>
+第一，在云服务器上，如何部署Qwen2 72B大模型？<br>
+第二，用此模型，跑一次GraphRAG要化多少钱？</p>
+<p>视频URL：<a href="https://www.bilibili.com/video/BV18wYKekE8w/">https://www.bilibili.com/video/BV18wYKekE8w/</a></p>
+<h2 id="共学分享九将graphrag与本地程序集成local-global-search">共学分享九：将GraphRAG与本地程序集成（Local Global search） </h2>
+<p>GraphRAG中提供了检索用的代码，通过这些代码可以很方便的将GraphRAG与本地程序进行集成。</p>
+<ul>
+<li>global search 的代码：<br>
+代码：<a href="https://microsoft.github.io/graphrag/posts/query/notebooks/global_search_nb/">https://microsoft.github.io/graphrag/posts/query/notebooks/global_search_nb/</a><br>
+说明：<a href="https://microsoft.github.io/graphrag/posts/query/0-global_search/">https://microsoft.github.io/graphrag/posts/query/0-global_search/</a></li>
+<li>local search 的代码：<br>
+代码：<a href="https://microsoft.github.io/graphrag/posts/query/notebooks/local_search_nb/">https://microsoft.github.io/graphrag/posts/query/notebooks/local_search_nb/</a><br>
+说明：<a href="https://microsoft.github.io/graphrag/posts/query/1-local_search/">https://microsoft.github.io/graphrag/posts/query/1-local_search/</a></li>
+</ul>
+<p><strong>学习时可以尝试解答以下问题：</strong></p>
+<ul>
+<li>Q1：global search 与 local search 有什么差异？</li>
+<li>Q2：解答生成时的LLM提示词如何进行修改？</li>
+<li>Q3：local search时无法找到 claims 数据，该如何处理？</li>
+</ul>
+<p>更多学习资料<br>
+<a href="https://articles.zsxq.com/id_hxmdseruowqt.html">https://articles.zsxq.com/id_hxmdseruowqt.html</a></p>
+<h2 id="共学问题整理">共学问题整理 </h2>
+<h3 id="其他相关工具">其他相关工具 </h3>
+<p><a href="https://github.com/TheAiSingularity/graphrag-local-ollama">https://github.com/TheAiSingularity/graphrag-local-ollama</a><br>
+<a href="https://github.com/severian42/GraphRAG-Local-UI">https://github.com/severian42/GraphRAG-Local-UI</a></p>
+<h3 id="相关问题">相关问题 </h3>
 <p>整理中： <a href="https://articles.zsxq.com/id_s4zre0pc4w6o.html">https://articles.zsxq.com/id_s4zre0pc4w6o.html</a></p>
 
       </div>
