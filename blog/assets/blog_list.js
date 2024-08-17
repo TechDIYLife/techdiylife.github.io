@@ -15,6 +15,7 @@ const category2List = [
   { id: "t06", title_full: "专题：本地AI环境搭建", title_short: "本地AI环境搭建" },
   { id: "t07", title_full: "专题：LangChain + RAG 参考资料", title_short: "RAG专题" },
   { id: "t08", title_full: "专题：爱鼓捣AI排行榜", title_short: "爱鼓捣AI排行榜" },
+  { id: "t09", title_full: "专题：Agents", title_short: "Agents" },
 
 ];
 
@@ -88,6 +89,7 @@ const blogList = [
   { id: "0060", category1: "c01", category2: "t06", create_date: "2024.07.01", title_short: "如何将ollama升级来试用Gemma2？", title_full: "如何将ollama升级来试用Gemma2？", href: "202401/240701-Try-LLM.html", video_href: "" },
   { id: "0061", category1: "c01", category2: "t07", create_date: "2024.07.14", title_short: "GraphRAG快速入门", title_full: "GraphRAG快速入门", href: "202401/240713-graph-rag.html", video_href: "" },
   { id: "0062", category1: "c01", category2: "t07", create_date: "2024.08.07", title_short: "用72B Qwen2跑一次GraphRAG要多少钱？", title_full: "用72B Qwen2跑一次GraphRAG要多少钱？", href: "202401/240801-AD-zhisuanyun.html", video_href: "" },
+  { id: "0063", category1: "c01", category2: "t09", create_date: "2024.08.17", title_short: "LLM Agents专题", title_full: "LLM Agents专题", href: "202401/240801-Agents.html", video_href: "" },
 
 ];
 
