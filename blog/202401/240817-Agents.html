@@ -83,8 +83,21 @@
 </li>
 <li><a href="#assistants-4-file-search-%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98">Assistants 4: File Search 开发实战</a></li>
 <li><a href="#assistants-5-%E5%85%B3%E4%BA%8E-vector-store-%E5%87%A0%E7%82%B9%E7%94%A8%E6%B3%95%E5%88%86%E4%BA%AB">Assistants 5: 关于 Vector Store 几点用法分享</a></li>
-<li><a href="#assistants-6function-calling-%E9%83%A8%E5%88%86">Assistants 6：Function calling 部分</a></li>
-<li><a href="#%E6%9B%B4%E5%A4%9A%E5%86%85%E5%AE%B9">更多内容</a></li>
+<li><a href="#assistants-6code-interpreter-%E4%BB%8B%E7%BB%8D">Assistants 6：Code Interpreter 介绍</a>
+<ul>
+<li><a href="#1-code-interpreter-%E6%98%AF%E4%BB%80%E4%B9%88">1 Code Interpreter 是什么？</a></li>
+<li><a href="#2-%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%AE%83%E5%81%9A%E4%BB%80%E4%B9%88">2 可以用它做什么？</a></li>
+<li><a href="#3-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">3 如何使用？</a>
+<ul>
+<li><a href="#chatgpt%E4%B8%AD%E5%BF%AB%E9%80%9F%E4%BD%93%E9%AA%8C%E4%BB%98%E8%B4%B9%E7%89%88">ChatGPT中快速体验（付费版）</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87api%E4%BD%BF%E7%94%A8">通过API使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#assistants-7-code-interpreter-%E5%A6%82%E4%BD%95%E6%9C%AC%E5%9C%B0%E5%8C%96">Assistants 7： Code interpreter 如何本地化？</a></li>
+<li><a href="#assistants-8function-calling-%E9%83%A8%E5%88%86">Assistants 8：Function calling 部分</a></li>
+<li><a href="#assistants-9%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98">Assistants 9：案例实战</a></li>
 </ul>
 <h1 id="llm-agents-专题">LLM Agents 专题 </h1>
 <h2 id="agent共学介绍">Agent共学介绍 </h2>
@@ -334,10 +347,129 @@ print(messages2)
 print(f"Messages 数量：{len(messages2)}")
 </code></pre><h1 id="assistants-5-关于-vector-store-几点用法分享">Assistants 5: 关于 Vector Store 几点用法分享 </h1>
 <p>省略，请参考OpenAI API 文档。</p>
-<h1 id="assistants-6function-calling-部分">Assistants 6：Function calling 部分 </h1>
+<h1 id="assistants-6code-interpreter-介绍">Assistants 6：Code Interpreter 介绍 </h1>
+<h2 id="1-code-interpreter-是什么">1 Code Interpreter 是什么？ </h2>
+<div class="alert alert-info">
+<p>Code Interpreter allows Assistants to write and run Python code in a sandboxed execution environment. This tool can process files with diverse data and formatting, and generate files with data and images of graphs. Code Interpreter allows your Assistant to run code iteratively to solve challenging code and math problems. When your Assistant writes code that fails to run, it can iterate on this code by attempting to run different code until the code execution succeeds.</p>
+</div>
+<p>翻译官方的描述，来看一下它都有什么样的功能</p>
+<ol>
+<li>
+<p>代码解释器允许助手在一个沙盒执行环境中编写和运行Python代码。</p>
+<ul>
+<li>LLM编写的代码，可以在 Code Interpreter 中执行，验证</li>
+</ul>
+</li>
+<li>
+<p>这个工具可以处理具有多种数据和格式的文件，并生成包含数据和图形图像的文件。</p>
+<ul>
+<li>支持各种格式的文件作为输入</li>
+<li>可以生成，输出图表，图像文件</li>
+</ul>
+</li>
+<li>
+<p>代码解释器允许您的助手反复运行代码，以解决复杂的代码和数学问题。</p>
+<ul>
+<li>类似一种Agent的概念。过程类似于：
+<ul>
+<li>LLM根据用户要求写一个代码</li>
+<li>送到CI中执行，并返回结果或者错误</li>
+<li>LLM判断任务是否完成，如果没有完成，根据错误等调整代码。</li>
+<li>在CI中运行修改后的代码，</li>
+<li>。。。。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>费用： 每个session $0.03 (一个session可以最初运行一小时)</p>
+</li>
+</ol>
+<h2 id="2-可以用它做什么">2 可以用它做什么？ </h2>
+<ol>
+<li>
+<p>Python代码验证： 与LLM直接生成代码的不同，通过使用它，可以得到经过验证的代码。</p>
+</li>
+<li>
+<p>数据分析增强</p>
+<ul>
+<li>数据统计</li>
+<li>基于数据生成图表</li>
+</ul>
+</li>
+<li>
+<p>图像转动画</p>
+<ul>
+<li>生成动画图像</li>
+</ul>
+</li>
+<li>
+<p>OCR处理</p>
+</li>
+</ol>
+<p>参考文档： <a href="https://medium.com/@eldatero/5-awesome-examples-you-can-make-with-code-interpreter-and-chatgpt-a5a3231aabcc">https://medium.com/@eldatero/5-awesome-examples-you-can-make-with-code-interpreter-and-chatgpt-a5a3231aabcc</a></p>
+<h2 id="3-如何使用">3 如何使用？ </h2>
+<p>具体步骤，请看视频演示：<a href="https://www.bilibili.com/video/BV1CiWfedEaZ/">https://www.bilibili.com/video/BV1CiWfedEaZ/</a></p>
+<h3 id="chatgpt中快速体验付费版">ChatGPT中快速体验（付费版） </h3>
+<p>如果你是ChatGPT的付费版用户，你可以在ChatGPT中来快速体验code interpreter的功能。</p>
+<h3 id="通过api使用">通过API使用 </h3>
+<p><strong>设置API KEY</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import os
+os.environ["OPENAI_API_KEY"]="sk-proj-xxxxxx"
+</code></pre><p><strong>上传文件</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Upload a file with an "assistants" purpose
+file = client.files.create(
+  file=open("train_data.txt", "rb"),
+  purpose='assistants'
+)
+</code></pre><p><strong>创建assistant</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Create an assistant using the file ID
+assistant = client.beta.assistants.create(
+  instructions="You are a personal math tutor. 
+    When asked a math question, write and run code to answer the question.",
+  model="gpt-4o",
+  tools=[{"type": "code_interpreter"}],
+  tool_resources={
+    "code_interpreter": {
+      "file_ids": [file.id]
+    }
+  }
+)
+</code></pre><p><strong>创建message</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>thread = client.beta.threads.create(
+  messages=[
+    {
+      "role": "user",
+      "content": "计算一下附件中的数据有多少小时：",
+      "attachments": [
+        {
+          "file_id": file.id,
+          "tools": [{"type": "code_interpreter"}]
+        }
+      ]
+    }
+  ]
+)
+</code></pre><p><strong>创建run，并执行</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>run = client.beta.threads.runs.create_and_poll(
+    thread_id=thread.id, assistant_id=assistant.id
+)
+</code></pre><p><strong>处理结果打印</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 获取与指定run_id有关的message
+messages = list(client.beta.threads.messages.list(thread_id=thread.id, run_id=run.id))
+for i in range(len(messages)):
+    print(messages[i].content[0].text.value)
+    print("===========")
+print(f"Messages 数量：{len(messages)}")
+</code></pre><h1 id="assistants-7-code-interpreter-如何本地化">Assistants 7： Code interpreter 如何本地化？ </h1>
+<p>下期预告：</p>
+<p><a href="https://github.com/OpenInterpreter/open-interpreter">https://github.com/OpenInterpreter/open-interpreter</a></p>
+<h1 id="assistants-8function-calling-部分">Assistants 8：Function calling 部分 </h1>
 <p>准备中。。。</p>
-<h1 id="更多内容">更多内容 </h1>
-<p>本技术文档的完整详细版，同步在星球更新：<a href="https://articles.zsxq.com/id_fkkf9hg6bbhs.html">https://articles.zsxq.com/id_fkkf9hg6bbhs.html</a></p>
+<h1 id="assistants-9案例实战">Assistants 9：案例实战 </h1>
+<p>准备中。。。<br>
+此内容为星球用户专享内容<br>
+本技术文档的完整详细版，同步在星球更新：<a href="https://articles.zsxq.com/id_fkkf9hg6bbhs.html">https://articles.zsxq.com/id_fkkf9hg6bbhs.html</a></p>
 
       </div>
       
