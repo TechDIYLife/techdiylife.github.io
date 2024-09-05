@@ -1,0 +1,389 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#assistants-5function-calling">Assistants 5：Function calling</a>
+<ul>
+<li><a href="#%E5%9F%BA%E7%A1%80%E7%AF%87">基础篇</a>
+<ul>
+<li><a href="#1-function-calling%E6%98%AF%E4%BB%80%E4%B9%88">1 Function calling是什么？</a></li>
+<li><a href="#2-%E5%AE%83%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88">2 它可以做什么？</a></li>
+<li><a href="#3-function-calling-%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84">3 Function calling 是如何工作的？</a></li>
+<li><a href="#4-llm-%E4%BC%9A%E8%87%AA%E5%B7%B1%E6%89%A7%E8%A1%8C-function-%E5%90%97">4 LLM 会自己执行 function 吗？</a></li>
+<li><a href="#5-function-calling%E4%B8%8E-tools%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB">5 function calling与 tools有什么区别？</a></li>
+<li><a href="#6-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%A8%A1%E5%9E%8B%E6%94%AF%E6%8C%81function-calling">6 有哪些模型支持function calling？</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%9B%E9%98%B6%E7%AF%87">进阶篇</a>
+<ul>
+<li><a href="#7-%E5%BA%94%E8%AF%A5%E5%9C%A8function%E7%9A%84%E6%8F%8F%E8%BF%B0%E8%A7%84%E8%8C%83%E4%B8%AD%E8%AF%B4%E6%98%8E%E4%BD%95%E6%97%B6%E8%B0%83%E7%94%A8%E6%AD%A4%E5%87%BD%E6%95%B0%E8%BF%98%E6%98%AF%E5%BA%94%E8%AF%A5%E5%9C%A8system-prompt%E4%B8%AD">7 应该在function的描述（规范）中说明何时调用此函数，还是应该在system prompt中？</a></li>
+<li><a href="#8-%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E6%A8%A1%E5%9E%8B%E8%B0%83%E7%94%A8%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%87%BD%E6%95%B0">8 如何确保模型调用正确的函数？</a></li>
+<li><a href="#9-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5handing-edge-cases">9 如何处理特殊情况（Handing edge cases）？</a></li>
+<li><a href="#10-%E4%BB%80%E4%B9%88%E6%98%AFstructured-outputs">10 什么是Structured Outputs？</a></li>
+<li><a href="#11-function-calling-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-structured-outputs">11 Function calling 为什么需要 structured Outputs？</a></li>
+<li><a href="#12-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-structured-outputs">12 如何使用 structured Outputs？</a></li>
+<li><a href="#13-%E4%BB%80%E4%B9%88%E6%98%AF%E9%9B%B6%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98structured-outputs-%E4%BC%9A%E5%BD%B1%E5%93%8D%E9%9B%B6%E6%95%B0%E6%8D%AE%E4%BF%9D%E7%95%99%E5%90%97">13 什么是零数据保存，Structured Outputs 会影响零数据保留吗？</a></li>
+<li><a href="#14-%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%AF%B9function-calling%E7%9A%84%E8%A1%8C%E4%B8%BA%E8%BF%9B%E8%A1%8C%E5%93%AA%E4%BA%9B%E8%AE%BE%E7%BD%AE">14. 你可以对function calling的行为进行哪些设置？</a></li>
+<li><a href="#15-%E4%BD%BF%E7%94%A8function-calling%E5%8A%9F%E8%83%BD%E6%97%B6%E7%9A%84%E6%B6%88%E8%80%97tokens%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">15 使用Function calling功能时的消耗tokens要注意什么？</a></li>
+<li><a href="#16-openai%E6%8E%A8%E8%8D%90%E7%9A%84function-calling%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">16 OpenAI推荐的Function calling最佳实践：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E6%88%98%E5%AE%9E%E4%BE%8B">实战实例</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="assistants-5function-calling">Assistants 5：Function calling </h1>
+<div class="alert alert-info">
+<p>以下内容是根据OpenAI官方资料整理而来。</p>
+</div>
+<h2 id="基础篇">基础篇 </h2>
+<h3 id="1-function-calling是什么">1 Function calling是什么？ </h3>
+<p>Fucntion calling 是将 LLM 链接外部工具的一种方式。<br>
+通过它你可以：</p>
+<ol>
+<li>增强LLM，AI助手的能力</li>
+<li>将 LLM 与你的应用进行深度整合</li>
+</ol>
+<h3 id="2-它可以做什么">2 它可以做什么？ </h3>
+<p>function calling可以帮你完成很多的事情</p>
+<ol>
+<li>获取外部数据：当用户询问“我的最近订单是什么？”时，AI助手需要从内部系统获取最新的客户数据，才能生成对用户的回应。</li>
+<li>进行计算：比如可以通过 code interpreter 进行复杂的数学计算。</li>
+<li>完整的工作流：通过使用function calling可以实现完整的工作流，比如可以实现 从数据读取，LLM数据分析，复杂计算，到最后的数据保存 一个完整的工作流。</li>
+<li>修改用户界面： 比如，可以根据用户的要求，在地图上渲染一个标记。</li>
+</ol>
+<h3 id="3-function-calling-是如何工作的">3 Function calling 是如何工作的？ </h3>
+<p>下图是一个function calling的工作流程：</p>
+  <img src="https://cdn.openai.com/API/docs/images/function-calling-diagram.png" alt="" style="width:750px; border: 1px solid #555;">
+<p>处理步骤如下：</p>
+<ol>
+<li>Code：将function描述和要求发送给LLM</li>
+<li>LLM：LLM来确定是直接给答复，还是需要调用function</li>
+<li>LLM：如何要调用function，则返回需要调用的function以及调用function所需要的参数</li>
+<li>Code：程序收到LLM返回后，根据LLM的返回信息，执行 function</li>
+<li>Code：将function执行后得到的结果，以及prompt提示词发送给 LLM</li>
+<li>LLM：LLM产生最终回答</li>
+</ol>
+<h3 id="4-llm-会自己执行-function-吗">4 LLM 会自己执行 function 吗？ </h3>
+<p>答案是不会，执行function的是你的code，不是LLM。<br>
+LLM只是告诉你，需要调用某个function 以及调用 function 时的参数值。</p>
+<h3 id="5-function-calling与-tools有什么区别">5 function calling与 tools有什么区别？ </h3>
+<p>OpenAI Assistants中提供的有tools和function calling两个工具。</p>
+<ul>
+<li>其中 tools 可以理解为是托管在OpenAI服务器上的 function，OpenAI会帮助我们来完成处理步骤中的【2，3，4，5】步。</li>
+<li>而 function calling 是指的本地 function。我们需要在自己的程序中开发调用函数的操作。也就是要完成 1 到 6 的整个流程。</li>
+</ul>
+<h3 id="6-有哪些模型支持function-calling">6 有哪些模型支持function calling？ </h3>
+<p>GPT-4系列都支持function calling功能，比如： gpt-4o, gpt-4o-mini, gpt-4-turbo。 另外GPT-3.5也是支持的。</p>
+<p>开源模型是否支持，需要查看模型的说明。</p>
+<h2 id="进阶篇">进阶篇 </h2>
+<h3 id="7-应该在function的描述规范中说明何时调用此函数还是应该在system-prompt中">7 应该在function的描述（规范）中说明何时调用此函数，还是应该在system prompt中？ </h3>
+<p>OpenAI建议在系统提示词中包含何时调用函数的指令。<br>
+函数的描述用来提供如何调用函数以及如何生成参数的指示。</p>
+<h3 id="8-如何确保模型调用正确的函数">8 如何确保模型调用正确的函数？ </h3>
+<p>为函数和参数使用直观的名称和详细的描述。<br>
+在系统消息中提供清晰的指导，以增强模型选择正确函数的能力。</p>
+<h3 id="9-如何处理特殊情况handing-edge-cases">9 如何处理特殊情况（Handing edge cases）？ </h3>
+<p>在使用function calling 时，可能会出现一些特殊情况，比如由于max_tokens的原因，模型被中断响应。<br>
+OpenAI列出了一些情况，并提供了处理方法供参考。<br>
+具体，请参考：<a href="https://platform.openai.com/docs/guides/function-calling">https://platform.openai.com/docs/guides/function-calling</a></p>
+<h3 id="10-什么是structured-outputs">10 什么是Structured Outputs？ </h3>
+<p>结构化输出是一个，确保模型始终生成符合您提供的 JSON 模式的响应，因此您无需担心模型遗漏所需的键或产生无效的枚举值。<br>
+结构化输出的一些好处包括：</p>
+<ul>
+<li>可靠的类型安全性：无需验证或重新尝试格式不正确的响应</li>
+<li>明确的拒绝：基于安全的模型拒绝现在可以通过程序检测到</li>
+<li>更简单的提示：无需强烈措辞的提示来实现一致的格式</li>
+</ul>
+<h3 id="11-function-calling-为什么需要-structured-outputs">11 Function calling 为什么需要 structured Outputs？ </h3>
+<p>默认情况下，当您使用函数调用时，API 将为您的参数提供匹配的数据。<br>
+但是在使用复杂的fucntion时，比如参数很复杂，模型可能偶尔会遗漏参数或弄错它们的类型。<br>
+结构化输出可以确保函数调用的模型输出将完全匹配您提供的架构。</p>
+<h3 id="12-如何使用-structured-outputs">12 如何使用 structured Outputs？ </h3>
+<p>启用函数调用的结构化输出，只需设置 strict: true 即可, 比如下面的例子：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_weather",
+            "strict": True,
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {"type": "string"},
+                    "unit": {"type": "string", "enum": ["c", "f"]},
+                },
+                "required": ["location", "unit"],
+                "additionalProperties": False,
+            },
+        },
+    }
+]
+</code></pre><p>当你设置 strict：true 之后，OpenAI API 将在您的第一次请求时预处理您提供的架构，并使用此产物来限制模型遵循您的架构。</p>
+<p>模型将始终遵循您的确切架构，除了在以下几种情况下：</p>
+<ul>
+<li>当模型的响应被截断时（可能是由于 max_tokens、停止标记或最大上下文长度）</li>
+<li>当模型拒绝执行时</li>
+<li>当有内容过滤器完成原因时</li>
+</ul>
+<p>请注意，当您首次使用结构化输出发送新架构的请求时，由于需要处理架构，会有额外的延迟，但后续请求应该不会产生任何额外开销。</p>
+<h3 id="13-什么是零数据保存structured-outputs-会影响零数据保留吗">13 什么是零数据保存，Structured Outputs 会影响零数据保留吗？ </h3>
+<p>零数据保留是指在处理用户数据时，系统不保留任何用户数据的政策或技术。这意味着数据在使用后立即被删除或根本不被存储，以确保用户的隐私和数据安全。<br>
+但是启用结构化输出时，不适用零数据保留政策。这意味着在这种模式下，提供的模式和相关数据不能即刻删除或不被存储，可能会被保留一段时间。</p>
+<h3 id="14-你可以对function-calling的行为进行哪些设置">14. 你可以对function calling的行为进行哪些设置？ </h3>
+<ul>
+<li>
+<p>设置并行调用function（也就是在一个response时，可以返回多个function calls）<br>
+比如，你希望了解三个城市的天气预报，通过并行函数调用，一次response就可以获取需要执行的函数<br>
+处理完整之后，可以将三个城市的结果，反馈给LLM<br>
+具体代码，请参考：<a href="https://platform.openai.com/docs/guides/function-calling">https://platform.openai.com/docs/guides/function-calling</a></p>
+</li>
+<li>
+<p>函数并行调用与结构化输出冲突时<br>
+在使用函数并行时，模型可能不能很好的最从 strict的设置，此时可以通过设置 parallel_tool_calls: false 的方式关闭函数并行调用。</p>
+</li>
+<li>
+<p>通过 tool_choice 来控制是否调用function call<br>
+tool_choice 有三种设置：</p>
+<ul>
+<li>auto： 由模型自己控制是否调用function</li>
+<li>requried：模型总是调用function</li>
+<li>none：不调用function</li>
+<li>指定调用的function：例如 tool_choice: {"type": "function", "function": {"name": "my_function"}}</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-使用function-calling功能时的消耗tokens要注意什么">15 使用Function calling功能时的消耗tokens要注意什么？ </h3>
+<p>函数描述，函数调用相关的消息，都会消耗tokens，产生费用。<br>
+如果你的消息比较多，可以考虑重新整理过程的消息来减少token的消费。</p>
+<h3 id="16-openai推荐的function-calling最佳实践">16 OpenAI推荐的Function calling最佳实践： </h3>
+<ul>
+<li>使用  strict: "true"： 此设置会让模型更好的遵循你提供的json格式。如果不使用此设计，建议使用 Pydantic 等工具做验证。</li>
+<li>函数命名时应直观且提供详细描述： 如果发现模型没有调用正确的函数，您可能需要更新函数名称和描述，以便模型更清楚地理解何时应选择每个函数。避免使用缩写或首字母缩略词来缩短函数和参数名称。您还可以包括详细描述，说明何时应调用工具。对于复杂的函数，您应该为每个参数包括描述，帮助模型知道它需要向用户询问什么以收集该参数。</li>
+<li>直观命名函数参数，并提供详细描述： 为函数参数使用清晰和描述性的名称。例如，在描述中指定日期参数的预期格式（例如，YYYY-mm-dd 或 dd/mm/yy）。</li>
+<li>考虑在系统消息中提供有关如何及何时调用函数的额外信息： 在系统消息中提供清晰的指令可以显著提高模型调用函数的准确性。例如，用类似“当用户询问他们的订单状态时，使用 check_order_status，如‘我的订单在哪里？’或‘我的订单发货了吗？’”这样的指示引导模型。为复杂情景提供上下文，如“在使用 schedule_meeting 安排会议前，先使用 check_availability 检查用户的日历以确认可用性，避免时间冲突。”</li>
+<li>使用枚举类型作为函数参数： 如果您的使用场景允许，可以使用枚举类型来约束参数的可能值。这可以帮助减少幻觉现象。</li>
+<li>函数数量不超过20个： 开发者通常会发现，一旦他们拥有10到20个工具，模型选择正确工具的能力会有所下降。 如果您的使用案例需要模型能够在大量函数之间进行选择，您可能需要探索微调，或者将工具进行逻辑分组，以创建多代理系统。</li>
+<li>设置评估，作为您函数定义和系统消息的提示工程的辅助 我们建议对于非平凡的函数调用用途，您应该设置一套评估，以便您能够测量在各种可能的用户消息中正确的函数被调用或正确的参数被生成的频率。了解更多关于在OpenAI Cookbook上设置评估的信息。然后，您可以使用这些评估来衡量对您的函数定义和系统消息进行调整是提高还是降低了您的集成效果。</li>
+<li>微调可能有助于提高函数调用的准确性： 对模型进行微调可以改善您使用案例中的函数调用性能，特别是如果您有大量函数，或者功能复杂、微妙或相似的函数。</li>
+</ul>
+<h2 id="实战实例">实战实例 </h2>
+<p>本实战为你演示如何通过 function calling 功能来调用自定义函数。</p>
+<ul>
+<li>Step1：设置OpenAI API Key</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import os
+os.environ["OPENAI_API_KEY"]="xxxxxxxxxxxxxxxxxxx"
+</code></pre><ul>
+<li>Step2： 自定义一个函数</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>from datetime import datetime
+def get_delivery_date(order_id: int) -&gt; datetime:
+    if order_id == 1:
+        return datetime.strptime("2024-09-01 18:30", "%Y-%m-%d %H:%M")
+    elif order_id == 2:
+        return datetime.strptime("2024-10-20 12:00", "%Y-%m-%d %H:%M")
+    else:
+        return f"cannot find order_id {order_id}"
+
+# Example usage
+print(get_delivery_date(1))
+</code></pre><ul>
+<li>Step3：写函数的描述</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_delivery_date",
+            "description": "Get the delivery date for a customer's order. Call this whenever you need to know the delivery date, for example when a customer asks 'Where is my package'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "description": "The customer's order ID.",
+                    },
+                },
+                "required": ["order_id"],
+                "additionalProperties": False,
+            },
+        }
+    }
+]
+</code></pre><ul>
+<li>Step4: 与LLM对话</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import openai
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_delivery_date",
+            "description": "Get the delivery date for a customer's order. Call this whenever you need to know the delivery date, for example when a customer asks 'Where is my package'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "description": "The customer's order ID.",
+                    },
+                },
+                "required": ["order_id"],
+                "additionalProperties": False,
+            },
+        }
+    }
+]
+
+messages = [
+    {"role": "system", "content": "You are a helpful customer support assistant. Use the supplied tools to assist the user."},
+    {"role": "user", "content": "Hi, can you tell me the delivery date for my order?"}
+]
+messages.append({"role": "assistant", "content": "Hi there! I can help with that. Can you please provide your order ID?"})
+messages.append({"role": "user", "content": "i think it is 1"})
+
+response = openai.chat.completions.create(
+    model="gpt-4o",
+    messages=messages,
+    tools=tools,
+)
+</code></pre><ul>
+<li>Step5: 本地执行函数</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import json
+tool_call = response.choices[0].message.tool_calls[0]
+#获取函数名称
+func_name = tool_call.function.name
+print(func_name)
+#获取参数
+arguments = json.loads(tool_call.function.arguments)
+order_id = arguments.get('order_id')
+print(order_id)
+
+# 执行函数
+if func_name=="get_delivery_date":
+    delivery_date = get_delivery_date(int(order_id))
+    print(delivery_date)
+
+</code></pre><ul>
+<li>Step6： 准备function call相关的messages</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 准备function执行后返回的结果（role 为 tool ）
+msg_function_call_result = {
+    "role": "tool",
+    "content": json.dumps({
+        "order_id": order_id,
+        "delivery_date": delivery_date.strftime('%Y-%m-%d %H:%M:%S')
+    }),
+    "tool_call_id": response.choices[0].message.tool_calls[0].id
+}
+
+</code></pre><ul>
+<li>Step7：将函数执行结果提交给LLM， 产生最终的解答</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import openai
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_delivery_date",
+            "description": "Get the delivery date for a customer's order. Call this whenever you need to know the delivery date, for example when a customer asks 'Where is my package'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "description": "The customer's order ID.",
+                    },
+                },
+                "required": ["order_id"],
+                "additionalProperties": False,
+            },
+        }
+    }
+]
+
+messages = [
+    {"role": "system", "content": "You are a helpful customer support assistant. Use the supplied tools to assist the user."},
+    {"role": "user", "content": "Hi, can you tell me the delivery date for my order?"}
+]
+messages.append({"role": "assistant", "content": "Hi there! I can help with that. Can you please provide your order ID?"})
+messages.append({"role": "user", "content": "i think it is 1"})
+messages.append(response.choices[0].message)
+messages.append(msg_function_call_result)
+
+response_final = openai.chat.completions.create(
+    model="gpt-4o",
+    messages=messages,
+    tools=tools,
+)
+
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

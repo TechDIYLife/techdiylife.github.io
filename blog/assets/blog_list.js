@@ -90,6 +90,10 @@ const blogList = [
   { id: "0061", category1: "c01", category2: "t07", create_date: "2024.07.14", title_short: "GraphRAG快速入门", title_full: "GraphRAG快速入门", href: "202401/240713-graph-rag.html", video_href: "" },
   { id: "0062", category1: "c01", category2: "t07", create_date: "2024.08.07", title_short: "用72B Qwen2跑一次GraphRAG要多少钱？", title_full: "用72B Qwen2跑一次GraphRAG要多少钱？", href: "202401/240801-AD-zhisuanyun.html", video_href: "" },
   { id: "0063", category1: "c01", category2: "t09", create_date: "2024.08.17", title_short: "LLM Agents专题", title_full: "LLM Agents专题", href: "202401/240817-Agents.html", video_href: "" },
+  { id: "0064", category1: "c01", category2: "t09", create_date: "2024.09.06", title_short: "OpenAI Function Calling最佳实践：16个问题带你入门到精通", title_full: "OpenAI Function Calling最佳实践：16个问题带你入门到精通", href: "202401/240903-function-calling.html", video_href: "" },
+
+
+  
 
 ];
 
