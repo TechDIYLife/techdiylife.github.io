@@ -250,10 +250,8 @@ PARAMETER top_p 0.8
 <p>ollama github首页中推荐了多种WebUI和终端访问方法的相关项目。<br>
 <a href="https://github.com/ollama/ollama">https://github.com/ollama/ollama</a> （Community Integrations部分）</p>
 <p><strong>安装教程：Windows上如何安装Open WebUI</strong><br>
-B站：</p>
-  <iframe width="560" height="315" src="https://player.bilibili.com/player.html?bvid=BV1Ex421Q723&amp;page=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<p>油管：</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/VfeCri0yplc?si=UCoZpuOyyJ-ymjix" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+B站：<a href="https://player.bilibili.com/player.html?bvid=BV1Ex421Q723&amp;page=1&amp;autoplay=0">https://player.bilibili.com/player.html?bvid=BV1Ex421Q723&amp;page=1&amp;autoplay=0</a><br>
+油管：<a href="https://www.youtube.com/embed/VfeCri0yplc?si=UCoZpuOyyJ-ymjix">https://www.youtube.com/embed/VfeCri0yplc?si=UCoZpuOyyJ-ymjix</a></p>
 <p><strong>Linux安装教程请访问：</strong><br>
 <a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0036">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0036</a></p>
 <h3 id="14-如何对ollama进行速度评价">14 如何对ollama进行速度评价？ </h3>
@@ -296,7 +294,11 @@ sudo journalctl -u ollama
 sudo nano /etc/systemd/system/ollama.service
 # 在文件中Service字段后添加
 [Service]
-Environment="http_proxy=xxxxxx"
+Environment="OLLAMA_MODELS=/home/xxxx/ollama_models"
+Environment="HTTP_PROXY=xxxxx"
+Environment="HTTPS_PROXY=xxxx"
+Environment="NO_PROXY=127.0.0.1,localhost,192.168.0.0/16"
+
 
 # 重启服务
 sudo systemctl daemon-reload
