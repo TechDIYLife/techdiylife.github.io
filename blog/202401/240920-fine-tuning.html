@@ -86,11 +86,15 @@
 <li>实测对比：全量微调、LoRA微调、QLoRA微调的<strong>GPU显存占用</strong>和<strong>训练速度</strong>。</li>
 <li>微调案例演示：如何微调一个<strong>产品问答AI小助手</strong></li>
 </ul>
+<p><strong>B站视频演示</strong>：<a href="https://www.bilibili.com/video/BV1TTbFegELr/">https://www.bilibili.com/video/BV1TTbFegELr/</a></p>
 <h2 id="1-环境准备">1 环境准备 </h2>
 <h3 id="11-服务器登录与基本设置">1.1 服务器登录与基本设置 </h3>
 <ul>
-<li>服务器登录并租用一个新实例<br>
-<a href="https://gpuez.com">https://gpuez.com</a></li>
+<li>
+<p>登录服务器并租用一个新实例<br>
+<a href="https://gpuez.com">https://gpuez.com</a></p>
+<p>租用实例入口：控制台（右上角） --&gt; 算力（左侧）--&gt; 租用新实例</p>
+</li>
 </ul>
 <h3 id="12-基本环境安装">1.2 基本环境安装 </h3>
 <ul>
@@ -198,24 +202,26 @@ finetuning_type: lora
 <h3 id="41-数据准备">4.1 数据准备 </h3>
 <ul>
 <li>下载数据：<a href="https://techdiylife.github.io/blog/202401/gpuez.json">https://techdiylife.github.io/blog/202401/gpuez.json</a></li>
-<li>将gpuez.json文件上传到data目录下</li>
+<li>将gpuez.json文件上传到llama-factory/data目录下</li>
 </ul>
 <h3 id="42-数据准备代码">4.2 数据准备代码 </h3>
 <ul>
-<li>在 dataset_info.json 中增加数据描述</li>
-</ul>
-<pre data-role="codeBlock" data-info="" class="language-text"><code>  "gpuez": {
-    "file_name": "gpuez.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations"
-    }
-  },
-</code></pre><ul>
-<li>打开 examples/train_lora/llama3_lora_sft.yaml 修改dataset名称</li>
-</ul>
+<li>
+<p>在 dataset_info.json 中增加数据描述</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>"gpuez": {
+  "file_name": "gpuez.json",
+  "formatting": "sharegpt",
+  "columns": {
+    "messages": "conversations"
+  }
+},
+</code></pre></li>
+<li>
+<p>打开 examples/train_lora/llama3_lora_sft.yaml 修改dataset名称</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>dataset: gpuez
-</code></pre><h3 id="43-模型训练与测试">4.3 模型训练与测试 </h3>
+</code></pre></li>
+</ul>
+<h3 id="43-模型训练与测试">4.3 模型训练与测试 </h3>
 <p>模型微调与测试</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
 llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
