@@ -70,13 +70,15 @@
 </li>
 <li><a href="#2-%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83">2 模型微调</a></li>
 <li><a href="#3-%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95">3 模型测试</a></li>
-<li><a href="#4-ai%E5%B0%8F%E5%8A%A9%E6%89%8B%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98">4 AI小助手案例实战</a>
+<li><a href="#4-%E9%87%8F%E5%8C%96%E6%8A%80%E6%9C%AF%E5%AF%B9%E6%AF%94">4 量化技术对比</a></li>
+<li><a href="#5-ai%E5%B0%8F%E5%8A%A9%E6%89%8B%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98">5 AI小助手案例实战</a>
 <ul>
-<li><a href="#41-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">4.1 数据准备</a></li>
-<li><a href="#42-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%BB%A3%E7%A0%81">4.2 数据准备代码</a></li>
-<li><a href="#43-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%B5%8B%E8%AF%95">4.3 模型训练与测试</a></li>
+<li><a href="#51-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87">5.1 数据准备</a></li>
+<li><a href="#52-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E4%BB%A3%E7%A0%81">5.2 数据准备代码</a></li>
+<li><a href="#53-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%B5%8B%E8%AF%95">5.3 模型训练与测试</a></li>
 </ul>
 </li>
+<li><a href="#6-%E9%99%84%E5%8A%A0%E6%B5%8B%E8%AF%95-%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96%E5%99%A8">6 附加测试： 其他优化器</a></li>
 </ul>
 </li>
 </ul>
@@ -170,14 +172,25 @@ template: llama3
 finetuning_type: lora
 </code></pre><p>在命令行中执行一下命令：</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
-</code></pre><p><strong>量化技术对比</strong></p>
+</code></pre><h2 id="4-量化技术对比">4 量化技术对比 </h2>
+<ul>
+<li>
 <p>微调模型：Meta-Llama-3-8B-Instruct</p>
+</li>
+<li>
+<p>测试条件：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+</code></pre></li>
+<li>
+<p>测试结果</p>
 <table>
 <thead>
 <tr>
 <th>微调方式</th>
 <th>显存</th>
 <th>速度</th>
+<th>备注</th>
 </tr>
 </thead>
 <tbody>
@@ -185,26 +198,49 @@ finetuning_type: lora
 <td>全量微调</td>
 <td>273G</td>
 <td>14.2s/it</td>
+<td></td>
 </tr>
 <tr>
 <td>LoRA</td>
 <td>20G</td>
 <td>2.3s/it</td>
+<td></td>
 </tr>
 <tr>
 <td>QLoRA</td>
 <td>10G</td>
 <td>3.2s/it</td>
+<td></td>
+</tr>
+<tr>
+<td>全量微调-Adam-mini</td>
+<td>131G</td>
+<td>-</td>
+<td>概算</td>
+</tr>
+<tr>
+<td>全量微调-Galore</td>
+<td>24G</td>
+<td>-</td>
+<td>参考附加测试</td>
+</tr>
+<tr>
+<td>全量微调-BAdam</td>
+<td>20G</td>
+<td>1.5s/it</td>
+<td>参考附加测试</td>
 </tr>
 </tbody>
 </table>
-<h2 id="4-ai小助手案例实战">4 AI小助手案例实战 </h2>
-<h3 id="41-数据准备">4.1 数据准备 </h3>
+</li>
+</ul>
+<h2 id="5-ai小助手案例实战">5 AI小助手案例实战 </h2>
+<h3 id="51-数据准备">5.1 数据准备 </h3>
 <ul>
 <li>下载数据：<a href="https://techdiylife.github.io/blog/202401/gpuez.json">https://techdiylife.github.io/blog/202401/gpuez.json</a></li>
 <li>将gpuez.json文件上传到llama-factory/data目录下</li>
 </ul>
-<h3 id="42-数据准备代码">4.2 数据准备代码 </h3>
+<h3 id="52-数据准备代码">5.2 数据准备代码 </h3>
 <ul>
 <li>
 <p>在 dataset_info.json 中增加数据描述</p>
@@ -221,11 +257,43 @@ finetuning_type: lora
 <pre data-role="codeBlock" data-info="" class="language-text"><code>dataset: gpuez
 </code></pre></li>
 </ul>
-<h3 id="43-模型训练与测试">4.3 模型训练与测试 </h3>
+<h3 id="53-模型训练与测试">5.3 模型训练与测试 </h3>
 <p>模型微调与测试</p>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml
 llamafactory-cli chat examples/inference/llama3_lora_sft.yaml
-</code></pre>
+</code></pre><h2 id="6-附加测试-其他优化器">6 附加测试： 其他优化器 </h2>
+<ul>
+<li>
+<p>BAdam优化器：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 安装开发库
+pip install badam&gt;=1.2.1
+# 运行脚本
+llamafactory-cli train examples/extras/badam/llama3_full_sft.yaml
+</code></pre><p>参考：<a href="https://github.com/Ledzy/BAdam">https://github.com/Ledzy/BAdam</a></p>
+</li>
+<li>
+<p>Galore优化器（不推荐）</p>
+<p>galore_layerwise设置时，不支持gradient_accumulation_steps&gt;1设置<br>
+速度无法进行直接对比。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 安装开发库
+pip install galore_torch
+
+llamafactory-cli train examples/extras/galore/llama3_full_sft.yaml 
+</code></pre><p>以前我们曾测试过此方法，Galore会增加额外的CPU计算，训练时间会大幅度增加。<br>
+<a href="https://www.bilibili.com/video/BV1fM4m1R75p/">https://www.bilibili.com/video/BV1fM4m1R75p/</a></p>
+</li>
+<li>
+<p>Adam-mini</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 安装开发库
+pip install adam-mini
+# 运行脚本
+llamafactory-cli train extras/adam_mini/qwen2_full_sft.yaml
+# 修改 template: llama3
+</code></pre><p>GPU占用为全量微调的约48%，概算：131G</p>
+<p>参考：<a href="https://github.com/zyushun/Adam-mini">https://github.com/zyushun/Adam-mini</a></p>
+</li>
+</ul>
+
       </div>
       
       
