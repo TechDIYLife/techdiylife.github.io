@@ -1,0 +1,390 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E8%A7%86%E8%A7%89llm-vl%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD%E9%87%8F%E6%8E%92%E8%A1%8C%E6%A6%9C2024%E5%B9%B410%E6%9C%88%E7%89%88">视觉LLM-VL模型下载量排行榜2024年10月版</a>
+<ul>
+<li><a href="#%E5%BC%80%E6%BA%90vl%E6%A8%A1%E5%9E%8B">开源VL模型</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E5%90%8Dqwen2-vl2b7b72b">第一名：Qwen2-VL：2B，7B，72B</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E5%90%8Dmeta-llama3211b-90b">第二名：Meta LLama3.2：11B, 90B</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E5%90%8Dmicrosoft-phi-35-vision-4b">第三名：Microsoft Phi-3.5 Vision 4B</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E5%90%8Dinternvl22b4b8b26b40b108bllama3-76b-pro">第四名：InternVL2：2B，4B，8B，26B，40B，108B，Llama3-76B， Pro</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E5%90%8Dllava-llava-next">第五名：LLaVA, LLaVA-Next</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AD%E5%90%8Dminicpm-v-2_6">第六名：MiniCPM-V-2_6</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%83%E5%90%8Dpixtral-12b">第七名：Pixtral 12B</a></li>
+<li><a href="#%E7%AC%AC%E5%85%AB%E5%90%8Dcogvlm2">第八名：CogVLM2</a></li>
+<li><a href="#%E7%AC%AC%E4%B9%9D%E5%90%8Ddeepseek-vl1b7b">第九名：DeepSeek-VL：1B，7B</a></li>
+<li><a href="#%E7%AC%AC%E5%8D%81%E5%90%8Dyi-vl">第十名：Yi-VL</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BC%80%E5%8F%91%E5%BA%93%E6%B1%87%E6%80%BB">开发库汇总</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86">更多资料收集</a>
+<ul>
+<li><a href="#baichuan-inc">Baichuan-inc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="视觉llm-vl模型下载量排行榜2024年10月版">视觉LLM-VL模型下载量排行榜2024年10月版 </h1>
+<h2 id="开源vl模型">开源VL模型 </h2>
+<p>本篇文章，统计了Hugggingface上VL开源模型的月下载量。<br>
+一起来看看，谁是最人气的VL开源模型。</p>
+<p>排名规则：</p>
+<ol>
+<li>基于最新版本的模型数据</li>
+<li>有多个参数量尺寸的模型，只选择下载量最多版本（不是多个尺寸版本的累加）</li>
+</ol>
+<p>下载量统计日期：2024.10.26</p>
+<h3 id="第一名qwen2-vl2b7b72b">第一名：Qwen2-VL：2B，7B，72B </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+<a href="https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct">https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct</a><br>
+下载量：1003K<br>
+<a href="https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct">https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct</a><br>
+下载量：36K<br>
+<a href="https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct-AWQ">https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct-AWQ</a><br>
+下载量：2180K</p>
+</li>
+<li>
+<p>技术报告：<br>
+Qwen2-VL: Enhancing Vision-Language Model’s Perception of the World at Any Resolution： <a href="https://arxiv.org/pdf/2409.12191">https://arxiv.org/pdf/2409.12191</a></p>
+</li>
+<li>
+<p>比较模型<br>
+GPT-4o，GPT-4o-mini(闭源)<br>
+Claude-3.5 Sonnet (闭源)<br>
+Gemini 1.5-Pro(闭源)<br>
+Ferretv2 （只有技术报告）<br>
+MiniCPM-V 2.6<br>
+CogVLM<br>
+InternVL2 2b，8b，76b</p>
+</li>
+</ul>
+<h3 id="第二名meta-llama3211b-90b">第二名：Meta LLama3.2：11B, 90B </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+发布日期：2024年9月<br>
+<a href="https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct">https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct</a><br>
+下载量：1557K<br>
+<a href="https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct">https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct</a><br>
+下载量：93K</p>
+</li>
+<li>
+<p>技术报告<br>
+The Llama 3 Herd of Models<br>
+<a href="https://arxiv.org/abs/2407.21783">https://arxiv.org/abs/2407.21783</a></p>
+</li>
+<li>
+<p>比较模型<br>
+<a href="https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/">https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/</a><br>
+GPT-4V， GPT-4o (闭源)<br>
+Gemini 1.5 Pro Claude 3.5 (闭源)<br>
+Claude 3 - Haiku (闭源)<br>
+GPT-4o-mini （闭源）<br>
+只比较了闭源模型</p>
+</li>
+</ul>
+<h3 id="第三名microsoft-phi-35-vision-4b">第三名：Microsoft Phi-3.5 Vision 4B </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+<a href="https://huggingface.co/microsoft/Phi-3.5-vision-instruct">https://huggingface.co/microsoft/Phi-3.5-vision-instruct</a><br>
+下载量：382K</p>
+</li>
+<li>
+<p>技术报告<br>
+Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone<br>
+<a href="https://arxiv.org/pdf/2404.14219">https://arxiv.org/pdf/2404.14219</a></p>
+</li>
+<li>
+<p>比较模型<br>
+GPT-4o，Gemini 1.0 Pro V， Claude 3 Haiku<br>
+GPT-4o-mini 	<br>
+Gemini-1.5-Flash 	<br>
+Claude-3.5-Sonnet 	<br>
+Gemini-1.5-Pro</p>
+<p>LLaVA-Next LLama3-8b<br>
+Qwen-VL-Chat<br>
+LLAVA-1.6 Vicuna-7b<br>
+MM1-3B-Chat 3.6b<br>
+MM1-7B-Chat 7.6b<br>
+LlaVA-Interleave-Qwen-7B<br>
+InternVL-2-4B<br>
+InternVL-2-8B</p>
+</li>
+<li>
+<p>其他<br>
+Phi-3 Vision 4B<br>
+<a href="https://huggingface.co/microsoft/Phi-3-vision-128k-instruct">https://huggingface.co/microsoft/Phi-3-vision-128k-instruct</a><br>
+下载量：246K</p>
+</li>
+</ul>
+<h3 id="第四名internvl22b4b8b26b40b108bllama3-76b-pro">第四名：InternVL2：2B，4B，8B，26B，40B，108B，Llama3-76B， Pro </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-Llama3-76B">https://huggingface.co/OpenGVLab/InternVL2-Llama3-76B</a><br>
+下载量：291K</p>
+<p><a href="https://huggingface.co/llava-hf/llava-interleave-qwen-7b-hf">https://huggingface.co/llava-hf/llava-interleave-qwen-7b-hf</a><br>
+下载量：15K</p>
+</li>
+<li>
+<p>技术报告<br>
+InternVL2 Blog：<a href="https://internvl.github.io/blog/2024-07-02-InternVL-2.0/">https://internvl.github.io/blog/2024-07-02-InternVL-2.0/</a></p>
+</li>
+<li>
+<p>开发库<br>
+<a href="https://github.com/OpenGVLab/InternVL">https://github.com/OpenGVLab/InternVL</a></p>
+</li>
+<li>
+<p>比较模型<br>
+GPT-4V， Gemini Pro 1.5， Claude3.5-Sonnet， GPT-4o<br>
+LLaVA-Next Qwen1.5</p>
+</li>
+<li>
+<p>其他<br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-1B">https://huggingface.co/OpenGVLab/InternVL2-1B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-2B">https://huggingface.co/OpenGVLab/InternVL2-2B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-4B">https://huggingface.co/OpenGVLab/InternVL2-4B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-8B">https://huggingface.co/OpenGVLab/InternVL2-8B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-26B">https://huggingface.co/OpenGVLab/InternVL2-26B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-40B">https://huggingface.co/OpenGVLab/InternVL2-40B</a><br>
+<a href="https://huggingface.co/OpenGVLab/InternVL2-Llama3-76B">https://huggingface.co/OpenGVLab/InternVL2-Llama3-76B</a></p>
+<p>InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks<br>
+<a href="https://arxiv.org/pdf/2312.14238">https://arxiv.org/pdf/2312.14238</a></p>
+</li>
+</ul>
+<h3 id="第五名llava-llava-next">第五名：LLaVA, LLaVA-Next </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+LLaVA-OneVision： LLaVA-Onevision-7b-si was added in August 2024.<br>
+基于Qwen2-7B LLM<br>
+发布日期：2024.08<br>
+<a href="https://huggingface.co/lmms-lab/llava-onevision-qwen2-7b-ov">https://huggingface.co/lmms-lab/llava-onevision-qwen2-7b-ov</a><br>
+下载量：218K<br>
+<a href="https://huggingface.co/lmms-lab/llava-onevision-qwen2-7b-ov-chat">https://huggingface.co/lmms-lab/llava-onevision-qwen2-7b-ov-chat</a><br>
+下载量：150K</p>
+</li>
+<li>
+<p>技术报告<br>
+LLaVA-OneVision: Easy Visual Task Transfer<br>
+<a href="https://arxiv.org/pdf/2408.03326">https://arxiv.org/pdf/2408.03326</a></p>
+</li>
+<li>
+<p>开发库<br>
+<a href="https://github.com/LLaVA-VL/LLaVA-NeXT">https://github.com/LLaVA-VL/LLaVA-NeXT</a></p>
+</li>
+<li>
+<p>其他<br>
+LLaVA-v1.6: trained in December 2023.<br>
+LLaVA-v1.5: trained in September 2023.<br>
+LLaVA-v1： trained in April 2023.</p>
+<p>llava-v1.6-mistral-7b-hf： 7b, 13b, 34b<br>
+<a href="https://huggingface.co/liuhaotian/llava-v1.6-mistral-7b">https://huggingface.co/liuhaotian/llava-v1.6-mistral-7b</a> [原作者]<br>
+<a href="https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf">https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf</a> 【HF官方整理】<br>
+下载量：1300K + 73K</p>
+</li>
+</ul>
+<h3 id="第六名minicpm-v-2_6">第六名：MiniCPM-V-2_6 </h3>
+<ul>
+<li>
+<p>最新下载量，2024年8月<br>
+<a href="https://huggingface.co/openbmb/MiniCPM-V-2_6">https://huggingface.co/openbmb/MiniCPM-V-2_6</a><br>
+下载量：192K</p>
+</li>
+<li>
+<p>技术报告<br>
+MiniCPM-V: A GPT-4V Level MLLM on Your Phone<br>
+<a href="https://arxiv.org/abs/2408.01800">https://arxiv.org/abs/2408.01800</a></p>
+</li>
+<li>
+<p>开发库<br>
+<a href="https://github.com/OpenBMB/MiniCPM-V">https://github.com/OpenBMB/MiniCPM-V</a></p>
+</li>
+<li>
+<p>比较模型<br>
+LLaVA-NeXT-Yi-34B<br>
+Cambrian-34B<br>
+Phi-3-vision-128k-instruct<br>
+Idefics2</p>
+</li>
+</ul>
+<h3 id="第七名pixtral-12b">第七名：Pixtral 12B </h3>
+<ul>
+<li>
+<p>最新下载量，2024年9月<br>
+Pixtral 12B<br>
+<a href="https://huggingface.co/mistral-community/pixtral-12b">https://huggingface.co/mistral-community/pixtral-12b</a><br>
+下载量：28K</p>
+</li>
+<li>
+<p>技术报告<br>
+<a href="https://mistral.ai/news/pixtral-12b/">https://mistral.ai/news/pixtral-12b/</a></p>
+</li>
+<li>
+<p>比较模型<br>
+Claude-3 Haiku(闭源)<br>
+Gemini-1.5 Flash-8B (闭源)<br>
+Cluade-3.5 Sonnet(闭源)<br>
+GPT-4o(闭源)</p>
+<p>LLaVA-OV 7B，72B<br>
+Qwen2-VL 7B<br>
+Phi-3 Vision 4B<br>
+Phi-3.5 Vision 4B</p>
+</li>
+</ul>
+<h3 id="第八名cogvlm2">第八名：CogVLM2 </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+发布日期：2024年5月<br>
+<a href="https://huggingface.co/THUDM/cogvlm2-llama3-chat-19B">https://huggingface.co/THUDM/cogvlm2-llama3-chat-19B</a><br>
+下载量：24K</p>
+</li>
+<li>
+<p>技术报告<br>
+CogVLM2: Visual Language Models for Image and Video Understanding<br>
+<a href="https://arxiv.org/pdf/2408.16500">https://arxiv.org/pdf/2408.16500</a></p>
+</li>
+<li>
+<p>比较模型<br>
+InternVL2-26B<br>
+GLM-4V-Plus</p>
+</li>
+<li>
+<p>其他<br>
+<a href="https://huggingface.co/THUDM/cogvlm-chat-hf">https://huggingface.co/THUDM/cogvlm-chat-hf</a><br>
+下载量：436K</p>
+</li>
+</ul>
+<h3 id="第九名deepseek-vl1b7b">第九名：DeepSeek-VL：1B，7B </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+时间：2024年3月<br>
+<a href="https://huggingface.co/deepseek-ai/deepseek-vl-7b-chat">https://huggingface.co/deepseek-ai/deepseek-vl-7b-chat</a><br>
+下载量：4K</p>
+</li>
+<li>
+<p>技术报告<br>
+DeepSeek-VL: Towards Real-World Vision-Language<br>
+Understanding<br>
+<a href="https://arxiv.org/pdf/2403.05525">https://arxiv.org/pdf/2403.05525</a></p>
+</li>
+<li>
+<p>比较模型<br>
+GPT-4V，Qwen-VL-MAX（闭源）<br>
+LLaVA-1.5 （13B）， LLaVA-Next（13B）<br>
+Qwen-VL-Chat，CogVLM， LLaVA-Next， Yi-VL（7B）<br>
+LLaVA-Phi （2.7B）</p>
+</li>
+</ul>
+<h3 id="第十名yi-vl">第十名：Yi-VL </h3>
+<ul>
+<li>
+<p>最新下载量<br>
+<a href="https://huggingface.co/01-ai/Yi-VL-6B">https://huggingface.co/01-ai/Yi-VL-6B</a><br>
+下载量：503<br>
+<a href="https://huggingface.co/01-ai/Yi-VL-34B">https://huggingface.co/01-ai/Yi-VL-34B</a><br>
+下载量：413</p>
+</li>
+<li>
+<p>技术报告：<br>
+Yi: Open Foundation Models by <a href="http://01.AI">01.AI</a><br>
+<a href="https://arxiv.org/pdf/2403.04652">https://arxiv.org/pdf/2403.04652</a></p>
+</li>
+<li>
+<p>开发库<br>
+<a href="https://github.com/01-ai/Yi">https://github.com/01-ai/Yi</a></p>
+</li>
+</ul>
+<h2 id="开发库汇总">开发库汇总 </h2>
+<p><a href="https://github.com/OpenGVLab/InternVL">https://github.com/OpenGVLab/InternVL</a><br>
+<a href="https://github.com/haotian-liu/LLaVA">https://github.com/haotian-liu/LLaVA</a><br>
+<a href="https://github.com/LLaVA-VL/LLaVA-NeXT">https://github.com/LLaVA-VL/LLaVA-NeXT</a><br>
+<a href="https://github.com/OpenBMB/MiniCPM-V">https://github.com/OpenBMB/MiniCPM-V</a><br>
+<a href="https://github.com/01-ai/Yi">https://github.com/01-ai/Yi</a></p>
+<h2 id="更多资料收集">更多资料收集 </h2>
+<p><a href="https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models">https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models</a></p>
+<h3 id="baichuan-inc">Baichuan-inc </h3>
+<ul>
+<li>
+<p>技术报告，2024年10月<br>
+Baichuan-Omni Technical Report<br>
+<a href="https://arxiv.org/abs/2410.08565">https://arxiv.org/abs/2410.08565</a></p>
+<p>Blog： <a href="https://github.com/westlake-baichuan-mllm/bc-omni">https://github.com/westlake-baichuan-mllm/bc-omni</a></p>
+</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
