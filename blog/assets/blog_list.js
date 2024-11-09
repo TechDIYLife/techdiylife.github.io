@@ -93,6 +93,7 @@ const blogList = [
   { id: "0064", category1: "c01", category2: "t09", create_date: "2024.09.06", title_short: "OpenAI Function Calling最佳实践：16个问题带你入门到精通", title_full: "OpenAI Function Calling最佳实践：16个问题带你入门到精通", href: "202401/240903-function-calling.html", video_href: "" },
   { id: "0065", category1: "c01", category2: "t05", create_date: "2024.09.19", title_short: "微调技术大比拼：全量微调与LoRA、QLoRA实测对比！", title_full: "微调技术大比拼：全量微调与LoRA、QLoRA实测对比！", href: "202401/240920-fine-tuning.html", video_href: "" },
   { id: "0066", category1: "c01", category2: "t08", create_date: "2024.10.30", title_short: "视觉大模型大盘点！最人气的十款视觉大模型", title_full: "视觉大模型大盘点！最人气的十款视觉大模型", href: "202401/241026-vl-model.html", video_href: "" },
+  { id: "0067", category1: "c02", category2: "", create_date: "2024.11.09", title_short: "AI共学：大模型微调", title_full: "AI共学：大模型微调", href: "202401/241109-LLM-FT.html", video_href: "" },
 
   
 ];
