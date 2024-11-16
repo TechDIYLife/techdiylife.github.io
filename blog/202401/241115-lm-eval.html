@@ -1,0 +1,356 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#llm%E5%BE%AE%E8%B0%83%E8%AF%84%E4%BC%B0%E5%85%88%E8%A1%8Clm-eval%E8%AF%84%E4%BC%B0%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D">LLM微调：评估先行，lm-eval评估工具介绍</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%AF%87">基本概念篇</a>
+<ul>
+<li><a href="#1-llm-%E5%BE%AE%E8%B0%83%E4%B8%AD%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88">1 LLM 微调中最重要的是什么？</a></li>
+<li><a href="#2-%E5%BE%AE%E8%B0%83%E4%BB%BB%E5%8A%A1%E7%9A%84%E9%80%89%E6%8B%A9">2 微调任务的选择？</a></li>
+<li><a href="#3-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BE%AE%E8%B0%83%E7%9A%84%E6%95%B0%E6%8D%AE">3 如何选择微调的数据？</a></li>
+<li><a href="#4-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%AF%84%E4%BC%B0%E6%AF%94%E5%A6%82%E5%A6%82%E4%BD%95%E8%AF%84%E4%BC%B0llama3%E6%A8%A1%E5%9E%8B%E5%9C%A8gsm8k%E4%B8%8A%E7%9A%84%E6%80%A7%E8%83%BD">4 如何进行评估，比如如何评估llama3模型在GSM8k上的性能？</a></li>
+<li><a href="#5-%E6%9C%89%E4%BB%80%E4%B9%88%E5%B7%A5%E5%85%B7%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%8A%A9%E8%AF%84%E4%BC%B0%E5%90%97">5 有什么工具可以帮助评估吗？</a></li>
+</ul>
+</li>
+<li><a href="#lm-eval%E5%AE%9E%E6%88%98%E7%AF%87">lm-eval实战篇</a>
+<ul>
+<li><a href="#6-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85lm-eval">6 如何安装lm-eval？</a></li>
+<li><a href="#7-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8lm-eval%E8%BF%9B%E8%A1%8C%E8%AF%84%E4%BC%B0">7 如何快速使用lm-eval进行评估？</a></li>
+<li><a href="#8-lm-eval%E9%83%BD%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E6%A8%A1%E5%9E%8B">8 lm-eval都支持哪些模型？</a></li>
+<li><a href="#9-%E5%AE%83%E6%94%AF%E6%8C%81lora%E5%BE%AE%E8%B0%83%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%90%97">9 它支持lora微调的模型吗？</a></li>
+<li><a href="#10-%E5%AE%83%E6%94%AF%E6%8C%81%E5%AF%B9openai%E7%AD%89%E9%97%AD%E6%BA%90%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E8%AF%84%E4%BC%B0%E5%90%97">10 它支持对OpenAI等闭源模型进行评估吗？</a></li>
+<li><a href="#11-%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E8%87%AA%E5%B7%B1%E9%83%A8%E7%BD%B2%E7%9A%84api%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0">11 是否支持自己部署的API进行模型评估？</a></li>
+<li><a href="#12-%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81delta-weights%E6%A8%A1%E5%9E%8B">12 是否支持delta weights模型？</a></li>
+<li><a href="#13-%E6%94%AF%E6%8C%81%E6%A8%A1%E5%9E%8B%E9%87%8F%E5%8C%96%E6%8E%A8%E7%90%86%E5%90%97">13 支持模型量化推理吗？</a></li>
+<li><a href="#14-%E5%AE%83%E9%83%BD%E6%94%AF%E6%8C%81%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AEtask%E6%94%AF%E6%8C%81%E4%BB%80%E4%B9%88%E8%AF%84%E4%BC%B0%E6%96%B9%E5%BC%8F">14 它都支持什么数据（task），支持什么评估方式？</a></li>
+<li><a href="#15-%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%84%E4%BC%B0%E6%95%B0%E6%8D%AE">15 如何自定义评估数据？</a></li>
+<li><a href="#16-%E8%AF%84%E4%BC%B0%E9%9C%80%E8%A6%81gpu%E5%90%97%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%A4%9Agpu%E8%AF%84%E4%BC%B0">16 评估需要GPU吗？如何使用多GPU评估？</a></li>
+<li><a href="#17-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A4%8D%E7%8E%B0%E4%B8%8D%E4%BA%86%E5%AE%98%E6%96%B9%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%93%E6%9E%9C">17 为什么复现不了官方模型的结果？</a></li>
+<li><a href="#18-%E4%BB%BB%E5%8A%A1gsm8kgsm8k_cot-gsm8k_cot_llama-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB">18 任务gsm8k，gsm8k_cot, gsm8k_cot_llama 有什么区别？</a></li>
+<li><a href="#19-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%E6%8F%90%E4%BE%9B%E7%9A%84chat-template">19 如何使用模型提供的chat template？</a></li>
+<li><a href="#20-lm-eval%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E5%9C%A8%E5%93%AA%E9%87%8C">20 lm-eval帮助文档在哪里？</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98">其他问题？</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="llm微调评估先行lm-eval评估工具介绍">LLM微调：评估先行，lm-eval评估工具介绍 </h2>
+<p>本文介绍，LLM微调中需要最优化考虑的问题，也就是LLM评估。<br>
+并介绍一个人气的LLM评估工具 lm-evaluation-harness<br>
+通过学习这个工具的使用来进一步了解如何进行LLM评估。</p>
+<h2 id="基本概念篇">基本概念篇 </h2>
+<h3 id="1-llm-微调中最重要的是什么">1 LLM 微调中最重要的是什么？ </h3>
+<p>LLM微调大体可以包含：任务设定，数据准备，模型选择，微调模型，模型评估</p>
+<ul>
+<li>首先需要考虑微调什么任务</li>
+<li>任务确定之后，最优先要解决的问题应该是模型评估。</li>
+</ul>
+<p>为什么不是先微调模型，而是要先搞定模型评估呢？</p>
+<ul>
+<li>帮助你理解微调任务</li>
+<li>为模型微调提供指导</li>
+</ul>
+<h3 id="2-微调任务的选择">2 微调任务的选择？ </h3>
+<p>可以从下面两个方向考虑：</p>
+<ul>
+<li>技术学习：主要考虑任务是否容易评估？ 评估成本？ 推荐选择数学客观题，关键词提取，翻译等任务</li>
+<li>项目开发：主要考虑任务是否可以评估？ 是否有有效的数据来进行评估？ 评估成本是否可以接受？ 根据具体项目来选择，比如面向RAG的模型微调，或者建立专业的编程LLM，律师大模型，医疗大模型等</li>
+</ul>
+<p>任务选择重点：是否容易评估？ 是否可以评估？</p>
+<h3 id="3-如何选择微调的数据">3 如何选择微调的数据？ </h3>
+<p>技术学习：建议选择公开数据，比如GSM8k<br>
+项目开发：根据具体情况选择，或者收集，制作数据。</p>
+<h3 id="4-如何进行评估比如如何评估llama3模型在gsm8k上的性能">4 如何进行评估，比如如何评估llama3模型在GSM8k上的性能？ </h3>
+<p>要进行评估</p>
+<ul>
+<li>要了解数据的任务特点</li>
+<li>选择评估测度<br>
+比如很多分类问题，可以采用精度，召回率。翻译采用BLUE值，语音识别采用单词或者字符的误识别率。</li>
+</ul>
+<h3 id="5-有什么工具可以帮助评估吗">5 有什么工具可以帮助评估吗？ </h3>
+<p>评估工具列表以及人气指数（测试中）：<br>
+<a href="https://ranking.aigudao.tech/rank.php?collect_job_id=2024-11-10&amp;repo_type=eval">https://ranking.aigudao.tech/rank.php?collect_job_id=2024-11-10&amp;repo_type=eval</a></p>
+<h2 id="lm-eval实战篇">lm-eval实战篇 </h2>
+<h3 id="6-如何安装lm-eval">6 如何安装lm-eval？ </h3>
+<p><strong>从github安装</strong><br>
+对任务（task）有个性化定制需求</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>git clone --depth 1 https://github.com/EleutherAI/lm-evaluation-harness
+cd lm-evaluation-harness
+pip install -e .
+</code></pre><p><strong>通过pip安装</strong><br>
+使用开发库提供的标准任务（task）</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install lm-eval
+</code></pre><h3 id="7-如何快速使用lm-eval进行评估">7 如何快速使用lm-eval进行评估？ </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>lm_eval --model hf \
+    --model_args pretrained=Qwen/Qwen2.5-7B-Instruct,dtype=bfloat16 \
+    --log_samples --output_path eval_results \
+    --device cuda:0 \
+    --tasks gsm8k_cot --batch_size 4
+</code></pre><p>其中：<br>
+model hf 指的是使用huggingface的模型<br>
+model_args 支持AutoModel的参数</p>
+<p>更多参数说明：<br>
+<a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md</a></p>
+<h3 id="8-lm-eval都支持哪些模型">8 lm-eval都支持哪些模型？ </h3>
+<p>支持闭源模型：OpenAI模型，Anthropic等等<br>
+支持HF模型：huggingface模型<br>
+支持vLLM<br>
+支持Local Inference server<br>
+支持LLM，也是支持VLM（多模态模型）</p>
+<p>？没看到支持多模态语音大模型</p>
+<p>参考链接：<a href="https://github.com/EleutherAI/lm-evaluation-harness?tab=readme-ov-file#model-apis-and-inference-servers">https://github.com/EleutherAI/lm-evaluation-harness?tab=readme-ov-file#model-apis-and-inference-servers</a></p>
+<h3 id="9-它支持lora微调的模型吗">9 它支持lora微调的模型吗？ </h3>
+<p>可以支持Peft开发库相关的模型，比如LoRA， QLoRA等等</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>lm_eval --model hf \
+    --model_args pretrained=EleutherAI/gpt-j-6b,parallelize=True,load_in_4bit=True,peft=nomic-ai/gpt4all-j-lora \
+    --tasks openbookqa,arc_easy,winogrande,hellaswag,arc_challenge,piqa,boolq \
+    --device cuda:0
+</code></pre><p>【注：来自官方文档，未经测试】</p>
+<h3 id="10-它支持对openai等闭源模型进行评估吗">10 它支持对OpenAI等闭源模型进行评估吗？ </h3>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>export OPENAI_API_KEY=YOUR_KEY_HERE
+lm_eval --model openai-completions \
+    --model_args model=davinci \
+    --tasks lambada_openai,hellaswag
+</code></pre><p>【注：来自官方文档，未经测试】</p>
+<h3 id="11-是否支持自己部署的api进行模型评估">11 是否支持自己部署的API进行模型评估？ </h3>
+<p>可以支持（OpenAI API格式的本地服务器，比如Ollama）<br>
+模型选择：local-completions， local-chat-completions</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>#来自官方文档说明，没有测试
+lm_eval --model local-completions --tasks gsm8k \
+--model_args model=facebook/opt-125m,base_url=http://{yourip}:8000/v1/completions,num_concurrent=1,max_retries=3,tokenized_requests=False,batch_size=16
+</code></pre><p>【注：来自官方文档，未经测试】</p>
+<h3 id="12-是否支持delta-weights模型">12 是否支持delta weights模型？ </h3>
+<p>可以直接支持delta weights 模型</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>lm_eval --model hf \
+    --model_args pretrained=Ejafa/llama_7B,delta=lmsys/vicuna-7b-delta-v1.1 \
+    --tasks hellaswag
+</code></pre><p>【注：来自官方文档，未经测试】</p>
+<p><strong>什么是delta weights模型？</strong></p>
+<ul>
+<li>
+<p>“Delta weights” 指的是 模型权重的差异 或 增量权重。它们并不是完整的模型权重，而是与某个基础模型（base model）相比的权重变化或差异。将这种差异与基础模型合并，就可以还原出完整的模型。</p>
+</li>
+<li>
+<p>假设模型微调时只更新了部分层，delta weights 只保存被更新网络与原网络参数的差异。优势是，要存储的文件比较小。确定是使用前要与原模型参数进行合并处理。</p>
+</li>
+<li>
+<p>模型例子：其中提供的有 apply_delta.py 来合并delta模型与基础模型<br>
+<a href="https://huggingface.co/CarperAI/stable-vicuna-13b-delta">https://huggingface.co/CarperAI/stable-vicuna-13b-delta</a></p>
+</li>
+<li>
+<p>模型例子，下面是微软提供的基于llava的delta模型。<br>
+<a href="https://huggingface.co/microsoft/llava-med-7b-delta">https://huggingface.co/microsoft/llava-med-7b-delta</a></p>
+</li>
+</ul>
+<h3 id="13-支持模型量化推理吗">13 支持模型量化推理吗？ </h3>
+<p>支持多种量化模型，比如GGUF格式，GPTQ格式</p>
+<p><strong>GGUF量化模型</strong></p>
+<ol>
+<li>install Llama-cpp-python: <a href="https://github.com/abetlen/llama-cpp-python?tab=readme-ov-file#openai-compatible-web-server">https://github.com/abetlen/llama-cpp-python?tab=readme-ov-file#openai-compatible-web-server</a></li>
+<li>Launch the server, via e.g. python3 -m llama_cpp.server --model models/7B/llama-model.gguf</li>
+<li>Run the library, passing base_url=<a href="http://localhost:8000">http://localhost:8000</a> or whatever is the address the local server can be reached at , e.g.</li>
+</ol>
+<p>lm_eval --model gguf --model_args base_url=<a href="http://localhost:8000">http://localhost:8000</a> --tasks lambada_openai</p>
+<p><strong>GPTQ量化模型</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>lm_eval --model hf \
+    --model_args pretrained=model-name-or-path,gptqmodel=True \
+    --tasks hellaswag
+</code></pre><p>【注：来自官方文档，未经测试】</p>
+<h3 id="14-它都支持什么数据task支持什么评估方式">14 它都支持什么数据（task），支持什么评估方式？ </h3>
+<p>支持60个标准的benchmarks以及数百个子任务。</p>
+<p>这些数据位于：lm_eval/tasks 目录下<br>
+各种子任务位于： benchmarks目录下<br>
+比如GSM8k数据目录下，就包含多个yaml文件的定义，一个yaml文件可以认为是一个子任务。</p>
+<p>不同的数据，不同的任务都有自己的一些特点，使用数据前，需要去熟悉数据以及任务的特点。</p>
+<h3 id="15-如何自定义评估数据">15 如何自定义评估数据？ </h3>
+<p>如何增加新的task的说明：<br>
+<a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/new_task_guide.md</a><br>
+关于task的说明<br>
+<a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/task_guide.md">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/task_guide.md</a></p>
+<p>gsm8k配置文件解释：</p>
+<p><a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/tasks/gsm8k/gsm8k.yaml">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/lm_eval/tasks/gsm8k/gsm8k.yaml</a></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>tag:
+  - math_word_problems
+task: gsm8k
+dataset_path: gsm8k
+dataset_name: main
+output_type: generate_until # 模型生成文本，直到遇到指定的终止条件。
+training_split: train
+fewshot_split: train
+test_split: test
+doc_to_text: "Question: {{question}}\nAnswer:" # 模型推理时的输入
+doc_to_target: "{{answer}}" #" {{answer.split('### ')[-1].rstrip()}}" # Label，或者叫答案
+metric_list:
+  - metric: exact_match # 参考evaluate开发库中的实现
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: false
+    regexes_to_ignore:
+      - ","
+      - "\\$"
+      - "(?s).*#### "
+      - "\\.$"
+generation_kwargs:
+  until:
+    - "Question:"
+    - "&lt;/s&gt;"
+    - "&lt;|im_end|&gt;"
+  do_sample: false
+  temperature: 0.0
+repeats: 1
+num_fewshot: 5
+filter_list: # 对模型生成的输出进行筛选和处理，以便后续的评估和统计分析。
+  - name: "strict-match"
+    filter:
+      - function: "regex"
+        regex_pattern: "#### (\\-?[0-9\\.\\,]+)"
+      - function: "take_first"
+  - name: "flexible-extract"
+    filter:
+      - function: "regex"
+        group_select: -1
+        regex_pattern: "(-?[$0-9.,]{2,})|(-?[0-9]+)"
+      - function: "take_first"
+metadata:
+  version: 3.0
+</code></pre><h3 id="16-评估需要gpu吗如何使用多gpu评估">16 评估需要GPU吗？如何使用多GPU评估？ </h3>
+<p>LLM一般推理都需要GPU。默认会使用单个GPU。多GPU并行可以分为两种：</p>
+<ul>
+<li>
+<p>数据并行，加快推理速度<br>
+可以通过使用accelerate来实现数据并行，使用多GPU推理</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>accelerate launch -m lm_eval --model hf \
+    --tasks lambada_openai,arc_easy \
+    --batch_size 16
+</code></pre></li>
+<li>
+<p>模型并行<br>
+通过设置 parallelize=True，会将模型进行切分，分配到不同GPU上推理</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>lm_eval --model hf \
+    --tasks lambada_openai,arc_easy \
+    --model_args parallelize=True \
+    --batch_size 16
+</code></pre></li>
+</ul>
+<p>详细说明请参考官方文档。</p>
+<h3 id="17-为什么复现不了官方模型的结果">17 为什么复现不了官方模型的结果？ </h3>
+<p>有多种因素会影响结果</p>
+<ul>
+<li>
+<p>LLM评估的复杂性：<br>
+评估的结果，会受到很多参数的影响。<br>
+比如filter设置的影响，提示词，是否使用cot，zero-shot or N-shot，batch-size。</p>
+</li>
+<li>
+<p>如何看待差异：<br>
+参考官方实现的方式，尽量接近。<br>
+接近即可，不完全一样很正常。</p>
+</li>
+<li>
+<p>推荐做法：<br>
+在模型微调前，基于自己的设置来重新计算baseline的结果。而不是直接对比官方结果。</p>
+</li>
+</ul>
+<p>进阶篇</p>
+<h3 id="18-任务gsm8kgsm8k_cot-gsm8k_cot_llama-有什么区别">18 任务gsm8k，gsm8k_cot, gsm8k_cot_llama 有什么区别？ </h3>
+<ul>
+<li>
+<p><strong>gsm8k</strong><br>
+标准评测</p>
+</li>
+<li>
+<p><strong>gsm8k_cot</strong><br>
+通过提供8个实例的方式，来让模型进行cot的推理，进行评估。</p>
+</li>
+<li>
+<p><strong>gsm8k_cot_self_consistency</strong><br>
+生成多个结果，根据生成结果的一致性来产生最终的结果。<br>
+通过filter来选择结果。</p>
+</li>
+<li>
+<p><strong>gsm8k_cot_llama</strong><br>
+增加了llama模型评估时使用的提示词</p>
+</li>
+</ul>
+<h3 id="19-如何使用模型提供的chat-template">19 如何使用模型提供的chat template？ </h3>
+<p>很多Chat模型都会提供一个chat template。<br>
+这些模型是基于它提供的chat template来训练的。使用模型提供的模版，通常会有更好的表现。</p>
+<p>添加下面的参数会使用模型提供的template</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>--apply_chat_template
+</code></pre><p>参考文档：<a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/chat-template-readme.md">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/chat-template-readme.md</a></p>
+<h3 id="20-lm-eval帮助文档在哪里">20 lm-eval帮助文档在哪里？ </h3>
+<p><a href="https://github.com/EleutherAI/lm-evaluation-harness/tree/main">https://github.com/EleutherAI/lm-evaluation-harness/tree/main</a></p>
+<p><a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/README.md">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/README.md</a></p>
+<p><a href="https://github.com/EleutherAI/lm-evaluation-harness/blob/main/examples/lm-eval-overview.ipynb">https://github.com/EleutherAI/lm-evaluation-harness/blob/main/examples/lm-eval-overview.ipynb</a></p>
+<h3 id="其他问题">其他问题？ </h3>
+<p>如何保存评估的详细结果？<br>
+如果图形化结果？<br>
+lm-eval评估流程是怎么样的？（代码review准备中）</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
