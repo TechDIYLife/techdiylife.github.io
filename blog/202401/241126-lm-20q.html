@@ -6,7 +6,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
       
       
-      
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"></script>
       
       
       <style>
@@ -58,141 +58,180 @@
       
 <p><strong>目录索引</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-1llm%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E5%85%B1%E5%AD%A6">AI共学LLM微调 1：LLM大模型微调共学</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-2%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9llm%E5%BE%AE%E8%B0%83%E5%B7%A5%E5%85%B7">AI共学LLM微调 2：如何选择LLM微调工具？</a>
+<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-llm%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E5%AE%9E%E8%B7%B520%E9%97%AE">AI共学LLM微调 ：LLM模型微调实践20问</a>
 <ul>
-<li><a href="#21-%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E5%B7%A5%E5%85%B7">2.1 模型微调工具</a>
+<li><a href="#1-%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81">1 内容概要</a></li>
+<li><a href="#2-%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E4%B8%BB%E6%B5%81%E7%A8%8B">2 模型微调主流程</a></li>
+<li><a href="#3-%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E5%85%B3%E9%94%AE%E7%82%B9">3 模型微调关键点</a></li>
+<li><a href="#4-%E5%BE%AE%E8%B0%83%E5%B7%A5%E5%85%B7%E4%B8%8E%E5%8E%9F%E7%94%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%AF%B9%E6%AF%94">4 微调工具与原生实现的对比</a></li>
+<li><a href="#5-%E5%BE%AE%E8%B0%83%E5%B0%8F%E4%BB%BB%E5%8A%A1">5 微调小任务</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ai共学llm微调-llm模型微调实践20问">AI共学LLM微调 ：LLM模型微调实践20问 </h2>
+<h3 id="1-内容概要">1 内容概要 </h3>
+<p>模型微调关键点20问：</p>
 <ul>
-<li><a href="#211-%E6%8E%A8%E8%8D%90%E5%B7%A5%E5%85%B7">2.1.1 推荐工具</a></li>
-<li><a href="#212-%E5%85%B6%E5%AE%83%E5%B7%A5%E5%85%B7">2.1.2 其它工具</a></li>
+<li>LLM模型微调需要了解的20个问题</li>
 </ul>
-</li>
-<li><a href="#22-%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%8E%A8%E8%8D%90">2.2 学习资料推荐</a>
+<p>视频解说：<br>
+B站：<a href="https://www.bilibili.com/video/BV1ANBdYaEft/">https://www.bilibili.com/video/BV1ANBdYaEft/</a><br>
+油管：<a href="https://youtu.be/2AiBf7z-vEw">https://youtu.be/2AiBf7z-vEw</a></p>
+<h3 id="2-模型微调主流程">2 模型微调主流程 </h3>
+<p>模型微调是一个不断迭代循环的过程</p>
+<div class="mermaid">flowchart LR
+  模型评估 --&gt; 参数设置 --&gt; 模型微调 ==&gt; 模型评估
+</div><p>图1：模型微调的概要流程</p>
 <ul>
-<li><a href="#221-llamafactory%E6%96%87%E6%A1%A3">2.2.1 Llamafactory文档</a></li>
-<li><a href="#222-huggingface">2.2.2 Huggingface</a></li>
-<li><a href="#223-swift%E6%96%87%E6%A1%A3">2.2.3 swift文档</a></li>
+<li>评估：模型评估</li>
+<li>微调：模型微调</li>
+<li>迭代：评估微调后模型，调整参数，重复微调，评估</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-3-%E5%85%A8%E5%8F%82%E6%95%B0loraqlora%E5%BE%AE%E8%B0%83%E5%AF%B9%E6%AF%94">AI共学LLM微调 3： 全参数，LoRA，QLoRA微调对比</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-4-llm%E5%BE%AE%E8%B0%8320%E9%97%AE%E4%BB%A5%E5%8F%8A%E4%BB%BB%E5%8A%A1%E6%8E%A8%E8%8D%90">AI共学LLM微调 4： LLM微调20问以及任务推荐</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-5-%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83%E5%AE%9E%E6%88%98%E5%88%86%E4%BA%AB">AI共学LLM微调 5： 模型微调实战分享</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-6-moe%E6%A8%A1%E5%9E%8B">AI共学LLM微调 6： MoE模型</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-7-llava%E8%A7%86%E8%A7%89%E6%A8%A1%E5%9E%8B">AI共学LLM微调 7： LLaVA视觉模型</a></li>
-<li><a href="#ai%E5%85%B1%E5%AD%A6llm%E5%BE%AE%E8%B0%83-8-qwen-audio%E8%AF%AD%E9%9F%B3%E6%A8%A1%E5%9E%8B">AI共学LLM微调 8： Qwen-Audio语音模型</a></li>
-</ul>
-<h1 id="ai共学llm微调-1llm大模型微调共学">AI共学LLM微调 1：LLM大模型微调共学 </h1>
-<p>📢📢📢 11月份AI共学活动：LLM大模型微调共学</p>
-<p>各位小伙伴们！最近事情有点多，未能及时分享新的共学话题。<br>
-这次的11月份的共学主题，我们将围绕“大模型微调”展开共学和实践。</p>
-<p>🗓️ 共学时间：11月份</p>
-<p>感兴趣的小伙伴们可以选择一个自己喜欢的任务、进行大模型微调的实践。<br>
-欢迎大家在交流群中讨论并分享关于微调的相关内容，一起加深对LLM微调的理解。</p>
-<p>为了方便大家参与，我列出了一些可以选择的实践小任务供大家参考：</p>
-<p>🌟 入门任务推荐</p>
-<ol>
-<li>
-<p>基本LLM任务微调：<br>
-选择一个LLM（如Qwen、Llama等），并针对一个任务对LLM进行微调<br>
-尝试了解微调中的常见问题，比如过拟合、数据处理、微调参数设置等。<br>
-（比如，最新OpenAI的Canvas，搜索功能都是使用的基于GPT-4o微调后的模型）。</p>
-</li>
-<li>
-<p>对比不同微调方法：<br>
-实践并对比常见的微调方式，比如：全参数微调 vs LoRA微调 vs QLoRA微调。</p>
-</li>
-</ol>
-<p>🌟 高手任务推荐：<br>
-3. MoE模型微调：<br>
-亲自动手微调并制作一个MoE模型。<br>
-学习如何有效地训练和使用MoE模型中的专家路由，以便将不同任务分配给最合适的子模型。</p>
-<ol start="4">
-<li>多模态大模型：<br>
-如何为LLM增加视觉输入，语音输入，语音合成等功能。<br>
-多模态大模型微调都有哪些技巧</li>
-</ol>
-<p>🔥🔥🔥 最近分享的一些与LLM微调相关的视频和教程，供小伙伴们参考：</p>
-<ol>
-<li>热门时间大模型排行榜：<a href="https://www.bilibili.com/video/BV1h2SVYXET9/">https://www.bilibili.com/video/BV1h2SVYXET9/</a></li>
-<li>LoRA微调详解：<a href="https://www.bilibili.com/video/BV1Cc2zYBEq4/">https://www.bilibili.com/video/BV1Cc2zYBEq4/</a></li>
-<li>微调技术大比拼：全量微调与LoRA、QLoRA实测对比：<a href="https://www.bilibili.com/video/BV1TTbFegELr/">https://www.bilibili.com/video/BV1TTbFegELr/</a></li>
-</ol>
-<h1 id="ai共学llm微调-2如何选择llm微调工具">AI共学LLM微调 2：如何选择LLM微调工具？ </h1>
-<p><strong>视频介绍：</strong><br>
-B站：<a href="https://www.bilibili.com/video/BV1j5DrYGE8u/">https://www.bilibili.com/video/BV1j5DrYGE8u/</a><br>
-油管：<a href="https://youtu.be/dj4OhdWcYcg">https://youtu.be/dj4OhdWcYcg</a></p>
-<p><strong>访问排行榜数据</strong><br>
-请在<a href="https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032" target="_blank">共学群</a>，或者<a href="https://t.zsxq.com/HAGUN" target="_blank">知识星球</a>获取链接</p>
-<h2 id="21-模型微调工具">2.1 模型微调工具 </h2>
-<h3 id="211-推荐工具">2.1.1 推荐工具 </h3>
-<p><a href="https://github.com/hiyouga/LLaMA-Factory">https://github.com/hiyouga/LLaMA-Factory</a><br>
-<a href="https://github.com/modelscope/ms-swift">https://github.com/modelscope/ms-swift</a><br>
-<a href="https://github.com/unslothai/unsloth">https://github.com/unslothai/unsloth</a><br>
-<a href="https://github.com/huggingface/peft">https://github.com/huggingface/peft</a></p>
-<h3 id="212-其它工具">2.1.2 其它工具 </h3>
-<p><a href="https://github.com/huggingface/autotrain-advanced">https://github.com/huggingface/autotrain-advanced</a><br>
-<a href="https://github.com/huggingface/trl">https://github.com/huggingface/trl</a><br>
-<a href="https://github.com/Lightning-AI/litgpt">https://github.com/Lightning-AI/litgpt</a><br>
-<a href="https://github.com/bigscience-workshop/petals">https://github.com/bigscience-workshop/petals</a><br>
-<a href="https://github.com/h2oai/h2o-llmstudio">https://github.com/h2oai/h2o-llmstudio</a><br>
-<a href="https://github.com/InternLM/xtuner">https://github.com/InternLM/xtuner</a></p>
-<p><a href="https://github.com/eosphoros-ai/DB-GPT-Hub">https://github.com/eosphoros-ai/DB-GPT-Hub</a> （3月前更新）<br>
-<a href="https://github.com/georgian-io/LLM-Finetuning-Toolkit">https://github.com/georgian-io/LLM-Finetuning-Toolkit</a> （2月前更新）<br>
-<a href="https://github.com/codefuse-ai/MFTCoder">https://github.com/codefuse-ai/MFTCoder</a> （影响力不大）</p>
-<h2 id="22-学习资料推荐">2.2 学习资料推荐 </h2>
-<h3 id="221-llamafactory文档">2.2.1 Llamafactory文档 </h3>
-<p><a href="https://llamafactory.readthedocs.io/zh-cn/latest/index.html">https://llamafactory.readthedocs.io/zh-cn/latest/index.html</a></p>
-<h3 id="222-huggingface">2.2.2 Huggingface </h3>
-<p><em>Fine-tuning a pretrained model</em><br>
-<a href="https://huggingface.co/learn/nlp-course/chapter3/1">https://huggingface.co/learn/nlp-course/chapter3/1</a></p>
-<p><em>Fine-Tuning Gemma Models in Hugging Face</em><br>
-<a href="https://huggingface.co/blog/gemma-peft">https://huggingface.co/blog/gemma-peft</a></p>
-<p><em>Examples of using peft with trl to finetune 8-bit models with Low Rank Adaption (LoRA)</em><br>
-<a href="https://huggingface.co/docs/trl/lora_tuning_peft">https://huggingface.co/docs/trl/lora_tuning_peft</a></p>
-<p><em>Training a causal language model from scratch</em><br>
-<a href="https://huggingface.co/learn/nlp-course/chapter7/6">https://huggingface.co/learn/nlp-course/chapter7/6</a></p>
-<h3 id="223-swift文档">2.2.3 swift文档 </h3>
-<p><a href="https://swift.readthedocs.io/zh-cn/latest/Instruction/index.html">https://swift.readthedocs.io/zh-cn/latest/Instruction/index.html</a></p>
-<h1 id="ai共学llm微调-3-全参数loraqlora微调对比">AI共学LLM微调 3： 全参数，LoRA，QLoRA微调对比 </h1>
-<p>技术文档： <a href="https://techdiylife.github.io/blog/blog.html?category1=c01&amp;blogid=0065">https://techdiylife.github.io/blog/blog.html?category1=c01&amp;blogid=0065</a><br>
-视频介绍：<a href="https://www.bilibili.com/video/BV1TTbFegELr/">https://www.bilibili.com/video/BV1TTbFegELr/</a></p>
-<h1 id="ai共学llm微调-4-llm微调20问以及任务推荐">AI共学LLM微调 4： LLM微调20问以及任务推荐 </h1>
+<h3 id="3-模型微调关键点">3 模型微调关键点 </h3>
 <ul>
 <li>
-<p>技术文档：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0069">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0069</a></p>
+<p>数据部分</p>
+<ul>
+<li>
+<p>Q1：微调数据的格式是什么样的？</p>
 </li>
 <li>
-<p>视频解说：</p>
+<p>Q2：如何读取数据？ 本地json如何读取？ datasets数据如何读取？</p>
+</li>
+<li>
+<p>Q3：如何使用自定义数据？</p>
+</li>
+<li>
+<p>Q4：如何设置validation数据？</p>
+</li>
+<li>
+<p>Q5：指令提示词是如何设置的？（system prompt, instruction prompt）</p>
+</li>
+<li>
+<p>Q6进阶：Tokenizer相关处理？ 需要注意eod_token, eos_token, padding_token？</p>
+</li>
+<li>
+<p>Q7进阶：数据读取详细流程（dataloader读取数据，批处理，sampler数据采样方式，collate_fn通过重构可以对数据进行进一步处理）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>模型部分：参考huggingface，PEFT</p>
 <ul>
-<li>B站：<a href="https://www.bilibili.com/video/BV1ANBdYaEft/">https://www.bilibili.com/video/BV1ANBdYaEft/</a></li>
-<li>油管：<a href="https://youtu.be/2AiBf7z-vEw">https://youtu.be/2AiBf7z-vEw</a></li>
+<li>
+<p>Q8：如何使用本地存储的模型？</p>
+</li>
+<li>
+<p>Q9：参数选择什么数据格式？ bf16 or fp16 or fp32</p>
+</li>
+<li>
+<p>Q10进阶：如何设置LoRA，QLoRA等训练？</p>
+</li>
+<li>
+<p>Q11进阶：训练Loss是如何计算的？ （需要查看代码）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>训练参数设置</p>
+<ul>
+<li>Q12：如何设置 Learning Rate（LR）？</li>
+<li>Q13：如何设置 Warmup，LR scheduler？</li>
+<li>Q14：如何计算Global batch size？ 非模型并行模式：global_batch_size = per_device_batch_size * gradient_accumulation_steps * gpu_number</li>
+<li>Q15：设置 Epoch 还是更新 Steps？</li>
+<li>Q16进阶：Adam优化器相关设置？</li>
+</ul>
+</li>
+<li>
+<p>模型微调</p>
+<ul>
+<li>Q17：如何保存checkpoints？</li>
+<li>Q18：如何查看训练日志，train，validation loss的下降曲线？ （tensorboard 日志保存，服务搭建）</li>
+<li>Q19进阶：使用trainer时，如何控制日志的输出？</li>
+<li>Q20进阶：多GPU训练，多节点训练，DeepSpeed使用</li>
 </ul>
 </li>
 </ul>
-<h1 id="ai共学llm微调-5-模型微调实战分享">AI共学LLM微调 5： 模型微调实战分享 </h1>
+<h3 id="4-微调工具与原生实现的对比">4 微调工具与原生实现的对比 </h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+<th>示例工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>微调工具</td>
+<td>标准任务容易上手，快速体验各种新方法</td>
+<td>高度封装，流程黑盒，难以修改</td>
+<td>LLaMA-factory，Unsloth</td>
+</tr>
+<tr>
+<td>HG微调</td>
+<td>适合学习基本的知识，容易控制各种细节</td>
+<td>入门困难，新方法需要自己实现</td>
+<td>基于Transformers，PEFT的实现</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-微调小任务">5 微调小任务 </h3>
+<p>选择一个工具，一个模型，并对一个任务进行微调：</p>
 <ul>
-<li>微调瞎鼓捣分享：LLM微调日志分享（翻译任务微调）<br>
-笔记式分享，暂时主要在 <a href="https://t.zsxq.com/HAGUN" target="_blank">知识星球</a> 中分享。<br>
-后期整理后，会将内容公开。</li>
+<li>工具推荐：TRL，llama-factory，unsloth，ms-swift</li>
+<li>模型推荐：Qwen2.5-7B-Instruct， llama3.1-8B-Instruct</li>
+<li>任务数据：wmt19（翻译微调），GSM8k（数学解答）</li>
 </ul>
-<h1 id="ai共学llm微调-6-moe模型">AI共学LLM微调 6： MoE模型 </h1>
-<p>策划，制作中。。。</p>
-<h1 id="ai共学llm微调-7-llava视觉模型">AI共学LLM微调 7： LLaVA视觉模型 </h1>
-<p>策划，制作中。。。</p>
-<h1 id="ai共学llm微调-8-qwen-audio语音模型">AI共学LLM微调 8： Qwen-Audio语音模型 </h1>
-<p>策划，制作中。。。</p>
-<p>评估教程：<br>
-<a href="https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/">https://www.deeplearning.ai/short-courses/building-evaluating-advanced-rag/</a></p>
-<p><a href="https://github.com/huggingface/evaluation-guidebook">https://github.com/huggingface/evaluation-guidebook</a></p>
+<p>天池学习赛（CHIP2023-PromptCBLUE-参数高效微调赛道）：<br>
+<a href="https://tianchi.aliyun.com/competition/entrance/532132">https://tianchi.aliyun.com/competition/entrance/532132</a></p>
+<p>欢迎将你的以及碰到的问题，在<a href="https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032" target="_blank">共学群</a>，或者<a href="https://t.zsxq.com/HAGUN" target="_blank">知识星球</a>中分享。</p>
+<p>热门微调工具介绍：<br>
+<a href="https://www.bilibili.com/video/BV1j5DrYGE8u/">https://www.bilibili.com/video/BV1j5DrYGE8u/</a></p>
 
       </div>
       
       
     
     
-    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
     
     
     
