@@ -321,7 +321,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const latestArticlesDiv = document.getElementById('home_blog_new_list');
   if (latestArticlesDiv) {
     // 按日期从新到旧排序
-    blogList.sort((a, b) => new Date(b.create_date) - new Date(a.create_date));
+    blogList.sort((a, b) => {
+      const dateA = Date.parse(a.create_date);
+      const dateB = Date.parse(b.create_date);
+      return dateB - dateA;
+    });
+
     const firstTenBlogs = blogList.slice(0, 50);
     // 创建并插入链接
     firstTenBlogs.forEach(item => {
@@ -337,7 +342,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const allArticlesDiv = document.getElementById('blog_list_all');
   if (allArticlesDiv) {
     // 按日期从新到旧排序
-    blogList.sort((a, b) => new Date(b.create_date) - new Date(a.create_date));
+    blogList.sort((a, b) => {
+      const dateA = Date.parse(a.create_date);
+      const dateB = Date.parse(b.create_date);
+      return dateB - dateA;
+    });
     const firstTenBlogs = blogList;
     // 创建并插入链接
     firstTenBlogs.forEach(item => {
