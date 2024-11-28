@@ -322,9 +322,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (latestArticlesDiv) {
     // 按日期从新到旧排序
     blogList.sort((a, b) => {
-      const dateA = Date.parse(a.create_date);
-      const dateB = Date.parse(b.create_date);
-      return dateB - dateA;
+      // 将 "YYYY.MM.DD" 格式转换为 "YYYY-MM-DD"
+      const formatDate = dateStr => dateStr.replace(/\./g, '-');
+      const dateA = new Date(formatDate(a.create_date));
+      const dateB = new Date(formatDate(b.create_date));
+      return dateB - dateA; // 从新到旧排序
     });
 
     const firstTenBlogs = blogList.slice(0, 50);
@@ -343,9 +345,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (allArticlesDiv) {
     // 按日期从新到旧排序
     blogList.sort((a, b) => {
-      const dateA = Date.parse(a.create_date);
-      const dateB = Date.parse(b.create_date);
-      return dateB - dateA;
+      // 将 "YYYY.MM.DD" 格式转换为 "YYYY-MM-DD"
+      const formatDate = dateStr => dateStr.replace(/\./g, '-');
+      const dateA = new Date(formatDate(a.create_date));
+      const dateB = new Date(formatDate(b.create_date));
+      return dateB - dateA; // 从新到旧排序
     });
     const firstTenBlogs = blogList;
     // 创建并插入链接
