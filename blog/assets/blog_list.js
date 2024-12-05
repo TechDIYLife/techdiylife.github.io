@@ -96,6 +96,7 @@ const blogList = [
   { id: "0067", category1: "c02", category2: "", create_date: "2024.11.09", title_short: "LLM微调共学：大模型微调", title_full: "LLM微调共学：大模型微调", href: "202401/241109-LLM-FT.html", video_href: "" },
   { id: "0068", category1: "c02", category2: "", create_date: "2024.11.17", title_short: "LLM微调共学：评估先行，lm-eval评估工具介绍", title_full: "LLM微调共学：评估先行，lm-eval评估工具介绍", href: "202401/241115-lm-eval.html", video_href: "" },
   { id: "0069", category1: "c02", category2: "", create_date: "2024.11.27", title_short: "LLM微调共学：LLM模型微调实践20问", title_full: "LLM微调共学：LLM模型微调实践20问", href: "202401/241126-lm-20q.html", video_href: "" },
+  { id: "0070", category1: "c01", category2: "", create_date: "2024.12.05", title_short: "2024年LLM进展回顾（Ollama视角）", title_full: "2024年LLM进展回顾（Ollama视角）", href: "202401/241204-LLM-trends-ollama.html", video_href: "" },
 
   
 ];
