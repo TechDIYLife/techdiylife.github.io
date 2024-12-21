@@ -66,6 +66,19 @@
 <li><a href="#4-%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%AF%8D">4 几个关键词</a></li>
 </ul>
 </li>
+<li><a href="#llamaindex%E5%BC%80%E5%8F%91%E5%85%B1%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87">LlamaIndex开发共学：开发环境准备</a>
+<ul>
+<li><a href="#1-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">1 开发环境</a></li>
+<li><a href="#2-%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85">2 环境安装</a></li>
+<li><a href="#3-ollama%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B">3 Ollama安装（使用本地模型）</a></li>
+</ul>
+</li>
+<li><a href="#llamaindex%E5%BC%80%E5%8F%91%E5%85%B1%E5%AD%A6%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0rag">LlamaIndex开发共学：如何实现RAG？</a>
+<ul>
+<li><a href="#1-rag%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87">1 RAG学习目标</a></li>
+<li><a href="#2-%E4%BA%86%E8%A7%A3rag%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B">2 了解RAG处理流程</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="ai开发共学专题llamaindex-ai开发实践入门">AI开发共学专题：LlamaIndex AI开发实践入门 </h2>
 <h3 id="1-本专题学什么">1 本专题学什么？ </h3>
@@ -77,6 +90,7 @@
 <p>共学内容计划为六期：</p>
 <ul>
 <li>前言：基本介绍</li>
+<li>学习环境安装</li>
 <li>第一期：如何实现RAG？</li>
 <li>第二期：如何实现Agent？</li>
 <li>第三期：如何实现Workflow？</li>
@@ -92,17 +106,19 @@
 <p>分享方式：</p>
 <ul>
 <li>
-<p>B站：<a href="https://space.bilibili.com/3546604218878676">https://space.bilibili.com/3546604218878676</a></p>
+<p>视频分享（内容介绍，代码解释与演示）</p>
+<ul>
+<li>B站：<a href="https://space.bilibili.com/3546604218878676">https://space.bilibili.com/3546604218878676</a></li>
+<li>油管：<a href="https://youtu.be/dj4OhdWcYcg">https://youtu.be/dj4OhdWcYcg</a></li>
+</ul>
 </li>
 <li>
-<p>油管：<a href="https://youtu.be/dj4OhdWcYcg">https://youtu.be/dj4OhdWcYcg</a></p>
+<p>交流群（小伙伴们问题交流）：<br>
+<a href="https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032">https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032</a></p>
 </li>
 <li>
-<p>交流群：<a href="https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032">https://techdiylife.github.io/blog/blog.html?category1=c05&amp;blogid=0032</a></p>
-</li>
-<li>
-<p>星球：<a href="https://t.zsxq.com/HAGUN">https://t.zsxq.com/HAGUN</a></p>
-<img src="https://techdiylife.github.io/blog/img/qr_xingqiu.jpg" alt="" style="width:300px; border: 1px solid #555;">
+<p>星球（整理代码分享，以及常见问题分享）：<a href="https://t.zsxq.com/HAGUN">https://t.zsxq.com/HAGUN</a><br>
+<img src="https://techdiylife.github.io/blog/img/qr_xingqiu.jpg" alt="" style="width:300px; border: 1px solid #555;"></p>
 </li>
 </ul>
 </li>
@@ -146,6 +162,53 @@ LLMs 虽然在大量公开数据上进行了预训练，但这些模型并没有
 </li>
 </ul>
 <p>参考资料：<a href="https://docs.llamaindex.ai/en/latest/">https://docs.llamaindex.ai/en/latest/</a></p>
+<h2 id="llamaindex开发共学开发环境准备">LlamaIndex开发共学：开发环境准备 </h2>
+<h3 id="1-开发环境">1 开发环境 </h3>
+<p>以下是我准备的开发环境：</p>
+<ul>
+<li>Linux（Ubuntu 20.04）（Conda也支持Windows，Mac操作系统）</li>
+<li>基于 Conda 的 Python 运行环境</li>
+<li>Jupyter-lab Notebook （参考资料：<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028%EF%BC%89">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028）</a></li>
+<li>Ollama安装（使用本地模型）</li>
+</ul>
+<h3 id="2-环境安装">2 环境安装 </h3>
+<p>安装步骤如下：</p>
+<ul>
+<li>
+<p>第一步：安装miniconda<br>
+<a href="https://docs.anaconda.com/miniconda/install/#quick-command-line-install">https://docs.anaconda.com/miniconda/install/#quick-command-line-install</a></p>
+</li>
+<li>
+<p>第二步：安装python运行环境</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>conda create -n llamaIndex python=3.10
+conda activate llamaIndex
+</code></pre></li>
+<li>
+<p>第三步：设置新环境（llamaIndex）对jupyter-lab Notebook可见<br>
+请参考下面文档的 Q7 问题：<br>
+<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0028</a></p>
+</li>
+</ul>
+<h3 id="3-ollama安装使用本地模型">3 Ollama安装（使用本地模型） </h3>
+<p>请参考此文档安装Ollama：<br>
+<a href="https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037">https://techdiylife.github.io/blog/blog.html?category1=c02&amp;blogid=0037</a></p>
+<p>国内云服务安装 Ollama，可以参考下面的文档：<br>
+<a href="https://techdiylife.github.io/blog/blog.html?category1=c01&amp;blogid=0062">https://techdiylife.github.io/blog/blog.html?category1=c01&amp;blogid=0062</a></p>
+<h2 id="llamaindex开发共学如何实现rag">LlamaIndex开发共学：如何实现RAG？ </h2>
+<h3 id="1-rag学习目标">1 RAG学习目标 </h3>
+<p>参考下面的两个教程，实现一个最基本的RAG程序</p>
+<ul>
+<li>
+<p>RAG学习资料 1：基于 OpenAI 模型<br>
+<a href="https://docs.llamaindex.ai/en/stable/getting_started/starter_example/">https://docs.llamaindex.ai/en/stable/getting_started/starter_example/</a></p>
+</li>
+<li>
+<p>RAG学习资料 2：基于 huggingface + Ollama 模型<br>
+<a href="https://docs.llamaindex.ai/en/stable/getting_started/starter_example_local/">https://docs.llamaindex.ai/en/stable/getting_started/starter_example_local/</a></p>
+</li>
+</ul>
+<h3 id="2-了解rag处理流程">2 了解RAG处理流程 </h3>
+<p>参考资料： <a href="https://docs.llamaindex.ai/en/stable/understanding/rag/">https://docs.llamaindex.ai/en/stable/understanding/rag/</a></p>
 
       </div>
       
