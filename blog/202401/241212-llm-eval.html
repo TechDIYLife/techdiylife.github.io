@@ -1,0 +1,269 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#%E8%B0%81%E6%98%AF%E6%9C%80%E5%BC%BA%E5%BC%80%E6%BA%90%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%A1%B6%E6%B5%81%E5%BC%80%E6%BA%90%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E5%AE%9E%E6%B5%8B">谁是最强开源大模型？顶流开源大模型性能实测</a>
+<ul>
+<li><a href="#1-%E8%AF%84%E6%B5%8B%E6%A6%82%E8%A6%81">1 评测概要</a></li>
+<li><a href="#2-%E8%AF%84%E6%B5%8B%E6%A8%A1%E5%9E%8B">2 评测模型</a></li>
+<li><a href="#3-gpuez%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8-llm-%E9%83%A8%E7%BD%B2%E6%AD%A5%E9%AA%A4">3 GPUEZ云服务器 LLM 部署步骤</a>
+<ul>
+<li><a href="#31-%E7%A7%9F%E8%B5%81gpu%E6%96%B0%E5%AE%9E%E4%BE%8B">3.1 租赁GPU新实例</a></li>
+<li><a href="#32-%E5%AE%89%E8%A3%85ollama">3.2 安装Ollama</a></li>
+<li><a href="#33-%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD">3.3 模型下载</a></li>
+</ul>
+</li>
+<li><a href="#4-%E4%B8%BB%E8%A7%82%E6%89%93%E5%88%86%E6%A0%87%E5%87%86">4 主观打分标准</a></li>
+<li><a href="#5-%E4%B8%BB%E8%A7%82%E8%AF%84%E4%BC%B0%E9%A2%98%E7%9B%AE">5 主观评估题目</a></li>
+<li><a href="#6-%E4%B8%BB%E8%A7%82%E8%AF%84%E4%BB%B7%E7%BB%93%E6%9E%9C">6 主观评价结果</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="谁是最强开源大模型顶流开源大模型性能实测">谁是最强开源大模型？顶流开源大模型性能实测 </h2>
+<h3 id="1-评测概要">1 评测概要 </h3>
+<ul>
+<li>对比评测当前顶流开源LLM</li>
+<li>比较顶流开源LLM与闭源LLM的差距</li>
+</ul>
+<p><strong>视频介绍：</strong></p>
+<ul>
+<li>B站：<a href="https://www.bilibili.com/video/BV14DkRY1EZM/">https://www.bilibili.com/video/BV14DkRY1EZM/</a></li>
+<li>油管：<a href="https://youtu.be/6rpyg_f_de8">https://youtu.be/6rpyg_f_de8</a></li>
+</ul>
+<h3 id="2-评测模型">2 评测模型 </h3>
+<ul>
+<li>开源模型
+<ul>
+<li>Athene-v2-Chat-72B: <a href="https://nexusflow.ai/blogs/athene-v2">https://nexusflow.ai/blogs/athene-v2</a></li>
+<li>Llama-3.3-70B-Instruct: <a href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a></li>
+<li>qwq-32b-preview: <a href="https://qwenlm.github.io/blog/qwq-32b-preview/">https://qwenlm.github.io/blog/qwq-32b-preview/</a></li>
+<li>Qwen2.5-72B Instruct: <a href="https://qwenlm.github.io/blog/qwen2.5/">https://qwenlm.github.io/blog/qwen2.5/</a></li>
+<li>DeepSeek2.5（chat，236B）: <a href="https://huggingface.co/deepseek-ai/DeepSeek-V2.5">https://huggingface.co/deepseek-ai/DeepSeek-V2.5</a></li>
+<li>Mistral Large2（123B）: <a href="https://huggingface.co/mistralai/">https://huggingface.co/mistralai/</a></li>
+<li>Mistral-Large-Instruct-2411: <a href="https://huggingface.co/mistralai/Mistral-Large-Instruct-2411">https://huggingface.co/mistralai/Mistral-Large-Instruct-2411</a></li>
+<li>Llama-3.1-405B-Instruct: <a href="https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct">https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct</a></li>
+</ul>
+</li>
+<li>闭源商用模型
+<ul>
+<li>OpenAI o1</li>
+<li>OpenAI GPT-4o</li>
+<li>Claude 3.5 Sonnet</li>
+<li>Claude 3 Opus</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-gpuez云服务器-llm-部署步骤">3 GPUEZ云服务器 LLM 部署步骤 </h3>
+<h4 id="31-租赁gpu新实例">3.1 租赁GPU新实例 </h4>
+<ul>
+<li>
+<p>服务器登录<br>
+<a href="https://gpuez.com">https://gpuez.com</a></p>
+</li>
+<li>
+<p>租用新实例<br>
+具体操作方式，请参考视频<br>
+<a href="https://www.bilibili.com/video/BV18wYKekE8w/">https://www.bilibili.com/video/BV18wYKekE8w/</a></p>
+</li>
+<li>
+<p>基本配置<br>
+可以参考下面的命令设置bash，安装less，nano等基本工具</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>conda init bash
+. ~/.bashrc
+git init
+sudo apt update
+sudo apt install less
+sudo apt install nano
+export PATH=/root:$PATH
+cd /root
+</code></pre></li>
+</ul>
+<h4 id="32-安装ollama">3.2 安装Ollama </h4>
+<p>curl -fsSL <a href="https://ollama.com/install.sh">https://ollama.com/install.sh</a> | sh<br>
+OLLAMA_MODELS="/root/zscloud-tmp/models" ./ollama serve</p>
+<h4 id="33-模型下载">3.3 模型下载 </h4>
+<p>开一个新的终端，下载模型</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>ollama run qwq
+</code></pre><h3 id="4-主观打分标准">4 主观打分标准 </h3>
+<p>用户满意度评分标准（1 到 5 分）<br>
+1分：无意义<br>
+回答完全没有价值，未提供任何相关信息或有误导性。<br>
+示例：回答与问题完全不相关，或是无效的内容。</p>
+<p>2分：略有帮助<br>
+回答与问题稍有关联，但提供的信息非常有限或存在明显错误。<br>
+示例：回答只有部分正确或缺乏关键信息，无法解决实际问题。</p>
+<p>3分：多少有些帮助<br>
+回答提供了一些有用信息，但不够完整或不够清晰。<br>
+示例：回答触及了问题的主要点，但仍有遗漏或表达不够明确。</p>
+<p>4分：有帮助<br>
+回答较为完整，解决了问题的大部分需求，信息准确且表达清楚。<br>
+示例：回答覆盖了问题的核心要点，给出了实用建议，但可以进一步优化。</p>
+<p>5分：很有帮助<br>
+回答非常全面、精准，完全满足用户需求，提供了清晰且深入的解决方案。<br>
+示例：回答内容详尽，解释透彻，且包含了额外有价值的信息或建议。</p>
+<h3 id="5-主观评估题目">5 主观评估题目 </h3>
+<ul>
+<li>
+<p>9.11和9.9哪个更大？</p>
+</li>
+<li>
+<p>单词Strawbery里有几个r？</p>
+</li>
+<li>
+<p>爱丽丝有N个兄弟，她还有M个姐妹。爱丽丝的兄弟有多少个姐妹？</p>
+</li>
+<li>
+<p>一个农夫带两只鸡过河，一只船只能容纳一个人和两个动物，那么农夫带着两只鸡过河所需要的最少渡河次数是多少？</p>
+</li>
+<li>
+<p>请在错误的等式中添加一对括号：1+2x3+4x5+6x7+8x9=479，以使等式成立。</p>
+</li>
+<li>
+<p>改正语句:你到看的时一片精菜的说小,描了述小王在禛上遇道阿sir的故式.</p>
+</li>
+<li>
+<p>使用 CC BY-SA 4.0  的数据可以训练商用模型吗？</p>
+</li>
+<li>
+<p>根据常理和生活习惯，将这些动作按照合适的先后顺序进行排列：闹钟响起，擦脸，刷牙，上厕所，挤牙膏，出门，起床，洗脸，穿衣服。</p>
+</li>
+<li>
+<p>我有一张10元和一张50元的纸币，我到商店买了一包烟，花了15元，请问售货员可能找多少钱给我?</p>
+</li>
+<li>
+<p>什么是大语言模型的量化？AWQ量化，GPTQ量化，分别是什么意思，请用通俗语言详细解释哈？有些大语言模型后面写着q2_K，q3，q4等，这又是什么意思？</p>
+</li>
+<li>
+<p>数据整理1：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>将下面的模型评价结果（来自一个表格）整理为下面的数据格式（jsonl格式，不要保存为文件）：
+{""dataset"": ""xxxx"", ""eval_method"": ""xxx"", ""metric"": ""xxxx"", ""model"": ""xxx"", ""result"": xxx},
+注意问题：
+1. 如果包含CoT，N-shot等则存储到 eval_method字段中
+2. pass@1，cons@64等描述是metric，不是eval_method
+3. 如果CoT在dataset名中存在，则删除
+4. 如果有多个模型要列出所有模型对应的结果
+5. dataset一般对应benchmark列
+6. 注意区分category与benchmark的区别
+7. 直接输出结果，不要分析，不要保存为下载用文件
+
+需要处理的数据如下：
+Benchmark 	Phi-3-Medium-4K-Instruct
+14b 	Command R+
+104B 	Mixtral
+8x22B 	Llama-3-70B-Instruct 	GPT3.5-Turbo
+version 1106 	Gemini
+Pro 	GPT-4-Turbo
+version 1106 (Chat)
+PIQA
+5-shot 	87.9 	86.4 	85.0 	85.3 	86.6 	86.2 	90.1
+Social IQA
+5-shot 	80.2 	75.3 	78.2 	81.1 	68.3 	75.4 	81.7
+TruthfulQA (MC2)
+10-shot 	75.1 	57.8 	67.4 	81.9 	67.7 	72.6 	85.2
+WinoGrande
+5-shot 	81.5 	77.0 	75.3 	83.3 	68.8 	72.2 	86.7
+TriviaQA
+5-shot 	73.9 	82.8 	84.5 	78.5 	85.8 	80.2 	73.3
+HumanEval
+0-shot 	62.2 	61.6 	39.6 	78.7 	62.2 	64.4 	79.9
+MBPP
+3-shot 	75.2 	68.9 	70.7 	81.3 	77.8 	73.2 	86.7"
+</code></pre></li>
+<li>
+<p>数据整理2</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>将下面的结果，整理为一个markdown格式的表格：{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""QwQ 32B-preview"", ""result"": 65.2}
+{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""OpenAI o1-preview"", ""result"": 72.3}
+{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""OpenAI o1-mini"", ""result"": 60.0}
+{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""GPT-4o"", ""result"": 53.6}
+{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""Claude3.5 Sonnet"", ""result"": 65.0}
+{""dataset"": ""GPQA"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""Qwen2.5-72B Instruct"", ""result"": 49.0}
+
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""QwQ 32B-preview"", ""result"": 50.0}
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""OpenAI o1-preview"", ""result"": 44.6}
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""OpenAI o1-mini"", ""result"": 56.7}
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""GPT-4o"", ""result"": 9.3}
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""Claude3.5 Sonnet"", ""result"": 16.0}
+{""dataset"": ""AIME"", ""eval_method"": ""Pass@1"", ""metric"": ""accuracy"", ""model"": ""Qwen2.5-72B Instruct"", ""result"": 23.3}"
+</code></pre></li>
+<li>
+<p>用python写一段代码，将excel中的文本整理为jsonl文件</p>
+</li>
+<li>
+<p>在Linux上用一行命令将文件夹中的文件名称都加上前缀img</p>
+</li>
+<li>
+<p>less Test.jsonl | grep "$" 这样检索不起作用，该如何弄？</p>
+</li>
+</ul>
+<h3 id="6-主观评价结果">6 主观评价结果 </h3>
+<p>结果分析，请观看视频：<br>
+B站：<a href="https://www.bilibili.com/video/BV14DkRY1EZM/">https://www.bilibili.com/video/BV14DkRY1EZM/</a><br>
+油管：<a href="https://youtu.be/6rpyg_f_de8">https://youtu.be/6rpyg_f_de8</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

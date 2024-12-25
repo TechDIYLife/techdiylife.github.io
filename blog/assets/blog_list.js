@@ -98,6 +98,7 @@ const blogList = [
   { id: "0069", category1: "c02", category2: "", create_date: "2024.11.27", title_short: "LLM微调共学：LLM模型微调实践20问", title_full: "LLM微调共学：LLM模型微调实践20问", href: "202401/241126-lm-20q.html", video_href: "" },
   { id: "0070", category1: "c01", category2: "", create_date: "2024.12.05", title_short: "2024年LLM进展回顾（Ollama视角）", title_full: "2024年LLM进展回顾（Ollama视角）", href: "202401/241204-LLM-trends-ollama.html", video_href: "" },
   { id: "0071", category1: "c02", category2: "", create_date: "2024.12.20", title_short: "LlamaIndex AI开发实践共学专题", title_full: "LlamaIndex AI开发实践共学专题", href: "202401/241218-llamaindex.html", video_href: "" },
+  { id: "0072", category1: "c02", category2: "", create_date: "2024.12.25", title_short: "性能实测：顶流开源vs顶流闭源", title_full: "性能实测：顶流开源vs顶流闭源", href: "202401/241212-llm-eval.html", video_href: "" },
 
   
 ];
