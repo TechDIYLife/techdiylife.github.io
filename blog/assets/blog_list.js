@@ -100,6 +100,7 @@ const blogList = [
   { id: "0071", category1: "c02", category2: "", create_date: "2024.12.20", title_short: "LlamaIndex AI开发实践共学专题", title_full: "LlamaIndex AI开发实践共学专题", href: "202401/241218-llamaindex.html", video_href: "" },
   { id: "0072", category1: "c02", category2: "", create_date: "2024.12.25", title_short: "性能实测：顶流开源vs顶流闭源", title_full: "性能实测：顶流开源vs顶流闭源", href: "202401/241212-llm-eval.html", video_href: "" },
   { id: "0073", category1: "c02", category2: "", create_date: "2025.01.23", title_short: "搞懂MoE:从概念到代码全给你整明白", title_full: "搞懂MoE:从概念到代码全给你整明白", href: "202501/250118-MoE.html", video_href: "" },
+  { id: "0074", category1: "c02", category2: "", create_date: "2025.02.01", title_short: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", title_full: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", href: "202501/250118-MoE2compare.html", video_href: "" },
 
 ];
 
