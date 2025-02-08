@@ -103,8 +103,6 @@ const blogList = [
   { id: "0074", category1: "c02", category2: "", create_date: "2025.02.01", title_short: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", title_full: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", href: "202501/250118-MoE2compare.html", video_href: "" },
   { id: "0075", category1: "c02", category2: "", create_date: "2025.02.08", title_short: "Open-R1：对 DeepSeek-R1 的完全开源再现（翻译）", title_full: "Open-R1：对 DeepSeek-R1 的完全开源再现（翻译）", href: "202501/250202-OpenR1.html", video_href: "" },
 
-
-  
 ];
 
 const NeWvideoList = [
