@@ -103,6 +103,7 @@ const blogList = [
   { id: "0074", category1: "c02", category2: "", create_date: "2025.02.01", title_short: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", title_full: "搞懂MoE:MoE模型技术对比（Mixtral，Qwen2-MoE，DeepSeek-v3）", href: "202501/250118-MoE2compare.html", video_href: "" },
   { id: "0075", category1: "c02", category2: "", create_date: "2025.02.08", title_short: "Open-R1：对 DeepSeek-R1 的完全开源再现（翻译）", title_full: "Open-R1：对 DeepSeek-R1 的完全开源再现（翻译）", href: "202501/250202-OpenR1.html", video_href: "" },
   { id: "0076", category1: "c02", category2: "", create_date: "2025.02.16", title_short: "OpenR1共学专题：复现 DeepSeek-R1 (共学介绍)", title_full: "OpenR1共学专题：复现 DeepSeek-R1 (共学介绍)", href: "202501/250215-OpenR1-learn.html", video_href: "" },
+  { id: "0077", category1: "c02", category2: "", create_date: "2025.02.26", title_short: "OpenR1共学专题：推理训练数据制作", title_full: "OpenR1共学专题：推理训练数据制作", href: "202501/50224-OpenR1-Math220k.html", video_href: "" },
 
 ];
 

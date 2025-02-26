@@ -1,0 +1,230 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: block;
+  width: auto;
+}
+.markdown-preview.markdown-preview .alert > p,
+.markdown-preview.markdown-preview .alert > ul {
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.markdown-preview.markdown-preview .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.markdown-preview.markdown-preview .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.markdown-preview.markdown-preview .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#open-r1-openr1-math-220k-%E6%95%B0%E6%8D%AE%E9%9B%86">Open R1: OpenR1-Math-220k 数据集</a>
+<ul>
+<li><a href="#1-openr1-math-220k-%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8B%E7%BB%8D">1 OpenR1-Math-220k 数据集介绍</a></li>
+<li><a href="#2-%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90">2 数据集制作第一步：数据生成</a></li>
+<li><a href="#3-%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E7%AD%9B%E9%80%89">3 数据集制作第二步：数据筛选</a></li>
+<li><a href="#4-%E6%95%B0%E6%8D%AE%E9%9B%86%E6%8B%86%E5%88%86">4 数据集拆分</a></li>
+<li><a href="#5-%E4%B8%8E-deepseek-distill-qwen-7b-%E7%9A%84%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94">5 与 DeepSeek-Distill-Qwen-7B 的性能对比</a></li>
+<li><a href="#%E8%A1%A5%E5%85%85math-verify-%E7%9A%84%E6%94%B9%E8%BF%9B">补充：Math-Verify 的改进</a></li>
+<li><a href="#%E8%A1%A5%E5%85%85%E5%B0%9D%E8%AF%95%E5%A5%96%E5%8A%B1%E6%A8%A1%E5%9E%8Breward-model-rm%E7%AD%9B%E9%80%89%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C">补充：尝试奖励模型（Reward Model, RM）筛选（没有效果）</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="open-r1-openr1-math-220k-数据集">Open R1: OpenR1-Math-220k 数据集 </h2>
+<p>以下内容翻译自下面文章：<br>
+<a href="https://huggingface.co/blog/open-r1/update-2">https://huggingface.co/blog/open-r1/update-2</a></p>
+<p>最近OpenR1 Team 分享了 OpenR1-Math-220k 的构建过程，也就是他们的第一个大规模数学推理数据集！</p>
+<h3 id="1-openr1-math-220k-数据集介绍">1 OpenR1-Math-220k 数据集介绍 </h3>
+<p>DeepSeek R1 的关键优势之一在于其能够通过蒸馏将高级推理能力迁移到较小的模型中。DeepSeek 团队通过生成 60 万条推理轨迹，并微调一系列 Qwen 和 Llama 模型，证明了直接从 R1 进行蒸馏可以在不使用强化学习的情况下实现具有竞争力的推理性能。值得注意的是，DeepSeek-R1-Distill-Qwen-7B 在 AIME 2024 评测中取得了 55.5% 的成绩，超越了更大的模型，如 QwQ-32B-Preview。</p>
+<p>然而，用于蒸馏的推理轨迹尚未公开发布，这促使社区独立地重新创建类似的数据集。<br>
+截至目前，社区已发布了多个开源数据集，包括 OpenThoughts-114k、Bespoke-Stratos-17k、Dolphin-R1 和 LIMO。</p>
+<p>🐳 <strong>介绍 OpenR1-Math-220k</strong>，一个大规模数学推理数据集，该数据集由 512 张 H100 本地生成，每个问题包含多个答案。为了创建 OpenR1-Math-220k，我们与 Numina 合作，他们开发了其流行数据集 NuminaMath-CoT 的全新版本。</p>
+<p><strong>相比现有数据集，OpenR1 数据集的新特点：</strong></p>
+<ul>
+<li><strong>80 万条 R1 推理轨迹</strong>：我们使用 DeepSeek R1 为 40 万个问题生成两个答案，经过筛选的数据集中包含 22 万个具有正确推理轨迹的问题。</li>
+<li><strong>512 张 H100 本地运行</strong>：我们不依赖 API，而是利用 vLLM 和 SGLang 在计算集群上本地运行推理，每天生成 18 万条推理轨迹。</li>
+<li><strong>基于 NuminaMath 1.5</strong>：我们专注于数学推理轨迹，并为 NuminaMath 1.5（NuminaMath-CoT 数据集的改进版本）中的问题生成答案。</li>
+<li><strong>自动化筛选</strong>：我们使用 Math Verify 仅保留至少有一个正确答案的问题。此外，我们利用 Llama3.3-70B-Instruct 作为评审工具，以检索更多正确示例（例如，对于无法通过基于规则的解析器验证的格式错误答案）。</li>
+<li><strong>微调 Qwen-7B-Math-Instruct，与 DeepSeek-Distill-Qwen-7B 的性能相匹配</strong>。</li>
+</ul>
+<p>通过展示可扩展的高质量推理数据生成能力，我们希望这一流程能够扩展到数学以外的领域，例如代码生成。</p>
+<h3 id="2-数据集制作第一步数据生成">2 数据集制作第一步：数据生成 </h3>
+<p>为了构建 <strong>OpenR1-220k</strong>，我们使用 DeepSeek R1 为 <strong>NuminaMath 1.5</strong> 中的 <strong>40 万个问题</strong> 生成解答。我们遵循模型卡中的推荐参数，并在用户提示之前添加以下指令：</p>
+<p><em>"Please reason step by step, and put your final answer within \boxed{}."</em><br>
+（请逐步推理，并将最终答案放入 \boxed{} 中。）</p>
+<p>我们将每次生成的 <strong>token 限制设为 16k</strong>，因为分析表明，仅有 <strong>75% 的问题可以在 8k tokens 内解决</strong>，而大部分剩余问题需要完整的 <strong>16k tokens</strong>。最初，我们使用 <strong>vLLM</strong> 进行推理，每张 <strong>H100 每小时生成 15 个解答</strong>。我们在之前的更新和 OpenR1 仓库中分享了我们的生成脚本。最近，我们开始尝试 <strong>SGLang</strong>，成功实现了 <strong>每张 H100 每小时生成 25 个解答</strong>（<strong>几乎提升 2 倍！</strong>），使我们能够在 <strong>512 张 H100 上每天生成 30 万个问题解答</strong>，仅用几天时间便生成了 <strong>80 万条推理轨迹</strong>。</p>
+<p>我们为每个问题生成 <strong>两个解答</strong>，某些情况下生成 <strong>四个解答</strong>，以便于灵活筛选和训练。这种方法支持 <strong>拒绝采样（Rejection Sampling）</strong>，类似于 DeepSeek R1 的方法，同时也使数据集适用于 <strong>DPO（Direct Preference Optimization）</strong> 等偏好优化方法。</p>
+<p><strong>数据生成脚本</strong>：<br>
+🔗 <a href="https://github.com/huggingface/open-r1/tree/main/slurm">GitHub 代码仓库</a></p>
+<p><strong>未筛选数据集</strong>：<br>
+📂 <a href="https://huggingface.co/datasets/open-r1/OpenR1-Math-Raw">Hugging Face 数据集</a></p>
+<h3 id="3-数据集制作第二步数据筛选">3 数据集制作第二步：数据筛选 </h3>
+<p><strong>使用Math Verify筛选</strong><br>
+为了仅保留高质量、正确的推理轨迹，我们采用 <strong>Math Verify</strong>，这是一种强大的数学表达式评估系统，用于评估 <strong>LLM 生成的答案</strong>。我们从模型生成的解答中提取最终答案，并将其与数据集中的 <strong>标准答案</strong> 进行对比。</p>
+<p>分析结果显示，<strong>55% 的问题至少有一个正确答案</strong>。然而，NuminaMath 1.5 数据集中存在一些 <strong>空缺或无法验证格式的标准答案</strong>，使得自动验证变得困难。虽然我们改进了 <strong>Math Verify</strong>，使其能够更准确地处理不常见的输出格式（见下方 <strong>Math Verify 改进</strong> 部分），但我们还探索了一种替代方法来恢复被拒绝的正确解答：<strong>使用 Llama-3.3-70B-Instruct 作为评审模型</strong>，对一部分被筛除的问题进行重新评估。</p>
+<p><strong>使用 Llama-3.3-70B-Instruct 作为评审模型的筛选</strong></p>
+<p>在运行该验证步骤之前，我们首先 <strong>过滤掉不完整的样本</strong>，以及<strong>标准答案为空的样本</strong>，确保只评估 <strong>格式完整、最终答案被明确框选的解答</strong>。这一过程成功 <strong>恢复了 2.8 万个被拒绝的问题</strong>。</p>
+<p>我们向 <strong>Llama3.3-70B-Instruct</strong> 提示如下指令：</p>
+<hr>
+<p><strong>指令：</strong><br>
+你是一名数学答案验证器。你将获得一个数学问题，并需要对比 <strong>参考解答</strong> 与 <strong>模型解答</strong> 的最终答案，以判断它们是否等价，即使格式不同。</p>
+<p><strong>问题：</strong><br>
+{problem}</p>
+<p><strong>参考解答：</strong><br>
+{answer}</p>
+<p><strong>模型解答：</strong><br>
+{generation}</p>
+<p>请<strong>仅</strong>关注模型提供的最终数学答案，并忽略以下差异：</p>
+<ul>
+<li><strong>格式差异</strong>（例如 <code>\boxed{}</code> vs 纯文本）</li>
+<li><strong>多选格式</strong>（例如 "A" vs 完整解答）</li>
+<li><strong>坐标对或解答的顺序</strong></li>
+<li><strong>数学表达式或符号的等价性</strong></li>
+<li><strong>如果模型答案无法理解，请返回 "Verdict: AMBIGUOUS"</strong></li>
+</ul>
+<p><strong>你的输出应包括：</strong></p>
+<ol>
+<li>简短的比较说明（2-3 句话）</li>
+<li>结果之一：
+<ul>
+<li><code>"Verdict: EQUIVALENT"</code></li>
+<li><code>"Verdict: DIFFERENT"</code></li>
+<li><code>"Verdict: AMBIGUOUS"</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>结合规则验证（Math Verify）与 LLM 评估，提高数据质量</strong></p>
+<p>通过结合 <strong>规则验证（Math Verify）</strong> 和 <strong>大模型评审（Llama-3.3-70B-Instruct）</strong>，我们 <strong>在保持数据规模的同时提升了数据集质量</strong>。最终，我们保留了 <strong>22 万个经过验证的数学推理轨迹</strong>，这使得该数据集成为训练推理模型的宝贵资源。<strong>为每个问题提供多个解答</strong>，使社区能够灵活筛选更好的生成结果，并针对不同数据来源和问题类型进行更精细的优化。</p>
+<hr>
+<h3 id="4-数据集拆分">4 数据集拆分 </h3>
+<p>数据集分为两个子集：</p>
+<ul>
+<li><strong><code>default</code>（94k 个问题）</strong>：在 <strong>SFT（监督微调）</strong> 后表现最佳。</li>
+<li><strong><code>extended</code>（131k 个问题）</strong>：包含了 <strong>NuminaMath 1.5 额外的数据来源</strong>（如 <code>cn_k12</code>），提供了更多推理轨迹。然而，实验发现，该子集在 <strong>SFT 后的表现低于 <code>default</code></strong>，可能是由于 <code>cn_k12</code> 中的问题相对更简单。</li>
+</ul>
+<hr>
+<h3 id="5-与-deepseek-distill-qwen-7b-的性能对比">5 与 DeepSeek-Distill-Qwen-7B 的性能对比 </h3>
+<p>我们对 <strong>Qwen2.5-Math-Instruct</strong> 进行 <strong>3 轮微调（epochs）</strong>，使用 <strong>默认数据集拆分（default split）</strong>，学习率设为 <strong>5e-5</strong>。为了将 <strong>上下文长度从 4k 扩展至 32k</strong>，我们将 <strong>RoPE 频率增加至 300k</strong>。训练过程中，我们采用 <strong>线性学习率调度（linear schedule）</strong>，并使用 <strong>10% 的 warmup 阶段</strong>。</p>
+<p>下表展示了 <strong>OpenR1-Qwen-7B</strong> 与 <strong>DeepSeek-Distill-Qwen-7B</strong> 及 <strong>OpenThinker-7B</strong> 的对比，评测工具为 <strong>lighteval</strong>。</p>
+<table>
+<thead>
+<tr>
+<th><strong>模型</strong></th>
+<th><strong>MATH-500</strong></th>
+<th><strong>AIME24</strong></th>
+<th><strong>AIME25</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSeek-Distill-Qwen-7B</td>
+<td><strong>91.6</strong></td>
+<td><strong>43.3</strong></td>
+<td><strong>40.0</strong></td>
+</tr>
+<tr>
+<td>OpenR1-Qwen-7B</td>
+<td>90.6</td>
+<td>36.7</td>
+<td><strong>40.0</strong></td>
+</tr>
+<tr>
+<td>OpenThinker-7B</td>
+<td>89.6</td>
+<td>30.0</td>
+<td>33.3</td>
+</tr>
+</tbody>
+</table>
+<p>该数据集目前仍处于 <strong>初始版本</strong>，为后续优化提供了基础。社区可以进一步探索 <strong>更精细的筛选策略</strong> 来提升性能，例如 <strong>拒绝采样（Rejection Sampling）</strong>，DeepSeek R1 也曾使用该方法提升数据质量。</p>
+<hr>
+<h3 id="补充math-verify-的改进">补充：Math-Verify 的改进 </h3>
+<p>在验证结果的检查过程中，我们发现 <strong>Math-Verify</strong> 存在若干 <strong>失败案例</strong>。为了改进其准确性，我们进行了 <strong>多个关键修复和增强</strong>。我们强烈建议更新到最新版本 <strong>(0.5.2)</strong> 以获得这些改进：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> math-verify<span class="token operator">==</span><span class="token number">0.5</span>.2
+</code></pre><p>以下是 <strong>主要改进点</strong>：</p>
+<ol>
+<li><strong>改进纯文本答案的解析和验证</strong>（例如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>E</mtext></mrow><annotation encoding="application/x-tex">\text{E}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">E</span></span></span></span></span> == <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>）。</li>
+<li><strong>改进答案列表的解析</strong>（例如 <code>$1$ and $2$ and $3$ == $1,2,3$</code>）。</li>
+<li><strong>修复 LaTeX 环境中的多个 boxed 答案解析错误</strong>（例如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mn>1</mn></mstyle></mstyle></mstyle></menclose><mo separator="true">,</mo><menclose notation="box"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="false"><mstyle scriptlevel="0" displaystyle="true"><mn>2</mn></mstyle></mstyle></mstyle></menclose></mrow><annotation encoding="application/x-tex">\boxed{1},\boxed{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3244em;vertical-align:-0.34em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9844em;"><span style="top:-3.3244em;"><span class="pstrut" style="height:3.3244em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord">1</span></span></span></span></span><span style="top:-2.9844em;"><span class="pstrut" style="height:3.3244em;"></span><span class="stretchy fbox" style="height:1.3244em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9844em;"><span style="top:-3.3244em;"><span class="pstrut" style="height:3.3244em;"></span><span class="boxpad"><span class="mord"><span class="mord"><span class="mord">2</span></span></span></span></span><span style="top:-2.9844em;"><span class="pstrut" style="height:3.3244em;"></span><span class="stretchy fbox" style="height:1.3244em;border-style:solid;border-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.34em;"><span></span></span></span></span></span></span></span></span> == {1,2}）。</li>
+<li><strong>引入有序元组（ordered tuples）</strong>：
+<ul>
+<li>由于区分 <strong>元组（tuple）</strong> 和 <strong>集合（set）</strong> 非常困难，我们使用 <strong>标准答案</strong> 作为指导：
+<ul>
+<li><strong>(1,2,3) ≠ {3,2,1}</strong></li>
+<li><strong>1,2,3 == {3,2,1}</strong></li>
+<li><strong>{3,2,1} == {1,2,3}</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>支持关系表达式（relational expressions）和区间解析（intervals）</strong>：
+<ul>
+<li>例如 <code>$1 &lt; x &lt; 2$</code> 解析为 <strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1,2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span></strong>。</li>
+</ul>
+</li>
+</ol>
+<p>这些改进将进一步提高数学答案验证的<strong>准确性和稳定性</strong>，从而优化数据筛选过程，使 OpenR1-Math-220k 成为更高质量的推理数据集。</p>
+<h3 id="补充尝试奖励模型reward-model-rm筛选没有效果">补充：尝试奖励模型（Reward Model, RM）筛选（没有效果） </h3>
+<p>对于 <strong>存在多个正确答案的行</strong>，我们尝试使用 <strong>奖励模型（RM）</strong> 作为最终筛选器，选择最佳答案：</p>
+<ol>
+<li>对于 <strong>R1 生成的多个正确解答</strong>，我们<strong>去除</strong> <code>&lt;think&gt;...&lt;/think&gt;</code> 思考 token，只保留最终答案。</li>
+<li>然后，将 <strong>问题 + 提取的最终答案</strong> 输入 <strong>Qwen/Qwen2.5-Math-RM-72B</strong>（使用 vLLM 部署），获取评分。</li>
+<li>基于评分，对<strong>每个包含多个正确解答的行进行排序</strong>，选择评分最高的解答加入训练数据集。</li>
+</ol>
+<p>然而，训练消融实验表明，这种方法 <strong>相比随机选择一个正确解答，并未提升模型性能</strong>。可能的改进方向是：</p>
+<ul>
+<li>在 <strong>RM 评分时，考虑整个推理轨迹</strong>，而不仅仅是最终答案。</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
