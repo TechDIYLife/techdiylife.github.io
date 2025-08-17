@@ -105,6 +105,9 @@ const blogList = [
   { id: "0076", category1: "c02", category2: "", create_date: "2025.02.16", title_short: "OpenR1共学专题：复现 DeepSeek-R1 (共学介绍)", title_full: "OpenR1共学专题：复现 DeepSeek-R1 (共学介绍)", href: "202501/250215-OpenR1-learn.html", video_href: "" },
   { id: "0077", category1: "c02", category2: "", create_date: "2025.02.26", title_short: "OpenR1共学专题：推理训练数据制作", title_full: "OpenR1共学专题：推理训练数据制作", href: "202501/250224-OpenR1-Math220k.html", video_href: "" },
   { id: "0078", category1: "c02", category2: "", create_date: "2025.03.02", title_short: "Phi-4-multimodal-instruct登顶语音识别榜", title_full: "Phi-4-multimodal-instruct登顶语音识别榜", href: "202501/250301-phi-4-multimodal.html", video_href: "" },
+  { id: "0079", category1: "c02", category2: "", create_date: "2025.08.17", title_short: "OpenAI最新开源模型 GPT-OSS 本地部署实测", title_full: "OpenAI最新开源模型 GPT-OSS 本地部署实测", href: "202501/250815-gpt-oss-vllm.html", video_href: "" },
+
+
 
 ];
 
