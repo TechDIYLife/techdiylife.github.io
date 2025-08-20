@@ -109,8 +109,8 @@ const blogList = [
   { id: "0079", category1: "c02", category2: "", create_date: "2025.08.17", title_short: "OpenAI最新开源模型 GPT-OSS 本地部署实测", title_full: "OpenAI最新开源模型 GPT-OSS 本地部署实测", href: "202501/250815-gpt-oss-vllm.html", video_href: "" },
 
 
-  { id: "0080", category1: "c02", category2: "t10", create_date: "2025.08.19", title_short: "", title_full: "", href: "202501/gradio_demo_chapter0.html", video_href: "" },
-  { id: "0081", category1: "c02", category2: "t10", create_date: "2025.08.20", title_short: "", title_full: "", href: "202501/gradio_demo_chapter1.html", video_href: "" },
+  { id: "0080", category1: "c02", category2: "t10", create_date: "2025.08.19", title_short: "快速上手 LLM 演示：Gradio AI演示程序入门教程", title_full: "Gradio AI演示程序入门教程", href: "202501/gradio_demo_chapter0.html", video_href: "" },
+  { id: "0081", category1: "c02", category2: "t10", create_date: "2025.08.20", title_short: "10个问题快速了解 Gradio", title_full: "10个问题快速了解 Gradio", href: "202501/gradio_demo_chapter1.html", video_href: "" },
 
 
 ];
