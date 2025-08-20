@@ -2557,15 +2557,47 @@
 }
 
 .ovr-card-topic {
-    border-radius: 8px;
+    border-radius: 1px;
     display: flex;
     flex-direction: column;
-    height: 70px;
+    height: 60px;
     justify-content: flex-end;
     overflow: hidden;
-    padding: 20px 24px;
+    padding: 2px 2px;
     position: relative
 }
+
+.ovr-card-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;      /* 卡片宽度 */
+    height: 80px;     /* 卡片高度 */
+    background: linear-gradient(135deg, #4A90E2, #357ABD); /* 渐变背景 */
+    border-radius: 12px;   /* 圆角 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* 阴影，显眼 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.ovr-card-box:hover {
+    transform: translateY(-4px); /* 悬停上浮 */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.ovr-card-text {
+    color: white;
+    font-size: 24px;   /* 字体较大 */
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4); /* 让文字更突出 */
+}
+
+
+
+
+
+
+
 
 @media(max-width:800px) {
     .ovr-page .ovr-card {

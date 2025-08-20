@@ -16,6 +16,7 @@ const category2List = [
   { id: "t07", title_full: "专题：LangChain + RAG 参考资料", title_short: "RAG专题" },
   { id: "t08", title_full: "专题：爱鼓捣AI排行榜", title_short: "爱鼓捣AI排行榜" },
   { id: "t09", title_full: "专题：Agents", title_short: "Agents" },
+  { id: "t10", title_full: "专题：Gradio演示程序制作", title_short: "演示程序" },
 
 ];
 
@@ -56,7 +57,7 @@ const blogList = [
   { id: "0029", category1: "c02", category2: "t05", create_date: "2024.03.07", title_short: "使用 Auto_map 功能开发自定义模型", title_full: "Transformers开发：使用 auto_map 开发自定义模型", href: "202401/240306-auto-map.html", video_href: "" },
   { id: "0030", category1: "c01", category2: "", create_date: "2024.03.09", title_short: "开源大模型下载量排行榜（2024年3月更新版）", title_full: "开源大模型下载量排行榜（2024年3月更新版）", href: "202401/240309-LLM-OpenModels.html", video_href: "" },
   { id: "0031", category1: "c02", category2: "t05", create_date: "2024.03.13", title_short: "如何知道一个大模型在推理和训练时需要多少显存？", title_full: "如何知道一个大模型在推理和训练时需要多少显存？", href: "202401/240313-LLM-Memory.html", video_href: "" },
-  { id: "0032", category1: "c05", category2: "", create_date: "2024.03.14", title_short: "AI共学会：LLM部署实战交流", title_full: "AI共学会：LLM部署实战交流", href: "202401/member-gongxue-bushu-1.html", video_href: "" },
+  { id: "0032", category1: "c05", category2: "", create_date: "2024.03.14", title_short: "爱鼓捣AI共学会-交流群", title_full: "爱鼓捣AI共学会-交流群", href: "member-gongxue-qun.html", video_href: "" },
   { id: "0033", category1: "c02", category2: "t05", create_date: "2024.03.16", title_short: "大模型推理技巧：分层推理法", title_full: "大模型推理技巧：分层推理法", href: "202401/240316-LLM-Inference.html", video_href: "" },
   { id: "0034", category1: "c02", category2: "t06", create_date: "2024.03.20", title_short: "大家都在用哪个LLM本机推理，部署工具？", title_full: "大家都在用哪个LLM本机推理，部署工具？", href: "202401/240320-Inference-tools.html", video_href: "" },
   { id: "0035", category1: "c05", category2: "", create_date: "2024.03.23", title_short: "AI共学会：Transformers开发百问交流群", title_full: "AI共学会：Transformers开发百问交流群", href: "202401/member-gongxue-transformers-2.html", video_href: "" },
@@ -107,6 +108,9 @@ const blogList = [
   { id: "0078", category1: "c02", category2: "", create_date: "2025.03.02", title_short: "Phi-4-multimodal-instruct登顶语音识别榜", title_full: "Phi-4-multimodal-instruct登顶语音识别榜", href: "202501/250301-phi-4-multimodal.html", video_href: "" },
   { id: "0079", category1: "c02", category2: "", create_date: "2025.08.17", title_short: "OpenAI最新开源模型 GPT-OSS 本地部署实测", title_full: "OpenAI最新开源模型 GPT-OSS 本地部署实测", href: "202501/250815-gpt-oss-vllm.html", video_href: "" },
 
+
+  { id: "0080", category1: "c02", category2: "t10", create_date: "2025.08.19", title_short: "", title_full: "", href: "202501/gradio_demo_chapter0.html", video_href: "" },
+  { id: "0081", category1: "c02", category2: "t10", create_date: "2025.08.20", title_short: "", title_full: "", href: "202501/gradio_demo_chapter1.html", video_href: "" },
 
 
 ];

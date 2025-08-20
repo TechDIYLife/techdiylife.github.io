@@ -1,0 +1,203 @@
+<!DOCTYPE html><html><head>
+      <title>AI开发者频道</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p><strong>目录索引</strong></p>
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#10%E4%B8%AA%E9%97%AE%E9%A2%98%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3-gradio">10个问题快速了解 Gradio</a>
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF-gradio">1 什么是 Gradio？</a></li>
+<li><a href="#2-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85">2 如何进行安装？</a></li>
+<li><a href="#3-%E7%AC%AC%E4%B8%80%E4%B8%AA-gradio-%E6%BC%94%E7%A4%BA%E7%A8%8B%E5%BA%8F">3 第一个 Gradio 演示程序</a></li>
+<li><a href="#4-%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E4%B8%8E%E8%AE%BF%E9%97%AEgradio%E6%BC%94%E7%A4%BA%E7%A8%8B%E5%BA%8F%E4%B8%89%E7%A7%8D%E8%AE%BF%E9%97%AE%E6%96%B9%E5%BC%8F">4 如何启动与访问Gradio演示程序（三种访问方式）？</a></li>
+<li><a href="#5-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E7%9A%84%E5%BD%B1%E5%93%8D">5 启动失败：网络代理的影响？</a></li>
+<li><a href="#6-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5sharetrue%E6%97%B6%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">6 启动失败：share=True时启动失败</a></li>
+<li><a href="#7-%E5%8F%AF%E4%BB%A5%E5%9B%BA%E5%AE%9A-gradio-%E6%8F%90%E4%BE%9B%E7%9A%84-public-url-%E5%90%97">7 可以固定 Gradio 提供的 public url 吗？</a></li>
+<li><a href="#8-%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D">8 是否可以设置自己的域名？</a></li>
+<li><a href="#9-gradio-%E6%8F%90%E4%BE%9B%E5%93%AA%E4%BA%9B-gui-interface">9 Gradio 提供哪些 GUI Interface？</a></li>
+<li><a href="#10-gradio-%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E7%BB%84%E4%BB%B6">10 Gradio 支持哪些组件？</a></li>
+<li><a href="#11-gui%E8%BF%9B%E9%98%B6%E5%A6%82%E4%BD%95%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%87%AA%E5%AE%9A%E4%B9%89-guiblocks%E7%BB%84%E4%BB%B6">11 GUI进阶：如何进一步自定义 GUI（Blocks组件）？</a></li>
+<li><a href="#12-flag-%E6%8C%89%E9%92%AE%E6%98%AF%E4%B8%AA%E4%BB%80%E4%B9%88%E9%AC%BC-%E4%BD%A0%E7%82%B9%E8%BF%87%E5%AE%83%E5%90%97">12 Flag 按钮是个什么鬼？ 你点过它吗？</a></li>
+<li><a href="#13-%E9%80%9A%E8%BF%87-playground-%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0">13 通过 playground 快速学习</a></li>
+<li><a href="#14-%E6%88%91%E7%9A%84demo%E8%BF%90%E8%A1%8C%E5%BE%88%E8%80%97%E8%B4%B9%E8%B5%84%E6%BA%90%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%B1%95%E7%A4%BAdemo">14 我的demo运行很耗费资源，如何快速展示Demo？</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="10个问题快速了解-gradio">10个问题快速了解 Gradio </h2>
+<h3 id="1-什么是-gradio">1 什么是 Gradio？ </h3>
+<p>Gradio 是一个开源的 Python 包，用于快速构建机器学习模型的演示或 Web 应用程序。 一旦构建好 Gradio 应用，就可以利用 Gradio 提供的功能轻松地共享应用。<br>
+使用 Gradio 制作Web应用程序完全不需要后端或前端的工程知识。</p>
+<h3 id="2-如何进行安装">2 如何进行安装？ </h3>
+<p>Gradio是 python 开发库，所以需要提前准备 python 运行环境。<br>
+然后只需要执行下面的命令， 即可完成 Gradio 的安装。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pip install --upgrade gradio
+</code></pre><h3 id="3-第一个-gradio-演示程序">3 第一个 Gradio 演示程序 </h3>
+<p>新建一个python脚本：gradio_sample1.py</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>import gradio as gr
+
+def greet(name, intensity):
+    return "Hello, " + name + "!" * int(intensity)
+
+demo = gr.Interface(
+    fn=greet,
+    inputs=["text", "slider"],
+    outputs=["text"],
+)
+
+demo.launch()
+</code></pre><p>这个代码中，最主要的部分就是 <strong>gr.Interface</strong>, 我们可以看到，<strong>Interface</strong> 类在初始化时需要三个必填参数：</p>
+<ul>
+<li><strong>fn</strong>：与UI相对应的函数</li>
+<li><strong>inputs</strong>：用于输入的 Gradio 组件。组件数量应与函数的参数数量一致。</li>
+<li><strong>outputs</strong>：用于输出的 Gradio 组件。组件数量应与函数的返回值数量一致。</li>
+</ul>
+<p>通过 <strong>fn</strong>，无论是简单的计算处理，还是图像生成模型等机器学习模型的运行，都可以用 UI 来封装任意的 Python 函数，这是一种非常灵活的设计。 在 <strong>inputs</strong> 和 <strong>outputs</strong> 参数中，可以指定一个或多个 Gradio 组件。Gradio 提供了 30 多种为机器学习应用设计的内置组件，例如 <strong>gr.Textbox()</strong>、<strong>gr.Image()</strong>、<strong>gr.Dropdown()</strong> 等。</p>
+<h3 id="4-如何启动与访问gradio演示程序三种访问方式">4 如何启动与访问Gradio演示程序（三种访问方式）？ </h3>
+<p>代码准备完成之后，可以通过下面的命令来启动服务：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>python gradio_sample1.py
+</code></pre><p>基于 Gradio 的程序，有三种不同的访问方式：</p>
+<ul>
+<li>
+<p>情况1：在同一台机器上访问<br>
+启动代码：demo.launch(server_port=7860)<br>
+<a href="http://127.0.0.1:7860">http://127.0.0.1:7860</a></p>
+</li>
+<li>
+<p>情况2：在同一个局域网中的机器访问<br>
+启动代码：demo.launch(server_name="0.0.0.0", server_port=7860)<br>
+访问URL： <a href="http://ip-address:7860">http://ip-address:7860</a></p>
+</li>
+<li>
+<p>情况3：在公共网络访问<br>
+启动代码：demo.launch(share=True, server_port=7860)<br>
+访问URL： （请查看启动时的提示）</p>
+</li>
+</ul>
+<h3 id="5-启动失败网络代理的影响">5 启动失败：网络代理的影响？ </h3>
+<p>如果碰到了以下错误，可能是你的网络代理的影响：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>* Running on local URL:  http://127.0.0.1:7860
+Traceback (most recent call last):
+  File "xxxx.py", line 13, in &lt;module&gt;
+    demo.launch()
+  File "xxxx\Roaming\Python\Python311\site-packages\gradio\blocks.py", line 2819, in launch
+    raise Exception(
+Exception: Couldn't start the app because 'http://127.0.0.1:7860/gradio_api/startup-events' failed (code 503). Check your network or proxy settings to ensure localhost is accessible.
+</code></pre><p>建议在程序中加入：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 下面的代码要在 import gradio 之前
+import os
+os.environ['NO_PROXY'] = '127.0.0.1,localhost'
+</code></pre><h3 id="6-启动失败sharetrue时启动失败">6 启动失败：share=True时启动失败 </h3>
+<p>如果你碰到下面的错误，表示你的网络代理限制了网络穿透，无法设置公共网络的访问。</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Running on local URL:  http://127.0.0.1:7860
+[W] [service.go:132] login to server failed: DialTcpByHttpProxy error, StatusCode [403]
+Could not create share link. Please check your internet connection or our status page: https://status.gradio.app.
+</code></pre><h3 id="7-可以固定-gradio-提供的-public-url-吗">7 可以固定 Gradio 提供的 public url 吗？ </h3>
+<p>在使用 share=True 启动服务是， public URL：xxxx.gradio.live<br>
+每次启动都会变化， 这个 URL 可以固定吗？</p>
+<p>答案是不可以，每次生成的public URL都是不同的。</p>
+<h3 id="8-是否可以设置自己的域名">8 是否可以设置自己的域名？ </h3>
+<p>（以下设置没有验证过，请自行验证）<br>
+如果你使用自己的服务器提供服务时，可以通过 share_server_address 来设置自己的域名：<br>
+demo.launch(share=True, share_server_address="<a href="http://my-gpt-wrapper.com:7000">my-gpt-wrapper.com:7000</a>")</p>
+<p>详细资料，请参考：<a href="https://github.com/huggingface/frp/">https://github.com/huggingface/frp/</a></p>
+<h3 id="9-gradio-提供哪些-gui-interface">9 Gradio 提供哪些 GUI Interface？ </h3>
+<ul>
+<li>
+<p>Interface<br>
+<strong>Interface</strong> 是 Gradio 的主要高层类，它可以让你在几行代码内，围绕一个机器学习模型（或任意 Python 函数）创建一个基于 Web 的 GUI/演示。在使用时，你必须指定三个参数：</p>
+<ol>
+<li>需要创建 GUI 的函数</li>
+<li>期望的输入组件</li>
+<li>期望的输出组件</li>
+</ol>
+</li>
+<li>
+<p>ChatInterface<br>
+<strong>ChatInterface</strong> 是 Gradio 提供的用于创建聊天机器人 UI 的高层抽象类，它可以让你在几行代码内，围绕一个聊天机器人模型创建基于 Web 的演示。它只需要一个必填参数：<strong>fn</strong>。该参数接收一个函数，用于根据用户输入和聊天历史来生成聊天机器人的回复。</p>
+</li>
+<li>
+<p>TabInterface<br>
+<strong>TabbedInterface</strong> 是通过提供一个 <strong>Interface</strong> 或 <strong>Blocks</strong> 的列表来创建的，其中每一个都会在单独的标签页中渲染。<br>
+在标签页中，只会渲染该 <strong>Interface/Blocks</strong> 中的组件。<br>
+需要注意的是，某些 <strong>Blocks</strong> 的高层属性（例如自定义的 <strong>css</strong>、<strong>js</strong> 和 <strong>head</strong> 属性）将不会被加载。</p>
+</li>
+</ul>
+<h3 id="10-gradio-支持哪些组件">10 Gradio 支持哪些组件？ </h3>
+<p>Gradio 提供了30多种预构建的组件，只需一行代码即可作为 输入 或 输出 用于 Interface 或 Blocks。</p>
+<p>这些组件包含预处理步骤：将用户通过浏览器提交的数据转换为 Python 函数可用的格式；<br>
+以及后处理步骤：将 Python 函数返回的值转换为浏览器可显示的内容。</p>
+<p>更多信息，请参考：<a href="https://www.gradio.app/docs/gradio/introduction">https://www.gradio.app/docs/gradio/introduction</a></p>
+<h3 id="11-gui进阶如何进一步自定义-guiblocks组件">11 GUI进阶：如何进一步自定义 GUI（Blocks组件）？ </h3>
+<p><strong>Blocks</strong> 是 Gradio 的底层 API，它允许你创建比 <strong>Interface</strong> 更加自定义的 Web 应用和演示（但依然完全使用 Python 实现）。</p>
+<p>与 <strong>Interface</strong> 类相比，<strong>Blocks</strong> 提供了更多的灵活性和控制能力，主要体现在：</p>
+<ol>
+<li><strong>组件的布局</strong></li>
+<li><strong>触发函数执行的事件</strong></li>
+<li><strong>数据流</strong>（例如：输入可以触发输出，而输出又可以触发下一层的输出）</li>
+</ol>
+<p>此外，<strong>Blocks</strong> 还支持将相关演示组合在一起，例如通过 <strong>tabs（标签页）</strong> 的形式。</p>
+<p>Blocks 的基本用法如下：</p>
+<ol>
+<li>创建一个 <strong>Blocks</strong> 对象</li>
+<li>将其作为上下文（使用 <strong>with</strong> 语句）</li>
+<li>在 Blocks 上下文中定义布局、组件或事件</li>
+<li>最后调用 <strong>launch()</strong> 方法来启动演示</li>
+</ol>
+<p>通过使用 Blocks 你可以设计出很复杂且美观的GUI，比如：<br>
+<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/master/screenshot.png">https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/master/screenshot.png</a></p>
+<h3 id="12-flag-按钮是个什么鬼-你点过它吗">12 Flag 按钮是个什么鬼？ 你点过它吗？ </h3>
+<p>你可能已经注意到，在 <strong>Interface</strong> 中默认会出现一个 <strong>“Flag” 按钮</strong>。<br>
+当用户在使用你的演示时，当它遇到一些问题，或者希望反馈问题时，可以点击该按钮，将对应的输入，输出记录下来，供你后续查看。</p>
+<ul>
+<li>内容会保存在哪里？<br>
+默认情况下，会保存在 <code>.gradio/flagged/</code> 目录下。<br>
+你也可以在 <strong>Interface</strong> 构造函数中通过 <code>flagging_dir=</code> 参数指定存储的目录。</li>
+</ul>
+<p>用户点击Flag按钮后，会生成一个 <strong>CSV 文件</strong>，来存储相关的记录。<br>
+如果界面涉及文件数据（例如 <strong>Image</strong> 或 <strong>Audio</strong> 组件），还会在该目录下创建文件夹，用于存储这些被标记的数据。<br>
+<a href="https://www.gradio.app/guides/flagging">https://www.gradio.app/guides/flagging</a></p>
+<p>（Flag这个命名很是奇怪，【反馈问题】，【feedback】是不是更容易理解？）</p>
+<h3 id="13-通过-playground-快速学习">13 通过 playground 快速学习 </h3>
+<p>Gradio 提供了 playground 以方便学习 gradio 的用法。<br>
+<a href="https://www.gradio.app/playground">https://www.gradio.app/playground</a></p>
+<h3 id="14-我的demo运行很耗费资源如何快速展示demo">14 我的demo运行很耗费资源，如何快速展示Demo？ </h3>
+<p>可以通过 缓存示例（Caching examples）功能来实现。</p>
+<p>当 <code>cache_examples=True</code> 时，在调用 <code>launch()</code> 方法时，Gradio 应用会运行所有示例并保存输出。<br>
+这些数据默认保存在工作目录下名为 <code>gradio_cached_examples</code> 的文件夹中。</p>
+<p>你也可以将 <code>cache_examples</code> 设置为 <code>"lazy"</code>。这意味着每个示例只会在第一次被某个用户使用时才会被缓存。<br>
+如果你的预测函数运行时间较长，又不希望在启动 Gradio 应用时等待过久，这种方式会很有帮助。</p>
+<p>需要注意的是，一旦缓存生成，在之后的启动中它不会自动更新。如果你更改了示例内容或函数逻辑，需要手动删除缓存文件夹，然后重新运行 <code>launch()</code> 方法以重建缓存。</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
