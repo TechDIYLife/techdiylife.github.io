@@ -2532,11 +2532,11 @@
 }
 
 .ovr-page .ovr-shortcuts {
-    grid-gap: 32px;
+    grid-gap: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    margin: 24px 0 64px
+    margin: 5px 0 5px
 }
 
 @media(max-width:700px) {
@@ -2560,10 +2560,10 @@
     border-radius: 1px;
     display: flex;
     flex-direction: column;
-    height: 60px;
+    height: 65px;
     justify-content: flex-end;
     overflow: hidden;
-    padding: 2px 2px;
+    padding: 0px 0px;
     position: relative
 }
 
@@ -2571,8 +2571,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 260px;      /* 卡片宽度 */
-    height: 80px;     /* 卡片高度 */
+    width: 320px;      /* 卡片宽度 */
+    height: 60px;     /* 卡片高度 */
     background: linear-gradient(135deg, #4A90E2, #357ABD); /* 渐变背景 */
     border-radius: 12px;   /* 圆角 */
     box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* 阴影，显眼 */
