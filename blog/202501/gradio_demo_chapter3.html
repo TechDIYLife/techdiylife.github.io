@@ -26,57 +26,79 @@
       
 <p><strong>目录索引</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-llm-%E6%BC%94%E7%A4%BAgradio-ai%E6%BC%94%E7%A4%BA%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">快速上手 LLM 演示：Gradio AI演示程序入门教程</a>
+<li><a href="#%E7%BF%BB%E8%AF%91demo-streaming-%E7%89%88--%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%83%8F-chatgpt-%E4%B8%80%E6%A0%B7%E8%BE%93%E5%87%BA">翻译Demo Streaming 版 —— 如何实现像 ChatGPT 一样输出</a>
 <ul>
-<li><a href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-gradio">1 为什么需要 Gradio？</a></li>
-<li><a href="#2-%E5%85%B1%E5%AD%A6%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92">2 共学内容安排</a></li>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1 概要</a></li>
+<li><a href="#2-%E5%9F%BA%E4%BA%8E-chat-completions-api-%E7%9A%84-streaming-%E7%89%88">2 基于 Chat completions API 的 Streaming 版</a></li>
+<li><a href="#3-%E5%9F%BA%E4%BA%8E-responses-api-%E7%9A%84-streaming-%E7%89%88">3 基于 Responses API 的 Streaming 版</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="快速上手-llm-演示gradio-ai演示程序入门教程">快速上手 LLM 演示：Gradio AI演示程序入门教程 </h2>
-<h3 id="1-为什么需要-gradio">1 为什么需要 Gradio？ </h3>
-<p>当前的 AI 技术，尤其是大语言模型（LLM），大多依赖于 Python 程序。但直接让人体验往往有几个难点：</p>
+<h2 id="翻译demo-streaming-版--如何实现像-chatgpt-一样输出">翻译Demo Streaming 版 —— 如何实现像 ChatGPT 一样输出 </h2>
+<h3 id="1-概要">1 概要 </h3>
+<p>OpenAI Python API在2025年3月份进行了升级，推出了 Responses API<br>
+相比Chat completions API，新的Responses API支持更多的功能，比如 file search， computer use， MCP， reasoning summaries等最新的功能。<br>
+具体对比介绍，请参考：<a href="https://platform.openai.com/docs/guides/migrate-to-responses">https://platform.openai.com/docs/guides/migrate-to-responses</a></p>
+<p>这期内容，我们分别实现这两个版本的 streaming 处理，并对比一下两种 streaming 处理上的差别。</p>
+<p><strong>个人整理资料（资料与代码）下载</strong>：</p>
 <ul>
-<li>⚙️ <strong>环境复杂</strong>：需要安装 Python 环境，配置不友好</li>
-<li>💻 <strong>硬件要求高</strong>：模型推理需要高性能 GPU</li>
-<li>⌨️ <strong>交互方式单一</strong>：Python 默认是命令行，体验不佳</li>
+<li>知识星球：<a href="https://t.zsxq.com/HAGUN">https://t.zsxq.com/HAGUN</a></li>
+<li>B站小店：<a href="https://mall.bilibili.com/neul-next/detailuniversal/detail.html?isMerchant=1&amp;page=detailuniversal_detail&amp;saleType=10&amp;itemsId=12976019&amp;loadingShow=1&amp;noTitleBar=1&amp;msource=merchant_share" target="_blank">访问B站小店</a></li>
 </ul>
-<p><strong>Gradio</strong> 作为一个 Python 包，可以帮助我们轻松构建交互式的 AI 演示应用，让复杂的模型“一键可用”。</p>
-<p>本专题主要介绍如何使用 Gradio 来制作一系列常见的 LLM 应用演示。</p>
-<h3 id="2-共学内容安排">2 共学内容安排 </h3>
-<ul>
-<li>
-<p><strong>共学任务1</strong>：10个问题快速了解 Gradio<br>
-文章链接： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0081">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0081</a><br>
-学习的目标：</p>
-<ul>
-<li>快速了解 Gradio</li>
-<li>实现第一个 Gradio 的演示程序</li>
-<li>了解 Gradio 提供的访问方法</li>
-<li>了解 Gradio 的UI布局组件</li>
-</ul>
-</li>
-<li>
-<p><strong>共学任务2</strong>：翻译 Demo —— GPT-OSS + Gradio + vLLM/Ollama 实现中英翻译<br>
-文章链接（非Streaming版）： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0082">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0082</a><br>
-文章链接（Streaming版）： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0083">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0083</a><br>
-实现一个最简单的翻译Demo：</p>
-<ul>
-<li>使用 vLLM 在本地部署一款 LLM （比如GPT-OSS-20B，约需要16G显存）</li>
-<li>使用 Gradio 设计一个GUI，并通过访问 LLM 来实现类似谷歌翻译的中英翻译</li>
-</ul>
-</li>
-</ul>
-<br>
-<ul>
-<li>=== 后续计划 ===</li>
-<li><strong>共学任务3</strong>：语音识别Demo<br>
-学习目标：
-<ul>
-<li>是用一个 Speech LLM，比如Qwen2-Audio，实现一个语音识别demo。</li>
-</ul>
-</li>
-</ul>
+<h3 id="2-基于-chat-completions-api-的-streaming-版">2 基于 Chat completions API 的 Streaming 版 </h3>
+<p>Streaming处理的实现：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>stream_result = client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=prompt,
+    stream=True
+)
+
+result = ""
+for chunk in stream_result:
+    print(chunk)
+    content = chunk.choices[0].delta.content
+    if content is not None:
+        result += content
+    yield result
+</code></pre><p>处理过程返回的部分日志如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 推理过程的返回chunk：
+ChatCompletionChunk(id='chatcmpl-9331c4be11bf46c8913d2d813e4ad1f2', choices=[Choice(delta=ChoiceDelta(content=None, function_call=None, refusal=None, role=None, tool_calls=None, reasoning_content=' then'), finish_reason=None, index=0, logprobs=None)], created=1755668169, model='openai/gpt-oss-20b', object='chat.completion.chunk', service_tier=None, system_fingerprint=None, usage=None)
+
+# 翻译结果返回的Chunk：
+ChatCompletionChunk(id='chatcmpl-9331c4be11bf46c8913d2d813e4ad1f2', choices=[Choice(delta=ChoiceDelta(content='支持', function_call=None, refusal=None, role=None, tool_calls=None), finish_reason=None, index=0, logprobs=None)], created=1755668169, model='openai/gpt-oss-20b', object='chat.completion.chunk', service_tier=None, system_fingerprint=None, usage=None)
+</code></pre><p>通过对比上面两个日志可以发现，推理过程和翻译结果的 chunk 差异主要在于 content 和 reasoning_content 的值是否为 None。<br>
+可以通过监控 content 和 reasoning_content 的值，来实现显示不同的输出内容。</p>
+<p>完整代码以及更多日志，请参考【个人整理资料】中的 gradio_sample3_vllm_v2_stream.py 脚本。</p>
+<h3 id="3-基于-responses-api-的-streaming-版">3 基于 Responses API 的 Streaming 版 </h3>
+<p>Streaming处理的实现：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>stream_result = client.responses.create(
+    model="openai/gpt-oss-20b",
+    input=prompt,
+    stream=True
+)
+
+result = ""
+for event in stream_result:
+    print(event)
+    if event.type == "response.output_text.delta":
+        delta = event.get("delta") if isinstance(event, dict) else getattr(event, "delta", None)
+        if delta is not None:
+            result += delta
+            yield result
+
+</code></pre><p>处理过程返回的部分日志如下：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># 推理过程的返回Event：
+ResponseReasoningTextDeltaEvent(content_index=0, delta=' produce', item_id='item_1234', output_index=0, sequence_number=38, type='response.reasoning_text.delta')
+
+# 翻译结果返回的Event：
+ResponseTextDeltaEvent(content_index=0, delta='使用', item_id='', logprobs=[], output_index=1, sequence_number=127, type='response.output_text.delta')
+</code></pre><p>与旧版本相比，最新的 Responses API 返回的是 event 对象。我们可以通过检测对象的 type 值来判断当前事件的类型，从而确定返回的数据内容。</p>
+<p>完整代码以及更多日志，请参考 gradio_sample3_vllm_v3_stream.py 脚本。</p>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://github.com/openai/openai-python/blob/main/api.md">https://github.com/openai/openai-python/blob/main/api.md</a></li>
+<li><a href="https://pypi.org/project/openai/">https://pypi.org/project/openai/</a></li>
+</ol>
 
       </div>
       
