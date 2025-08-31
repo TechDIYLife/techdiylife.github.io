@@ -112,6 +112,7 @@ const blogList = [
   { id: "0081", category1: "c02", category2: "t10", create_date: "2025.08.20", title_short: "Gradio演示程序：10个问题快速了解 Gradio", title_full: "10个问题快速了解 Gradio", href: "202501/gradio_demo_chapter1.html", video_href: "" },
   { id: "0082", category1: "c02", category2: "t10", create_date: "2025.08.22", title_short: "Gradio演示程序-翻译Demo：使用 Gradio + vLLM 搭建中英翻译应用", title_full: "使用 Gradio + vLLM 搭建中英翻译应用", href: "202501/gradio_demo_chapter2.html", video_href: "" },
   { id: "0083", category1: "c02", category2: "t10", create_date: "2025.08.23", title_short: "Gradio演示程序-翻译Demo Streaming 版：如何实现像 ChatGPT 一样输出", title_full: "翻译Demo Streaming 版", href: "202501/gradio_demo_chapter3.html", video_href: "" },
+  { id: "0084", category1: "c02", category2: "t10", create_date: "2025.08.31", title_short: "Gradio演示程序-语音Demo制作：如何实现ASR，多角色语音合成TTS？", title_full: "如何实现ASR，多角色语音合成TTS？", href: "202501/gradio_demo_chapter4.html", video_href: "" },
 
 
 ];

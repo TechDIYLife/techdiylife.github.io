@@ -26,55 +26,34 @@
       
 <p><strong>目录索引</strong></p>
 <div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="code-chunk-btn-group"><div class="run-btn btn btn-xs btn-primary"><span>▶︎</span></div><div class="run-all-btn btn btn-xs btn-primary">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
-<li><a href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B-llm-%E6%BC%94%E7%A4%BAgradio-ai%E6%BC%94%E7%A4%BA%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B">快速上手 LLM 演示：Gradio AI演示程序入门教程</a>
+<li><a href="#%E8%AF%AD%E9%9F%B3demo%E5%88%B6%E4%BD%9C--%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0asr%E5%A4%9A%E8%A7%92%E8%89%B2%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90tts">语音Demo制作 —— 如何实现ASR，多角色语音合成TTS？</a>
 <ul>
-<li><a href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-gradio">1 为什么需要 Gradio？</a></li>
-<li><a href="#2-%E5%85%B1%E5%AD%A6%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92">2 共学内容安排</a></li>
+<li><a href="#1-%E6%A6%82%E8%A6%81">1 概要</a></li>
+<li><a href="#2-%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%ABasr%E6%BC%94%E7%A4%BA%E7%A8%8B%E5%BA%8F">2 语音识别ASR演示程序</a></li>
+<li><a href="#3-%E5%A4%9A%E8%A7%92%E8%89%B2%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90tts%E7%A8%8B%E5%BA%8F">3 多角色语音合成TTS程序</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="快速上手-llm-演示gradio-ai演示程序入门教程">快速上手 LLM 演示：Gradio AI演示程序入门教程 </h2>
-<h3 id="1-为什么需要-gradio">1 为什么需要 Gradio？ </h3>
-<p>当前的 AI 技术，尤其是大语言模型（LLM），大多依赖于 Python 程序。但直接让人体验往往有几个难点：</p>
+<h2 id="语音demo制作--如何实现asr多角色语音合成tts">语音Demo制作 —— 如何实现ASR，多角色语音合成TTS？ </h2>
+<h3 id="1-概要">1 概要 </h3>
+<p>本小节内容，主要为介绍如何通过Gradio来制作 ASR 和 TTS 演示程序。</p>
+<p><strong>个人整理资料（资料与代码）下载</strong>：</p>
 <ul>
-<li>⚙️ <strong>环境复杂</strong>：需要安装 Python 环境，配置不友好</li>
-<li>💻 <strong>硬件要求高</strong>：模型推理需要高性能 GPU</li>
-<li>⌨️ <strong>交互方式单一</strong>：Python 默认是命令行，体验不佳</li>
+<li>知识星球：<a href="https://t.zsxq.com/HAGUN">https://t.zsxq.com/HAGUN</a></li>
+<li>B站小店：<a href="[#](https://mall.bilibili.com/neul-next/detailuniversal/detail.html?isMerchant=1&amp;page=detailuniversal_detail&amp;saleType=10&amp;itemsId=13035735&amp;loadingShow=1&amp;noTitleBar=1&amp;msource=merchant_share)" target="_blank">访问B站小店</a></li>
 </ul>
-<p><strong>Gradio</strong> 作为一个 Python 包，可以帮助我们轻松构建交互式的 AI 演示应用，让复杂的模型“一键可用”。</p>
-<p>本专题主要介绍如何使用 Gradio 来制作一系列常见的 LLM 应用演示。</p>
-<h3 id="2-共学内容安排">2 共学内容安排 </h3>
-<ul>
-<li><strong>共学任务1</strong>：10个问题快速了解 Gradio<br>
-文章链接： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0081">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0081</a><br>
-学习的目标：
-<ul>
-<li>快速了解 Gradio</li>
-<li>实现第一个 Gradio 的演示程序</li>
-<li>了解 Gradio 提供的访问方法</li>
-<li>了解 Gradio 的UI布局组件</li>
-</ul>
-</li>
-</ul>
-<br>
-<ul>
-<li><strong>共学任务2</strong>：翻译 Demo —— GPT-OSS + Gradio + vLLM/Ollama 实现中英翻译<br>
-文章链接（非Streaming版）： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0082">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0082</a><br>
-文章链接（Streaming版）： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0083">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0083</a><br>
-实现一个最简单的翻译Demo：
-<ul>
-<li>使用 vLLM 在本地部署一款 LLM （比如GPT-OSS-20B，约需要16G显存）</li>
-<li>使用 Gradio 设计一个GUI，并通过访问 LLM 来实现类似谷歌翻译的中英翻译</li>
-</ul>
-</li>
-</ul>
-<br>
-<ul>
-<li><strong>共学任务3</strong>：语音Demo制作 —— 如何实现ASR，多角色语音合成TTS<br>
-文章链接： <a href="https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0084">https://techdiylife.github.io/blog/topic.html?category2=t10&amp;blogid=0084</a><br>
-实现一个语音识别演示程序（同时支持文件上传，麦克风语音输入）<br>
-实现一个TTS语音合成演示程序（制作一个多角色的小说演播用的TTS）</li>
-</ul>
+<h3 id="2-语音识别asr演示程序">2 语音识别ASR演示程序 </h3>
+<p>请参考下面 Gradio官方的相关的介绍<br>
+<a href="https://www.gradio.app/guides/real-time-speech-recognition">https://www.gradio.app/guides/real-time-speech-recognition</a></p>
+<p>其中有通过 interface 组件实现的 streaming 和 non-streaming 进行语音识别处理的两个演示程序。</p>
+<p>如果你希望通过 blocks 组件来设计更加复杂的UI界面，也可以参考【资料与代码】中的下面的程序：<br>
+gradio_sample4_ASR_v2_stream2.py</p>
+<h3 id="3-多角色语音合成tts程序">3 多角色语音合成TTS程序 </h3>
+<p>这个演示使用了 cosyvoice 模型，参考下面网页中（Install 和 Model download ）部分安装运行环境和模型下载<br>
+<a href="https://github.com/FunAudioLLM/CosyVoice">https://github.com/FunAudioLLM/CosyVoice</a></p>
+<p>视频中介绍的代码，请参考资料包中的：<br>
+gradio_sample5_TTS_v2_stream.py</p>
+<p>Audio组件相关的说明：<a href="https://www.gradio.app/docs/gradio/audio">https://www.gradio.app/docs/gradio/audio</a></p>
 
       </div>
       
